@@ -2,12 +2,6 @@
 		
 	\section{Funkcionalni zahtjevi}
 			
-			\textbf{\textit{dio 1. revizije}}\\
-			
-			\textit{Navesti \textbf{dionike} koji imaju \textbf{interes u ovom sustavu} ili  \textbf{su nositelji odgovornosti}. To su prije svega korisnici, ali i administratori sustava, naručitelji, razvojni tim.}\\
-				
-			\textit{Navesti \textbf{aktore} koji izravno \textbf{koriste} ili \textbf{komuniciraju sa sustavom}. Oni mogu imati inicijatorsku ulogu, tj. započinju određene procese u sustavu ili samo sudioničku ulogu, tj. obavljaju određeni posao. Za svakog aktora navesti funkcionalne zahtjeve koji se na njega odnose.}\\
-			
 			
 			\noindent \textbf{Dionici:}
 			
@@ -16,8 +10,11 @@
 				\item Banka
 				\item Administrator sustava
 				\item Službenici banke
+				\begin{packed_enum}
+					\item Bankari
+					\item Službenici za odobravanje kredita građana
+				\end{packed_enum}
 				\item Klijenti banke
-				\item Sponzori i ulagači
 				
 			\end{packed_enum}
 			
@@ -32,6 +29,7 @@
 					\item Upravljanje sustavom
 					\item Održavanje sustava
 					\item Kreiranje, uređivanje i brisanje profila djelatnika i klijenata banke
+					\item Uvid u popis korisnika
 					
 				\end{packed_enum}
 			
@@ -42,6 +40,7 @@
 					\item Sadrži podatke o korisnicima sustava
 					\item Sadrži podatke o računima i karticama klijenata
 					\item Sadrži podatke o transakcijama i kreditima
+					\item Sadrži podatke o poslovnicama
 					
 				\end{packed_enum}
 				
@@ -63,6 +62,7 @@
 				\begin{packed_enum}
 					
 					\item Odobrenje i blokiranje kreditnih zahtjeva
+					\item Uvid u podatke o klijentima
 					
 				\end{packed_enum}
 				
@@ -75,6 +75,14 @@
 					\item Prijenos sredstava između vlastitih računa
 					\item Prijenos sredstava na račun drugih klijenata
 					\item Zahtjev za sastankom s bankarom u određenoj poslovnici u određeno vrijeme
+					
+				\end{packed_enum}
+				
+				\item	\underbar{Neprijavljeni klijent - inicijator}
+				
+				\begin{packed_enum}
+					
+					\item Upisuje OIB i ključ dobiven od bankara za otvaranje internet bankarstva
 					
 				\end{packed_enum}
 			
