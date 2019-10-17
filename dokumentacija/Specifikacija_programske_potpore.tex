@@ -2,20 +2,19 @@
 		
 	\section{Funkcionalni zahtjevi}
 			
-			\textbf{\textit{dio 1. revizije}}\\
-			
-			\textit{Navesti \textbf{dionike} koji imaju \textbf{interes u ovom sustavu} ili  \textbf{su nositelji odgovornosti}. To su prije svega korisnici, ali i administratori sustava, naručitelji, razvojni tim.}\\
-				
-			\textit{Navesti \textbf{aktore} koji izravno \textbf{koriste} ili \textbf{komuniciraju sa sustavom}. Oni mogu imati inicijatorsku ulogu, tj. započinju određene procese u sustavu ili samo sudioničku ulogu, tj. obavljaju određeni posao. Za svakog aktora navesti funkcionalne zahtjeve koji se na njega odnose.}\\
-			
 			
 			\noindent \textbf{Dionici:}
 			
 			\begin{packed_enum}
 				
-				\item Dionik 1
-				\item Dionik 2				
-				\item ...
+				\item Banka
+				\item Administrator sustava
+				\item Službenici banke
+				\begin{packed_enum}
+					\item Bankari
+					\item Službenici za odobravanje kredita građana
+				\end{packed_enum}
+				\item Klijenti banke
 				
 			\end{packed_enum}
 			
@@ -23,30 +22,70 @@
 			
 			
 			\begin{packed_enum}
-				\item  \underbar{Aktor 1 (inicijator) može:}
+				\item  \underbar{Administrator - inicijator}
 				
 				\begin{packed_enum}
 					
-					\item funkcionalnost 1
-					\item funkcionalnost 2
-					\begin{packed_enum}
-						
-						\item  podfunkcionalnost 1 
-						\item  podfunkcionalnost 2
-				
-					\end{packed_enum}
-					\item  funkcionalnost 3
+					\item Upravljanje sustavom
+					\item Održavanje sustava
+					\item Kreiranje, uređivanje i brisanje profila djelatnika i klijenata banke
+					\item Uvid u popis korisnika
 					
 				\end{packed_enum}
 			
-				\item  \underbar{Aktor 2 (sudionik) može:}
+				\item  \underbar{Baza podataka - sudionik}
 				
 				\begin{packed_enum}
 					
-					\item funkcionalnost 1
-					\item funkcionalnost 2
+					\item Sadrži podatke o korisnicima sustava
+					\item Sadrži podatke o računima i karticama klijenata
+					\item Sadrži podatke o transakcijama i kreditima
+					\item Sadrži podatke o poslovnicama
 					
 				\end{packed_enum}
+				
+				\item	\underbar{Bankar - inicijator}
+				
+				\begin{packed_enum}
+					
+					\item Izrada i brisanje korisničkih profila klijenata
+					\item Ažuriranje i mijenjanje korisničkih profila klijenata
+					\item Otvaranje i zatvaranje transakcijskih i štednih računa
+					\item Ugovaranje i deaktivacija debitnih i kreditnih kartica
+					\item Ugovaranje kredita
+					\item Preuzimanje klijentskih zahtjeva za sastankom
+					
+				\end{packed_enum}
+			
+				\item	\underbar{Službenik za odobravanje kreditnih zahtjeva - sudionik}
+				
+				\begin{packed_enum}
+					
+					\item Odobrenje i blokiranje kreditnih zahtjeva
+					\item Uvid u podatke o klijentima
+					
+				\end{packed_enum}
+				
+				\item	\underbar{Klijent banke - inicijator}
+				
+				\begin{packed_enum}
+					
+					\item Pregledavanje podataka o vlastitom profilu
+					\item Pregledavanje podataka o transakcijama
+					\item Prijenos sredstava između vlastitih računa
+					\item Prijenos sredstava na račun drugih klijenata
+					\item Zahtjev za sastankom s bankarom u određenoj poslovnici u određeno vrijeme
+					
+				\end{packed_enum}
+				
+				\item	\underbar{Neprijavljeni klijent - inicijator}
+				
+				\begin{packed_enum}
+					
+					\item Upisuje OIB i ključ dobiven od bankara za otvaranje usluge internet bankarstva
+					
+				\end{packed_enum}
+			
 			\end{packed_enum}
 			
 			\eject 
