@@ -13,9 +13,11 @@
 			
 			\begin{packed_enum}
 				
-				\item Dionik 1
-				\item Dionik 2				
-				\item ...
+				\item Banka
+				\item Administrator sustava
+				\item Korisnici - službenici i klijenti banke
+				\item Razvojni tim
+				\item Sponzori i ulagači
 				
 			\end{packed_enum}
 			
@@ -23,30 +25,59 @@
 			
 			
 			\begin{packed_enum}
-				\item  \underbar{Aktor 1 (inicijator) može:}
+				\item  \underbar{Administrator-inicijator}
 				
 				\begin{packed_enum}
 					
-					\item funkcionalnost 1
-					\item funkcionalnost 2
-					\begin{packed_enum}
-						
-						\item  podfunkcionalnost 1 
-						\item  podfunkcionalnost 2
-				
-					\end{packed_enum}
-					\item  funkcionalnost 3
+					\item Kontrola nad cjelokupnim sustavom
+					\item Održavanje sustava
+					\item Kreiranje, uređivanje i brisanje profila djelatnika i klijenata banke
 					
 				\end{packed_enum}
 			
-				\item  \underbar{Aktor 2 (sudionik) može:}
+				\item  \underbar{Baza podataka-sudionik}
 				
 				\begin{packed_enum}
 					
-					\item funkcionalnost 1
-					\item funkcionalnost 2
+					\item Sadrži podatke o korisnicima sustava
+					\item Sadrži podatke o računima klijenata
+					\item Sadrži podatke o transakcijama i kreditima
 					
 				\end{packed_enum}
+				
+				\item	\underbar{Bankar-inicijator}
+				
+				\begin{packed_enum}
+					
+					\item Izrada i brisanje korisničkih profila klijenata
+					\item Ažuriranje i mijenjanje korisničkih profila klijenata
+					\item Otvaranje i zatvaranje transakcijskih i štednih računa
+					\item Ugovaranje i deaktivacija debitnih i kreditnih kartica
+					\item Ugovaranje kredita
+					\item Preuzimanje klijentskih zahtjeva za sastankom
+					
+				\end{packed_enum}
+			
+				\item	\underbar{Službenik za odobravanje kreditnih zahtjeva-sudionik}
+				
+				\begin{packed_enum}
+					
+					\item Odobrenje i blokiranje kreditnih zahtjeva
+					
+				\end{packed_enum}
+				
+				\item	\underbar{Klijent banke-inicijator}
+				
+				\begin{packed_enum}
+					
+					\item Pregledavanje podataka o vlastitom profilu
+					\item Pregledavanje podataka o transakcijama
+					\item Prijenos sredstava između svojih računa
+					\item Prijenos sredstava na račun drugih klijenata
+					\item Zahtjev za sastankom s bankarom u određenoj poslovnici u određeno vrijeme
+					
+				\end{packed_enum}
+			
 			\end{packed_enum}
 			
 			\eject 
