@@ -313,6 +313,9 @@
 					\item Korisnik upisuje iznos plaćanja i pritisne plati
 					\item Aplikacija uspješno obavlja transakciju 
 					
+				\end{packed_enum}
+					
+				
 						\item  \textbf{Opis mogućih odstupanja:}
 					
 					\item[] \begin{packed_item}
@@ -328,8 +331,6 @@
 						
 					\end{packed_item}
 					
-					
-				\end{packed_enum}
 			
 				
 			\end{packed_item}
@@ -351,6 +352,8 @@
 					\item Korisnik unosi podatke za plaćanje potrebne za prijenos sredstava na račun drugog klijenta i pritisne plati
 					\item Aplikacija uspješno obavlja transakciju 
 					
+				\end{packed_enum}
+					
 					\item  \textbf{Opis mogućih odstupanja:}
 					
 					\item[] \begin{packed_item}
@@ -366,8 +369,6 @@
 						
 					\end{packed_item}
 					
-					
-				\end{packed_enum}
 				
 				
 			\end{packed_item}
@@ -394,6 +395,44 @@
 					
 				\end{packed_enum}
 				
+				
+			\end{packed_item}
+		
+			
+				\noindent \underbar{\textbf{UC25-Otvaranje usluge internet bankarstva  }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Neprijavljeni klijent
+				\item  \textbf{Cilj:} Otvoriti uslugu internet bankarstva
+				\item  \textbf{Sudionici:} Baza podataka, bankar
+				\item  \textbf{Preduvjet:} Dolazak u poslovnicu banke, instalirana aplikacija
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Korisnik upisuje OIB i ključ dobiven od bankara u aplikaciju
+					\item Aplikacija provjerava valjanost unesenih podataka
+					\item Aplikacija javlja uspješnost otvaranja usluge internet bankarstva
+					
+				\end{packed_enum}
+					
+						\item  \textbf{Opis mogućih odstupanja:}
+					
+					\item[] \begin{packed_item}
+						
+						\item[2.a] Unos neispravnih podataka
+						\item[] \begin{packed_enum}
+							
+							\item Ispis odgovarajuće poruke upozorenja
+							
+							
+						\end{packed_enum}
+						
+						
+					\end{packed_item}
+				
+					
+					
 				
 			\end{packed_item}
 		
