@@ -252,6 +252,88 @@
 				\end{packed_enum}
 				
 			\end{packed_item}
+		
+			
+				\noindent \underbar{\textbf{UC21-Pregled podataka o vlastitom profilu }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Klijent
+				\item  \textbf{Cilj:} Pregledati podatke na vlastitom profilu
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Klijent je prijavljen
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Korisnik odabire opciju pregleda osobnih podataka
+					\item Aplikacija prikazuje osobne podatke korisnika
+			
+					
+					
+				\end{packed_enum}
+				
+			\end{packed_item}
+			
+			
+			\noindent \underbar{\textbf{UC22-Pregled podataka o transakcijama }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Klijent
+				\item  \textbf{Cilj:} Pregledati podatke o transakcijama
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Klijent je prijavljen
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Korisnik odabire opciju pregleda podataka o transakcijama
+					\item Aplikacija prikazuje podatke o transakcijama 
+					
+					
+					
+				\end{packed_enum}
+				
+			\end{packed_item}
+		
+			
+			\noindent \underbar{\textbf{UC23-Prijenos sredstava između vlastitih računa }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Klijent
+				\item  \textbf{Cilj:} Prenijeti sredstvo na vlastiti račun
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Klijent je prijavljen
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Korisnik odabire opciju prijenosa sredstava na vlastiti račun
+					\item Korisnik odabire račun terećenja 
+					\item Korisnik odabire drugi vlastiti račun na koji će stići novac
+					\item Korisnik upisuje iznos plaćanja i pritisne plati
+					\item Aplikacija uspješno obavlja transakciju 
+					
+						\item  \textbf{Opis mogućih odstupanja:}
+					
+					\item[] \begin{packed_item}
+						
+						\item[4.a] Unos iznosa plaćanja većeg od stanja na računu terećenja
+						\item[] \begin{packed_enum}
+							
+							\item Ispis odgovarajuće poruke upozorenja
+							
+							
+						\end{packed_enum}
+						
+						
+					\end{packed_item}
+					
+					
+				\end{packed_enum}
+			
+				
+			\end{packed_item}
+		
 			
 			
 			
