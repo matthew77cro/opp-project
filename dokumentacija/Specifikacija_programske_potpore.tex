@@ -153,41 +153,111 @@
 				
 				
 				
+				\noindent \underbar{\textbf{UC3-Pregled korisnika }}
+				\begin{packed_item}
+					
+					\item \textbf{Glavni sudionik: }Administrator
+					\item  \textbf{Cilj:} Pregledati registirane korisnike i njihove osobne podatke
+					\item  \textbf{Sudionici:} Baza podataka
+					\item  \textbf{Preduvjet:} : Korisnik je registriran i dodijeljena su mu prava administratora
+					\item  \textbf{Opis osnovnog tijeka:}
+					
+					\item[] \begin{packed_enum}
+						
+						\item Administrator odabire opciju pregledavanja korisnika
+						\item . Prikaze se lista svih ispravno registriranih korisnika s osobnim podacima
+						
+						
+					\end{packed_enum}
+					
+				\end{packed_item}
+			
+			\noindent \underbar{\textbf{UC4-Brisanje korisnika }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Administrator
+				\item  \textbf{Cilj:} Obrisati korisnika
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Administrator odabire željenog korisnika
+					\item Administrator odabire opciju brisanja korisnika
+					\item Administrator uklanja korisnika i njegove podatke iz baze podataka
+					
+				\end{packed_enum}
+				
+				
+			\end{packed_item}
+			
+			
+			
+			\noindent \underbar{\textbf{UC5-Promijena razine pristupa }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Administrator
+				\item  \textbf{Cilj:} Promijeniti razinu pristupa korisnika(klijent, bankar, službenik za odobravanje kreditnih zahtjeva klijenata)
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Administrator odabire željenog korisnika
+					\item Izmijeni razinu pristupa korisnika i sprema promijenu u bazu podataka
+					
+					
+				\end{packed_enum}
+				
+			\end{packed_item}
+			
+			\noindent \underbar{\textbf{UC6-Dodavanje poslovnice banke }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Administrator
+				\item  \textbf{Cilj:} Dodati poslovnicu banke
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Administrator unosi podatke o poslovnici banke
+					\item Administrator sprema podatke o poslovnici u bazu podataka
+					\item Poslovnica banke postaje vidljiva unutar sustava
+					
+					
+				\end{packed_enum}
+				
+			\end{packed_item}
+			
+			\noindent \underbar{\textbf{UC7-Brisanje poslovnice banke }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Administrator
+				\item  \textbf{Cilj:} Obrisati poslovnicu banke
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item Administrator odabire željenu poslovnicu banke
+					\item Administrator odabire opciju brisanja banke
+					\item Poslovnica banke se uklanja iz baze podataka
+					
+					
+				\end{packed_enum}
+				
+			\end{packed_item}
+			
+			
+			
+				
 
-					\noindent \underbar{\textbf{UC$<$broj obrasca$>$ -$<$ime obrasca$>$}}
-					\begin{packed_item}
-	
-						\item \textbf{Glavni sudionik: }$<$sudionik$>$
-						\item  \textbf{Cilj:} $<$cilj$>$
-						\item  \textbf{Sudionici:} $<$sudionici$>$
-						\item  \textbf{Preduvjet:} $<$preduvjet$>$
-						\item  \textbf{Opis osnovnog tijeka:}
-						
-						\item[] \begin{packed_enum}
-	
-							\item $<$opis korak jedan$>$
-							\item $<$opis korak dva$>$
-							\item $<$opis korak tri$>$
-							\item $<$opis korak četiri$>$
-							\item $<$opis korak pet$>$
-						\end{packed_enum}
-						
-						\item  \textbf{Opis mogućih odstupanja:}
-						
-						\item[] \begin{packed_item}
-	
-							\item[2.a] $<$opis mogućeg scenarija odstupanja u koraku 2$>$
-							\item[] \begin{packed_enum}
-								
-								\item $<$opis rješenja mogućeg scenarija korak 1$>$
-								\item $<$opis rješenja mogućeg scenarija korak 2$>$
-								
-							\end{packed_enum}
-							\item[2.b] $<$opis mogućeg scenarija odstupanja u koraku 2$>$
-							\item[3.a] $<$opis mogućeg scenarija odstupanja  u koraku 3$>$
-							
-						\end{packed_item}
-					\end{packed_item}
+				
 				
 					
 				\subsubsection{Dijagrami obrazaca uporabe}
