@@ -97,8 +97,62 @@
 				\textbf{\textit{dio 1. revizije}}
 				
 				\subsubsection{Opis obrazaca uporabe}
-					\textit{Funkcionalne zahtjeve razraditi u obliku obrazaca uporabe. Svaki obrazac je potrebno razraditi prema donjem predlošku. Ukoliko u nekom koraku može doći do odstupanja, potrebno je to odstupanje opisati i po mogućnosti ponuditi rješenje kojim bi se tijek obrasca vratio na osnovni tijek.}\\
+				
+					\noindent \underbar{\textbf{UC1-Dodavanje novih korisnika }}
+					\begin{packed_item}
+						
+						\item \textbf{Glavni sudionik: }Administrator
+						\item  \textbf{Cilj:} Dodati korisnika
+						\item  \textbf{Sudionici:} Baza podataka
+						\item  \textbf{Preduvjet:} Korisnik se ne nalazi u bazi podataka
+						\item  \textbf{Opis osnovnog tijeka:}
+						
+						\item[] \begin{packed_enum}
+							
+							\item Administrator unosi potrebne korisničke podatke
+							\item Podaci se unose u bazu podataka
+							\item Administrator sprema korisnika u bazu podataka
+							
+						\end{packed_enum}
+						
+						\item  \textbf{Opis mogućih odstupanja:}
+						
+						\item[] \begin{packed_item}
+							
+							\item[1.a] Unos neispravnih podataka
+							\item[] \begin{packed_enum}
+								
+								\item Ispis odgovarajuće poruke upozorenja
+								
+								
+							\end{packed_enum}
+							
+							
+						\end{packed_item}
+					\end{packed_item}
+				
+				\noindent \underbar{\textbf{UC2-Izmjena osobnih podataka korisnika  }}
+				\begin{packed_item}
 					
+					\item \textbf{Glavni sudionik: }Administrator
+					\item  \textbf{Cilj:} Urediti i izmijeniti osobne podatke korisnika
+					\item  \textbf{Sudionici:} Baza podataka
+					\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav kao administrator
+					\item  \textbf{Opis osnovnog tijeka:}
+					
+					\item[] \begin{packed_enum}
+						
+						\item Administrator pronalazi željenog korisnika
+						\item Administrator odabire opciju uređivanja korisnika
+						\item Administrator izmijenjuje podatke korisnika i sprema ih u bazu \\ podataka 
+						
+					\end{packed_enum}
+					
+					
+				\end{packed_item}
+				
+				
+				
 
 					\noindent \underbar{\textbf{UC$<$broj obrasca$>$ -$<$ime obrasca$>$}}
 					\begin{packed_item}
