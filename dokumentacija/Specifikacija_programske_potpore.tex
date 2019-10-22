@@ -829,7 +829,25 @@
 				\eject
 	
 		\section{Ostali zahtjevi}
-		
-			\textbf{\textit{dio 1. revizije}}\\
-		 
-			 \textit{Nefunkcionalni zahtjevi i zahtjevi domene primjene dopunjuju funkcionalne zahtjeve. Oni opisuju \textbf{kako se sustav treba ponašati} i koja \textbf{ograničenja} treba poštivati (performanse, korisničko iskustvo, pouzdanost, standardi kvalitete, sigurnost...). Primjeri takvih zahtjeva u Vašem projektu mogu biti: podržani jezici korisničkog sučelja, vrijeme odziva, najveći mogući podržani broj korisnika, podržane web/mobilne platforme, razina zaštite (protokoli komunikacije, kriptiranje...)... Svaki takav zahtjev potrebno je navesti u jednoj ili dvije rečenice.}
+			 
+			 \begin{packed_item}
+			 	\item Sustav mora podržavati rad više korisnika u stvarnom vremenu
+			 	\item Aplikacija mora podržavati hrvatsku abecedu (dijakritičke znakove)
+			 	\item Izvršavanje dijela programa u kojem se pristupa bazi podataka ne smije 
+			 	trajati duže od nekoliko sekundi 
+			 	\item Veza s bazom podataka mora biti kvalitetno zaštićena, brza i otporna na vanjske
+			 	greške
+			 	\item Nepravilno korištenje korisničkog sučelja ne smije narušiti funkcionalnost
+			 	i rad sustava	
+			 	\item Sustav treba biti jednostavan za upotrebu kako bi ga korisnici mogli koristiti
+			 	bez opširnih uputa
+			 	\item Nadogradnja sustava ne smije narušavati postojeće funkcionalnosti sustava
+			 	\item Korisnički podaci jednog klijenta ne smiju biti vidljivi ostalim klijentima
+			 	\item Klijent ne može mijenjati osobne podatke svog profila niti podatke o računima
+			 	i karticama
+			 	\item Svi računi moraju imati sliku profila
+			 	\item Kao valuta se koristi HRK
+			 	\item Svaki tekući račun treba imati dozvoljeno prekoračenje, a svaka kreditna kartica ugovoren limit.
+			 	\item Jednom mjesečno korisnik treba dobiti izvod po svim transakcijskim
+			 	računima i kreditnim karticama u PDF i XLS obliku
+			 \end{packed_item}
