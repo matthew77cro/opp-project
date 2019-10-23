@@ -948,12 +948,29 @@
     			\item[] \begin{packed_enum}
     				
     				\item Korisnik odabire opciju prijevremenog otplaćivanja kredita
+    				\item Korisnik odabire kredit
+    				\item Korisnik odabire račun terećenja
     				\item Korisnik unosi djelomičan ili ukupan iznos kredita
     				\item Aplikacija obavlja otplatu kredita
     				
     				
     				
     			\end{packed_enum}
+    		
+    			\item  \textbf{Opis mogućih odstupanja:}
+    		
+    		\item[] \begin{packed_item}
+    			
+    			\item[3.a] Unos iznosa plaćanja većeg od stanja na računu terećenja
+    			\item[] \begin{packed_enum}
+    				
+    				\item Ispis odgovarajuće poruke upozorenja
+    				
+    				
+    			\end{packed_enum}
+    			
+    			
+    		\end{packed_item}
     			
     		\end{packed_item}
     	
@@ -961,7 +978,7 @@
     	\begin{packed_item}
     		
     		\item \textbf{Glavni sudionik: }Klijent
-    		\item  \textbf{Cilj:} Smanjenje duga
+    		\item  \textbf{Cilj:} Smanjenje duga na kreditnoj kartici
     		\item  \textbf{Sudionici:} Baza podataka
     		\item  \textbf{Preduvjet:} Klijent je prijavljen
     		\item  \textbf{Opis osnovnog tijeka:}
@@ -1070,7 +1087,7 @@
     				\noindent \underbar{\textbf{UC40-Registracija korisnika  }}
     			\begin{packed_item}
     				
-    				\item \textbf{Glavni sudionik: }Neprijavljeni klijent
+    				\item \textbf{Glavni sudionik: }Neregistrirani klijent
     				\item  \textbf{Cilj:} Otvoriti uslugu internet bankarstva
     				\item  \textbf{Sudionici:} Baza podataka, bankar
     				\item  \textbf{Preduvjet:} Dolazak u poslovnicu banke, instalirana aplikacija
@@ -1115,9 +1132,10 @@
 			
 			\item[] \begin{packed_enum}
 				
+			
 				\item Korisnik unosi korisničko ime i lozinku
 				\item Aplikacija provjerava valjanost unesenih podataka
-				\item Aplikacija javlja uspješnost prijave korisnika i sprema korisnika u bazu podataka
+				\item Aplikacija javlja uspješnost prijave korisnika i sprema promjene u bazu podataka
 				
 			\end{packed_enum}
 			
@@ -1125,7 +1143,7 @@
 			
 			\item[] \begin{packed_item}
 				
-				\item[2.a] Unos već postojećih podataka
+				\item[2.a] Odabir već zauzetog korisničkog imena ili unos korisničkih podatka u nedozvoljenom formatu 
 				\item[] \begin{packed_enum}
 					
 					\item Ispis odgovarajuće poruke upozorenja
