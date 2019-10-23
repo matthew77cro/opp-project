@@ -59,7 +59,11 @@
 					\end{packed_enum}
 					\item Sadrži podatke o karticama klijenata
 					\begin{packed_enum}
-						\item Broj, vrsta kartice, račun uz koji je vezana kartica
+						\item Broj i vrsta kartice
+						\begin{packed_enum}
+							\item Debitna kartica - vezana uz račun
+							\item Kreditna kartica - nije vezana uz račun
+						\end{packed_enum}
 					\end{packed_enum}
 					\item Sadrži podatke o transakcijama
 					\item Sadrži podatke o kreditima
@@ -106,6 +110,12 @@
 					
 					\item Odobrenje i blokiranje kreditnih zahtjeva
 					\item Uvid u podatke o klijentima
+					\begin{packed_enum}
+						\item Osobni podaci: ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila
+						\item Podaci o računima: broj i stanje računa
+						\item Podaci o ugovorenim kreditima: iznos, trajanje otplate
+						\item Podaci o kreditnim karticama
+					\end{packed_enum}
 					
 				\end{packed_enum}
 				
@@ -137,7 +147,7 @@
 					
 				\end{packed_enum}
 				
-				\item	\underbar{Neprijavljeni klijent - inicijator}
+				\item	\underbar{Neregistrirani korisnik - inicijator}
 				
 				\begin{packed_enum}
 					
