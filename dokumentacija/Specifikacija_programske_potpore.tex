@@ -168,20 +168,77 @@
 				
 				\subsubsection{Opis obrazaca uporabe}
 				
-					\noindent \underbar{\textbf{UC1-Dodavanje novih korisnika }}
-					\begin{packed_item}
+					\noindent \underbar{\textbf{UC1-Prijava u sustav putem web adrese }}
+				\begin{packed_item}
+					
+					\item \textbf{Glavni sudionik: }Administrator
+					\item  \textbf{Cilj:} Dobiti pristup sustavu
+					\item  \textbf{Sudionici:} Baza podataka
+					\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+					\item  \textbf{Opis osnovnog tijeka:}
+					
+					\item[] \begin{packed_enum}
+						
+						\item Administrator unosi korisničko ime i lozinku
+						\item Potvrda o ispravnosti korisničkih podataka
+						\item Administrator dobiva pristup sustavu
+						
+					\end{packed_enum}
+					
+					\item  \textbf{Opis mogućih odstupanja:}
+					
+					\item[] \begin{packed_item}
+						
+						\item[2.a] Unos neispravnih podataka
+						\item[] \begin{packed_enum}
+							
+							\item Ispis odgovarajuće poruke upozorenja 
+							
+							
+						\end{packed_enum}
+						
+						
+					\end{packed_item}
+				\end{packed_item}
+			
+			
+				\noindent \underbar{\textbf{UC2-Pregled korisnika }}
+				\begin{packed_item}
+					
+					\item \textbf{Glavni sudionik: }Administrator
+					\item  \textbf{Cilj:} Pregledati registirane korisnike i njihove osobne podatke
+					\item  \textbf{Sudionici:} Baza podataka
+					\item  \textbf{Preduvjet:} : Korisnik je registriran i dodijeljena su mu prava administratora
+					\item  \textbf{Opis osnovnog tijeka:}
+					
+					\item[] \begin{packed_enum}
+						
+						\item Administrator odabire opciju pregledavanja korisnika
+						\item . Prikaze se lista svih ispravno registriranih korisnika s osobnim podacima
+						
+						
+					\end{packed_enum}
+					
+				\end{packed_item}
+				
+				
+				
+				
+				
+		   	\noindent \underbar{\textbf{UC3-Dodavanje novih djelatnika }}
+				\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: }Administrator
-						\item  \textbf{Cilj:} Dodati korisnika
+						\item  \textbf{Cilj:} Dodati djelatnika u sustav
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} Korisnik se ne nalazi u bazi podataka
+						\item  \textbf{Preduvjet:} Djelatnik se ne nalazi u bazi podataka
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
 							\item Administrator unosi potrebne korisničke podatke
 							\item Podaci se unose u bazu podataka
-							\item Administrator sprema korisnika u bazu podataka
+							\item Stvoren je djelatnikov račun
 							
 						\end{packed_enum}
 						
@@ -201,48 +258,27 @@
 						\end{packed_item}
 					\end{packed_item}
 				
-				\noindent \underbar{\textbf{UC2-Izmjena osobnih podataka korisnika  }}
+				\noindent \underbar{\textbf{UC4-Izmjena osobnih podataka djelatnika  }}
 				\begin{packed_item}
 					
 					\item \textbf{Glavni sudionik: }Administrator
-					\item  \textbf{Cilj:} Urediti i izmijeniti osobne podatke korisnika
+					\item  \textbf{Cilj:} Urediti i izmijeniti osobne podatke djelatnika
 					\item  \textbf{Sudionici:} Baza podataka
 					\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav kao administrator
 					\item  \textbf{Opis osnovnog tijeka:}
 					
 					\item[] \begin{packed_enum}
 						
-						\item Administrator pronalazi željenog korisnika
-						\item Administrator odabire opciju uređivanja korisnika
+						\item Administrator pronalazi željenog djelatnika
+						\item Administrator odabire opciju uređivanja djelatnika
 						\item Administrator izmijenjuje podatke korisnika i sprema ih u bazu \\ podataka 
 						
 					\end{packed_enum}
 					
 					
 				\end{packed_item}
-				
-				
-				
-				\noindent \underbar{\textbf{UC3-Pregled korisnika }}
-				\begin{packed_item}
-					
-					\item \textbf{Glavni sudionik: }Administrator
-					\item  \textbf{Cilj:} Pregledati registirane korisnike i njihove osobne podatke
-					\item  \textbf{Sudionici:} Baza podataka
-					\item  \textbf{Preduvjet:} : Korisnik je registriran i dodijeljena su mu prava administratora
-					\item  \textbf{Opis osnovnog tijeka:}
-					
-					\item[] \begin{packed_enum}
-						
-						\item Administrator odabire opciju pregledavanja korisnika
-						\item . Prikaze se lista svih ispravno registriranih korisnika s osobnim podacima
-						
-						
-					\end{packed_enum}
-					
-				\end{packed_item}
 			
-			\noindent \underbar{\textbf{UC4-Brisanje korisnika }}
+			\noindent \underbar{\textbf{UC5-Brisanje korisnika }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
@@ -261,10 +297,11 @@
 				
 				
 			\end{packed_item}
+				
+				
 			
 			
-			
-			\noindent \underbar{\textbf{UC5-Promijena razine pristupa }}
+			\noindent \underbar{\textbf{UC6-Promijena razine pristupa }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
@@ -283,7 +320,7 @@
 				
 			\end{packed_item}
 			
-			\noindent \underbar{\textbf{UC6-Dodavanje poslovnice banke }}
+			\noindent \underbar{\textbf{UC7-Dodavanje poslovnice banke }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
@@ -303,7 +340,7 @@
 				
 			\end{packed_item}
 			
-			\noindent \underbar{\textbf{UC7-Brisanje poslovnice banke }}
+			\noindent \underbar{\textbf{UC8-Brisanje poslovnice banke }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
