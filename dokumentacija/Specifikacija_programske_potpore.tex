@@ -26,21 +26,54 @@
 				
 				\begin{packed_enum}
 					
-					\item Dodavanje novih korisnika aplikacije i izmjena njihovih osobnih podataka
+					\item Ulaz u sustav putem unaprijed definirane web adrese
+					\begin{packed_enum}
+						\item Pristup sustavu pomoću korisničkog imena i lozinke
+					\end{packed_enum}
 					\item Pregled popisa svih registriranih korisnika aplikacije i njihovih osobnih podataka
-					\item Brisanje korisnika aplikacije i mijenjanje razine pristupa korisnicima aplikaciji
-					\item Dodavanje ili brisanje poslovnica banke
+					\item Dodavanje novih djelatnika u sustav
+					\begin{packed_enum}
+						\item Unosi ime, prezime, adresu, OIB, datum rođenja, e-mail adresu, sliku profila djelatnika
+					\end{packed_enum}
+					\item Izmjena osobnih podataka djelatnika banke					
+					\item Brisanje korisnika aplikacije i mijenjanje razine pristupa korisnicima aplikacije
+					\item Dodavanje poslovnica banke
+					\begin{packed_enum}
+						\item Unosi ime, adresu i jedinstveni identifikator poslovnice
+					\end{packed_enum}
+					\item Brisanje poslovnica banke
 					
 				\end{packed_enum}
-			
+			\eject
 				\item  \underbar{Baza podataka - sudionik}
 				
 				\begin{packed_enum}
 					
 					\item Sadrži podatke o korisnicima sustava
-					\item Sadrži podatke o računima i karticama klijenata
-					\item Sadrži podatke o transakcijama i kreditima
+					\begin{packed_enum}
+						\item Ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila, vrsta korisnika
+					\end{packed_enum}
+					\item Sadrži podatke o računima klijenata
+					\begin{packed_enum}
+						\item Broj i vrsta računa
+					\end{packed_enum}
+					\item Sadrži podatke o karticama klijenata
+					\begin{packed_enum}
+						\item Broj i vrsta kartice
+						\begin{packed_enum}
+							\item Debitna kartica - vezana uz račun
+							\item Kreditna kartica - nije vezana uz račun
+						\end{packed_enum}
+					\end{packed_enum}
+					\item Sadrži podatke o transakcijama
+					\item Sadrži podatke o kreditima
+					\begin{packed_enum}
+						\item Iznos, namjena i rok otplate kredita
+					\end{packed_enum}
 					\item Sadrži podatke o poslovnicama
+					\begin{packed_enum}
+						\item Ime, adresa i jedinstveni identifikator
+					\end{packed_enum}
 					
 				\end{packed_enum}
 				
@@ -48,10 +81,24 @@
 				
 				\begin{packed_enum}
 					
-					\item Izrada i brisanje korisničkih profila klijenata
+					\item Inicijalnu prijavu u sustav vrši pomoću korisničkog imena i privremene lozinke dobivene od administratora
+					\begin{packed_enum}
+						\item Nakon inicijalne prijave obvezan je odmah stvoriti novu lozinku
+					\end{packed_enum}
+					\item Mogućnost uvida u vlastite osobne podatke
+					\begin{packed_enum}
+						\item Ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila
+					\end{packed_enum}
+					\item Izrada korisničkih profila klijenata
+					\begin{packed_enum}
+						\item Unosi ime, prezime, adresu, OIB, datum rođenja, e-mail adresu, sliku profila klijenta
+					\end{packed_enum}
+					\item Brisanje korisničkih profila klijenata
 					\item Ažuriranje i mijenjanje korisničkih profila klijenata
-					\item Otvaranje i zatvaranje transakcijskih i štednih računa
-					\item Ugovaranje i deaktivacija debitnih i kreditnih kartica
+					\item Pretraga profila klijenata pomoću OIB-a klijenta
+					\item Otvaranje i zatvaranje tekućih, žiro i štednih računa
+					\item Obavljanje transakcija po računima klijenata
+					\item Ugovaranje, aktivacija i deaktivacija debitnih i kreditnih kartica
 					\item Ugovaranje kredita
 					\item Preuzimanje klijentskih zahtjeva za sastankom
 					
@@ -63,6 +110,12 @@
 					
 					\item Odobrenje i blokiranje kreditnih zahtjeva
 					\item Uvid u podatke o klijentima
+					\begin{packed_enum}
+						\item Osobni podaci: ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila
+						\item Podaci o računima: broj i stanje računa
+						\item Podaci o ugovorenim kreditima: iznos, trajanje otplate
+						\item Podaci o kreditnim karticama
+					\end{packed_enum}
 					
 				\end{packed_enum}
 				
@@ -71,18 +124,35 @@
 				\begin{packed_enum}
 					
 					\item Pregledavanje podataka o vlastitom profilu
+					\begin{packed_enum}
+						\item Ime, prezime, OIB, adresa, datum rođenja, slika profila
+					\end{packed_enum}
+					\item Pregledavanje transakcijskih i štednih računa, te ugovorenih kredita i kartica
 					\item Pregledavanje podataka o transakcijama
 					\item Prijenos sredstava između vlastitih računa
 					\item Prijenos sredstava na račun drugih klijenata
-					\item Zahtjev za sastankom s bankarom u određenoj poslovnici u određeno vrijeme
+					\item Može ručno izvršiti uplatu kredita ili uplatu na kreditnu karticu kako bi umanjio iznos duga ili kako bi otplatio sveukupno dugovanje
+					\item Podnošenje zahtjeva za kreditom
+					\begin{packed_enum}
+						\item Unosi iznos i namjenu kredita, te rok otplate
+					\end{packed_enum}
+					\item Podnošenje zahtjeva za kreditnom karticom
+					\begin{packed_enum}
+						\item Unos vrste kartice (Mastercard, Visa, American Express, Diners, Discover)
+					\end{packed_enum}
+					\item Zahtjev za sastankom s bankarom
+					\begin{packed_enum}
+						\item Unos željene poslovnice, datuma i vremena sastanka
+					\end{packed_enum}
 					
 				\end{packed_enum}
 				
-				\item	\underbar{Neprijavljeni klijent - inicijator}
+				\item	\underbar{Neregistrirani korisnik - inicijator}
 				
 				\begin{packed_enum}
 					
-					\item Upisuje OIB i ključ dobiven od bankara za otvaranje usluge internet bankarstva
+					\item Upisuje OIB i jedinstveni ključ dobiven od bankara kako bi se registrirao u sustav
+					\item Nakon registracije odabire korisničko ime i lozinku koji će mu služiti za buduće prijave u sustav
 					
 				\end{packed_enum}
 			
