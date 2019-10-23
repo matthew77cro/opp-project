@@ -734,7 +734,7 @@
                   \end{packed_enum}
                 \end{packed_item}   
         			
-        				\noindent \underbar{\textbf{UC21-Pregled podataka o vlastitom profilu }}
+        				\noindent \underbar{\textbf{UC27-Pregled podataka o vlastitom profilu }}
         			\begin{packed_item}
         				
         				\item \textbf{Glavni sudionik: }Klijent
@@ -753,8 +753,91 @@
     				\end{packed_enum}
     				
     			\end{packed_item}
+    		
+    			\noindent \underbar{\textbf{UC28-Pregled transakcijskih računa }}
+    		\begin{packed_item}
     			
-    			\noindent \underbar{\textbf{UC22-Pregled podataka o transakcijama }}
+    			\item \textbf{Glavni sudionik: }Klijent
+    			\item  \textbf{Cilj:} Pregledati stanje transakcijskih računa
+    			\item  \textbf{Sudionici:} Baza podataka
+    			\item  \textbf{Preduvjet:} Klijent je prijavljen
+    			\item  \textbf{Opis osnovnog tijeka:}
+    			
+    			\item[] \begin{packed_enum}
+    				
+    				\item Korisnik odabire opciju pregleda transakcijskih računa
+    				\item Aplikacija prikazuje stanje transakcijskih računa
+    				
+    				
+    				
+    			\end{packed_enum}
+    			
+    		\end{packed_item}
+    	
+    	
+    		\noindent \underbar{\textbf{UC29-Pregled štednih računa }}
+    	\begin{packed_item}
+    		
+    		\item \textbf{Glavni sudionik: }Klijent
+    		\item  \textbf{Cilj:} Pregledati stanje štednih računa
+    		\item  \textbf{Sudionici:} Baza podataka
+    		\item  \textbf{Preduvjet:} Klijent je prijavljen
+    		\item  \textbf{Opis osnovnog tijeka:}
+    		
+    		\item[] \begin{packed_enum}
+    			
+    			\item Korisnik odabire opciju pregleda štednih računa
+    			\item Aplikacija prikazuje stanje štednih računa
+    			
+    			
+    			
+    		\end{packed_enum}
+    		
+    	\end{packed_item}
+    
+    
+		    \noindent \underbar{\textbf{UC30-Pregled kredita }}
+		    \begin{packed_item}
+		    	
+		    	\item \textbf{Glavni sudionik: }Klijent
+		    	\item  \textbf{Cilj:} Pregledati stanje kredita
+		    	\item  \textbf{Sudionici:} Baza podataka
+		    	\item  \textbf{Preduvjet:} Klijent je prijavljen
+		    	\item  \textbf{Opis osnovnog tijeka:}
+		    	
+		    	\item[] \begin{packed_enum}
+		    		
+		    		\item Korisnik odabire opciju pregleda kredita
+		    		\item Aplikacija prikazuje stanje kredita
+		    		
+		    		
+		    		
+		    	\end{packed_enum}
+		    	
+		    \end{packed_item}
+	    
+		      \noindent \underbar{\textbf{UC31-Pregled kartica }}
+		    \begin{packed_item}
+		    	
+		    	\item \textbf{Glavni sudionik: }Klijent
+		    	\item  \textbf{Cilj:} Pregledati stanje kartice
+		    	\item  \textbf{Sudionici:} Baza podataka
+		    	\item  \textbf{Preduvjet:} Klijent je prijavljen
+		    	\item  \textbf{Opis osnovnog tijeka:}
+		    	
+		    	\item[] \begin{packed_enum}
+		    		
+		    		\item Korisnik odabire opciju pregleda kartica
+		    		\item Korisnik odabire karticu
+		    		\item Aplikacija prikazuje stanje kartice
+		    		
+		    		
+		    		
+		    	\end{packed_enum}
+		    	
+		    \end{packed_item}
+    			
+    			\noindent \underbar{\textbf{UC32-Pregled podataka o transakcijama }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -775,7 +858,7 @@
     			\end{packed_item}
     		
     			
-    			\noindent \underbar{\textbf{UC23-Prijenos sredstava između vlastitih računa }}
+    			\noindent \underbar{\textbf{UC33-Prijenos sredstava između vlastitih računa }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -815,7 +898,7 @@
     			\end{packed_item}
     		
     			
-    				\noindent \underbar{\textbf{UC24-Prijenos sredstava na račun drugih klijenata }}
+    				\noindent \underbar{\textbf{UC34-Prijenos sredstava na račun drugih klijenata }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -853,8 +936,99 @@
     			\end{packed_item}
     		
     		
+    		\noindent \underbar{\textbf{UC35-Ručno izvršavanje uplate kredita }}
+    		\begin{packed_item}
     			
-    			\noindent \underbar{\textbf{UC24-Zahtjev za sastankom s bankarom }}
+    			\item \textbf{Glavni sudionik: }Klijent
+    			\item  \textbf{Cilj:} Prijevremeno otplaćivanje kredita
+    			\item  \textbf{Sudionici:} Baza podataka
+    			\item  \textbf{Preduvjet:} Klijent je prijavljen
+    			\item  \textbf{Opis osnovnog tijeka:}
+    			
+    			\item[] \begin{packed_enum}
+    				
+    				\item Korisnik odabire opciju prijevremenog otplaćivanja kredita
+    				\item Korisnik unosi djelomičan ili ukupan iznos kredita
+    				\item Aplikacija obavlja otplatu kredita
+    				
+    				
+    				
+    			\end{packed_enum}
+    			
+    		\end{packed_item}
+    	
+    		\noindent \underbar{\textbf{UC36-Ručno izvršavanje uplate na kreditnu karticu }}
+    	\begin{packed_item}
+    		
+    		\item \textbf{Glavni sudionik: }Klijent
+    		\item  \textbf{Cilj:} Smanjenje duga
+    		\item  \textbf{Sudionici:} Baza podataka
+    		\item  \textbf{Preduvjet:} Klijent je prijavljen
+    		\item  \textbf{Opis osnovnog tijeka:}
+    		
+    		\item[] \begin{packed_enum}
+    			
+    			\item Korisnik odabire opciju izvršavanja uplate na kreditnu karticu
+    			\item Korisnik odabire kreditnu karticu
+    			\item Korisnik odabire račun terećenja
+    			\item Korisnik unosi iznos uplate na kreditnu karticu
+    			\item Aplikacija obavlja transakciju 
+    			
+    			
+    			
+    		\end{packed_enum}
+    		
+    	\end{packed_item}
+    		
+    		
+    		
+    		\noindent \underbar{\textbf{UC37-Podnošenje zahtjeva za kreditom }}
+    		\begin{packed_item}
+    			
+    			\item \textbf{Glavni sudionik: }Klijent
+    			\item  \textbf{Cilj:} Podnijeti zahtjev za kredit
+    			\item  \textbf{Sudionici:} Baza podataka
+    			\item  \textbf{Preduvjet:} Klijent je prijavljen
+    			\item  \textbf{Opis osnovnog tijeka:}
+    			
+    			\item[] \begin{packed_enum}
+    				
+    				\item Korisnik odabire opciju zahtjeva za kredit
+    				\item Korisnik unosi iznos, namjenu kredita i rok otplate
+    				\item Sustav proslijeđuje zahtjev službeniku za odobravanje kreditnih zahtjeva građana
+    				
+    				
+    				
+    			\end{packed_enum}
+    			
+    		\end{packed_item}
+    	
+    	
+    		\noindent \underbar{\textbf{UC38-Podnošenje zahtjeva za kreditnom karticom }}
+    	\begin{packed_item}
+    		
+    		\item \textbf{Glavni sudionik: }Klijent
+    		\item  \textbf{Cilj:} Podnijeti zahtjev za kreditnom karticom
+    		\item  \textbf{Sudionici:} Baza podataka
+    		\item  \textbf{Preduvjet:} Klijent je prijavljen
+    		\item  \textbf{Opis osnovnog tijeka:}
+    		
+    		\item[] \begin{packed_enum}
+    			
+    			\item Korisnik odabire opciju zahtjeva za kreditnom karticom
+    			\item Korisnik odabire vrstu kreditne kartice 
+    			\item Sustav proslijeđuje zahtjev službeniku za odobravanje kreditnih zahtjeva građana
+    			
+    			
+    			
+    		\end{packed_enum}
+    		
+    	\end{packed_item}
+    		
+    		
+    		
+    			
+    			\noindent \underbar{\textbf{UC39-Zahtjev za sastankom s bankarom }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -866,7 +1040,7 @@
     				\item[] \begin{packed_enum}
     					
     					\item Korisnik odabire opciju zahtjeva za sastankom s bankarom
-    					\item Korisnik odabire poslovnicu banke i termin sastanka
+    					\item Korisnik unosi poslovnicu banke, datum i vrijeme sastanka
     					\item Aplikacija odabire slobodnog bankara za sastanak 
     					
     					
