@@ -978,6 +978,21 @@
     			
     		\end{packed_enum}
     		
+    	\item  \textbf{Opis mogućih odstupanja:}
+    	
+    	\item[] \begin{packed_item}
+    		
+    		\item[3.a] Unos iznosa plaćanja većeg od stanja na računu terećenja
+    		\item[] \begin{packed_enum}
+    			
+    			\item Ispis odgovarajuće poruke upozorenja
+    			
+    			
+    		\end{packed_enum}
+    		
+    		
+    	\end{packed_item}
+    		
     	\end{packed_item}
     		
     		
@@ -1052,7 +1067,7 @@
     			\end{packed_item}
     		
     			
-    				\noindent \underbar{\textbf{UC25-Otvaranje usluge internet bankarstva  }}
+    				\noindent \underbar{\textbf{UC40-Registracija korisnika  }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Neprijavljeni klijent
@@ -1088,6 +1103,43 @@
 					
 				
 			\end{packed_item}
+		
+			\noindent \underbar{\textbf{UC41-Odabir korisničkog imena i lozinke  }}
+		\begin{packed_item}
+			
+			\item \textbf{Glavni sudionik: }Klijent
+			\item  \textbf{Cilj:} Odabir korisničkog imena i lozinke za prijavu u sustav
+			\item  \textbf{Sudionici:} Baza podataka
+			\item  \textbf{Preduvjet:} Korisnik je registriran
+			\item  \textbf{Opis osnovnog tijeka:}
+			
+			\item[] \begin{packed_enum}
+				
+				\item Korisnik unosi korisničko ime i lozinku
+				\item Aplikacija provjerava valjanost unesenih podataka
+				\item Aplikacija javlja uspješnost prijave korisnika i sprema korisnika u bazu podataka
+				
+			\end{packed_enum}
+			
+			\item  \textbf{Opis mogućih odstupanja:}
+			
+			\item[] \begin{packed_item}
+				
+				\item[2.a] Unos već postojećih podataka
+				\item[] \begin{packed_enum}
+					
+					\item Ispis odgovarajuće poruke upozorenja
+					
+					
+				\end{packed_enum}
+				
+				
+			\end{packed_item}
+			
+			
+			
+			
+		\end{packed_item}
 		
 			
 			
