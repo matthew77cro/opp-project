@@ -752,8 +752,40 @@
                 	\end{packed_item}
                 \end{packed_item}
             
+            	
+            	 \noindent \underbar{\textbf{UC21 - Obavljanje transkacija po računima}}
+            	\begin{packed_item}
+            		
+            		\item \textbf{Glavni sudionik: }Bankar
+            		\item  \textbf{Cilj:} ugovoriti kredit klijentu
+            		\item  \textbf{Sudionici:} Baza podataka, službenik za odobravanje kredita
+            		\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara te ima otvoren klijentov račun
+            		\item  \textbf{Opis osnovnog tijeka:}
+            		
+            		\item[] \begin{packed_enum}
+            			
+            			\item Bankar odabire opciju "Transfer"
+            			\item Otvara se novi prozor u kojem je za račun terećenja padajući izbornik - mogućnost odabira samo računa trenutnog klijenta
+            			\item Otvara se polje za upis računa odobrenja i bankar upisuje bilo čiji broj računa i iznos tranfera
+            			\item U bazu podataka se pohrani promjena 
+            		\end{packed_enum}
+            		
+            		\item  \textbf{Opis mogućih odstupanja:} 
+            		
+            		\item[] \begin{packed_item}
+            			
+            			\item[3.a] Upisan nepostojeći račun  odobrenja ili ako je iznos transfera veći nego što klijent ima na računu terećenja
+            			\item[] \begin{packed_enum}
+            				
+            				\item Sustav obavještava bankara o neuspjelom upisu 
+            				
+            			\end{packed_enum}
+            			
+            		\end{packed_item}
+            	\end{packed_item}
             
-                \noindent \underbar{\textbf{UC21 - Odobrenje kreditnih zahtjeva}}
+            
+                \noindent \underbar{\textbf{UC22 - Odobrenje kreditnih zahtjeva}}
                 \begin{packed_item}
                 	
                 	\item \textbf{Glavni sudionik: } Službenik za odobravanje kredita
@@ -774,7 +806,7 @@
                 \end{packed_item}
             
             
-                \noindent \underbar{\textbf{UC22 - Blokiranje kreditnih zahtjeva}}
+                \noindent \underbar{\textbf{UC23 - Blokiranje kreditnih zahtjeva}}
                 \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: } Službenik za odobravanje kredita
@@ -795,7 +827,7 @@
                     \end{packed_item}
                 
             
-                 \noindent \underbar{\textbf{UC23 - Uvid u podatke o klijentima}}
+                 \noindent \underbar{\textbf{UC24 - Uvid u podatke o klijentima}}
                     \begin{packed_item}
                     
                       \item \textbf{Glavni sudionik: } Službenik za odobravanje kredita
@@ -815,7 +847,7 @@
                 
            
         			
-        		  \noindent \underbar{\textbf{UC24 - Pregled podataka o vlastitom profilu }}
+        		  \noindent \underbar{\textbf{UC25 - Pregled podataka o vlastitom profilu }}
         			\begin{packed_item}
         				
         				\item \textbf{Glavni sudionik: }Klijent
@@ -836,7 +868,7 @@
     			\end{packed_item}
     		
     		
-    			\noindent \underbar{\textbf{UC25 - Pregled transakcijskih računa }}
+    			\noindent \underbar{\textbf{UC26 - Pregled transakcijskih računa }}
     		\begin{packed_item}
     			
     			\item \textbf{Glavni sudionik: }Klijent
@@ -857,7 +889,7 @@
     		\end{packed_item}
     	
     	
-    		\noindent \underbar{\textbf{UC26-Pregled štednih računa }}
+    		\noindent \underbar{\textbf{UC27 - Pregled štednih računa }}
     	\begin{packed_item}
     		
     		\item \textbf{Glavni sudionik: }Klijent
@@ -878,7 +910,7 @@
     	\end{packed_item}
     
     
-		    \noindent \underbar{\textbf{UC27 - Pregled kredita }}
+		    \noindent \underbar{\textbf{UC28 - Pregled kredita }}
 		    \begin{packed_item}
 		    	
 		    	\item \textbf{Glavni sudionik: }Klijent
@@ -899,7 +931,7 @@
 		    \end{packed_item}
 	    
 	    
-		      \noindent \underbar{\textbf{UC28 - Pregled kartica }}
+		      \noindent \underbar{\textbf{UC29 - Pregled kartica }}
 		    \begin{packed_item}
 		    	
 		    	\item \textbf{Glavni sudionik: }Klijent
@@ -920,7 +952,7 @@
 		    	
 		    \end{packed_item}
     			
-    			\noindent \underbar{\textbf{UC29 - Pregled podataka o transakcijama }}
+    			\noindent \underbar{\textbf{UC30 - Pregled podataka o transakcijama }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -941,7 +973,7 @@
     			\end{packed_item}
     		
     			
-    			\noindent \underbar{\textbf{UC30 - Prijenos sredstava između vlastitih računa }}
+    			\noindent \underbar{\textbf{UC31 - Prijenos sredstava između vlastitih računa }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -981,7 +1013,7 @@
     			\end{packed_item}
     		
     			
-    				\noindent \underbar{\textbf{UC31 - Prijenos sredstava na račun drugih klijenata }}
+    				\noindent \underbar{\textbf{UC32 - Prijenos sredstava na račun drugih klijenata }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -1019,7 +1051,7 @@
     			\end{packed_item}
     		
     		
-    		\noindent \underbar{\textbf{UC32 - Ručno izvršavanje uplate kredita }}
+    		\noindent \underbar{\textbf{UC33 - Ručno izvršavanje uplate kredita }}
     		\begin{packed_item}
     			
     			\item \textbf{Glavni sudionik: }Klijent
@@ -1058,7 +1090,7 @@
     		\end{packed_item}
     	 
     	 
-    		\noindent \underbar{\textbf{UC33 - Ručno izvršavanje uplate na kreditnu karticu }}
+    		\noindent \underbar{\textbf{UC34 - Ručno izvršavanje uplate na kreditnu karticu }}
     	\begin{packed_item}
     		
     		\item \textbf{Glavni sudionik: }Klijent
@@ -1098,7 +1130,7 @@
     		
     		
     		
-    		\noindent \underbar{\textbf{UC34 - Podnošenje zahtjeva za kreditom }}
+    		\noindent \underbar{\textbf{UC35 - Podnošenje zahtjeva za kreditom }}
     		\begin{packed_item}
     			
     			\item \textbf{Glavni sudionik: }Klijent
@@ -1120,7 +1152,7 @@
     		\end{packed_item}
     	
     	
-    		\noindent \underbar{\textbf{UC35 - Podnošenje zahtjeva za kreditnom karticom }}
+    		\noindent \underbar{\textbf{UC36 - Podnošenje zahtjeva za kreditnom karticom }}
     	\begin{packed_item}
     		
     		\item \textbf{Glavni sudionik: }Klijent
@@ -1144,7 +1176,7 @@
     		
     		
     			
-    		     \noindent \underbar{\textbf{UC36 - Zahtjev za sastankom s bankarom }}
+    		     \noindent \underbar{\textbf{UC37 - Zahtjev za sastankom s bankarom }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -1168,7 +1200,7 @@
     			\end{packed_item}
     		
     			
-    				\noindent \underbar{\textbf{UC37 - Registracija korisnika  }}
+    				\noindent \underbar{\textbf{UC38 - Registracija korisnika  }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Neregistrirani klijent
@@ -1204,7 +1236,7 @@
 				
 			\end{packed_item}
 		
-			\noindent \underbar{\textbf{UC38 - Odabir korisničkog imena i lozinke  }}
+			\noindent \underbar{\textbf{UC39 - Odabir korisničkog imena i lozinke  }}
 		\begin{packed_item}
 			
 			\item \textbf{Glavni sudionik: }Klijent
