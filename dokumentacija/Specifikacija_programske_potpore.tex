@@ -27,18 +27,18 @@
 				\begin{packed_enum}
 					
 					\item Pristup sustavu pomoću korisničkog imena i lozinke
-					\item Pregled popisa svih registriranih korisnika aplikacije i njihovih osobnih podataka
-					\item Dodavanje novih djelatnika u sustav
+					\item Pregled popisa svih profila i uz njih vezanih korisničkih računa
+					\item Dodavanje novih profila u sustav
 					\begin{packed_enum}
-						\item Unosi ime, prezime, adresu prebivališta, OIB, datum rođenja, e-mail adresu, sliku profila djelatnika
+						\item Unosi ime, prezime, adresu prebivališta, OIB, datum rođenja, e-mail adresu, sliku profila, vrsta korisnika
 					\end{packed_enum}
-					\item Izmjena osobnih podataka djelatnika banke					
-					\item Brisanje korisnika aplikacije i mijenjanje razine pristupa korisnicima aplikacije
-					\item Dodavanje poslovnica banke
+					\item Izmjena podataka profila i mijenjanje razine pristupa korisnicima aplikacije
+					\item Brisanje profila korisnika
+					\item Dodavanje novog korisničkog računa
 					\begin{packed_enum}
-						\item Unosi ime, adresu i jedinstveni identifikator poslovnice
+						\item Odabir korisničkog imena, sustav generira privremenu lozinku koju je potrebno promijeniti prilikom prve prijave
 					\end{packed_enum}
-					\item Brisanje poslovnica banke
+					\item Brisanje korisničkog računa pojedinih profila
 					
 				\end{packed_enum}
 			\eject
@@ -46,13 +46,16 @@
 				
 				\begin{packed_enum}
 					
-					\item Sadrži podatke o korisnicima sustava
+					\item Sadrži podatke o profilima korisnika sustava
 					\begin{packed_enum}
 						\item Ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila, vrsta korisnika
+						\item Sve korisničke račune vezane za jedan profil
 					\end{packed_enum}
 					\item Sadrži podatke o računima klijenata
 					\begin{packed_enum}
-						\item Broj i vrsta računa
+						\item Broj i stanje tekućeg računa
+						\item Broj i stanje žiro računa
+						\item Broj i stanje štednog računa
 					\end{packed_enum}
 					\item Sadrži podatke o karticama klijenata
 					\begin{packed_enum}
@@ -61,15 +64,14 @@
 							\item Debitna kartica - vezana uz račun
 							\item Kreditna kartica - nije vezana uz račun
 						\end{packed_enum}
+						\item Ukoliko je kartica kreditna, sadrži ukupno dugovanje i ukupni odobreni limit po kartici
 					\end{packed_enum}
-					\item Sadrži podatke o transakcijama
+					\item Sadrži podatke o transakcijama među računima klijenata banke
+					\item Sadrži podatke o transakcijama po debitnim i kreditnim karticama
 					\item Sadrži podatke o kreditima
 					\begin{packed_enum}
-						\item Iznos, namjena i rok otplate kredita
-					\end{packed_enum}
-					\item Sadrži podatke o poslovnicama
-					\begin{packed_enum}
-						\item Ime, adresa i jedinstveni identifikator
+						\item Iznos, namjena, rok otplate kredita u mjesecima i kamatna stopa
+						\item Ukupno preostalo dugovanje (u početku jest iznos uvećan za kamatnu stopu, smanjuje se s otplatom)
 					\end{packed_enum}
 					
 				\end{packed_enum}
@@ -82,22 +84,26 @@
 					\begin{packed_enum}
 						\item Nakon inicijalne prijave obvezan je odmah stvoriti novu lozinku
 					\end{packed_enum}
-					\item Mogućnost uvida u vlastite osobne podatke
+					\item Mogućnost uvida u vlastiti profil
 					\begin{packed_enum}
 						\item Ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila
 					\end{packed_enum}
-					\item Izrada korisničkih profila klijenata
+					\item Izrada korisničkih profila klijenata banke
 					\begin{packed_enum}
 						\item Unosi ime, prezime, adresu, OIB, datum rođenja, e-mail adresu, sliku profila klijenta
 					\end{packed_enum}
 					\item Brisanje korisničkih profila klijenata
-					\item Ažuriranje i mijenjanje korisničkih profila klijenata
+					\item Izmjena podataka korisnilkim profilima klijenata
 					\item Pretraga profila klijenata pomoću OIB-a klijenta
 					\item Otvaranje i zatvaranje tekućih, žiro i štednih računa
 					\item Obavljanje transakcija po računima klijenata
 					\item Ugovaranje, aktivacija i deaktivacija debitnih i kreditnih kartica
 					\item Ugovaranje kredita
-					\item Preuzimanje klijentskih zahtjeva za sastankom
+					\item Otvaranje korisničkih računa za profile klijenata
+					\begin{packed_enum}
+						\item Otvaranjem korisničkih računa dobiva prikaz privremenog ključa kojeg korisnik unosi uz svoj OIB kako bi odabrao korisničko ime i lozinku
+					\end{packed_enum}
+					\item Brisanje korisničkih računa za profile klijenata
 					
 				\end{packed_enum}
 			
@@ -105,14 +111,16 @@
 				
 				\begin{packed_enum}
 					
-					\item Odobrenje i blokiranje kreditnih zahtjeva
-					\item Uvid u podatke o klijentima
+					\item Inicijalnu prijavu u sustav vrši pomoću korisničkog imena i privremene lozinke dobivene od administratora
 					\begin{packed_enum}
-						\item Osobni podaci: ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila
-						\item Podaci o računima: broj i stanje računa
-						\item Podaci o ugovorenim kreditima: iznos, trajanje otplate
-						\item Podaci o kreditnim karticama
+						\item Nakon inicijalne prijave obvezan je odmah stvoriti novu lozinku
 					\end{packed_enum}
+					\item Mogućnost uvida u vlastiti profil
+					\begin{packed_enum}
+						\item Ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila
+					\end{packed_enum}
+					\item Odobrenje i blokiranje kreditnih zahtjeva
+					\item Uvid u sve podatke o profilima klijentima
 					
 				\end{packed_enum}
 				
@@ -120,11 +128,11 @@
 				
 				\begin{packed_enum}
 					
-					\item Pregledavanje podataka o vlastitom profilu
+					\item Pregledavanje podataka isključivo o vlastitom profilu
 					\begin{packed_enum}
-						\item Ime, prezime, OIB, adresa, datum rođenja, slika profila
+						\item Ime, prezime, OIB, adresa, datum rođenja, e-mail adresa, slika profila
+						\item Sve ugovorene usluge banke (transakcijski računi, krediti, debitne i kreditne kartice, štedni računi i dr.)
 					\end{packed_enum}
-					\item Pregledavanje transakcijskih i štednih računa, te ugovorenih kredita i kartica
 					\item Pregledavanje podataka o transakcijama
 					\item Prijenos sredstava između vlastitih računa
 					\item Prijenos sredstava na račun drugih klijenata
@@ -136,10 +144,6 @@
 					\item Podnošenje zahtjeva za kreditnom karticom
 					\begin{packed_enum}
 						\item Unos vrste kartice (Mastercard, Visa, American Express, Diners, Discover)
-					\end{packed_enum}
-					\item Zahtjev za sastankom s bankarom
-					\begin{packed_enum}
-						\item Unos željene poslovnice, datuma i vremena sastanka
 					\end{packed_enum}
 					
 				\end{packed_enum}
@@ -197,10 +201,10 @@
 				\end{packed_item}
 			
 			
-				\noindent \underbar{\textbf{UC2-Pregled svih korisnika sustava }}
+				\noindent \underbar{\textbf{UC2-Pregled profila svih korisnika sustava }}
 				\begin{packed_item}
 					
-					\item \textbf{Glavni sudionik: }Administrator
+					\item \textbf{Glavni sudionik:} Administrator
 					\item  \textbf{Cilj:} Pregledati registrirane korisnike i njihove osobne podatke
 					\item  \textbf{Sudionici:} Baza podataka
 					\item  \textbf{Preduvjet:} : Korisnik je registriran i dodijeljena su mu prava administratora
@@ -209,8 +213,7 @@
 					\item[] \begin{packed_enum}
 						
 						\item Administrator odabire opciju pregledavanja korisnika
-						\item Prikazuje se lista svih ispravno registriranih korisnika
-						
+						\item Prikazuje se lista svih profila korisnika
 						
 					\end{packed_enum}
 					
@@ -220,21 +223,23 @@
 				
 				
 				
-		   	\noindent \underbar{\textbf{UC3-Dodavanje novih djelatnika }}
+		   	\noindent \underbar{\textbf{UC3-Dodavanje novih profila u sustav }}
 				\begin{packed_item}
 						
 						\item \textbf{Glavni sudionik: }Administrator
-						\item  \textbf{Cilj:} Dodati djelatnika u sustav
+						\item  \textbf{Cilj:} Dodati profil u sustav
 						\item  \textbf{Sudionici:} Baza podataka
-						\item  \textbf{Preduvjet:} Djelatnik se ne nalazi u bazi podataka
+						\item  \textbf{Preduvjet:} Profil se ne nalazi u bazi podataka
 						\item  \textbf{Opis osnovnog tijeka:}
 						
 						\item[] \begin{packed_enum}
 							
-							\item Administrator unosi potrebne osobne podatke djelatnika i novo korisničko ime
-							\item Sustav generira privremenu lozinku za djelatnika i ispisuje ju administratoru
+							\item Administrator unosi potrebne osobne podatke
+							\begin{packed_enum}
+								\item Ime, prezime, adresa, OIB, datum rodenja, e-mail adresa, slika profila, vrsta korisnika (razina pristupa sustavu)
+							\end{packed_enum}
 							\item Podaci se unose u bazu podataka
-							\item Stvoren je djelatnikov račun
+							\item Stvoren je novi profil
 							
 						\end{packed_enum}
 						
@@ -242,32 +247,30 @@
 						
 						\item[] \begin{packed_item}
 							
-							\item[1.a] Unos neispravnih podataka (krivi OIB, korisničko ime već postoji i dr.)
+							\item[1.a] Unos neispravnih podataka (krivi OIB, profil s tim OIB-om ime već postoji i dr.)
 							\item[] \begin{packed_enum}
 								
 								\item Ispis odgovarajuće poruke upozorenja
 								
-								
 							\end{packed_enum}
-							
 							
 						\end{packed_item}
 					\end{packed_item}
 				
 				
-				\noindent \underbar{\textbf{UC4-Izmjena osobnih podataka djelatnika  }}
+				\noindent \underbar{\textbf{UC4-Izmjena podataka profila korisnika  }}
 				\begin{packed_item}
 					
 					\item \textbf{Glavni sudionik: }Administrator
-					\item  \textbf{Cilj:} Urediti i izmijeniti osobne podatke djelatnika
+					\item  \textbf{Cilj:} Urediti i izmijeniti podatke profila
 					\item  \textbf{Sudionici:} Baza podataka
 					\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav kao administrator
 					\item  \textbf{Opis osnovnog tijeka:}
 					
 					\item[] \begin{packed_enum}
 						
-						\item Administrator pronalazi željenog djelatnika u popisu svih korisnika sustava
-						\item Administrator odabire opciju uređivanja djelatnika
+						\item Administrator otvara željeni profil iz popisa svih korisnika
+						\item Administrator odabire opciju uređivanja profila
 						\item Administrator izmjenjuje podatke korisnika i sprema ih u bazu podataka 
 						
 					\end{packed_enum}
@@ -276,20 +279,20 @@
 				\end{packed_item}
 			
 			
-			\noindent \underbar{\textbf{UC5-Brisanje korisnika }}
+			\noindent \underbar{\textbf{UC5-Brisanje profila korisnika }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
 				\item  \textbf{Cilj:} Obrisati korisnika
 				\item  \textbf{Sudionici:} Baza podataka
-				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+				\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav kao administrator
 				\item  \textbf{Opis osnovnog tijeka:}
 				
 				\item[] \begin{packed_enum}
 					
-					\item Administrator odabire željenog korisnika u popisu svih korisnika sustava
-					\item Administrator odabire opciju brisanja korisnika
-					\item Administrator uklanja korisnika i njegove podatke iz baze podataka
+					\item Administrator otvara željeni profil iz popisa svih korisnika
+					\item Administrator odabire opciju brisanja profila
+					\item Uklanja se korisnik i njegovi podaci iz baze podataka
 					
 				\end{packed_enum}
 				
@@ -298,62 +301,75 @@
 				
 							
 			
-			\noindent \underbar{\textbf{UC6 - Promjena razine pristupa }}
+			\noindent \underbar{\textbf{UC6 - Promjena razine pristupa profila }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
 				\item  \textbf{Cilj:} Promijeniti razinu pristupa korisnika(klijent, bankar, službenik za odobravanje kreditnih zahtjeva klijenata)
 				\item  \textbf{Sudionici:} Baza podataka
-				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+				\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav kao administrator
 				\item  \textbf{Opis osnovnog tijeka:}
 				
 				\item[] \begin{packed_enum}
 					
-					\item Administrator odabire željenog korisnika
-					\item Izmijeni razinu pristupa korisnika i sprema promjenu u bazu podataka
+					\item Administrator odabire željenog korisnika s popisa profila
+					\item Izmijeni razinu pristupa korisnika
 					
 					
 				\end{packed_enum}
 				
 			\end{packed_item}
 			
-			\noindent \underbar{\textbf{UC7 - Dodavanje poslovnice banke }}
+			\noindent \underbar{\textbf{UC7 - Dodavanje novog korisničkog računa }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
-				\item  \textbf{Cilj:} Dodati poslovnicu banke
+				\item  \textbf{Cilj:} Dozvoliti pristup sustavu nekom korisniku
 				\item  \textbf{Sudionici:} Baza podataka
-				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+				\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav kao administrator, postoji profil korisnika kome želimo dodati korisnički račun
 				\item  \textbf{Opis osnovnog tijeka:}
 				
 				\item[] \begin{packed_enum}
 					
-					\item Administrator unosi podatke o poslovnici banke
-					\item Administrator sprema podatke o poslovnici u bazu podataka
-					\item Poslovnica banke postaje vidljiva unutar sustava
+					\item Administrator otvara željeni profil iz popisa svih korisnika
+					\item Administrator odabire opciju dodavanja korisničkog računa
+					\item Administrator odabire korisničko ime i privremenu lozinku koja se mora promijeniti prilikom prve prijave tim vjerodajnicama
 					
 					
 				\end{packed_enum}
+			
+				\item  \textbf{Opis mogućih odstupanja:}
+				
+				\item[] \begin{packed_item}
+					
+					\item[3.1] Unos već postojećeg korisničkog ime
+					\item[] \begin{packed_enum}
+						
+						\item Ispis odgovarajuće poruke upozorenja
+						\item Korisnički račun ne dodaje se u sustav
+						
+					\end{packed_enum}
+					
+				\end{packed_item}
 				
 			\end{packed_item}
 		
 			
-			\noindent \underbar{\textbf{UC8 - Brisanje poslovnice banke }}
+			\noindent \underbar{\textbf{UC8 - Brisanje korisničkog računa }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
-				\item  \textbf{Cilj:} Obrisati poslovnicu banke
+				\item  \textbf{Cilj:} Onemogućiti pristup sustavu nekom korisniku
 				\item  \textbf{Sudionici:} Baza podataka
-				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava administratora
+				\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav kao administrator, postoji profil korisnika koji ima korisnički račun vezan za sebe
 				\item  \textbf{Opis osnovnog tijeka:}
 				
 				\item[] \begin{packed_enum}
 					
-					\item Administrator odabire željenu poslovnicu banke
-					\item Administrator odabire opciju brisanja banke
-					\item Poslovnica banke se uklanja iz baze podataka
-					
-					
+					\item Administrator otvara željeni profil iz popisa svih korisnika
+					\item U popisu korisničkih računa vezanih za odabrani profil, odabere onog kojeg želi obrisati
+					\item Administrator potvrđuje opciju uklanjanja korisničkog računa
+										
 				\end{packed_enum}
 				
 			\end{packed_item}
