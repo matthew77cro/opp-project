@@ -13,7 +13,7 @@
 		
 		\textit{\textbf{Neregistrirani korisnik}}, za registraciju u sustav upisuje svoj OIB i jedinstveni ključ koji je dobio od bankara. Nakon uspješnog unosa tih podataka, odabire korisničko ime i lozinku koji će mu u buduće služiti za prijavu u sustav. Ostale podatke o pojedinom korisniku kao što su: ime, prezime, adresa prebivališta, datum rođenja, e-mail adresa, sliku korisnika i dr., u sustav unosi bankarski službenik prilikom ugovaranja bilo kakve usluge banke.
 		
-		\textit{\textbf{Administrator}} u sustav ulazi putem unaprijed definirane web adrese gdje unosi svoje korisničko ime i lozinku koji mu daju pristup sustavu. On vidi popis svih korisnika sustava te može uređivati podatke za bilo koju vrstu korisnika, kao i dodavati te brisati same korisnike sustava. Jedina je osoba koja može kreirati račune ostalim djelatnicima banke.
+		\textit{\textbf{Administrator}} u sustav ulazi unosom svoje korisničkog imea i lozinke koji mu daju pristup sustavu. On vidi popis svih korisnika sustava te može uređivati podatke za bilo koju vrstu korisnika, kao i dodavati te brisati same korisnike sustava. Jedina je osoba koja može kreirati račune ostalim djelatnicima banke.
 		
 		\textit{\textbf{Bankar}} svoj korisnički račun dobivaju od administratora. Ime, prezime, adresa prebivališta, OIB, datum rođenja, e-mail adresa i slika profila unaprijed su poznati podaci koje u sustav unosi administrator za svakog novog djelatnika. Pošto postanu dio kolektiva banke te nakon što administrator unese njihove podatke u sustav, u web aplikaciju unose korisničko ime i privremenu lozinku dobivenu od administratora sustava. Nakon prijave privremenom lozinkom, obavezni su odmah stvoriti novu lozinku. U sustavu imaju uvid u sve svoje osobne podatke, ali nemaju mogućnost izmjene tih podataka.
 		Bankar nema uvid u popis korisnika sustava, niti u popis klijenata banke (građana). On može otvoriti, obrisati ili mijenjati profile klijenata. Kako bi pronašao profil nekog građana i uređivao ga ili brisao, dužan je unijeti OIB osobe za koju radi izmjenu u sustavu nakon čega mu se otvara profil te osobe (pretraga profila radi se po OIB-u građana). Također mu je dozvoljeno otvarati i zatvarati tekuće, žiro, štedne račune, ugovarati kredite, kreditne i debitne kartice za korisnike banke, aktivacija i deaktivacija kartica te obavljanje transakcija po računima klijenata.
@@ -36,6 +36,12 @@
 		
 		Debitne kartice u sustavu prikazuju se odvojeno od tekućeg ili žiro računa kojem pripadaju. Može postojati račun bez debitne kartice, ali ne i debitna kartica bez računa. Odnosno, svaka debitna kartica mora biti vezana uz jedan račun.
 		
+		Važno je napomenuti da odvajamo pojam \textbf{profila korisnika sustava} od \textbf{korisničkog računa}.
+		
+		\textbf{Profil korisnika sustava} može postojati i bez korisničkog računa. On se sastoji od svih osobnih podataka korisnika (ime, prezime, OIB, adresa prebivališta, datum rođenja, e-mail adresa i slika profila), razine pristupa sustavu (administrator, bankar, službenik za odobravanje kredita ili klijent banke) te, ukoliko se radi o klijentu banke, svih njegovih ugovorenih usluga (transakcijskih računa, štednih računa, kredita, kreditnih kartica i debitnih kartica).
+		
+		Pod pojmom \textbf{korisničkog računa} podrazumijevamo način na koji korisnik pristupa podacima u sustavu i aktivnostima koji su mu dozvoljeni nad sustavom. Korisnički račun jest način kako korisnik sustava dobiva ovlast pregledavati sve podatke u sustavu koji su mu dozvoljeni. Njega definira korisničko ime i lozinka te svaki od vrste korisnika na drugačiji način (ranije definiran) dobiva korisnički račun. Svaki korisnički račun veže se uz jedan od korisničkih profila, odnosno korisnički račun ne može postojati bez profila korisnika.
+		
 		Primjeri ovakvog sustava mogu se pronaći u svim modernim, vodećim bankama u svijetu i u Hrvatskoj. Neki od njih prikazani su u nastavku.
 		
 		\begin{figure}[H]
@@ -57,6 +63,13 @@
 			\centering
 			\caption{Usluga internet bankarstva OTP banke}
 			\label{fig:otp}
+		\end{figure}
+	
+		\begin{figure}[H]
+			\includegraphics[scale=0.25]{slike/motp.JPG}
+			\centering
+			\caption{Usluga mobilnog bankarstva OTP banke}
+			\label{fig:mzaba}
 		\end{figure}
 		
 		\eject
