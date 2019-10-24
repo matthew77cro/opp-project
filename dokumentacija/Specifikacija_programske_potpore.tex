@@ -258,6 +258,7 @@
 						\end{packed_item}
 					\end{packed_item}
 				
+				
 				\noindent \underbar{\textbf{UC4-Izmjena osobnih podataka djelatnika  }}
 				\begin{packed_item}
 					
@@ -277,6 +278,7 @@
 					
 					
 				\end{packed_item}
+			
 			
 			\noindent \underbar{\textbf{UC5-Brisanje korisnika }}
 			\begin{packed_item}
@@ -298,10 +300,9 @@
 				
 			\end{packed_item}
 				
-				
+							
 			
-			
-			\noindent \underbar{\textbf{UC6-Promijena razine pristupa }}
+			\noindent \underbar{\textbf{UC6 - Promijena razine pristupa }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
@@ -320,7 +321,7 @@
 				
 			\end{packed_item}
 			
-			\noindent \underbar{\textbf{UC7-Dodavanje poslovnice banke }}
+			\noindent \underbar{\textbf{UC7 - Dodavanje poslovnice banke }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
@@ -339,8 +340,9 @@
 				\end{packed_enum}
 				
 			\end{packed_item}
+		
 			
-			\noindent \underbar{\textbf{UC8-Brisanje poslovnice banke }}
+			\noindent \underbar{\textbf{UC8 - Brisanje poslovnice banke }}
 			\begin{packed_item}
 				
 				\item \textbf{Glavni sudionik: }Administrator
@@ -359,8 +361,70 @@
 				\end{packed_enum}
 				
 			\end{packed_item}
+		
+			
+			   \noindent \underbar{\textbf{UC9 - Inicijalna prijava }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Bankar
+				\item  \textbf{Cilj:} Stvoriti korisnički račun za pristup sustavu
+				\item  \textbf{Sudionici:} Baza podataka
+				\item  \textbf{Preduvjet:} Dobivena privremena lozinka i korisničko ime od administratora
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item  Vlasnik odabire  opciju za prijavu
+					\item  Korisnik unosi korisničko ime i privremenu lozinku dobivene od administratora i nema još otvoren korisnički račun
+					\item  Korisnik prima obavijest o usppješnoj registraciji
+					\item  Korisnik mijenja privremenu lozinku 
+					\item  U bazu podataka se pohrani promjena 
+				\end{packed_enum}
+				
+				\item  \textbf{Opis mogućih odstupanja:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item[2.a] Upisana kriva kombinacija korisničkog imena i privremen lozinke
+					\item[] \begin{packed_enum}
+						
+						\item Sustav obavještava korisnika o neuspjelom upisu 
+						
+						
+					\end{packed_enum}
+					\item[] \begin{packed_enum}
+					
+					\item[4a] Korisnik nije promijenio lozinku 
+					\item[] \begin{packed_enum}
+						
+						\item Sustav obavještava korisnika o obaveznom mijenjanju privremene lozinke
+						
+						
+					\end{packed_enum}
+				\end{packed_enum}
+			\end{packed_item}
+		
+		
+			\noindent \underbar{\textbf{UC10 - Uvid u vlastite osobne podatke }}
+			\begin{packed_item}
+				
+				\item \textbf{Glavni sudionik: }Bankar
+				\item  \textbf{Cilj:} Pregledati osobne podatke
+				\item  \textbf{Sudionici:} Baza podatak
+				\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara 
+				\item  \textbf{Opis osnovnog tijeka:}
+				
+				\item[] \begin{packed_enum}
+					
+					\item  Korisnik odabire opciju ”Osobni podatci"
+					\item  Aplikacija prikazuje : ime, prezime, adresu, OIB, datum rođenja, e-mail adresu i sliku profila krisnika
+				\end{packed_enum}
+				
+			\end{packed_item}
             		
-            \noindent \underbar{\textbf{UC8 - izrada novog korisničkog profila klijenta }}
+          
+          
+            \noindent \underbar{\textbf{UC11 - Izrada novog korisničkog profila klijenta }}
             \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: }Bankar
@@ -373,15 +437,16 @@
                 
                     \item  Bankar odabire opciju izrade novog korisničkog profila klijenta
                     \item  Otvara se prozor za upis osobnih podataka klijenta
-                    \item  Bankar upiše osobne podatke klijenta i potvrdi upis
-                    \item  Klijentu je omogućen pristup profilu preko aplikacije
+                    \item  Bankar upiše ime, prezime, adresu, OIB, datum rođenja, e-mail adresu, sliku profila i potvrdi upis
                     \item  U bazu podataka se pohrani promjena
+                    \item  Klijentu je omogućen pristup profilu preko aplikacije                                  
                   \end{packed_enum}
                   
                 \end{packed_item}
+            
                 
                 
-                \noindent \underbar{\textbf{UC9 - Brisanje korisničkog profila klijenta }}
+                \noindent \underbar{\textbf{UC12 - Brisanje korisničkog profila klijenta }}
                 \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: }Bankar
@@ -395,8 +460,8 @@
                     \item  Vlasnik odabire  opciju brisanja korisničkog profila klijenta
                     \item  Otvara se prozor za upis OIB-a klijenta
                     \item  Bankar  upiše OIB  i potvrdi upis
+                    \item  U bazu podataka se pohrani promjena
                     \item  Klijent nije u mogućnosti pristupiti profilu preko aplikacije
-                    \item  U bazu podataka se pohrani promjena 
                   \end{packed_enum}
                   
                   \item  \textbf{Opis mogućih odstupanja:}
@@ -412,8 +477,9 @@
                   \end{packed_enum}
                 \end{packed_enum}
             \end{packed_item}
+        
                 
-                \noindent \underbar{\textbf{UC10 - Mijenjanje korisničkog profila klijenta}}
+                \noindent \underbar{\textbf{UC13 - Mijenjanje korisničkog profila klijenta}}
                 \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: }Bankar
@@ -428,8 +494,8 @@
                     \item  Bankar pronalazi željenog korisnika
                     \item  Bankar mijenja podatke u profilu klijenta
                     \item  Bankar odabite opciju "Spremi"
+                    \item  U bazu podataka se pohrani promjena                     
                     \item  Korisnik vidi promjene u korisničkom profilu u aplikaciji 
-                    \item  U bazu podataka se pohrani promjena 
                   \end{packed_enum}
                   
                   \item  \textbf{Opis mogućih odstupanja:}
@@ -445,58 +511,26 @@
                   
                 \end{packed_item}
             \end{packed_item}
+        
+        
                 
-               \noindent \underbar{\textbf{UC11 - Otvaranje transakcijskog računa}}
+               \noindent \underbar{\textbf{UC14 - Otvaranje računa}}
                 \begin{packed_item}
             
                   \item \textbf{Glavni sudionik: }Bankar
-                  \item  \textbf{Cilj:} Otvoriti transakcijski račun klijentu
+                  \item  \textbf{Cilj:} Otvoriti račun klijentu
                   \item  \textbf{Sudionici:} Baza podataka, klijent
                   \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara
                   \item  \textbf{Opis osnovnog tijeka:}
                   
                   \item[] \begin{packed_enum}
                 
-                    \item Bankar odabire opciju izrade računa 
-                    \item Odabire između ponuđenih opcija transakcijski račun
-                    \item Otvara se prozor za upis OIB-a klijenta 
-                    \item Bankar odabire opciju "Otvori račun"
-                    \item Transakcijski račun dodan u klijentov korisnički profil u aplikaciji
-                    \item U bazu podataka se pohrani promjena 
-                  \end{packed_enum}
-                  
-                  \item  \textbf{Opis mogućih odstupanja:}
-                  
-                  \item[] \begin{packed_item}
-                
-                    \item[3.a] Upisan nepostojeći OIB klijenta
-                    \item[] \begin{packed_enum}
-                      
-                      \item Sustav obavještava bankara o neuspjelom upisu OIB-a 
-                      
-                    \end{packed_enum}
-                    
-                  \end{packed_item}
-                \end{packed_item}
-                
-                \noindent \underbar{\textbf{UC12 - Zatvaranje transakcijskog računa}}
-                \begin{packed_item}
-                
-                  \item \textbf{Glavni sudionik: }Bankar
-                  \item  \textbf{Cilj:} Zatvoriti transakcijski račun klijentu
-                  \item  \textbf{Sudionici:} Baza podataka, klijent
-                  \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara te klijent ima otvoren transakcijski račun
-                  \item  \textbf{Opis osnovnog tijeka:}
-                  
-                  \item[] \begin{packed_enum}
-                
-                    \item Bankar odabire opciju zatvaranja računa
-                    \item Odabire između  ponuđenih opcija transakciji račun 
-                    \item Otvara se prozor za upis OIB-a klijenta 
-                    \item Bankar odabire opciju "Zatvori račun"
-                    \item Transakcijski račun uklonjen  iz klijentovog korisničkog profila u aplikaciji
-                    \item U bazu podataka se pohrani promjena
-                  \end{packed_enum}
+                    \item Bankar odabire opciju "Izrada računa" 
+                    \item Odabire iz padajućeg izbornika tekući, žiro ili štedni
+                    \item Otvara se prozor za upis OIB-a klijenta i odabire opciju "Otvori"
+                    \item Promjene spremljene u bazu podataka                 
+                    \item Klijentu se omogućuje prikaz računa u alikaciji - iznos na računu
+                   \end{packed_enum}
                   
                   \item  \textbf{Opis mogućih odstupanja:}
                   
@@ -513,56 +547,23 @@
                 \end{packed_item}
                 
                 
-                \noindent \underbar{\textbf{UC13 - Otvaranje štednog računa}}
+                \noindent \underbar{\textbf{UC15 - Zatvaranje računa}}
                 \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: }Bankar
-                  \item  \textbf{Cilj:} Otvoriti štedni račun klijentu
+                  \item  \textbf{Cilj:} Zatvoriti račun klijentu
                   \item  \textbf{Sudionici:} Baza podataka, klijent
                   \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara te klijent ima otvoren transakcijski račun
                   \item  \textbf{Opis osnovnog tijeka:}
                   
                   \item[] \begin{packed_enum}
                 
-                    \item Bankar odabire opciju izrade računa
-                    \item Odabire između  ponuđenih opcija štedni račun
+                    \item Bankar odabire opciju "Zatvaranja računa"
+                    \item Odabire iz padajućeg izbornika tekući, žiro ili štedni
                     \item Otvara se prozor za upis OIB-a klijenta 
-                    \item Bankar odabire opciju "Otvori račun"
-                    \item Štedni račun dodan u korisnički profil klijenta u aplikaciji 
-                    \item U bazu podataka se pohrani promjena 
-                  \end{packed_enum}
-                  
-                  \item  \textbf{Opis mogućih odstupanja:}
-                  
-                  \item[] \begin{packed_item}
-                
-                    \item[3.a] Upisan nepostojeći OIB klijenta 
-                    \item[] \begin{packed_enum}
-                      
-                      \item Sustav obavještava bankara o neuspjelom upisu OIB-a
-                      
-                    \end{packed_enum}
-                    
-                  \end{packed_item}
-                \end{packed_item}
-                
-                    \noindent \underbar{\textbf{UC14 - Zatvaranje štednog računa}}
-                \begin{packed_item}
-                
-                  \item \textbf{Glavni sudionik: }Bankar
-                  \item  \textbf{Cilj:} zatvoriti štedni račun klijentu
-                  \item  \textbf{Sudionici:} Baza podataka, klijenet
-                  \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara te klijent ima otvoren štedni račun
-                  \item  \textbf{Opis osnovnog tijeka:}
-                  
-                  \item[] \begin{packed_enum}
-                
-                    \item Bankar odabire opciju izrade računa 
-                    \item Odabire između  ponuđenih opcija štedni račun
-                    \item Otvara se prozor za upis OIB-a klijenta
-                    \item Bankar odabire opciju "Zatvori račun"
-                    \item Štedni račun uklonjen iz klijentovog korisničkog profila u aplikaciji
+                    \item Bankar upisuje OIB i odabire opciju "Zatvori"                    
                     \item U bazu podataka se pohrani promjena
+                    \item Uklonjen uvid u informacije o računu klijentu u korisničkom profilu
                   \end{packed_enum}
                   
                   \item  \textbf{Opis mogućih odstupanja:}
@@ -572,31 +573,32 @@
                     \item[3.a] Upisan nepostojeći OIB klijenta
                     \item[] \begin{packed_enum}
                       
-                      \item Sustav obavještava bankara o neuspjelom upisu OIB-a
+                      \item Sustav obavještava bankara o neuspjelom upisu OIB-a 
                       
                     \end{packed_enum}
                     
                   \end{packed_item}
-                \end{packed_item}
+                \end{packed_item}             
+                            
                 
-                
-                \noindent \underbar{\textbf{UC15 -Ugovaranje debitne kartice}}
+                \noindent \underbar{\textbf{UC16 -Ugovaranje debitne kartice}}
                 \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: }Bankar
                   \item  \textbf{Cilj:} Ugovoriti debitnu karticu klijentu
                   \item  \textbf{Sudionici:} Baza podataka, klijent
-                  \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara te klijent koji podnosi zahtjev za karticu ima otvoren transakcijski račun 
+                  \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara
                   \item  \textbf{Opis osnovnog tijeka:}
                   
                   \item[] \begin{packed_enum}
                 
-                    \item Bankar odabire opciju ugovaranje debitnih kartica
+                    \item Bankar odabire opciju "Ugovaranje kartice"
+                    \item Bankar iz padajućeg izbornika bira između debitne i kreditne - debitnu
                     \item Otvara se prozor za upis OIB-a klijenta
                     \item Bankar upisuje OIB klijenta
                     \item Bankar odabire  opciju "Dodaj”
-                    \item Debitna kartica dodana u klijentov korisnički profil 
-                    \item 
+                    \item Promjene se spremaju u bazu podataka
+                    \item Dodaje se mogućnost uvida u broj kartice i račun uz koji je vezana preko korisničkog profila klijenta            
                   \end{packed_enum}
                   
                   \item  \textbf{Opis mogućih odstupanja:}
@@ -613,22 +615,24 @@
                   \end{packed_item}
                 \end{packed_item}
                 
-                \noindent \underbar{\textbf{UC16 -Ugovaranje kreditnih kartica}}
+                
+                \noindent \underbar{\textbf{UC17 -Ugovaranje kreditnih kartica}}
                 \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: }Bankar
                   \item  \textbf{Cilj:} Ugovoriti kreditnu karticu klijentu
-                  \item  \textbf{Sudionici:} Baza podataka, službenik za odobobravanje
+                  \item  \textbf{Sudionici:} Baza podataka
                   \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara
                   \item  \textbf{Opis osnovnog tijeka:}
                   
                   \item[] \begin{packed_enum}
                 
-                    \item Bankar odabire opciju ugovaranje kreditnih kartica
+                    \item Bankar odabire opciju "Ugovaranje kartice"
+                    \item Bankar iz padajućeg izbornika bira između debitne i kreditne - kreditnu
                     \item Otvara se prozor za upis OIB-a klijenta
-                    \item Bankar upisuje OIB klijenta
-                    \item Bankar odabire  opciju "Dodaj”
-                    \item Zahtjev se dodaje na listu zahtjeva (kojeg dalje preuzima službenik za odobravanje) 
+                    \item Bankar upisuje OIB klijenta i odabire  opciju "Dodaj"
+                    \item Promjene se spremaju u bazu podataka
+                    \item Dodaje se mogućnost uvida u broj kartice i dugovanje preko korisničkog profila klijenta  
                   \end{packed_enum}
                   
                   \item  \textbf{Opis mogućih odstupanja:}
@@ -644,8 +648,43 @@
                     
                   \end{packed_item}
                 \end{packed_item}
+            
+            
+            	\noindent \underbar{\textbf{UC18 - Aktiviranje kartica klijenta}}
+            	\begin{packed_item}
+            		
+            		\item \textbf{Glavni sudionik: }Bankar
+            		\item  \textbf{Cilj:} aktivirati karticu klijentu
+            		\item  \textbf{Sudionici:} Baza podataka, klijent
+            		\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara te je klijent zatražio aktivaciju
+            		\item  \textbf{Opis osnovnog tijeka:}
+            		
+            		\item[] \begin{packed_enum}
+            			
+            			\item Bankar odabire opciju "Aktivacija kartice"
+            			\item Otvara se prozor za upis OIB-a klijenta i broj kartice koju je potrebno aktivirati
+            			\item Bankar upisuje OIB klijenta 
+            			\item Bankar odabire opciju "Potvrdi"
+            			\item U bazu podataka se pohrani promjena 
+            			\item Klijent dobiva ovlasti nad karticom
+            		\end{packed_enum}
+            		
+            		\item  \textbf{Opis mogućih odstupanja:} 
+            		
+            		\item[] \begin{packed_item}
+            			
+            			\item[2.a] Upisan nepostojeći OIB klijenta
+            			\item[] \begin{packed_enum}
+            				
+            				\item Sustav obavještava bankara o neuspjelom upisu OIB-a
+            				
+            			\end{packed_enum}
+            			
+            		\end{packed_item}
+            	\end{packed_item}
                 
-                \noindent \underbar{\textbf{UC17 - Deaktiviranje kartica klijenta}}
+                
+                \noindent \underbar{\textbf{UC19 - Deaktiviranje kartica klijenta}}
                 \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: }Bankar
@@ -657,10 +696,11 @@
                   \item[] \begin{packed_enum}
                 
                     \item Bankar odabire opciju deaktivacija kartice 
-                    \item Otvara se prozor za upis OIB-a klijenta
+                    \item Otvara se prozor za upis OIB-a klijenta i broj kartice koju je potrebno deaktivirati
                     \item Bankar upisuje OIB klijenta 
                     \item Bankar odabire opciju "Potvrdi deaktivaciju"
-                        \item U bazu podataka se pohrani promjena 
+                    \item U bazu podataka se pohrani promjena 
+                    \item Klijent gubi ovlasti nad karticom
                   \end{packed_enum}
                   
                   \item  \textbf{Opis mogućih odstupanja:} 
@@ -677,11 +717,68 @@
                   \end{packed_item}
                 \end{packed_item}
                 
-                \noindent \underbar{\textbf{UC18 - Blokiranje kreditnih zahtjeva}}
+                
+                
+                 \noindent \underbar{\textbf{UC20 - Ugovaranje kredita}}
+                \begin{packed_item}
+                	
+                	\item \textbf{Glavni sudionik: }Bankar
+                	\item  \textbf{Cilj:} ugovoriti kredit klijentu
+                	\item  \textbf{Sudionici:} Baza podataka, službenik za odobravanje kredita
+                	\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava bankara te je klijent zatražio deaktivaciju
+                	\item  \textbf{Opis osnovnog tijeka:}
+                	
+                	\item[] \begin{packed_enum}
+                		
+                		\item Bankar odabire opciju "Ugovaranje kredita"
+                		\item Otvara se prozor za upis OIB-a klijenta
+                		\item Bankar upisuje OIB klijenta 
+                		\item Bankar odabire opciju "Dodaj"
+                		\item U bazu podataka se pohrani promjena 
+                		\item Klijent se dodaje na listu koja se šalje službeniku za odobravanje kredita
+                	\end{packed_enum}
+                	
+                	\item  \textbf{Opis mogućih odstupanja:} 
+                	
+                	\item[] \begin{packed_item}
+                		
+                		\item[2.a] Upisan nepostojeći OIB klijenta
+                		\item[] \begin{packed_enum}
+                			
+                			\item Sustav obavještava bankara o neuspjelom upisu OIB-a
+                			
+                		\end{packed_enum}
+                		
+                	\end{packed_item}
+                \end{packed_item}
+            
+            
+                \noindent \underbar{\textbf{UC21 - Odobrenje kreditnih zahtjeva}}
+                \begin{packed_item}
+                	
+                	\item \textbf{Glavni sudionik: } Službenik za odobravanje kredita
+                	\item  \textbf{Cilj:} Blokirati zahtjev za kredit klijentu
+                	\item  \textbf{Sudionici:} Baza podataka
+                	\item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava službenika za odobravanje kreditnih zahtjeva 
+                	\item  \textbf{Opis osnovnog tijeka:}
+                	
+                	\item[] \begin{packed_enum}
+                		
+                		\item Preuzimanje liste zahtjeva za kredit
+                		\item Odabir jednog od zahtjeva  
+                		\item Prikaz kreditnih sposobnosti klijenta i odabir opcije "Odobri"
+                		\item Spremanje promjena u bazu podataka
+                		\item Odluka o odobrenju postaje vidljiva korisniku unutar aplikacije
+                		
+                	\end{packed_enum}
+                \end{packed_item}
+            
+            
+                \noindent \underbar{\textbf{UC22 - Blokiranje kreditnih zahtjeva}}
                 \begin{packed_item}
                 
                   \item \textbf{Glavni sudionik: } Službenik za odobravanje kredita
-                  \item  \textbf{Cilj:} Odobriti zahtjev za kredit klijentu
+                  \item  \textbf{Cilj:} Blokirati zahtjev za kredit klijentu
                   \item  \textbf{Sudionici:} Baza podataka
                   \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava službenika za odobravanje kreditnih zahtjeva 
                   \item  \textbf{Opis osnovnog tijeka:}
@@ -690,51 +787,35 @@
                 
                     \item Preuzimanje liste zahtjeva za kredit
                     \item Odabir jednog od zahtjeva 
-                    \item Prikaz kreditnih sposobnosti klijenta
-                    \item Spremanje donesene odluke u bazu podataka
-                    \item Odluka postaje vidljiva korisniku unutar aplikacije
+                    \item Prikaz kreditnih sposobnosti klijenta i odabir opcije "Blokiraj"
+                    \item Spremanje promjena u bazu podataka
+                    \item Odluka o blokiranju postaje vidljiva korisniku unutar aplikacije
                     
                       \end{packed_enum}
                     \end{packed_item}
+                
             
-                    \noindent \underbar{\textbf{UC19 - Blokiranje kreditnih zahtjeva}}
+                 \noindent \underbar{\textbf{UC23 - Uvid u podatke o klijentima}}
                     \begin{packed_item}
                     
                       \item \textbf{Glavni sudionik: } Službenik za odobravanje kredita
                       \item  \textbf{Cilj:} Blokirati zahtjev za kredit klijentu
                       \item  \textbf{Sudionici:} Baza podataka
-                      \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava službenika za odobravanje kreditnih zahtjeva 
+                      \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava službenika za odobravanje kreditnih zahtjeva te je klijent podnio zahtjev za kredit
                       \item  \textbf{Opis osnovnog tijeka:}
                       
                       \item[] \begin{packed_enum}
                     
-                    \item Preuzimanje liste zahtjeva za kredit
-                    \item Odabir jednog od zahtjeva 
-                    \item Prikaz kreditnih sposobnosti klijenta
-                    \item Spremanje donesene odluke u bazu podataka
-                    \item Odluka postaje vidljiva korisniku unutar aplikacije
+                    \item S liste za odobravanje kredita, službenik bira klijenta čije osobne podatke želi predgledati u svrhu odobravanja kredita
+                    \item Prikazuju se osobni podaci: ime, prezime, adresa, OIB, datum rođenja, e-mail adresa, slika profila, podaci o računima: broj i stanje računa, podaci o ugovorenim kreditima: iznos, trajanje otplate te podaci o kreditnim karticama
+                    
                     
                   \end{packed_enum}
                 \end{packed_item}
                 
-                \noindent \underbar{\textbf{UC20 - Uvid u podatke o klijentu}}
-                \begin{packed_item}
-                
-                  \item \textbf{Glavni sudionik: } Službenik za odobravanje kredita
-                  \item  \textbf{Cilj:} Pregled podataka klijenta
-                  \item  \textbf{Sudionici:} Baza podataka
-                  \item  \textbf{Preduvjet:} Korisnik je registriran i dodijeljena su mu prava službenika za odobravanje kreditnih zahtjeva 
-                  \item  \textbf{Opis osnovnog tijeka:}
-                  
-                  \item[] \begin{packed_enum}
-                
-                    \item Službenik odabire opciju pregledavanja klijenta
-                    \item Prikaže se lista svih ispravno registriranih korisnika s osobnim podacima
-                    
-                  \end{packed_enum}
-                \end{packed_item}   
+           
         			
-        				\noindent \underbar{\textbf{UC27-Pregled podataka o vlastitom profilu }}
+        		  \noindent \underbar{\textbf{UC24 - Pregled podataka o vlastitom profilu }}
         			\begin{packed_item}
         				
         				\item \textbf{Glavni sudionik: }Klijent
@@ -754,7 +835,8 @@
     				
     			\end{packed_item}
     		
-    			\noindent \underbar{\textbf{UC28-Pregled transakcijskih računa }}
+    		
+    			\noindent \underbar{\textbf{UC25 - Pregled transakcijskih računa }}
     		\begin{packed_item}
     			
     			\item \textbf{Glavni sudionik: }Klijent
@@ -775,7 +857,7 @@
     		\end{packed_item}
     	
     	
-    		\noindent \underbar{\textbf{UC29-Pregled štednih računa }}
+    		\noindent \underbar{\textbf{UC26-Pregled štednih računa }}
     	\begin{packed_item}
     		
     		\item \textbf{Glavni sudionik: }Klijent
@@ -796,7 +878,7 @@
     	\end{packed_item}
     
     
-		    \noindent \underbar{\textbf{UC30-Pregled kredita }}
+		    \noindent \underbar{\textbf{UC27 - Pregled kredita }}
 		    \begin{packed_item}
 		    	
 		    	\item \textbf{Glavni sudionik: }Klijent
@@ -816,7 +898,8 @@
 		    	
 		    \end{packed_item}
 	    
-		      \noindent \underbar{\textbf{UC31-Pregled kartica }}
+	    
+		      \noindent \underbar{\textbf{UC28 - Pregled kartica }}
 		    \begin{packed_item}
 		    	
 		    	\item \textbf{Glavni sudionik: }Klijent
@@ -837,7 +920,7 @@
 		    	
 		    \end{packed_item}
     			
-    			\noindent \underbar{\textbf{UC32-Pregled podataka o transakcijama }}
+    			\noindent \underbar{\textbf{UC29 - Pregled podataka o transakcijama }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -858,7 +941,7 @@
     			\end{packed_item}
     		
     			
-    			\noindent \underbar{\textbf{UC33-Prijenos sredstava između vlastitih računa }}
+    			\noindent \underbar{\textbf{UC30 - Prijenos sredstava između vlastitih računa }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -898,7 +981,7 @@
     			\end{packed_item}
     		
     			
-    				\noindent \underbar{\textbf{UC34-Prijenos sredstava na račun drugih klijenata }}
+    				\noindent \underbar{\textbf{UC31 - Prijenos sredstava na račun drugih klijenata }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -936,7 +1019,7 @@
     			\end{packed_item}
     		
     		
-    		\noindent \underbar{\textbf{UC35-Ručno izvršavanje uplate kredita }}
+    		\noindent \underbar{\textbf{UC32 - Ručno izvršavanje uplate kredita }}
     		\begin{packed_item}
     			
     			\item \textbf{Glavni sudionik: }Klijent
@@ -948,20 +1031,38 @@
     			\item[] \begin{packed_enum}
     				
     				\item Korisnik odabire opciju prijevremenog otplaćivanja kredita
+    				\item Korisnik odabire kredit
+    				\item Korisnik odabire račun terećenja
     				\item Korisnik unosi djelomičan ili ukupan iznos kredita
     				\item Aplikacija obavlja otplatu kredita
     				
     				
     				
     			\end{packed_enum}
+    		
+    			\item  \textbf{Opis mogućih odstupanja:}
+    		
+    		\item[] \begin{packed_item}
+    			
+    			\item[3.a] Unos iznosa plaćanja većeg od stanja na računu terećenja
+    			\item[] \begin{packed_enum}
+    				
+    				\item Ispis odgovarajuće poruke upozorenja
+    				
+    				
+    			\end{packed_enum}
+    			
     			
     		\end{packed_item}
-    	
-    		\noindent \underbar{\textbf{UC36-Ručno izvršavanje uplate na kreditnu karticu }}
+    			
+    		\end{packed_item}
+    	 
+    	 
+    		\noindent \underbar{\textbf{UC33 - Ručno izvršavanje uplate na kreditnu karticu }}
     	\begin{packed_item}
     		
     		\item \textbf{Glavni sudionik: }Klijent
-    		\item  \textbf{Cilj:} Smanjenje duga
+    		\item  \textbf{Cilj:} Smanjenje duga na kreditnoj kartici
     		\item  \textbf{Sudionici:} Baza podataka
     		\item  \textbf{Preduvjet:} Klijent je prijavljen
     		\item  \textbf{Opis osnovnog tijeka:}
@@ -997,7 +1098,7 @@
     		
     		
     		
-    		\noindent \underbar{\textbf{UC37-Podnošenje zahtjeva za kreditom }}
+    		\noindent \underbar{\textbf{UC34 - Podnošenje zahtjeva za kreditom }}
     		\begin{packed_item}
     			
     			\item \textbf{Glavni sudionik: }Klijent
@@ -1019,7 +1120,7 @@
     		\end{packed_item}
     	
     	
-    		\noindent \underbar{\textbf{UC38-Podnošenje zahtjeva za kreditnom karticom }}
+    		\noindent \underbar{\textbf{UC35 - Podnošenje zahtjeva za kreditnom karticom }}
     	\begin{packed_item}
     		
     		\item \textbf{Glavni sudionik: }Klijent
@@ -1043,7 +1144,7 @@
     		
     		
     			
-    			\noindent \underbar{\textbf{UC39-Zahtjev za sastankom s bankarom }}
+    		     \noindent \underbar{\textbf{UC36 - Zahtjev za sastankom s bankarom }}
     			\begin{packed_item}
     				
     				\item \textbf{Glavni sudionik: }Klijent
@@ -1067,10 +1168,10 @@
     			\end{packed_item}
     		
     			
-    				\noindent \underbar{\textbf{UC40-Registracija korisnika  }}
+    				\noindent \underbar{\textbf{UC37 - Registracija korisnika  }}
     			\begin{packed_item}
     				
-    				\item \textbf{Glavni sudionik: }Neprijavljeni klijent
+    				\item \textbf{Glavni sudionik: }Neregistrirani klijent
     				\item  \textbf{Cilj:} Otvoriti uslugu internet bankarstva
     				\item  \textbf{Sudionici:} Baza podataka, bankar
     				\item  \textbf{Preduvjet:} Dolazak u poslovnicu banke, instalirana aplikacija
@@ -1099,12 +1200,11 @@
 						
 					\end{packed_item}
 				
-					
-					
+										
 				
 			\end{packed_item}
 		
-			\noindent \underbar{\textbf{UC41-Odabir korisničkog imena i lozinke  }}
+			\noindent \underbar{\textbf{UC38 - Odabir korisničkog imena i lozinke  }}
 		\begin{packed_item}
 			
 			\item \textbf{Glavni sudionik: }Klijent
@@ -1115,9 +1215,10 @@
 			
 			\item[] \begin{packed_enum}
 				
+			
 				\item Korisnik unosi korisničko ime i lozinku
 				\item Aplikacija provjerava valjanost unesenih podataka
-				\item Aplikacija javlja uspješnost prijave korisnika i sprema korisnika u bazu podataka
+				\item Aplikacija javlja uspješnost prijave korisnika i sprema promjene u bazu podataka
 				
 			\end{packed_enum}
 			
@@ -1125,7 +1226,7 @@
 			
 			\item[] \begin{packed_item}
 				
-				\item[2.a] Unos već postojećih podataka
+				\item[2.a] Odabir već zauzetog korisničkog imena ili unos korisničkih podatka u nedozvoljenom formatu 
 				\item[] \begin{packed_enum}
 					
 					\item Ispis odgovarajuće poruke upozorenja
