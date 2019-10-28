@@ -437,7 +437,7 @@
                 
                   \item \textbf{Glavni sudionik: }Bankar
                   \item  \textbf{Cilj:} Dodati novi korisnički profil
-                  \item  \textbf{Sudionici:} Baza podataka, klijent
+                  \item  \textbf{Sudionici:} Baza podataka
                   \item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te klijent nema korisnički profil
                   \item  \textbf{Opis osnovnog tijeka:}
                   
@@ -458,7 +458,7 @@
                 
                   \item \textbf{Glavni sudionik: }Bankar
                   \item  \textbf{Cilj:} Obrisati korisnički profil 
-                  \item  \textbf{Sudionici:} Baza podataka, klijent
+                  \item  \textbf{Sudionici:} Baza podataka
                   \item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te klijent ima korisnički profil
                   \item  \textbf{Opis osnovnog tijeka:}
               
@@ -489,7 +489,7 @@
                 
                   \item \textbf{Glavni sudionik: }Bankar
                   \item  \textbf{Cilj:} Izmijeniti korisnički profil klijenta 
-                  \item  \textbf{Sudionici:} Baza podataka, klijent
+                  \item  \textbf{Sudionici:} Baza podataka
                   \item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te klijent ima korisnički profil
                   \item  \textbf{Opis osnovnog tijeka:}
                   
@@ -532,7 +532,7 @@
             
                   \item \textbf{Glavni sudionik: }Bankar
                   \item  \textbf{Cilj:} Otvoriti račun klijentu
-                  \item  \textbf{Sudionici:} Baza podataka, klijent
+                  \item  \textbf{Sudionici:} Baza podataka
                   \item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te klijent ima korisnički profil
                   \item  \textbf{Opis osnovnog tijeka:}
                   
@@ -555,7 +555,7 @@
                 
                   \item \textbf{Glavni sudionik: }Bankar
                   \item  \textbf{Cilj:} Zatvoriti račun klijentu
-                  \item  \textbf{Sudionici:} Baza podataka, klijent
+                  \item  \textbf{Sudionici:} Baza podataka
                   \item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te klijent ima korisnički profil i otvoren transakcijski račun
                   \item  \textbf{Opis osnovnog tijeka:}
                   
@@ -574,8 +574,8 @@
 	            \begin{packed_item}
 	            	
 	            	\item \textbf{Glavni sudionik: }Bankar
-	            	\item  \textbf{Cilj:} ugovoriti kredit klijentu
-	            	\item  \textbf{Sudionici:} Baza podataka, službenik za odobravanje kredita
+	            	\item  \textbf{Cilj:} Obaviti transakciju po računu klijenata
+	            	\item  \textbf{Sudionici:} Baza podataka
 	            	\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te klijent ima korisnički profil i otvoren transakcijski račun
 	            	\item  \textbf{Opis osnovnog tijeka:}
 	            	
@@ -609,7 +609,7 @@
                 
                   \item \textbf{Glavni sudionik: }Bankar
                   \item  \textbf{Cilj:} Ugovoriti debitnu karticu klijentu
-                  \item  \textbf{Sudionici:} Baza podataka, klijent
+                  \item  \textbf{Sudionici:} Baza podataka
                   \item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara
                   \item  \textbf{Opis osnovnog tijeka:}
                   
@@ -653,7 +653,7 @@
                     \item Bankar odabire opciju "Ugovaranje kreditne kartice"
                     \item Bankar bira vrstu kreditne kartice (Visa, MasterCard, Diners, Amercan Express, Discover i dr.)
                     \item Promjene se spremaju u bazu podataka
-                    \item Dodaje se mogućnost uvida u broj kartice i dugovanje preko korisničkog profila klijenta  
+                    \item Zahtjev odlazi službeniku za odobravanje kreditnih zahtjeva na odobravanje
                   \end{packed_enum}
                   
                   \item  \textbf{Opis mogućih odstupanja:}
@@ -676,7 +676,7 @@
             		
             		\item \textbf{Glavni sudionik: }Bankar
             		\item  \textbf{Cilj:} Aktivirati karticu klijentu
-            		\item  \textbf{Sudionici:} Baza podataka, klijent
+            		\item  \textbf{Sudionici:} Baza podataka
             		\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te je klijent zatražio aktivaciju kartice
             		\item  \textbf{Opis osnovnog tijeka:}
             		
@@ -710,7 +710,7 @@
                 	
                 	\item \textbf{Glavni sudionik: }Bankar
                 	\item  \textbf{Cilj:} Deaktivirati karticu klijentu
-                	\item  \textbf{Sudionici:} Baza podataka, klijent
+                	\item  \textbf{Sudionici:} Baza podataka
                 	\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te je klijent zatražio deaktivaciju kartice
                 	\item  \textbf{Opis osnovnog tijeka:}
                 	
@@ -745,7 +745,7 @@
                 	
                 	\item \textbf{Glavni sudionik: }Bankar
                 	\item  \textbf{Cilj:} ugovoriti kredit klijentu
-                	\item  \textbf{Sudionici:} Baza podataka, službenik za odobravanje kredita
+                	\item  \textbf{Sudionici:} Baza podataka
                 	\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te je klijent zatražio ugovaranje kredita
                 	\item  \textbf{Opis osnovnog tijeka:}
                 	
@@ -781,8 +781,8 @@
             	\begin{packed_item}
             		
             		\item \textbf{Glavni sudionik: }Bankar
-            		\item  \textbf{Cilj:} ugovoriti kredit klijentu
-            		\item  \textbf{Sudionici:} Baza podataka, službenik za odobravanje kredita
+            		\item  \textbf{Cilj:} Omogućiti klijentu pristup sustavu
+            		\item  \textbf{Sudionici:} Baza podataka
             		\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te je klijent zatražio otvaranje korisničkog računa
             		\item  \textbf{Opis osnovnog tijeka:}
             		
@@ -812,8 +812,8 @@
             	\begin{packed_item}
             		
             		\item \textbf{Glavni sudionik: }Bankar
-            		\item  \textbf{Cilj:} ugovoriti kredit klijentu
-            		\item  \textbf{Sudionici:} Baza podataka, službenik za odobravanje kredita
+            		\item  \textbf{Cilj:} Onemogućiti klijentu pristup sustavu
+            		\item  \textbf{Sudionici:} Baza podataka
             		\item  \textbf{Preduvjet:} Korisnik je prijavljen u sustav i dodijeljena su mu prava bankara te je klijent zatražio zatvaranje korisničkog računa
             		\item  \textbf{Opis osnovnog tijeka:}
             		
@@ -1046,7 +1046,7 @@
   				
   				\item \textbf{Glavni sudionik: } Neregistrirani klijent
   				\item  \textbf{Cilj:} Otvoriti uslugu internet bankarstva
-  				\item  \textbf{Sudionici:} Baza podataka, bankar
+  				\item  \textbf{Sudionici:} Baza podataka
   				\item  \textbf{Preduvjet:} Korisnik ima otvoren profil u banci
   				\item  \textbf{Opis osnovnog tijeka:}
   				
@@ -1077,52 +1077,117 @@
 								
 		
 	\end{packed_item}		
+
+	\eject
 				
 					
 				\subsubsection{Dijagrami obrazaca uporabe}
 					
-					\begin{figure}[H]
-						\includegraphics[scale=0.4]{slike/svi_korisnici.jpg}
-						\centering
-						\caption{Dijagram obrasca uporabe, ponašanje svih korisnika}
-						\label{fig:svi_korisnici}
-					\end{figure}
-				
-			     	\begin{figure}[H]
-				     	\includegraphics[scale=0.4]{slike/administrator.jpg}
-				    	\centering
-				    	\caption{Dijagram obrasca uporabe, ponašanje administratora}
-				    	\label{fig:administrator}
-				    \end{figure}
+				\begin{figure}[H]
+					\includegraphics[scale=0.4]{slike/svi_korisnici.jpg}
+					\centering
+					\caption{Dijagram obrasca uporabe, ponašanje svih korisnika}
+					\label{fig:svi_korisnici}
+				\end{figure}
 			
-		        	\begin{figure}[H]
-			        	\includegraphics[scale=0.4]{slike/sluzbenik_kredit.jpg}
-			        	\centering
-			        	\caption{Dijagram obrasca uporabe, ponašanje službenika za odobravanje kredita}
-			        	\label{fig:službenik_kredit}
-		        	\end{figure}
-				    
-				    \begin{figure}[H]
-				    	\includegraphics[scale=0.4]{slike/klijent.jpg}
-				    	\centering
-				    	\caption{Dijagram obrasca uporabe, ponašanje klijenta}
-				    	\label{fig:klijent}
-				    \end{figure}
+		     	\begin{figure}[H]
+			     	\includegraphics[scale=0.4]{slike/administrator.jpg}
+			    	\centering
+			    	\caption{Dijagram obrasca uporabe, ponašanje administratora}
+			    	\label{fig:administrator}
+			    \end{figure}
+		
+	        	\begin{figure}[H]
+		        	\includegraphics[scale=0.4]{slike/sluzbenik_kredit.jpg}
+		        	\centering
+		        	\caption{Dijagram obrasca uporabe, ponašanje službenika za odobravanje kredita}
+		        	\label{fig:službenik_kredit}
+	        	\end{figure}
 			    
-			        \begin{figure}[H]
-			        	\includegraphics[scale=0.4]{slike/neregistrirani_klijent.jpg}
-			        	\centering
-			        	\caption{Dijagram obrasca uporabe, ponašanje neregistriranog klijenta}
-			        	\label{fig:neregistrirani_klijent}
-			        \end{figure}
+			    \begin{figure}[H]
+			    	\includegraphics[scale=0.4]{slike/klijent.jpg}
+			    	\centering
+			    	\caption{Dijagram obrasca uporabe, ponašanje klijenta}
+			    	\label{fig:klijent}
+			    \end{figure}
+		    
+		        \begin{figure}[H]
+		        	\includegraphics[scale=0.4]{slike/neregistrirani_klijent.jpg}
+		        	\centering
+		        	\caption{Dijagram obrasca uporabe, ponašanje neregistriranog klijenta}
+		        	\label{fig:neregistrirani_klijent}
+		        \end{figure}
+				\begin{figure}[H]
+					\includegraphics[scale=0.5]{slike/UseCase Diagram0Matija.PNG}
+					\centering
+					\caption{Dijagram obrasca uporabe, funkcionalnost bankara}
+					\label{fig:ucd0Matija}
+				\end{figure}
+			
+				\begin{figure}[H]
+					\includegraphics[scale=0.4]{slike/UseCase Diagram1Matija.PNG}
+					\centering
+					\caption{Dijagram generalizacija bankara}
+					\label{fig:ucd1Matija}
+				\end{figure}
 				\eject		
 				
 			\subsection{Sekvencijski dijagrami}
 				
-				\textbf{\textit{dio 1. revizije}}\\
+					\noindent{\textbf{UC9 - Inicijalna prijava bankara  }}
 				
-				\textit{Nacrtati sekvencijske dijagrame koji modeliraju najvažnije dijelove sustava (max. 4 dijagrama). Ukoliko postoji nedoumica oko odabira, razjasniti s asistentom. Uz svaki dijagram napisati detaljni opis dijagrama.}
+				Bankar se prijavljuje u sustav pomoću korisničkog računa i privremene lozinke koju je prethodno dobio od administratora. Sustav provjerava upisane podatke, i ako su podaci točni, dohvaća podatke o bankaru iz baze podataka te traži od bankara da promijeni lozinku. Bankar upisuje novu lozinku dok god ne upiše različitu od privremene. Sustav nakon provjere lozinke sprema promjene u bazu podataka, a bankar je time uspješno promijenio lozinku i može početi s radom u banci.
 				\eject
+				
+				\begin{figure}[H]
+					\includegraphics[scale=0.6]{slike/UC9- inicijalna prijava bankara.PNG}
+					\centering
+					\caption{Sekvencijski dijagram za UC9}
+					\label{fig:uc9}
+				\end{figure}
+			\eject
+			
+			\noindent{\textbf{UC17 -  Ugovranje debitne kartice }}
+			
+			Klijent šalje zahtjev za ugovaranje debitne kartice. Bankar upisuje klijentov OIB dok ne upiše ispravan jedanaestero znamenkasti broj, a poslužitelj provjerava ispravnost tog OIB-a. Poslužitelj dohvaća podatke o klijentu iz baze podataka i prikazuje ih bankaru. Bankar odabire opciju „Dodaj debitnu karticu“ kako bi ispunio klijentov zahtjev. Sustav dodaje debitnu karticu i sprema promjene u bazu podataka. Nakon toga, klijentu se omogućava uvid u broj kartice i račun uz koji je kartica vezana.
+			\eject
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.5]{slike/UC17- ugovaranje debitne kartice.PNG}
+				\centering
+				\caption{Sekvencijski dijagram za UC17}
+				\label{fig:uc17}
+			\end{figure}
+			\eject
+			
+			\noindent{\textbf{UC21 -  Ugovaranje kredita}}
+			
+			
+			Budući da klijent želi ugovoriti kredit, bankar prvo upisuje OIB klijenta kako bi sustav dohvatio njegove podatke. Bankar upisuje OIB dok sustav ne potvrdi ispravnost. Sustav zatraži od baze podataka klijentove podatke i prikazuje ih bankaru na uvid. Bankar šalje zahtjev za ugovaranjem kredita. Sustav traži potrebne podatke koje onda bankar upisuje. Sve promjene spremaju se u bazu podataka, a klijentov zahtjev za odabir kredita sustav šalje službeniku za odobravanje kredita.
+			\eject
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.43]{slike/UC21- ugovaranje kredita.PNG}
+				\centering
+				\caption{Sekvencijski dijagram za UC21}
+				\label{fig:uc21}
+			\end{figure}
+			\eject
+			
+			\noindent{\textbf{UC33 -  Registracija korisnika}}
+			
+			
+			Ukoliko se korisnik želi registrirati, u aplikaciju upisuje svoj OIB i privremeni ključ koji je dobio od bankara. Poslužitelj provjerava ispravnost upisanih podataka. Ukoliko su uneseni podaci netočni, sustav ispisuje poruku o netočnim podacima i izlazi iz sustava. Ako su podaci ispravni, sustav traži od korisnika unos novog korisničkog imena i lozinke. Poslužitelj dohvaća podatke o klijentu iz baze podataka. Klijent upisuje novo korisničko ime i lozinku, a poslužitelj provjerava dostupnost korisničkog imena. Klijent upisuje novo koirsničko ime dok se ne razlikuje od ostalih spremljenih korisničkih imena ostalih klijenata. Nakon toga, klijent je uspješno registriran u sustav, a poslužitelj sprema promjene u bazu podataka.
+			\eject
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.50]{slike/UC33- registracija korisnika.PNG}
+				\centering
+				\caption{Sekvencijski dijagram za UC33}
+				\label{fig:uc33}
+			\end{figure}
+			\eject
+			
 	
 		\section{Ostali zahtjevi}
 			 
