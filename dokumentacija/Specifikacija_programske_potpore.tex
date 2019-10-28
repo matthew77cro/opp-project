@@ -1084,35 +1084,35 @@
 				\subsubsection{Dijagrami obrazaca uporabe}
 					
 				\begin{figure}[H]
-					\includegraphics[scale=0.4]{slike/svi_korisnici.jpg}
+					\includegraphics[scale=0.6]{slike/UseCase SviKorisnici Marko.png}
 					\centering
 					\caption{Dijagram obrasca uporabe, ponašanje svih korisnika}
 					\label{fig:svi_korisnici}
 				\end{figure}
 			
 		     	\begin{figure}[H]
-			     	\includegraphics[scale=0.4]{slike/administrator.jpg}
+			     	\includegraphics[scale=0.55]{slike/UseCase Admin Marko.png}
 			    	\centering
 			    	\caption{Dijagram obrasca uporabe, ponašanje administratora}
 			    	\label{fig:administrator}
 			    \end{figure}
 		
 	        	\begin{figure}[H]
-		        	\includegraphics[scale=0.4]{slike/sluzbenik_kredit.jpg}
+		        	\includegraphics[scale=0.6]{slike/UseCase OdobravanjeKredita Marko.png}
 		        	\centering
 		        	\caption{Dijagram obrasca uporabe, ponašanje službenika za odobravanje kredita}
 		        	\label{fig:službenik_kredit}
 	        	\end{figure}
 			    
 			    \begin{figure}[H]
-			    	\includegraphics[scale=0.4]{slike/klijent.jpg}
+			    	\includegraphics[scale=0.55]{slike/UseCase Klijent Marko.png}
 			    	\centering
 			    	\caption{Dijagram obrasca uporabe, ponašanje klijenta}
 			    	\label{fig:klijent}
 			    \end{figure}
 		    
 		        \begin{figure}[H]
-		        	\includegraphics[scale=0.4]{slike/neregistrirani_klijent.jpg}
+		        	\includegraphics[scale=0.6]{slike/UseCase NeregKlijent Marko.png}
 		        	\centering
 		        	\caption{Dijagram obrasca uporabe, ponašanje neregistriranog klijenta}
 		        	\label{fig:neregistrirani_klijent}
@@ -1194,21 +1194,16 @@
 			 \begin{packed_item}
 			 	\item Sustav mora podržavati rad više korisnika u stvarnom vremenu
 			 	\item Aplikacija mora podržavati hrvatsku abecedu (dijakritičke znakove)
-			 	\item Izvršavanje dijela programa u kojem se pristupa bazi podataka ne smije 
-			 	trajati duže od nekoliko sekundi 
-			 	\item Veza s bazom podataka mora biti kvalitetno zaštićena, brza i otporna na vanjske
-			 	greške
-			 	\item Nepravilno korištenje korisničkog sučelja ne smije narušiti funkcionalnost
-			 	i rad sustava	
-			 	\item Sustav treba biti jednostavan za upotrebu kako bi ga korisnici mogli koristiti
-			 	bez opširnih uputa
+			 	\item Izvršavanje dijela programa u kojem se pristupa bazi podataka ne smije trajati duže od nekoliko sekundi 
+			 	\item Veza s bazom podataka mora biti kvalitetno zaštićena, brza i otporna na vanjske greške
+			 	\item Nepravilno korištenje korisničkog sučelja ne smije narušiti funkcionalnost i rad sustava	
+			 	\item Sustav treba biti jednostavan za upotrebu kako bi ga korisnici mogli koristiti bez opširnih uputa
 			 	\item Nadogradnja sustava ne smije narušavati postojeće funkcionalnosti sustava
 			 	\item Korisnički podaci jednog klijenta ne smiju biti vidljivi ostalim klijentima
-			 	\item Klijent ne može mijenjati osobne podatke svog profila niti podatke o računima
-			 	i karticama
+			 	\item Klijent ne može mijenjati osobne podatke svog profila niti podatke o računima i karticama
 			 	\item Svi računi moraju imati sliku profila
 			 	\item Kao valuta se koristi HRK
-			 	\item Svaki tekući račun treba imati dozvoljeno prekoračenje, a svaka kreditna kartica ugovoren limit.
 			 	\item Jednom mjesečno korisnik treba dobiti izvod po svim transakcijskim
 			 	računima i kreditnim karticama u PDF i XLS obliku
+			 	\item Sustav automatski jednom mjesečno skida klijentima ratu za kredit s tekućeg računa te zaračunava unaprijed određenu kamatu na neotplaćeni dio duga po kreditnoj kartici
 			 \end{packed_item}
