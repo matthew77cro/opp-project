@@ -24,9 +24,9 @@
 			\item 	Profil
 			\item 	KorisničkiRačun
 			\item 	Uloga
+			\item   TipUloge
 			\item   Klijent
 			\item   Djelatnik
-			\item   TipDjelatnika
 			\item   Bankar
 			\item   Administrator
 			\item   SlužbenikZaOdobravanjeKredita
@@ -48,7 +48,7 @@
 			\subsection{Opis tablica}
 			
 
-				\textit{Svaku tablicu je potrebno opisati po zadanom predlošku. Lijevo se nalazi točno ime varijable u bazi podataka, u sredini se nalazi tip podataka, a desno se nalazi opis varijable. Svjetlozelenom bojom označite primarni ključ. Svjetlo plavom označite strani ključ}
+				\textbf{Profil} Ovaj entitet sadrži sve važne informacije za pristup web aplikaciji. Sadrži atribute: ime, prezime, OIB, korisničko ime, adresa prebivališta, datum rođenja, e-mail adresa, slika profila i broj tipa uloge. Ovaj entitet u vezi je \textit{Zero-to-Many} s entitetom Korisnički račun preko korisničkog imena.  
 				
 				\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 					
@@ -69,6 +69,50 @@
 					
 					
 				\end{longtabu}
+			
+			\textbf{KorisničkiRačun}  Ovaj entitet sadrži sve važne informacije vezane za korisnički račun koji je dodijeljen svakom korisniku koji želi koristiti ovu web aplikaciju. Sadrži atribute: Korisničko ime, lozinku, OIB, ime i prezime korisnika te broj tipa uloge. Ovaj je entitet u vezi \textit{Many-to-Zero} s entitetom Profil preko korisničkog imena i u vezi \textit{One-to-One} s entitetom Uloga preko OIB-a korisnika.  
+			
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				\cellcolor{LightGreen}IDKorisnik & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam 	\\ \hline
+				korisnickoIme	& VARCHAR &   	\\ \hline 
+				email & VARCHAR &   \\ \hline 
+				ime & VARCHAR	&  		\\ \hline 
+				\cellcolor{LightBlue} primjer	& VARCHAR &   	\\ \hline 
+				
+				
+			\end{longtabu}
+		
+		\textbf{Uloga}  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			\cellcolor{LightGreen}IDKorisnik & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam 	\\ \hline
+			korisnickoIme	& VARCHAR &   	\\ \hline 
+			email & VARCHAR &   \\ \hline 
+			ime & VARCHAR	&  		\\ \hline 
+			\cellcolor{LightBlue} primjer	& VARCHAR &   	\\ \hline 
+			
+			
+		\end{longtabu}
 			
 			
 			\subsection{Dijagram baze podataka}
