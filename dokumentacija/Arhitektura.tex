@@ -52,42 +52,48 @@
 				
 				\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 					
-					\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+					\hline \multicolumn{3}{|c|}{\textbf{Profil }}	 \\[3pt] \hline
 					\endfirsthead
 					
-					\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+					\hline \multicolumn{3}{|c|}{\textbf{Profil}}	 \\[3pt] \hline
 					\endhead
 					
 					\hline 
 					\endlastfoot
 					
-					\cellcolor{LightGreen}IDKorisnik & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam 	\\ \hline
-					korisnickoIme	& VARCHAR &   	\\ \hline 
-					email & VARCHAR &   \\ \hline 
-					ime & VARCHAR	&  		\\ \hline 
-					\cellcolor{LightBlue} primjer	& VARCHAR &   	\\ \hline 
+					\cellcolor{LightGreen}Ime & VARCHAR	&  	ime korisnika 	\\ \hline
+					Prezime	& VARCHAR &  prezime korisnika 	\\ \hline 
+					OIB & INT &  OIB korisnika \\ \hline 
+					Korisničko ime & VARCHAR	&  	jedinstveni identifikator korisnika	\\ \hline 
+					Adresa prebivališta & VARCHAR &   adresa korisnika      \\ \hline
+					Datum rođenja & DATE & datum rođenja korisnika \\ \hline
+					Email & VARCHAR & e-mail adresa korisnika \\ \hline
+					Slika & LONGBLOB & slika korisnika \\ \hline
+					Tip uloge & INT & broj tipa uloge \\ \hline
+					 
 					
 					
 				\end{longtabu}
 			
-			\textbf{KorisničkiRačun}  Ovaj entitet sadrži sve važne informacije vezane za korisnički račun koji je dodijeljen svakom korisniku koji želi koristiti ovu web aplikaciju. Sadrži atribute: Korisničko ime, lozinku, OIB, ime i prezime korisnika te broj tipa uloge. Ovaj je entitet u vezi \textit{Many-to-Zero} s entitetom Profil preko korisničkog imena i u vezi \textit{One-to-One} s entitetom Uloga preko OIB-a korisnika.  
+			\textbf{Korisnički Račun}  Ovaj entitet sadrži sve važne informacije vezane za korisnički račun koji je dodijeljen svakom korisniku koji želi koristiti ovu web aplikaciju. Sadrži atribute: Korisničko ime, lozinku, OIB, ime i prezime korisnika te broj tipa uloge. Ovaj je entitet u vezi \textit{Many-to-Zero} s entitetom Profil preko korisničkog imena i u vezi \textit{One-to-One} s entitetom Uloga preko OIB-a korisnika.  
 			
 			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 				
-				\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+				\hline \multicolumn{3}{|c|}{\textbf{Korisnički račun }}	 \\[3pt] \hline
 				\endfirsthead
 				
-				\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+				\hline \multicolumn{3}{|c|}{\textbf{Korisnički račun}}	 \\[3pt] \hline
 				\endhead
 				
 				\hline 
 				\endlastfoot
 				
-				\cellcolor{LightGreen}IDKorisnik & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam 	\\ \hline
-				korisnickoIme	& VARCHAR &   	\\ \hline 
-				email & VARCHAR &   \\ \hline 
-				ime & VARCHAR	&  		\\ \hline 
-				\cellcolor{LightBlue} primjer	& VARCHAR &   	\\ \hline 
+				\cellcolor{LightGreen}Korisničko ime & VARCHAR	&  jedinstveni identifikator korisnika ( profil.korisničko ime) 	\\ \hline
+				Lozinka	& VARCHAR &   hash lozinke	\\ \hline 
+				OIB & INT & OIB korisnika (profil.oib)  \\ \hline
+				Ime & VARCHAR &  ime korisnika (profil.ime)  \\ \hline 
+				Prezime & VARCHAR	& prezime korisnika 		\\ \hline 
+				\cellcolor{LightBlue} Tip uloge	& INT &  broj tipa uloge(profil.tip uloge) 	\\ \hline 
 				
 				
 			\end{longtabu}
