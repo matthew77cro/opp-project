@@ -17,9 +17,33 @@
 				
 		\section{Baza podataka}
 			
-			\textbf{\textit{dio 1. revizije}}\\
 			
-		\textit{Potrebno je opisati koju vrstu i implementaciju baze podataka ste odabrali, glavne komponente od kojih se sastoji i slično.}
+		Za potrebe našeg sustava koristit ćemo SQL relacijsku bazu podataka. Relacijska baza podataka najviše nam odgovara zbog olakšanog modeliranja događaja i entiteta iz stvarnog svijeta. Osnovna jedinka baze podataka je relacija, to jest tablica koja ima svoj naziv i potreban skup atributa. Zadaća baze podataka je brza i jednostavna pohrana, izmjena i dohvat podataka koje potom treba obraditi. Sve su relacije u bazi svedene na treću normalnu formu kako baza ne bi sadržavala redundantne podatke. Prilikom izrade baze podataka poslužili smo se PostgreSQL-om.
+		Baza podataka ove aplikacije sastoji se od sljedećih entiteta:
+		\begin{itemize}
+			\item 	Profil
+			\item 	KorisničkiRačun
+			\item 	Uloga
+			\item   Klijent
+			\item   Djelatnik
+			\item   TipDjelatnika
+			\item   Bankar
+			\item   Administrator
+			\item   SlužbenikZaOdobravanjeKredita
+			\item   Banka
+			\item   Kredit
+			\item   Transakcija
+			\item   Račun
+			\item   VrstaRačuna
+			\item   TekućiRačun
+			\item   ŠtedniRačun
+			\item   ŽiroRačun
+			\item   Kartica
+			\item   VrstaKartice
+			\item   DebitnaKartica
+			\item   KreditnaKartica
+			\item   Kamata		
+		\end{itemize}
 		
 			\subsection{Opis tablica}
 			
