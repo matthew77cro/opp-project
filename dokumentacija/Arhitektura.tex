@@ -102,23 +102,50 @@
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
-			\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+			\hline \multicolumn{3}{|c|}{\textbf{Uloga}}	 \\[3pt] \hline
 			\endfirsthead
 			
-			\hline \multicolumn{3}{|c|}{\textbf{korisnik - ime tablice}}	 \\[3pt] \hline
+			\hline \multicolumn{3}{|c|}{\textbf{Uloga}}	 \\[3pt] \hline
 			\endhead
 			
 			\hline 
 			\endlastfoot
 			
-			\cellcolor{LightGreen}IDKorisnik & INT	&  	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam 	\\ \hline
-			korisnickoIme	& VARCHAR &   	\\ \hline 
-			email & VARCHAR &   \\ \hline 
-			ime & VARCHAR	&  		\\ \hline 
-			\cellcolor{LightBlue} primjer	& VARCHAR &   	\\ \hline 
+			\cellcolor{LightGreen}Tip uloge & INT	&  Broj tipa uloge	\\ \hline
+			Naziv	& VARCHAR & Naziv uloge  	\\ \hline 
+			 
 			
 			
 		\end{longtabu}
+	
+		\textbf{Klijent}  
+	
+	\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Klijent}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Klijent}}	 \\[3pt] \hline
+		\endhead
+		
+		\hline 
+		\endlastfoot
+		
+			\cellcolor{LightGreen}Ime & VARCHAR	&  	ime klijenta 	\\ \hline
+		Prezime	& VARCHAR &  prezime klijenta 	\\ \hline 
+		OIB & INT &  OIB klijenta \\ \hline 
+		Korisničko ime & VARCHAR	&  	jedinstveni identifikator korisnika	\\ \hline 
+		Lozinka & VARCHAR & hash lozinke \\ \hline
+		Adresa prebivališta & VARCHAR &   adresa klijenta      \\ \hline
+		Datum rođenja & DATE & datum rođenja klijenta \\ \hline
+		Email & VARCHAR & e-mail adresa korisnika \\ \hline
+		Spol & VARCHAR(1) & spol klijenta \\ \hline
+		Slika & LONGBLOB & slika korisnika \\ \hline
+		
+		
+		
+		
+	\end{longtabu}
 			
 			
 			\subsection{Dijagram baze podataka}
