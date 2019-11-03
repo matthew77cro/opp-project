@@ -276,7 +276,7 @@
 				
 			\end{longtabu}
 		
-			\textbf{Kredit}  
+			\textbf{Kredit}   Ovaj entitet sadrži sve važne informacije o kreditu koji klijent zatraži. Sadrži atribute: broj kredita, iznos, vrsta kredita, datum ugovaranja i vremenski period otplate kredita.U vezi je \textit{Many-to-One} s entitetom Bankar preko broja kredita i u vezi \textit{Many-to-One} s entitetom Klijent preko broja kredita. Isto tako, entitet Kredit u vezi je \textit{Many-to-One} s entitetom Službenik za odobravanje kredita preko broja kredita.
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
@@ -289,11 +289,11 @@
 			\hline 
 			\endlastfoot
 			
-			Broj kredita & INT & broj kredita \\ \hline
+			Broj kredita & LONG & broj kredita \\ \hline
 			Iznos & DECIMAL (10, 2) & iznos kredita \\ \hline
 			Vrsta & VARCHAR & vrsta kredita \\ \hline
 			Datum ugovaranja & DATE & datum ugovaranja kredita \\ \hline
-			Duljina & INT & duljina otplate kredita \\ \hline
+			Vremenski period otplate & INT & duljina otplate kredita \\ \hline
 			
 			
 			
