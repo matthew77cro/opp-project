@@ -146,6 +146,113 @@
 		
 		
 	\end{longtabu}
+
+		\textbf{Djelatnik}  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Djelatnik}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Djelatnik}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			\cellcolor{LightGreen}Ime & VARCHAR	&  	ime djelatnika 	\\ \hline
+			Prezime	& VARCHAR &  prezime djelatnika 	\\ \hline 
+			OIB & INT &  OIB djelatnika \\ \hline 
+			Korisničko ime & VARCHAR	&  	jedinstveni identifikator djelatnika	\\ \hline 
+			Lozinka & VARCHAR & hash lozinke \\ \hline
+			Adresa prebivališta & VARCHAR &   adresa klijenta      \\ \hline
+			Datum rođenja & DATE & datum rođenja klijenta \\ \hline
+			Email & VARCHAR & e-mail adresa korisnika \\ \hline
+			Spol & VARCHAR(1) & spol klijenta \\ \hline
+			Tip djelatnika & INT & Broj tipa uloge \\ \hline
+		
+			
+			
+			
+			
+		\end{longtabu}
+	
+			\textbf{Bankar}  
+			
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Klijent}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Klijent}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+			
+				OIB & INT &  OIB bankara \\ \hline 
+				Korisničko ime & VARCHAR	&  	jedinstveni identifikator bankara	\\ \hline 
+				Lozinka & VARCHAR & hash lozinke \\ \hline
+				Email & VARCHAR & e-mail adresa bankara \\ \hline
+				Slika & LONGBLOB & slika bankara \\ \hline
+				
+				
+				
+				
+			\end{longtabu}
+		
+		\textbf{Administrator}  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Administrator}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Administrator}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+		
+			OIB & INT &  OIB administratora \\ \hline 
+			Korisničko ime & VARCHAR	&  	jedinstveni identifikator administratora	\\ \hline 
+			Lozinka & VARCHAR & hash lozinke \\ \hline
+			Tip uloge & INT & broj tipa uloge \\ \hline
+			
+			
+			
+			
+		\end{longtabu}
+	
+		
+				\textbf{Službenik za odobravanje kredita}  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Službenik za odobravanje kredita}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Službenik za odobravanje kredita}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			OIB & INT &  OIB službenika \\ \hline 
+			Korisničko ime & VARCHAR	&  	jedinstveni identifikator službenika	\\ \hline 
+			Lozinka & VARCHAR & hash lozinke \\ \hline
+			Email & VARCHAR & e-mail adresa službenika \\ \hline
+			Slika & LONGBLOB & slika bankara \\ \hline
+			
+			
+			
+			
+		\end{longtabu}
+		
+	
+		
+
 			
 			
 			\subsection{Dijagram baze podataka}
