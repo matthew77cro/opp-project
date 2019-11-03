@@ -381,7 +381,7 @@
 			\end{longtabu}
 		
 		
-			\textbf{Tekući račun}   Ovaj entitet sadrži sve važne informacije koje nam trebaju za izgradnju tekućeg računa. Sadrži atribute: broj računa, broj vrste računa i prekoračenje. U vezi je \textit{One-to-One} s entitetom Račun preko broja računa i u vezi \textit{One-to-One} s entitetom Vrsta računa preko broja vrste računa. 
+			\textbf{Tekući račun}   Ovaj entitet sadrži sve važne informacije koje nam trebaju za izgradnju tekućeg računa. Sadrži atribute: broj računa, broj vrste računa i prekoračenje. U vezi je \textit{Many-to-One} s entitetom Račun preko broja računa i u vezi \textit{One-to-One} s entitetom Vrsta računa preko broja vrste računa. 
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
@@ -408,7 +408,7 @@
 	
 		
 			
-		\textbf{Štedni račun}  
+		\textbf{Štedni račun}   Ovaj entitet sadrži sve važne informacije o štednom računu. Sadrži atribute: broj računa, broj vrste računa, kamatna stopa i datum zatvaranja. U vezi je \textit{Many-to-One} s entitetom Račun preko broja računa i u vezi \textit{One-to-One} s entitetom Vrsta računa preko broja vrste računa. 
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
@@ -421,10 +421,8 @@
 			\hline 
 			\endlastfoot
 			
-			Broj računa & INT & broj štednog računa \\ \hline
-			OIB & INT & OIB klijenta \\ \hline
-			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
-			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
+			Broj računa & LONG & broj štednog računa \\ \hline
+			Broj vrste računa & INT & broj vrste računa\\ \hline
 			Kamatna stopa & DECIMAL(2, 2) & iznos kamatne stope \\ \hline
 			Datum zatvaranja & DATE & datum zatvaranja računa \\ \hline
 			
