@@ -301,7 +301,7 @@
 		\end{longtabu}
 	
 		
-				\textbf{Transakcija}  
+				\textbf{Transakcija}   Ovaj entitet sadrži sve važne informacije o transakcijama koje klijent želi provesti. Sadrži atribute: broj transakcije, broj računa terećenja, račun odobrenja, datum transakcije, iznos i ukupno stanje. Entitet Transakcija u vezi je \textit{Many-to-One} s entitetom Klijent preko broja transakcije i u vezi \textit{Many-to-One} s entitetom Bankar preko broja transakcije. Isto tako u vezi je \textit{Many-to-One} s entitetom Račun preko broja računa terećenja i broja računa odobrenja.
 			
 			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 				
@@ -316,7 +316,6 @@
 				
 				Broj transakcije & INT & broj transakcije \\ \hline
 				Račun terećenja & INT & broj računa terećenja \\ \hline
-				Tip transakcije & INT & broj tipa transakcije \\ \hline
 				Račun odobrenja & INT & broj računa odobrenja \\ \hline
 				Datum transakcije & DATE & datum transakcije \\ \hline
 				Iznos & DECIMAL (10, 2) & iznos uplate \\ \hline
