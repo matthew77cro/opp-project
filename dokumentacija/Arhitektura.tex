@@ -328,7 +328,7 @@
 				
 			\end{longtabu}
 		
-			\textbf{Račun}   Ovaj entitet sadrži sve važne informacije o računu koji ima klijent. Sadrži atribute: broj računa, oib klijenta, datum otvaranja računa, stanje računa i vrsta računa. U vezi je \textit{One-to-One} s entitetom Vrsta računa preko broja vrste računa i u vezi je \textit{Many-to-One} s entitetom Klijent preko OIB-a klijenta. Entitet Račun također je u vezi \textit{Many-to-One} s entitetom Bankar preko korisničkog imena bankara i u vezi je \textit{One-to-Many} s entitetom Kartica preko broja kartice.
+			\textbf{Račun}   Ovaj entitet sadrži sve važne informacije o računu koji ima klijent. Sadrži atribute: broj računa, OIB klijenta, datum otvaranja računa, stanje računa i vrsta računa. U vezi je  \textit{Many-to-One} s entitetom Klijent preko OIB-a klijenta. Entitet Račun također je u vezi \textit{Many-to-One} s entitetom Bankar preko korisničkog imena bankara i u vezi je \textit{One-to-Many} s entitetom Kartica preko broja kartice.
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
@@ -345,7 +345,6 @@
 			OIB & INT & OIB klijenta \\ \hline
 			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
 			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
-			Vrsta računa & INT & Broj vrste računa \\ \hline
 			Korisničko ime bankara & VARCHAR & korisničko ime bankara koji je otvorio račun\\ \hline
 			Broj kartice & LONG & broj kartice vezane uz račun\\ \hline
 			
@@ -357,7 +356,7 @@
 			
 		\end{longtabu}
 	
-				\textbf{Vrsta računa}   Ovaj entitet sadrži sve važne informacije o vrsti računa koje neki klijent posjeduje. Sadrži atribute: broj vrste računa i naziv računa. U vezi je \textit{One-to-Many} s entitetom Račun preko broja vrste računa i u vezi je \textit{One-to-Many} s entitetima Tekući račun, Štedni račun i Žiro račun. 
+				\textbf{Vrsta računa}   Ovaj entitet sadrži sve važne informacije o vrsti računa koje neki klijent posjeduje. Sadrži atribute: broj vrste računa i naziv računa. U vezi je \textit{One-to-Many} s entitetima Tekući račun, Štedni račun i Žiro račun. 
 			
 			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 				
@@ -382,7 +381,7 @@
 			\end{longtabu}
 		
 		
-			\textbf{Tekući račun}  
+			\textbf{Tekući račun}   Ovaj entitet sadrži sve važne informacije koje nam trebaju za izgradnju tekućeg računa. Sadrži atribute: broj računa, broj vrste računa i prekoračenje. U vezi je \textit{One-to-One} s entitetom Račun preko broja računa i u vezi \textit{One-to-One} s entitetom Vrsta računa preko broja vrste računa. 
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
@@ -395,11 +394,9 @@
 			\hline 
 			\endlastfoot
 			
-			Broj računa & INT & broj tekućeg računa \\ \hline
-			OIB & INT & OIB klijenta \\ \hline
-			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
+			Broj računa & LONG & broj tekućeg računa \\ \hline
+			Broj vrste računa & INT & broj vrste računa\\ \hline
 			Prekoračenje & DECIMAL(10,2) & iznos prekoračenja računa \\ \hline
-			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
 		
 			
 			
