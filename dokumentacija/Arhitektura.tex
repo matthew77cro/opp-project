@@ -113,9 +113,33 @@
 			
 			Korisničko ime & VARCHAR & Korisničko ime korisnika  \\ \hline
 			\cellcolor{LightGreen}Tip uloge & INT	&  Broj tipa uloge	\\ \hline
-			Naziv	& VARCHAR & Naziv uloge  	\\ \hline 
+		
 			
 			 
+			
+			
+		\end{longtabu}
+	
+		
+			
+		\textbf{Tip uloge}  Ovaj entitet sadrži informacije vezane za tipove uloge. Sadrži atribute: broj tipa uloge i naziv uloge. Ovaj je entitet u vezi \textit{One-to-One} s entitetom Uloga preko broja tipa uloge.  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Uloga}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Uloga}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+		    Broj uloge & INT & Broj tipa uloge  \\ \hline
+			\cellcolor{LightGreen}Naziv & VARCHAR	& Naziv uloge	\\ \hline
+			
+			
+			
 			
 			
 		\end{longtabu}
@@ -460,7 +484,7 @@
 	\end{longtabu}
 		
 		
-			\textbf{Kartica}   Ovaj entitet sadrži sve važne informacije o karticama koje ima klijent. Sadrži atribute: broj kartice, OIB klijenta i broj tipa kartice. U vezi je \textit{Many-to-One} s entitetom Klijent preko OIB-a klijenta i u vezi \textit{Many-to-One} s entitetom Račun preko broja kartice. U vezi je \textit{One-to-One} s entitetom Vrsta kartice preko broja vrste kartice. 
+			\textbf{Kartica}   Ovaj entitet sadrži sve važne informacije o karticama koje ima klijent. Sadrži atribute: broj kartice, OIB klijenta i broj tipa kartice, stanje i datuma isteka valjanosti kartice. U vezi je \textit{Many-to-One} s entitetom Klijent preko OIB-a klijenta i u vezi \textit{Many-to-One} s entitetom Račun preko broja kartice. U vezi je \textit{One-to-One} s entitetom Vrsta kartice preko broja vrste kartice. 
 			
 			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 				
@@ -477,6 +501,7 @@
 				OIB & INT & OIB klijenta\\ \hline
 				Tip kartice & INT & broj tipa kartice\\ \hline
 				Stanje & DECIMAL(10,2) & stanje kartice\\ \hline
+				Valjanost & DATE & datum isteka valjanosti kartice \\ \hline
 	
 		
 
@@ -502,6 +527,27 @@
 		
 		\end{longtabu}
 	
+				\textbf{Debitna kartica}   Ovaj entitet sadrži sve važne informacije o debitnoj kartici. Sadrži atribute: broj kartice i broj vrste kartice. U vezi je \textit{One-to-One} s entitetom Vrsta kartice preko broja vrste kartice i s entitetom Kartica preko broja kartice.
+			
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				Broj kartice & LONG & broj kartice\\ \hline
+				Broj vrste kartice & INT & broj vrste kartice\\ \hline
+				
+				
+				
+				
+			\end{longtabu}
+	
 			\textbf{Kreditna kartica}   Ovaj entitet sadrži sve važne informacije o kreditnoj kartici. Sadrži atribute: broj kartice, broj tipa kartice, trenutno dugovanje, kamatna stopa na iskorišteni limit, odobren limit kartice i iskorišten limit kartice. U vezi je \textit{One-to-One} s entitetom Vrsta kartice preko broja vrste kartice.
 			
 			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
@@ -519,12 +565,36 @@
 				Broj vrste kartice & INT & broj vrste kartice\\ \hline
 				Trenutno dugovanje & DECIMAL(10,2) & trenutno dugovanje\\ \hline
 				Kamatna stopa & DECIMAL(2,2) & iznos kamatne stope\\ \hline
-				Odobren limit & DECIMAL(19,2) & odobren limit kartice\\ \hline
+				Odobren limit & DECIMAL(10,2) & odobren limit kartice\\ \hline
 				Iskorišten limit & DECIMAL(10,2) & iskorišten limit kartice\\ \hline
 				
 				
 				
 			\end{longtabu}
+		
+		
+			\textbf{Kamata}   Ovaj entitet sadrži sve važne informacije o kamati kredita. Sadrži atribute: broj kredita, datum uplate, kamatna stopa i mjesečni iznos uplate. U vezi je \textit{One-to-One} s entitetom Kredit preko broja kredita.
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Kamata}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Kamata}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			Broj kredita & LONG & broj kredita\\ \hline
+			Datum uplate & DATE & datum uplate kamate\\ \hline
+			Kamatna stopa & DECIMAL(2,2) & Iznos kamatne stope\\ \hline
+			Mjesečni iznos & DECIMAL(10,2) & mjesečni iznos uplate\\ \hline
+		
+			
+			
+		\end{longtabu}
+		
 			
 			\subsection{Dijagram baze podataka}
 				\textit{ U ovom potpoglavlju potrebno je umetnuti dijagram baze podataka. Primarni i strani ključevi moraju biti označeni, a tablice povezane. Bazu podataka je potrebno normalizirati. Podsjetite se kolegija "Baze podataka".}
