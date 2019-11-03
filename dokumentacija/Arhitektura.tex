@@ -132,15 +132,15 @@
 		\endlastfoot
 		
 			\cellcolor{LightGreen}Ime & VARCHAR	&  	ime klijenta 	\\ \hline
-		Prezime	& VARCHAR &  prezime klijenta 	\\ \hline 
-		OIB & INT &  OIB klijenta \\ \hline 
-		Korisničko ime & VARCHAR	&  	jedinstveni identifikator korisnika	\\ \hline 
-		Lozinka & VARCHAR & hash lozinke \\ \hline
-		Adresa prebivališta & VARCHAR &   adresa klijenta      \\ \hline
-		Datum rođenja & DATE & datum rođenja klijenta \\ \hline
-		Email & VARCHAR & e-mail adresa korisnika \\ \hline
-		Spol & VARCHAR(1) & spol klijenta \\ \hline
-		Slika & LONGBLOB & slika korisnika \\ \hline
+			Prezime	& VARCHAR &  prezime klijenta 	\\ \hline 
+			OIB & INT &  OIB klijenta \\ \hline 
+			Korisničko ime & VARCHAR	&  	jedinstveni identifikator korisnika	\\ \hline 
+			Lozinka & VARCHAR & hash lozinke \\ \hline
+			Adresa prebivališta & VARCHAR &   adresa klijenta      \\ \hline
+			Datum rođenja & DATE & datum rođenja klijenta \\ \hline
+			Email & VARCHAR & e-mail adresa korisnika \\ \hline
+			Spol & VARCHAR(1) & spol klijenta \\ \hline
+			Slika & LONGBLOB & slika korisnika \\ \hline
 		
 		
 		
@@ -249,7 +249,193 @@
 			
 			
 		\end{longtabu}
+	
+					\textbf{Banka}  
+			
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Banka}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Banka}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				Broj poslovnice & INT & broj poslovnice \\ \hline
+				Adresa & VARCHAR & adresa banke \\ \hline
+				Naziv & VARCHAR & naziv banke \\ \hline
+				
+				
+				
+				
+			\end{longtabu}
 		
+			\textbf{Kredit}  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Kredit}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Kredit}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			Broj kredita & INT & broj kredita \\ \hline
+			Iznos & DECIMAL (10, 2) & iznos kredita \\ \hline
+			Vrsta & VARCHAR & vrsta kredita \\ \hline
+			Datum ugovaranja & DATE & datum ugovaranja kredita \\ \hline
+			Duljina & INT & duljina otplate kredita \\ \hline
+			
+			
+			
+			
+		\end{longtabu}
+	
+		
+				\textbf{Transakcija}  
+			
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Transakcija}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Transakcija}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				Broj transakcije & INT & broj transakcije \\ \hline
+				Račun terećenja & INT & broj računa terećenja \\ \hline
+				Tip transakcije & INT & broj tipa transakcije \\ \hline
+				Račun odobrenja & INT & broj računa odobrenja \\ \hline
+				Datum transakcije & DATE & datum transakcije \\ \hline
+				Iznos & DECIMAL (10, 2) & iznos uplate \\ \hline
+				Ukupno stanje & DECIMAL (10, 2) & ukupno stanje nakon transakcije \\ \hline
+				
+				
+				
+				
+				
+				
+			\end{longtabu}
+		
+			\textbf{Račun}  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Račun}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Račun}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			Broj računa & INT & broj računa \\ \hline
+			OIB & INT & OIB klijenta \\ \hline
+			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
+			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
+			Vrsta računa & INT & Broj vrste računa \\ \hline
+			
+			
+			
+			
+			
+			
+			
+		\end{longtabu}
+	
+				\textbf{Vrsta računa}  
+			
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Vrsta računa}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Vrsta računa}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				Vrsta računa & INT & Broj vrste računa \\ \hline
+				Naziv računa & VARCHAR & Naziv vrste računa \\ \hline
+				
+				
+				
+				
+				
+				
+				
+			\end{longtabu}
+		
+		
+			\textbf{Tekući račun}  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Tekući račun}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Tekući račun}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			Broj računa & INT & broj tekućeg računa \\ \hline
+			OIB & INT & OIB klijenta \\ \hline
+			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
+			Prekoračenje & DECIMAL(10,2) & iznos prekoračenja računa \\ \hline
+			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
+		
+			
+			
+			
+			
+			
+			
+		\end{longtabu}
+	
+		
+			
+		\textbf{Štedni račun}  
+		
+		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Štedni račun}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Štedni račun}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			Broj računa & INT & broj štednog računa \\ \hline
+			OIB & INT & OIB klijenta \\ \hline
+			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
+			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
+			Kamatna stopa & DECIMAL(2, 2) & iznos kamatne stope \\ \hline
+			Datum zatvaranja & DATE & datum zatvaranja računa \\ \hline
+			
+			
+			
+			
+			
+			
+			
+		\end{longtabu}
+		
+		
+			
 	
 		
 
