@@ -476,6 +476,7 @@
 				Broj kartice & LONG & broj kartice\\ \hline
 				OIB & INT & OIB klijenta\\ \hline
 				Tip kartice & INT & broj tipa kartice\\ \hline
+				Stanje & DECIMAL(10,2) & stanje kartice\\ \hline
 	
 		
 
@@ -500,6 +501,30 @@
 		
 		
 		\end{longtabu}
+	
+			\textbf{Kreditna kartica}   Ovaj entitet sadrži sve važne informacije o kreditnoj kartici. Sadrži atribute: broj kartice, broj tipa kartice, trenutno dugovanje, kamatna stopa na iskorišteni limit, odobren limit kartice i iskorišten limit kartice. U vezi je \textit{One-to-One} s entitetom Vrsta kartice preko broja vrste kartice.
+			
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				Broj kartice & LONG & broj kartice\\ \hline
+				Broj vrste kartice & INT & broj vrste kartice\\ \hline
+				Trenutno dugovanje & DECIMAL(10,2) & trenutno dugovanje\\ \hline
+				Kamatna stopa & DECIMAL(2,2) & iznos kamatne stope\\ \hline
+				Odobren limit & DECIMAL(19,2) & odobren limit kartice\\ \hline
+				Iskorišten limit & DECIMAL(10,2) & iskorišten limit kartice\\ \hline
+				
+				
+				
+			\end{longtabu}
 			
 			\subsection{Dijagram baze podataka}
 				\textit{ U ovom potpoglavlju potrebno je umetnuti dijagram baze podataka. Primarni i strani ključevi moraju biti označeni, a tablice povezane. Bazu podataka je potrebno normalizirati. Podsjetite se kolegija "Baze podataka".}
