@@ -341,7 +341,7 @@
 			\hline 
 			\endlastfoot
 			
-			Broj računa & INT & broj računa \\ \hline
+			Broj računa & LONG & broj računa \\ \hline
 			OIB & INT & OIB klijenta \\ \hline
 			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
 			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
@@ -408,7 +408,7 @@
 	
 		
 			
-		\textbf{Štedni račun}   Ovaj entitet sadrži sve važne informacije o štednom računu. Sadrži atribute: broj računa, broj vrste računa, kamatna stopa i datum zatvaranja. U vezi je \textit{Many-to-One} s entitetom Račun preko broja računa i u vezi \textit{One-to-One} s entitetom Vrsta računa preko broja vrste računa. 
+		\textbf{Štedni račun}   Ovaj entitet sadrži sve važne informacije o štednom računu. Sadrži atribute: broj računa, broj vrste računa. U vezi je \textit{Many-to-One} s entitetom Račun preko broja računa i u vezi \textit{One-to-One} s entitetom Vrsta računa preko broja vrste računa. 
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
@@ -432,7 +432,32 @@
 			
 			
 			
+			
 		\end{longtabu}
+	
+	\textbf{Žiro račun}    Ovaj entitet sadrži sve važne informacije o žiro računu. Sadrži atribute: broj računa i broj vrste računa. U vezi je \textit{Many-to-One} s entitetom Račun preko broja računa i u vezi \textit{One-to-One} s entitetom Vrsta računa preko broja vrste računa. 
+	
+	\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Žiro račun}}	 \\[3pt] \hline
+		\endfirsthead
+		
+		\hline \multicolumn{3}{|c|}{\textbf{Žiro račun}}	 \\[3pt] \hline
+		\endhead
+		
+		\hline 
+		\endlastfoot
+		
+		Broj računa & LONG & broj štednog računa \\ \hline
+		Broj vrste računa & INT & broj vrste računa\\ \hline
+		
+		
+		
+		
+		
+		
+		
+	\end{longtabu}
 		
 		
 			
