@@ -75,7 +75,7 @@
 					
 				\end{longtabu}
 			
-			\textbf{Korisnički Račun}  Ovaj entitet sadrži sve važne informacije vezane za korisnički račun koji je dodijeljen svakom korisniku koji želi koristiti ovu web aplikaciju. Sadrži atribute: Korisničko ime, lozinku, OIB, ime i prezime korisnika te broj tipa uloge. Ovaj je entitet u vezi \textit{Many-to-Zero} s entitetom Profil preko korisničkog imena i u vezi \textit{One-to-One} s entitetom Uloga preko OIB-a korisnika.  
+			\textbf{Korisnički Račun}  Ovaj entitet sadrži sve važne informacije vezane za korisnički račun koji je dodijeljen svakom korisniku koji želi koristiti ovu web aplikaciju. Sadrži atribute: Korisničko ime, lozinku, OIB, ime i prezime korisnika te broj tipa uloge. Ovaj je entitet u vezi \textit{Many-to-Zero} s entitetom Profil preko korisničkog imena i u vezi \textit{One-to-One} s entitetom Uloga preko korisničkog imena.  
 			
 			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 				
@@ -98,7 +98,7 @@
 				
 			\end{longtabu}
 		
-		\textbf{Uloga}  
+		\textbf{Uloga}  Ovaj entitet sadrži sve važne informacije vezane za ulogu koji je dodijeljen svakom korisniku koji želi koristiti ovu web aplikaciju. Sadrži atribute: Korisničko ime i broj tipa uloge. Ovaj je entitet u vezi \textit{One-to-One} s entitetom Korisnički račun preko korisničkog imena, u vezi \textit{One-to-One} s entitetom Tip Uloge preko broja tipa uloge.  
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
@@ -111,14 +111,16 @@
 			\hline 
 			\endlastfoot
 			
+			Korisničko ime & VARCHAR & Korisničko ime korisnika  \\ \hline
 			\cellcolor{LightGreen}Tip uloge & INT	&  Broj tipa uloge	\\ \hline
 			Naziv	& VARCHAR & Naziv uloge  	\\ \hline 
+			
 			 
 			
 			
 		\end{longtabu}
 	
-		\textbf{Klijent}  
+		\textbf{Klijent} Ovaj entitet sadrži sve važne informacije vezane za klijenta. Sadrži atribute: ime, prezime, OIB, korisničko ime, lozinka, adresa prebivališta, datum rođenja, email, spol i slika. Ovaj entitet je u vezi \textit{One-to-Many} s entitetom Račun preko korisničkog imena, u vezi \textit{One-to-Many} s entitetom Kartica preko korisničkog imena korisnika. 
 	
 	\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 		
