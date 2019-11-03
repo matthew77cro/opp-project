@@ -460,11 +460,26 @@
 	\end{longtabu}
 		
 		
+			\textbf{Kartica}   Ovaj entitet sadrži sve važne informacije o karticama koje ima klijent. Sadrži atribute: broj kartice, OIB klijenta i broj tipa kartice. U vezi je \textit{Many-to-One} s entitetom Klijent preko OIB-a klijenta i u vezi \textit{Many-to-One} s entitetom Račun preko broja kartice. U vezi je \textit{One-to-One} s entitetom Vrsta kartice preko broja vrste kartice. 
 			
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Kartica}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Kartica}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				Broj kartice & LONG & broj kartice\\ \hline
+				OIB & INT & OIB klijenta\\ \hline
+				Tip kartice & INT & broj tipa kartice\\ \hline
 	
 		
 
-			
+		\end{longtabu}	
 			
 			\subsection{Dijagram baze podataka}
 				\textit{ U ovom potpoglavlju potrebno je umetnuti dijagram baze podataka. Primarni i strani ključevi moraju biti označeni, a tablice povezane. Bazu podataka je potrebno normalizirati. Podsjetite se kolegija "Baze podataka".}
