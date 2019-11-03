@@ -480,6 +480,26 @@
 		
 
 		\end{longtabu}	
+	
+			\textbf{Vrsta kartice}   Ovaj entitet sadrži sve važne informacije o vrstama kartice koje ima klijent. Sadrži atribute:broj tipa kartice i naziv kartice. U vezi je \textit{One-to-One} s entitetom Kartica preko broja vrste kartice i u vezi \textit{One-to-One} s entitetima Kreditna kartica i Debitna kartica preko broja vrste kartice.
+	
+			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+		
+				Tip kartice & INT & broj tipa kartice\\ \hline
+				Naziv kartice & VARCHAR & naziv kartice\\ \hline
+		
+		
+		
+		\end{longtabu}
 			
 			\subsection{Dijagram baze podataka}
 				\textit{ U ovom potpoglavlju potrebno je umetnuti dijagram baze podataka. Primarni i strani ključevi moraju biti označeni, a tablice povezane. Bazu podataka je potrebno normalizirati. Podsjetite se kolegija "Baze podataka".}
