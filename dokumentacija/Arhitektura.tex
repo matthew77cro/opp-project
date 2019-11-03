@@ -149,7 +149,7 @@
 		
 	\end{longtabu}
 
-		\textbf{Djelatnik}  
+		\textbf{Djelatnik}  Ovaj entitet sadrži sve važne informacije koje su potrebne za djelatnika. Sadrži atribute: ime, prezime, OIB, korisničko ime, lozinku, adresu prebivališta, datum rođenja, e-mail, spol i broj tipa djelatnika te broj poslovnice banke. Ovaj entitet je u vezi \textit{Many-to-One} s entitetom Banka preko broja poslovnice banke u kojoj djelatnik radi. 
 		
 		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 			
@@ -172,6 +172,8 @@
 			Email & VARCHAR & e-mail adresa korisnika \\ \hline
 			Spol & VARCHAR(1) & spol klijenta \\ \hline
 			Tip djelatnika & INT & Broj tipa uloge \\ \hline
+			Broj banke & INT & Broj poslovnice banke\\ \hline
+			
 		
 			
 			
@@ -179,24 +181,23 @@
 			
 		\end{longtabu}
 	
-			\textbf{Bankar}  
+			\textbf{Bankar}    Ovaj entitet sadrži sve važne informacije za bankara. Sadrži sve atribute koje sadrži djelatnik te dodatno: broj tipa uloge i broj transakcije koje je proveo. Ovaj entitet u vezi je s entitetom djelatnik \textit{One-to-One} preko korisničkog imena bankara. Entitet bankar u vezi je i s entitetom Transakcija i Klijent vezom \textit{} preko broja transakcije. Isto tako, bankar je u vezi s entitetom Kredit \textit{Many-to-One} preko broja kredita. 
 			
 			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
 				
-				\hline \multicolumn{3}{|c|}{\textbf{Klijent}}	 \\[3pt] \hline
+				\hline \multicolumn{3}{|c|}{\textbf{Bankar}}	 \\[3pt] \hline
 				\endfirsthead
 				
-				\hline \multicolumn{3}{|c|}{\textbf{Klijent}}	 \\[3pt] \hline
+				\hline \multicolumn{3}{|c|}{\textbf{Bankar}}	 \\[3pt] \hline
 				\endhead
 				
 				\hline 
 				\endlastfoot
 			
-				OIB & INT &  OIB bankara \\ \hline 
 				Korisničko ime & VARCHAR	&  	jedinstveni identifikator bankara	\\ \hline 
-				Lozinka & VARCHAR & hash lozinke \\ \hline
-				Email & VARCHAR & e-mail adresa bankara \\ \hline
-				Slika & LONGBLOB & slika bankara \\ \hline
+				Broj tipa djelatnika & INT & broj tipa djelatnika \\ \hline
+				Broj transakcije & INT & broj transakcije \\ \hline
+				Broj kredita & LONG & Broj kredita koji ugovara\\ \hline
 				
 				
 				
