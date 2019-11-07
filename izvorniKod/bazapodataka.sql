@@ -20,7 +20,7 @@ CREATE TABLE profil (
 	pbr int references mjesto(pbr),
 	datRod date,
 	email varchar(40),
-	slika oid not null
+	slika varchar(100)
 	);
 
 CREATE UNIQUE INDEX id_oib ON profil(oib);
@@ -376,6 +376,7 @@ CREATE UNIQUE INDEX id_brKartice ON kartica(brKartica);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (49225, 'Đurmanec', 2);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (49240, 'Donja Stubica', 2);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (49245, 'Gornja Stubica', 2);
+ INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (49246, 'Marija Bistrica', 2);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (49247, 'Zlatar Bistrica', 2);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (49250, 'Zlatar', 2);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (49255, 'Novi Golubovec', 2);
@@ -425,15 +426,15 @@ CREATE UNIQUE INDEX id_brKartice ON kartica(brKartica);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (53270, 'Senj', 9);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (53285, 'Lukovo', 9);
 
-INSERT INTO profil values ('Mirko', 'Horvat', '12345678910', 'Prigorska 10', 10000, '01.02.1960', null, lo_import('c:/Users/Magda/Desktop/slika/download.png'));
-INSERT INTO profil values ('Mirko', 'Horvat', '12345678910', 'Prigorska 10', 10000, '01.02.1960', null, lo_import('c:/Users/Magda/Desktop/slika/download.png'));
+INSERT INTO profil values ('Mirko', 'Horvat', '12345678910', 'Prigorska 10', 10000, '01.02.1960', null, null);
+INSERT INTO profil values ('Mirko', 'Horvat', '12345678910', 'Prigorska 10', 10000, '01.02.1960', null, null);
 
-INSERT INTO profil values ('Ana', 'Anić', '12375878912', 'Gajeva 6', 10360, '04.11.1985', null, lo_import('c:/Users/Magda/Desktop/slika/download.png'));
-INSERT INTO profil values ('Ivan', 'Bilić', '12345678912', 'Prigorska 15', 10380, '03.10.1955', null, lo_import('c:/Users/Magda/Desktop/slika/download.png'));
+INSERT INTO profil values ('Ana', 'Anić', '12375878912', 'Gajeva 6', 10360, '04.11.1985', null, null);
+INSERT INTO profil values ('Ivan', 'Bilić', '12345678912', 'Prigorska 15', 10380, '03.10.1955', null, null);
 
-INSERT INTO profil values ('Mario', 'Anić', '12375898912', 'Ilica 30 ', 10000, '15.09.1999', 'manic@gmail.com', lo_import('c:/Users/Magda/Desktop/slika/download.png'));
+INSERT INTO profil values ('Mario', 'Anić', '12375898912', 'Ilica 30 ', 10000, '15.09.1999', 'manic@gmail.com', null);
 
-INSERT INTO profil values ('Sandra', 'Marić', '25375898912', 'Heinzelova 11 ', 10000, '21.09.1970', 'sandraM@gmail.com', lo_import('c:/Users/Magda/Desktop/slika/download.png'));
+INSERT INTO profil values ('Sandra', 'Marić', '25375898912', 'Heinzelova 11 ', 10000, '21.09.1970', 'sandraM@gmail.com', null);
 
 INSERT INTO razOvlasti values(1, 'Administrator');
 
