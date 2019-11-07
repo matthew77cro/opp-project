@@ -13,7 +13,7 @@
 	
 		
 
-		
+		\eject
 
 				
 		\section{Baza podataka}
@@ -36,12 +36,14 @@
 			\item   Županija	
 		\end{itemize}
 		
+		\eject
+		
 			\subsection{Opis tablica}
 			
 
 				\textbf{Profil} Ovaj entitet sadrži sve važne informacije za pristup web aplikaciji. Sadrži atribute: ime, prezime, OIB, adresa prebivališta, poštanski broj, datum rođenja, e-mail adresa i slika profila. Ovaj entitet u vezi je \textit{Zero-to-Many} s entitetom Korisnički račun preko OIB-a i u vezi je \textit{Many-to-One} sa entitetom Mjesto preko poštanskog broja.
 				
-				\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 					
 					\hline \multicolumn{3}{|c|}{\textbf{Profil }}	 \\[3pt] \hline
 					\endfirsthead
@@ -68,7 +70,7 @@
 			
 			\textbf{Korisnički Račun}  Ovaj entitet sadrži sve važne informacije o korisničkom računu. Sadrži atribute: OIB, korisničko ime, lozinka i razina ovlasti. Ovaj entitet je u vezi \textit{Many-to-Zero} s entitetom Profil preko OIB-a i s entitetom \textit{{One-to-One}} Razina ovlasti preko razine ovlasti. 
 			
-			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
 				\hline \multicolumn{3}{|c|}{\textbf{Korisnički račun }}	 \\[3pt] \hline
 				\endfirsthead
@@ -87,12 +89,11 @@
 			\end{longtabu}
 		
 
-	
-		
+		\eject
 			
 		\textbf{Razina ovlasti}  Ovaj entitet sadrži informacije vezane za razinu ovlasti. Sadrži atribute: razina ovlasti i naziv. Ovaj je entitet u vezi \textit{One-to-One} s entitetom Korisnički račun preko razine ovlasti.  
 		
-		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+		\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 			
 			\hline \multicolumn{3}{|c|}{\textbf{Razina ovlasti}}	 \\[3pt] \hline
 			\endfirsthead
@@ -113,7 +114,7 @@
 		\end{longtabu}
 	
 		\textbf{Mjesto} Ovaj entitet sadrži sve važne informacije o mjestu. Sadrži atribute: poštanski broj, naziv mjesta i šifra županije. U vezi je \textit{One-to-Many} s entitetom Profil preko poštanskog broja i u vezi \textit{Many-to-One} s entitetom Županija preko šifre županije.
-		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 		
 		\hline \multicolumn{3}{|c|}{\textbf{Mjesto}}	 \\[3pt] \hline
 		\endfirsthead
@@ -134,7 +135,7 @@
 
 
 		\textbf{Županija} Ovaj entitet sadrži sve važne informacije o županiji. Sadrži atribute: šifra županije i naziv županije. U vezi u vezi \textit{One-to-Many} s entitetom Mjesto preko šifre županije.
-		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+		\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 			
 			\hline \multicolumn{3}{|c|}{\textbf{Županija}}	 \\[3pt] \hline
 			\endfirsthead
@@ -153,12 +154,12 @@
 			
 		\end{longtabu}
 			
-				
+				\eject
 		
 			\textbf{Kredit}   Ovaj entitet sadrži sve važne informacije o kreditu koji klijent zatraži. Sadrži atribute: broj kredita, OIB, iznos, vrsta kredita, datum ugovaranja, vremenski period otplate kredita, datum rate i preostalo dugovanje. U vezi je \textit{One-to-One} s entitetom Vrsta Kredita preko vrste kredita i u vezi \textit{Many-to-One} s entitetom Profil preko OIB-a.
 			
 		
-		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 			
 			\hline \multicolumn{3}{|c|}{\textbf{Kredit}}	 \\[3pt] \hline
 			\endfirsthead
@@ -185,7 +186,7 @@
 	
 			\textbf{Vrsta kredita} Ovaj entitet sadrži sve važne informacije o vrsti kredita. Sadrži atribute: vrsta kredita, naziv vrste kredita i kamatnu stopu. U vezi je \textit{One-to-One} sa entitetom Kredit preko tipa kredita. 
 	
-		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 		
 			\hline \multicolumn{3}{|c|}{\textbf{Vrsta kredita}}	 \\[3pt] \hline
 			\endfirsthead
@@ -199,17 +200,15 @@
 			Vrsta kredita & INT & broj vrste kredita\\ \hline
 			Naziv vrste kredita & VARCHAR & vrsta kredita\\ \hline
 			Kamatna stopa & DECIMAL (3,2) &iznos kamatne stope\\ \hline
-			
-		
-		
 		
 		
 		\end{longtabu}
 	
+		\eject
 		
 				\textbf{Transakcija}   Ovaj entitet sadrži sve važne informacije o transakcijama koje klijent želi provesti. Sadrži atribute: broj transakcije, broj računa terećenja, račun odobrenja, datum transakcije i iznos . Entitet Transakcija u vezi je \textit{Many-to-One} s entitetom Račun preko broja računa terećenja i broja računa odobrenja.
 			
-			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
 				\hline \multicolumn{3}{|c|}{\textbf{Transakcija}}	 \\[3pt] \hline
 				\endfirsthead
@@ -233,7 +232,7 @@
 		
 			\textbf{Račun}   Ovaj entitet sadrži sve važne informacije o računu koji ima klijent. Sadrži atribute: broj računa, OIB klijenta, datum otvaranja računa, stanje računa, vrsta računa, prekoračenje, kamatna stopa i datum zatvaranja. U vezi je  \textit{Many-to-One} s entitetom Profil preko OIB-a, sa entitetom Vrsta Računa \textit{One-to-One} preko vrste računa. Također je u vezi \textit{One-to-Many} s entitetom Transakcija preko broja računa.
 		
-		\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 			
 			\hline \multicolumn{3}{|c|}{\textbf{Račun}}	 \\[3pt] \hline
 			\endfirsthead
@@ -261,7 +260,7 @@
 		\end{longtabu}
 	
 				\textbf{Vrsta računa}   Ovaj entitet sadrži sve važne informacije o vrsti računa koje neki klijent posjeduje. Sadrži atribute: broj vrste računa i naziv računa. U vezi je \textit{One-to-One} s entitetom Račun preko vrste računa.
-			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
 				\hline \multicolumn{3}{|c|}{\textbf{Vrsta računa}}	 \\[3pt] \hline
 				\endfirsthead
@@ -283,7 +282,7 @@
 		
 			\textbf{Kartica}   Ovaj entitet sadrži sve važne informacije o karticama koje ima klijent. Sadrži atribute: broj kartice, broj računa, OIB, broj vrste kartice, stanje, valjanost,limit, kamatna stopa i datum rate. U vezi je \textit{Many-to-One} s entitetom Račun preko broja računa i sa entitetom Vrsta kartice \textit{One-to-One} preko vrste kartice. 
 			
-			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
 				\hline \multicolumn{3}{|c|}{\textbf{Kartica}}	 \\[3pt] \hline
 				\endfirsthead
@@ -309,7 +308,7 @@
 		\end{longtabu}	
 	
 			\textbf{Vrsta kartice}   Ovaj entitet sadrži sve važne informacije o vrstama kartice koje ima klijent. Sadrži atribute:broj vrste kartice i naziv kartice. U vezi je \textit{One-to-One} s entitetom Kartica preko vrste kartice.
-			\begin{longtabu} to \textwidth {|X[6, l]|X[6, l]|X[20, l]|}
+				\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
 				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
 				\endfirsthead
