@@ -1136,11 +1136,11 @@
 				
 					\noindent{\textbf{UC9 - Inicijalna prijava bankara  }}
 				
-				Bankar se prijavljuje u sustav pomoću korisničkog računa i privremene lozinke koju je prethodno dobio od administratora. Sustav provjerava upisane podatke, i ako su podaci točni, dohvaća podatke o bankaru iz baze podataka te traži od bankara da promijeni lozinku. Bankar upisuje novu lozinku dok god ne upiše različitu od privremene. Sustav nakon provjere lozinke sprema promjene u bazu podataka, a bankar je time uspješno promijenio lozinku i može početi s radom u banci.
+				Bankar se prijavljuje u sustav pomoću korisničkog računa i privremene lozinke koju je prethodno dobio od administratora. Sustav provjerava upisane podatke, i ako su podaci točni, dohvaća podatke o bankaru iz baze podataka. Ukoliko su upisani podaci neispravni, sustav šalje poruku kojoj javlja bankaru da su uneseni podaci netočni. Bankar upisuje novu lozinku. Sustav provjerava jesu li nova i stara lozinka različite i  sprema promjene u bazu podataka, a bankar je time uspješno promijenio lozinku i može početi s radom u banci. Ukoliko su nova i stara lozinka iste, sustav šalje poruku bankaru da lozinka nije promijenjena i da su te dvije lozinke iste.
 				\eject
 				
 				\begin{figure}[H]
-					\includegraphics[scale=0.6]{slike/UC9- inicijalna prijava bankara.PNG}
+					\includegraphics[scale=0.50]{slike/UC9.PNG}
 					\centering
 					\caption{Sekvencijski dijagram za UC9}
 					\label{fig:uc9}
@@ -1149,11 +1149,11 @@
 			
 			\noindent{\textbf{UC17 -  Ugovranje debitne kartice }}
 			
-			Klijent šalje zahtjev za ugovaranje debitne kartice. Bankar upisuje klijentov OIB dok ne upiše ispravan jedanaestero znamenkasti broj, a poslužitelj provjerava ispravnost tog OIB-a. Poslužitelj dohvaća podatke o klijentu iz baze podataka i prikazuje ih bankaru. Bankar odabire opciju „Dodaj debitnu karticu“ kako bi ispunio klijentov zahtjev. Sustav dodaje debitnu karticu i sprema promjene u bazu podataka. Nakon toga, klijentu se omogućava uvid u broj kartice i račun uz koji je kartica vezana.
+			 Bankar upisuje klijentov OIB. Sustav provjerava ispravnost OIB-a u bazi podataka. Baza podataka vraća rezultate provjere. Ako je upisan OIB ispravan i postoji u bazi podataka, sustav dohvaća podatke o klijentu iz baze podataka i vraća ih bankaru na uvid. Bankar zatraži stvaranje kartice, sustav stvara karticu i promjene sprema u bazu podataka.Sustav šalje poruku bankaru da je kartica uspješno stvorena. Ukoliko je upisan OIB na početku bio neispravan i baza podataka je vratila negativne rezultate, sustav šalje poruku bankaru kako je upisan OIB neispravan.
 			\eject
 			
 			\begin{figure}[H]
-				\includegraphics[scale=0.5]{slike/UC17- ugovaranje debitne kartice.PNG}
+				\includegraphics[scale=0.60]{slike/UC17.PNG}
 				\centering
 				\caption{Sekvencijski dijagram za UC17}
 				\label{fig:uc17}
@@ -1163,11 +1163,11 @@
 			\noindent{\textbf{UC21 -  Ugovaranje kredita}}
 			
 			
-			Budući da klijent želi ugovoriti kredit, bankar prvo upisuje OIB klijenta kako bi sustav dohvatio njegove podatke. Bankar upisuje OIB dok sustav ne potvrdi ispravnost. Sustav zatraži od baze podataka klijentove podatke i prikazuje ih bankaru na uvid. Bankar šalje zahtjev za ugovaranjem kredita. Sustav traži potrebne podatke koje onda bankar upisuje. Sve promjene spremaju se u bazu podataka, a klijentov zahtjev za odabir kredita sustav šalje službeniku za odobravanje kredita.
+			Bankar upisuje OIB u sustav. Web aplikacija provjerava ispravnost OIB-a s bazom podataka te baza podataka vraća rezultat. Ukoliko je OIB ispravan, sustav traži od baze podataka dohvaćanje klijentovih podataka. Baza podataka vraća podatke i sustav prikazuje bankaru podatke o klijentu. Bankar zatraži ugovaranje kredita, promjene se spremaju u bazu podataka i sustav šalje poruku da je zatraženo ugovaranje kredita. Ukoliko je OIB bio neispravan, bankar dobiva poruku od sustava da je OIB pogrešan.
 			\eject
 			
 			\begin{figure}[H]
-				\includegraphics[scale=0.43]{slike/UC21- ugovaranje kredita.PNG}
+				\includegraphics[scale=0.60]{slike/UC21.PNG}
 				\centering
 				\caption{Sekvencijski dijagram za UC21}
 				\label{fig:uc21}
@@ -1177,11 +1177,11 @@
 			\noindent{\textbf{UC33 -  Registracija korisnika}}
 			
 			
-			Ukoliko se korisnik želi registrirati, u aplikaciju upisuje svoj OIB i privremeni ključ koji je dobio od bankara. Poslužitelj provjerava ispravnost upisanih podataka. Ukoliko su uneseni podaci netočni, sustav ispisuje poruku o netočnim podacima i izlazi iz sustava. Ako su podaci ispravni, sustav traži od korisnika unos novog korisničkog imena i lozinke. Poslužitelj dohvaća podatke o klijentu iz baze podataka. Klijent upisuje novo korisničko ime i lozinku, a poslužitelj provjerava dostupnost korisničkog imena. Klijent upisuje novo koirsničko ime dok se ne razlikuje od ostalih spremljenih korisničkih imena ostalih klijenata. Nakon toga, klijent je uspješno registriran u sustav, a poslužitelj sprema promjene u bazu podataka.
+			Kako bi se neregistrirani korisnik mogao registrirati, u sustav upisuje OIB i ključ koji je prethodno dobio od bankara. Sustav provjerava upisane podatke u bazi podataka te baza vraća rezulta. Ako su upisani podaci točni, sustav dohvaća podatke iz baze podataka i prikazuje iz klijentu. Klijent upisuje novo korisničko ime i lozinku te sustav opet provjerava zauzetost korisničkog imena u bazi podataka. Ukoliko je baza podataka vratila pozitivan rezultat, sustav sprema promjene u bazu podataka, a u slučaju negativnog rezultata baze podataka, sustav ispisuje poruku kojoj govori da je korisničko ime već zauzeto.
 			\eject
 			
 			\begin{figure}[H]
-				\includegraphics[scale=0.50]{slike/UC33- registracija korisnika.PNG}
+				\includegraphics[scale=0.60]{slike/UC33.PNG}
 				\centering
 				\caption{Sekvencijski dijagram za UC33}
 				\label{fig:uc33}
