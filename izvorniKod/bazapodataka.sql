@@ -109,7 +109,7 @@ CREATE UNIQUE INDEX id_vrstaKartice ON vrstaKartice(vrstaKartice);
 
 CREATE TABLE kartica(
 	brKartica int primary key,
-	brRacun varchar(25) not null,
+	brRacun varchar(25),
 	oib varchar(11) not null,
 	vrstaKartice int not null,
 	stanje decimal(10,2) not null,
