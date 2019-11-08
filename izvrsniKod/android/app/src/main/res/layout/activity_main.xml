@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
+    tools:context=".MainActivity">
+
+
+    <FrameLayout
+
+        android:id="@+id/singInBtn"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/editText2"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="102dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="152dp"
+        android:background="@drawable/sing_in_btn"
+        android:clickable="true"
+        android:elevation="40dp"
+        android:layout_centerInParent="true"
+        android:foreground="?selectableItemBackground">
+
+        <TextView
+            android:id="@+id/singInText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="PRIJAVA"
+            android:textColor="#ffffff" />
+
+
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="189dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="150dp"
+        app:srcCompat="@drawable/bank"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/imageView2"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="60dp"
+
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="Korisnicko ime"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView"
+        android:layout_allignLeft="@+id/textView"
+        android:layout_allignRight="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:autofillHints=""
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_pass"
+        android:ems="10"
+        android:hint="Lozinka"
+        android:inputType="textPassword" />
+
+</RelativeLayout>
