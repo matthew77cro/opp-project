@@ -22,26 +22,31 @@ CREATE TABLE profil (
 	email varchar(40),
 	slika varchar(100)
 	);
-
 CREATE UNIQUE INDEX id_oib ON profil(oib);
 
 CREATE TABLE razOvlasti(
 		razOvlasti int primary key,
 		naziv varchar(100)not null
 		);
-	
 CREATE UNIQUE INDEX id_razOvlasti ON razOvlasti(razOvlasti);	
 CREATE INDEX id_naziv ON razOvlasti(naziv);
 
 CREATE TABLE korisnickiRacun (
 	korisnickoIme varchar(25) primary key,
-	lozinka varchar(25),
+	lozinka varchar(64),
 	oib varchar(11) not null,
 	razOvlasti int not null,
+	promjenaLozinke boolean not null,
 	FOREIGN KEY (oib) references profil(oib),
 	FOREIGN KEY (razOvlasti) references razOvlasti(razOvlasti)
 	);
 CREATE UNIQUE INDEX id_korIme ON korisnickiRacun(korisnickoIme);	
+
+CREATE TABLE registracijaKlijenta (
+	oib varchar(11) primary key,
+	privremeniKljuc varchar(64),
+	FOREIGN KEY (oib) references profil(oib)
+	);
 
 CREATE TABLE vrstaKredita(
 	vrstaKredita int primary key,
@@ -49,7 +54,6 @@ CREATE TABLE vrstaKredita(
 	kamStopa decimal(3,2) not null
 	);
 CREATE UNIQUE INDEX id_vrstaKredita ON vrstaKredita(vrstaKredita);	
-	
 
 CREATE TABLE kredit(
 	brKredit int primary key,
@@ -63,7 +67,8 @@ CREATE TABLE kredit(
 	FOREIGN KEY (oib) references profil(oib),
 	FOREIGN KEY (vrstaKredita) references vrstaKredita(vrstaKredita)
 	);
-CREATE UNIQUE INDEX id_brKredita ON kredit(brKredit);	
+CREATE UNIQUE INDEX id_brKredita ON kredit(brKredit);
+
 
 CREATE TABLE vrstaRacuna(
 	vrstaRacuna int primary key,
@@ -96,19 +101,16 @@ CREATE TABLE transakcija(
 	FOREIGN KEY (racTerecenja) references racun(brRacun),
 	FOREIGN KEY (racOdobrenja) references racun(brRacun)
 	);
-
 CREATE UNIQUE INDEX id_brTransakcije ON transakcija(brTransakcija);	
 
 CREATE TABLE vrstaKartice(
 	vrstaKartice int primary key,
 	nazKartice varchar(25) not null
 	);
-	
 CREATE UNIQUE INDEX id_vrstaKartice ON vrstaKartice(vrstaKartice);
-	
 
 CREATE TABLE kartica(
-	brKartica int primary key,
+	brKartica varchar(32) primary key,
 	brRacun varchar(25),
 	oib varchar(11) not null,
 	vrstaKartice int not null,
@@ -116,12 +118,11 @@ CREATE TABLE kartica(
 	valjanost date not null,
 	limitKartice decimal(10,2),
 	kamStopa decimal(3,2),
-	datRate date,
+	datRate int,
 	FOREIGN KEY (brRacun) references racun(brRacun),
 	FOREIGN KEY (oib) references profil(oib),
 	FOREIGN KEY (vrstaKartice) references vrstaKartice(vrstaKartice)
 	);
-
 CREATE UNIQUE INDEX id_brKartice ON kartica(brKartica);	
 	
 
@@ -426,48 +427,102 @@ CREATE UNIQUE INDEX id_brKartice ON kartica(brKartica);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (53270, 'Senj', 9);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (53285, 'Lukovo', 9);
 
-INSERT INTO profil values ('Mirko', 'Horvat', '12345678910', 'Prigorska 10', 10000, '01.02.1960', null, null);
-INSERT INTO profil values ('Mirko', 'Horvat', '12345678910', 'Prigorska 10', 10000, '01.02.1960', null, null);
-
-INSERT INTO profil values ('Ana', 'Anić', '12375878912', 'Gajeva 6', 10360, '04.11.1985', null, null);
-INSERT INTO profil values ('Ivan', 'Bilić', '12345678912', 'Prigorska 15', 10380, '03.10.1955', null, null);
-
-INSERT INTO profil values ('Mario', 'Anić', '12375898912', 'Ilica 30 ', 10000, '15.09.1999', 'manic@gmail.com', null);
-
-INSERT INTO profil values ('Sandra', 'Marić', '25375898912', 'Heinzelova 11 ', 10000, '21.09.1970', 'sandraM@gmail.com', null);
+INSERT INTO profil values ('Matija', 'Bačić', '01234567890', 'Ulica 1', 10000, '01.01.1970', 'matija.bacic@fer.hr', '01234567890_slika_1.png');
+INSERT INTO profil values ('Klara', 'Gudelj', '01234567891', 'Ulica 2', 10000, '01.01.1970', 'klara.gudelj@fer.hr', '01234567891_slika_1.png');
+INSERT INTO profil values ('Dominik', 'Milošević', '01234567892', 'Ulica 3', 10000, '01.01.1970', 'dominik.milosevic@fer.hr', '01234567892_slika_1.png');
+INSERT INTO profil values ('Marko', 'Anušić', '01234567893', 'Ulica 4', 10000, '01.01.1970', 'marko.anusic@fer.hr', '01234567893_slika_1.png');
+INSERT INTO profil values ('Lorena', 'Bastalić', '01234567894', 'Ulica 5', 10000, '01.01.1970', 'lorena.bastalic@fer.hr', '01234567894_slika_1.png');
+INSERT INTO profil values ('Magda', 'Milički', '01234567895', 'Ulica 6', 10000, '01.01.1970', 'magda.milicki@fer.hr', '01234567895_slika_1.png');
+INSERT INTO profil values ('Marija', 'Vučemilo', '01234567896', 'Ulica 7', 10000, '01.01.1970', 'marija.vucemilo@fer.hr', '01234567896_slika_1.png');
+INSERT INTO profil values ('Novi', 'Klijent', '01234567897', 'Ulica 8', 10000, '01.01.1970', 'novi.klijent@fer.hr', '01234567897_slika_1.png');
 
 INSERT INTO razOvlasti values(1, 'Administrator');
-
 INSERT INTO razOvlasti values(2, 'Bankar');
-INSERT INTO razOvlasti values(3, 'Službenik');
+INSERT INTO razOvlasti values(3, 'Službenik za kredite');
 INSERT INTO razOvlasti values(4, 'Klijent');
 
-INSERT INTO korisnickiracun values ('mAnic', '1234567', '12375898912', 4);
-INSERT INTO korisnickiracun values ('anaA', '112345', '12375878912', 2);
-INSERT INTO korisnickiracun values ('ivan123', 'abcd12', '12345678912', 3);
-INSERT INTO korisnickiracun values ('mHorv', 'nezz123', '12345678910', 1);
-INSERT INTO vrstakredita values(1, 'Stanbeni kredit',2.60);
-INSERT INTO vrstakredita values(2, 'Namjenski kredit',3.63);
-INSERT INTO vrstakredita values(3, 'Nenamjenski kredit',4.16);
-INSERT INTO kredit values(1529684, '12375898912', 15000.00, 1, '01.01.2014', 5, 15, 1000.00 );
+-- default password for all accounts : 'bbpassword1234'
+
+INSERT INTO korisnickiracun values ('mBacicAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567890', 1, false);
+INSERT INTO korisnickiracun values ('mBacicBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567890', 2, false);
+INSERT INTO korisnickiracun values ('mBacicSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567890', 3, false);
+INSERT INTO korisnickiracun values ('mBacic', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567890', 4, false);
+
+INSERT INTO korisnickiracun values ('kGudeljAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567891', 1, false);
+INSERT INTO korisnickiracun values ('kGudeljBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567891', 2, false);
+INSERT INTO korisnickiracun values ('kGudeljSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567891', 3, false);
+INSERT INTO korisnickiracun values ('kGudelj', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567891', 4, false);
+
+INSERT INTO korisnickiracun values ('dMilosevicAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567892', 1, false);
+INSERT INTO korisnickiracun values ('dMilosevicBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567892', 2, false);
+INSERT INTO korisnickiracun values ('dMilosevicSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567892', 3, false);
+INSERT INTO korisnickiracun values ('dMilosevic', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567892', 4, false);
+
+INSERT INTO korisnickiracun values ('mAnusicAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567893', 1, false);
+INSERT INTO korisnickiracun values ('mAnusicBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567893', 2, false);
+INSERT INTO korisnickiracun values ('mAnusicSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567893', 3, false);
+INSERT INTO korisnickiracun values ('mAnusic', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567893', 4, false);
+
+INSERT INTO korisnickiracun values ('lBastalicAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567894', 1, false);
+INSERT INTO korisnickiracun values ('lBastalicBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567894', 2, false);
+INSERT INTO korisnickiracun values ('lBastalicSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567894', 3, false);
+INSERT INTO korisnickiracun values ('lBastalic', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567894', 4, false);
+
+INSERT INTO korisnickiracun values ('mMilickiAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567895', 1, false);
+INSERT INTO korisnickiracun values ('mMilickiBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567895', 2, false);
+INSERT INTO korisnickiracun values ('mMilickiSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567895', 3, false);
+INSERT INTO korisnickiracun values ('mMilicki', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567895', 4, false);
+
+INSERT INTO korisnickiracun values ('mVucemiloAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567896', 1, false);
+INSERT INTO korisnickiracun values ('mVucemiloBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567896', 2, false);
+INSERT INTO korisnickiracun values ('mVucemiloSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567896', 3, false);
+INSERT INTO korisnickiracun values ('mVucemilo', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567896', 4, false);
+	
+INSERT INTO registracijaKlijenta values ('01234567897', 'ajksdh78o43tfh3pt786b9018d42nwo9');
+
+INSERT INTO vrstakredita values(1, 'Stanbeni kredit', 2.60);
+INSERT INTO vrstakredita values(2, 'Namjenski kredit', 3.63);
+INSERT INTO vrstakredita values(3, 'Nenamjenski kredit', 4.16);
+
+INSERT INTO kredit values(1529684, '01234567890', 15000.00, 1, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529685, '01234567891', 17000.00, 2, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529686, '01234567892', 70000.00, 3, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529687, '01234567893', 4000.00, 1, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529688, '01234567894', 155000.00, 3, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529689, '01234567895', 155000.00, 3, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529690, '01234567896', 579000.00, 2, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529691, '01234567895', 153000.00, 1, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529692, '01234567893', 135000.00, 2, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529693, '01234567891', 615000.00, 3, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529694, '01234567890', 615000.00, 2, '01.01.2014', 5, 15, 1000.00 );
+INSERT INTO kredit values(1529695, '01234567890', 615000.00, 3, '01.01.2014', 5, 15, 1000.00 );
+
 INSERT INTO vrstaRacuna values (1, 'Tekući račun');
 INSERT INTO vrstaRacuna values (2, 'Žiro račun');
 INSERT INTO vrstaRacuna values (3, 'Štedni račun');
-INSERT INTO Racun values ('HR0201235729','12375898912', '01.03.2016', 630.00, 1, 1000.00, null, null);
+
+INSERT INTO racun values ('HR0201235720', '01234567890', '01.03.2016', 630.00, 1, 1000.00, null, null);
+INSERT INTO racun values ('HR0201235730', '01234567890', '01.03.2016', 730.00, 2, null, null, null);
+INSERT INTO racun values ('HR0201235721', '01234567890', '01.03.2016', 630.00, 3, null, 0.15, null);
+INSERT INTO racun values ('HR0201235722', '01234567891', '01.03.2016', 630.00, 1, 1000.00, null, null);
+INSERT INTO racun values ('HR0201235723', '01234567892', '01.03.2016', 630.00, 2, null, null, null);
+INSERT INTO racun values ('HR0201235724', '01234567893', '01.03.2016', 630.00, 3, null, 0.15, null);
+INSERT INTO racun values ('HR0201235725', '01234567892', '01.03.2016', 630.00, 2, null, null, null);
+INSERT INTO racun values ('HR0201235726', '01234567893', '01.03.2016', 630.00, 3, null, 0.15, null);
+INSERT INTO racun values ('HR0201235727', '01234567894', '01.03.2016', 630.00, 3, null, 0.15, null);
+INSERT INTO racun values ('HR0201235728', '01234567893', '01.03.2016', 630.00, 3, null, 0.15, null);
+INSERT INTO racun values ('HR0201235729', '01234567895', '01.03.2016', 630.00, 2, null, null, null);
+INSERT INTO racun values ('HR0201235731', '01234567896', '01.03.2016', 630.00, 1, 1000.00, null, null);
+
 INSERT INTO vrstaKartice values (1, 'Kreditna kartica');
 INSERT INTO vrstaKartice values (2, 'Debitna kartica');
-INSERT INTO Kartica values (1625738,'HR0201235729', '12375898912', 2, 630.00, '01.03.2020', 1000.00, null, null);
-INSERT INTO transakcija  values (1452,'HR0201235729','HR0201235729', 200.00,'11.06.2019');
 
-
-
-
-
-
-	
-	
-		
-		
-	
-	
-	
+INSERT INTO kartica values ('16257380071', null, '01234567890', 1, 1653.00, '01.03.2020', 2000, 18.93, 20);
+INSERT INTO kartica values ('16257390071', 'HR0201235722', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257400071', 'HR0201235731', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257410071', 'HR0201235729', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257420071', null, '01234567891', 1, 953.77, '01.03.2020', 5000, 9.53, 19);
+INSERT INTO kartica values ('16257430071', null, '01234567892', 1, 891.22, '01.03.2020', 8500, 5.23, 21);
+INSERT INTO kartica values ('16257440071', 'HR0201235725', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257450071', null, '01234567894', 1, 157.87, '01.03.2020', 21000, 3.21, 20);
+INSERT INTO kartica values ('16257460071', 'HR0201235723', null, 2, null, '01.03.2020', null, null, null);
