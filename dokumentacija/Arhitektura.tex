@@ -24,6 +24,7 @@
 		\begin{itemize}
 			\item 	Profil
 			\item 	Korisnički račun
+			\item 	Registracija klijenta
 			\item   Razina ovlasti
 			\item   Kredit
 			\item   Vrsta kredita
@@ -41,7 +42,7 @@
 			\subsection{Opis tablica}
 			
 
-				\textbf{Profil} Ovaj entitet sadrži sve važne informacije za pristup web aplikaciji. Sadrži atribute: ime, prezime, OIB, adresa prebivališta, poštanski broj, datum rođenja, e-mail adresa i slika profila. Ovaj entitet u vezi je \textit{Zero-to-Many} s entitetom Korisnički račun preko OIB-a i u vezi je \textit{Many-to-One} sa entitetom Mjesto preko poštanskog broja.
+				\textbf{Profil} Ovaj entitet sadrži sve važne informacije za pristup web aplikaciji. Sadrži atribute: ime, prezime, OIB, adresa prebivališta, poštanski broj, datum rođenja, e-mail adresa i slika profila. Ovaj entitet u vezi je \textit{Zero-to-Many} s entitetom Korisnički račun preko OIB-a i u vezi je \textit{Many-to-One} sa entitetom Mjesto preko poštanskog broja. Također je i u vezi sa \textit{One-to-One} sa entitetom Registracija klijenta preko OIB-a.
 				
 				\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 					
@@ -68,7 +69,7 @@
 					
 				\end{longtabu}
 			
-			\textbf{Korisnički Račun}  Ovaj entitet sadrži sve važne informacije o korisničkom računu. Sadrži atribute: OIB, korisničko ime, lozinka i razina ovlasti. Ovaj entitet je u vezi \textit{Many-to-Zero} s entitetom Profil preko OIB-a i s entitetom \textit{{One-to-One}} Razina ovlasti preko razine ovlasti. 
+			\textbf{Korisnički Račun}  Ovaj entitet sadrži sve važne informacije o korisničkom računu. Sadrži atribute: OIB, korisničko ime, lozinka, razina ovlasti i promjena lozinke. Ovaj entitet je u vezi \textit{Many-to-Zero} s entitetom Profil preko OIB-a i s entitetom \textit{{One-to-One}} Razina ovlasti preko razine ovlasti. 
 			
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
@@ -85,11 +86,35 @@
 				Lozinka	& VARCHAR &   hash lozinke	\\ \hline 
 				OIB & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
 				Razina ovlasti & INT & broj razine ovlasti (razinaOvlasti.razinaOvlasti)\\ \hline
+				Promjena lozinske & BOOLEAN & treba li promijeniti lozinku prilikom prijave \\ \hline
 				
 			\end{longtabu}
 		
 
 		\eject
+		
+				\textbf{Registracija klijenta}  Ovaj entitet sadrži sve važne informacije o registraciji klijenta. Sadrži atribute: OIB i privremeni ključ. Ovaj entitet je u vezi \textit{One-to-One} s entitetom Profil preko OIB-a.
+			
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Registracija klijenta }}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Registracija klijenta}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				OIB & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+				Privremeni ključ & VARCHAR & privremeni ključ prilikom otvaranja računa \\ \hline
+				
+			\end{longtabu}
+			
+			
+			
+		
+		
 			
 		\textbf{Razina ovlasti}  Ovaj entitet sadrži informacije vezane za razinu ovlasti. Sadrži atribute: razina ovlasti i naziv. Ovaj je entitet u vezi \textit{One-to-One} s entitetom Korisnički račun preko razine ovlasti.  
 		
@@ -176,7 +201,7 @@
 			Vrsta & INT & vrsta kredita (vrstaKredita.tipKredita) \\ \hline
 			Datum ugovaranja & DATE & datum ugovaranja kredita \\ \hline
 			Vremenski period otplate & INT & duljina otplate kredita u godinama \\ \hline
-			Datum rate & DATE & datum plaćanja mjesečne rate \\ \hline
+			Datum rate & INT & datum plaćanja mjesečne rate \\ \hline
 			Preostalo dugovanje & DECIMAL(10,2) & preostali iznos dugovanja \\ \hline
 			
 			
@@ -206,7 +231,7 @@
 	
 		\eject
 		
-				\textbf{Transakcija}   Ovaj entitet sadrži sve važne informacije o transakcijama koje klijent želi provesti. Sadrži atribute: broj transakcije, broj računa terećenja, račun odobrenja, datum transakcije i iznos . Entitet Transakcija u vezi je \textit{Many-to-One} s entitetom Račun preko broja računa terećenja i broja računa odobrenja.
+				\textbf{Transakcija}   Ovaj entitet sadrži sve važne informacije o transakcijama koje klijent želi provesti. Sadrži atribute: broj transakcije, broj računa terećenja, račun odobrenja, iznos i datum transakcije. Entitet Transakcija u vezi je \textit{Many-to-One} s entitetom Račun preko broja računa terećenja i broja računa odobrenja.
 			
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
@@ -222,9 +247,9 @@
 				Broj transakcije & INT & broj transakcije\\ \hline
 				Račun terećenja & VARCHAR & broj računa terećenja\\ \hline
 				Račun odobrenja & VARCHAR & broj računa odobrenja\\ \hline
-				Datum transakcije & DATE & datum transakcije\\ \hline
 				Iznos & DECIMAL (10,2) & iznos uplate\\ \hline
-				
+				Datum transakcije & DATE & datum transakcije\\ \hline
+			
 				
 				
 				
@@ -293,7 +318,7 @@
 				\hline 
 				\endlastfoot
 				
-				Broj kartice & INT & broj kartice\\ \hline
+				Broj kartice & VARCHAR & broj kartice\\ \hline
 				Broj računa & VARCHAR & broj računa za koji je kartica vezana (račun.brojRačuna) \\ \hline
 				OIB & VARCHAR & OIB klijenta (profil.OIB)\\ \hline
 				Vrsta kartice & INT & broj tipa kartice (vrstaKartice.tipKartice)\\ \hline
@@ -301,7 +326,7 @@
 				Valjanost & DATE & datum isteka valjanosti kartice \\ \hline
 				Limit & DECIMAL (10,2)& odobren limit \\ \hline
 				Kamatna stopa & DECIMAL(3, 2) & iznos kamatne stope \\ \hline
-				Datum rate & DATE & datum otplate dugovanja kartice \\ \hline
+				Datum rate & INT & datum otplate dugovanja kartice \\ \hline
 	
 		
 
@@ -333,7 +358,7 @@
 			
 			\subsection{Dijagram baze podataka}
 				\begin{figure}[H]
-					\includegraphics[scale=0.75]{Slike/noviermodel.PNG}
+					\includegraphics[scale=0.8]{Slike/ermodel.PNG}
 					\centering
 					\caption{E-R dijagram baze podataka}
 					\label{fig:dijagram}
