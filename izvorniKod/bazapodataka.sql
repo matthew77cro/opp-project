@@ -23,7 +23,7 @@ CREATE TABLE profil (
 
 CREATE TABLE razOvlasti(
 		sifRazOvlasti int primary key,
-		nazivRazOvlasti varchar(100) not null
+		nazRazOvlasti varchar(100) not null
 		);
 CREATE INDEX id_naziv ON razOvlasti(nazivRazOvlasti);
 
