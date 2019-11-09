@@ -82,7 +82,7 @@ CREATE TABLE racun(
 	);	
 	
 CREATE TABLE transakcija(
-	sifTransakcija int primary key,
+	brTransakcija int primary key,
 	racTerecenja varchar(25) not null,
 	racOdobrenja varchar(25)not null,
 	iznos decimal(10,2) check (iznos > 0),
