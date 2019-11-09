@@ -427,9 +427,6 @@ INSERT INTO razOvlasti values(2, 'Bankar');
 INSERT INTO razOvlasti values(3, 'Službenik za kredite');
 INSERT INTO razOvlasti values(4, 'Klijent');
 
--- default password for all accounts : 'bbpassword1234'
--- password hashing algorithm : SHA-512
-
 INSERT INTO korisnickiracun values ('mBacicAdmin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 1, false);
 INSERT INTO korisnickiracun values ('mBacicBankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 2, false);
 INSERT INTO korisnickiracun values ('mBacicSluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 3, false);
@@ -513,3 +510,6 @@ INSERT INTO kartica values ('16257430071', null, '01234567892', 1, 891.22, '01.0
 INSERT INTO kartica values ('16257440071', 'HR0201235725', null, 2, null, '01.03.2020', null, null, null);
 INSERT INTO kartica values ('16257450071', null, '01234567894', 1, 157.87, '01.03.2020', 21000, 3.21, 20);
 INSERT INTO kartica values ('16257460071', 'HR0201235723', null, 2, null, '01.03.2020', null, null, null);
+
+-- default password for all accounts : 'bbpassword1234'
+-- password hashing algorithm : SHA-512
