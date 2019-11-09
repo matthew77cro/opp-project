@@ -25,11 +25,11 @@ CREATE TABLE razOvlasti(
 		sifRazOvlasti int primary key,
 		nazRazOvlasti varchar(100) not null
 		);
-CREATE INDEX id_naziv ON razOvlasti(nazivRazOvlasti);
+CREATE INDEX id_naziv ON razOvlasti(nazRazOvlasti);
 
 CREATE TABLE korisnickiRacun (
 	korisnickoIme varchar(25) primary key,
-	lozinka varchar(64) not null,
+	lozinka varchar(128) not null,
 	oib varchar(11) not null,
 	sifRazOvlasti int not null,
 	promjenaLozinke boolean not null,
@@ -428,41 +428,42 @@ INSERT INTO razOvlasti values(3, 'Službenik za kredite');
 INSERT INTO razOvlasti values(4, 'Klijent');
 
 -- default password for all accounts : 'bbpassword1234'
+-- password hashing algorithm : SHA-512
 
-INSERT INTO korisnickiracun values ('mBacicAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567890', 1, false);
-INSERT INTO korisnickiracun values ('mBacicBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567890', 2, false);
-INSERT INTO korisnickiracun values ('mBacicSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567890', 3, false);
-INSERT INTO korisnickiracun values ('mBacic', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567890', 4, false);
+INSERT INTO korisnickiracun values ('mBacicAdmin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 1, false);
+INSERT INTO korisnickiracun values ('mBacicBankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 2, false);
+INSERT INTO korisnickiracun values ('mBacicSluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 3, false);
+INSERT INTO korisnickiracun values ('mBacic', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 4, false);
 
-INSERT INTO korisnickiracun values ('kGudeljAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567891', 1, false);
-INSERT INTO korisnickiracun values ('kGudeljBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567891', 2, false);
-INSERT INTO korisnickiracun values ('kGudeljSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567891', 3, false);
-INSERT INTO korisnickiracun values ('kGudelj', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567891', 4, false);
+INSERT INTO korisnickiracun values ('kGudeljAdmin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567891', 1, false);
+INSERT INTO korisnickiracun values ('kGudeljBankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567891', 2, false);
+INSERT INTO korisnickiracun values ('kGudeljSluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567891', 3, false);
+INSERT INTO korisnickiracun values ('kGudelj', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567891', 4, false);
 
-INSERT INTO korisnickiracun values ('dMilosevicAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567892', 1, false);
-INSERT INTO korisnickiracun values ('dMilosevicBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567892', 2, false);
-INSERT INTO korisnickiracun values ('dMilosevicSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567892', 3, false);
-INSERT INTO korisnickiracun values ('dMilosevic', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567892', 4, false);
+INSERT INTO korisnickiracun values ('dMilosevicAdmin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567892', 1, false);
+INSERT INTO korisnickiracun values ('dMilosevicBankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567892', 2, false);
+INSERT INTO korisnickiracun values ('dMilosevicSluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567892', 3, false);
+INSERT INTO korisnickiracun values ('dMilosevic', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567892', 4, false);
 
-INSERT INTO korisnickiracun values ('mAnusicAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567893', 1, false);
-INSERT INTO korisnickiracun values ('mAnusicBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567893', 2, false);
-INSERT INTO korisnickiracun values ('mAnusicSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567893', 3, false);
-INSERT INTO korisnickiracun values ('mAnusic', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567893', 4, false);
+INSERT INTO korisnickiracun values ('mAnusicAdmin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567893', 1, false);
+INSERT INTO korisnickiracun values ('mAnusicBankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567893', 2, false);
+INSERT INTO korisnickiracun values ('mAnusicSluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567893', 3, false);
+INSERT INTO korisnickiracun values ('mAnusic', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567893', 4, false);
 
-INSERT INTO korisnickiracun values ('lBastalicAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567894', 1, false);
-INSERT INTO korisnickiracun values ('lBastalicBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567894', 2, false);
-INSERT INTO korisnickiracun values ('lBastalicSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567894', 3, false);
-INSERT INTO korisnickiracun values ('lBastalic', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567894', 4, false);
+INSERT INTO korisnickiracun values ('lBastalicAdmin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567894', 1, false);
+INSERT INTO korisnickiracun values ('lBastalicBankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567894', 2, false);
+INSERT INTO korisnickiracun values ('lBastalicSluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567894', 3, false);
+INSERT INTO korisnickiracun values ('lBastalic', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567894', 4, false);
 
-INSERT INTO korisnickiracun values ('mMilickiAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567895', 1, false);
-INSERT INTO korisnickiracun values ('mMilickiBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567895', 2, false);
-INSERT INTO korisnickiracun values ('mMilickiSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567895', 3, false);
-INSERT INTO korisnickiracun values ('mMilicki', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567895', 4, false);
+INSERT INTO korisnickiracun values ('mMilickiAdmin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567895', 1, false);
+INSERT INTO korisnickiracun values ('mMilickiBankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567895', 2, false);
+INSERT INTO korisnickiracun values ('mMilickiSluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567895', 3, false);
+INSERT INTO korisnickiracun values ('mMilicki', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567895', 4, false);
 
-INSERT INTO korisnickiracun values ('mVucemiloAdmin', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567896', 1, false);
-INSERT INTO korisnickiracun values ('mVucemiloBankar', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567896', 2, false);
-INSERT INTO korisnickiracun values ('mVucemiloSluzbenik', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567896', 3, false);
-INSERT INTO korisnickiracun values ('mVucemilo', '0106a36ec403448e1f7cae7b9f66fcfb', '01234567896', 4, false);
+INSERT INTO korisnickiracun values ('mVucemiloAdmin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567896', 1, false);
+INSERT INTO korisnickiracun values ('mVucemiloBankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567896', 2, false);
+INSERT INTO korisnickiracun values ('mVucemiloSluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567896', 3, false);
+INSERT INTO korisnickiracun values ('mVucemilo', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567896', 4, false);
 	
 INSERT INTO registracijaKlijenta values ('01234567897', 'ajksdh78o43tfh3pt786b9018d42nwo9');
 
