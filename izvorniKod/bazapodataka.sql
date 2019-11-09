@@ -1,8 +1,7 @@
 CREATE TABLE zupanija(
-		sifZupanija int primary key,
-		nazZupanija varchar(40) not null
-		);
-CREATE UNIQUE INDEX id_sifZup ON Zupanija(sifZupanija);
+	sifZupanija int primary key,
+	nazZupanija varchar(40) not null
+	);
 
 CREATE Table mjesto(
 	pbr int primary key,
@@ -10,110 +9,98 @@ CREATE Table mjesto(
 	sifZupanija int not null, 
 	FOREIGN KEY (sifZupanija) references zupanija(sifZupanija)
 	);
-CREATE UNIQUE INDEX id_pbr ON mjesto(pbr);
 
 CREATE TABLE profil (
+	oib varchar(11) primary key,
 	ime varchar (25) not null,
 	prezime varchar (25) not null,
-	oib varchar(11) primary key,
-	adresa varchar (40),
-	pbr int references mjesto(pbr),
-	datRod date,
-	email varchar(40),
-	slika varchar(100)
+	adresa varchar (40) not null,
+	pbr int not null references mjesto(pbr),
+	datRod date not null,
+	email varchar(40) not null,
+	slika varchar(100) not null
 	);
-CREATE UNIQUE INDEX id_oib ON profil(oib);
 
 CREATE TABLE razOvlasti(
-		razOvlasti int primary key,
-		naziv varchar(100)not null
+		sifRazOvlasti int primary key,
+		nazivRazOvlasti varchar(100) not null
 		);
-CREATE UNIQUE INDEX id_razOvlasti ON razOvlasti(razOvlasti);	
-CREATE INDEX id_naziv ON razOvlasti(naziv);
+CREATE INDEX id_naziv ON razOvlasti(nazivRazOvlasti);
 
 CREATE TABLE korisnickiRacun (
 	korisnickoIme varchar(25) primary key,
-	lozinka varchar(64),
+	lozinka varchar(64) not null,
 	oib varchar(11) not null,
-	razOvlasti int not null,
+	sifRazOvlasti int not null,
 	promjenaLozinke boolean not null,
 	FOREIGN KEY (oib) references profil(oib),
-	FOREIGN KEY (razOvlasti) references razOvlasti(razOvlasti)
+	FOREIGN KEY (sifRazOvlasti) references razOvlasti(sifRazOvlasti)
 	);
-CREATE UNIQUE INDEX id_korIme ON korisnickiRacun(korisnickoIme);	
 
 CREATE TABLE registracijaKlijenta (
 	oib varchar(11) primary key,
-	privremeniKljuc varchar(64),
+	privremeniKljuc varchar(64) not null,
 	FOREIGN KEY (oib) references profil(oib)
 	);
 
 CREATE TABLE vrstaKredita(
-	vrstaKredita int primary key,
+	sifVrsteKredita int primary key,
 	nazVrsteKredita varchar(25) not null,
 	kamStopa decimal(3,2) not null
 	);
-CREATE UNIQUE INDEX id_vrstaKredita ON vrstaKredita(vrstaKredita);	
 
 CREATE TABLE kredit(
 	brKredit int primary key,
 	oib varchar(11) not null,
 	iznos decimal(10,2) check (iznos > 0),
-	vrstaKredita int not null,
-	datUgovaranja date,
+	sifVrsteKredita int not null,
+	datUgovaranja date not null,
 	periodOtplate int not null,
-	datRate int,
-	preostaloDug decimal(10,2),
+	datRate int not null,
+	preostaloDugovanje decimal(10,2) not null,
 	FOREIGN KEY (oib) references profil(oib),
-	FOREIGN KEY (vrstaKredita) references vrstaKredita(vrstaKredita)
+	FOREIGN KEY (sifVrsteKredita) references vrstaKredita(sifVrsteKredita)
 	);
-CREATE UNIQUE INDEX id_brKredita ON kredit(brKredit);
-
 
 CREATE TABLE vrstaRacuna(
-	vrstaRacuna int primary key,
-	nazRacuna varchar(25) not null
+	sifVrsteRacuna int primary key,
+	nazVrsteRacuna varchar(25) not null
 	);
-CREATE UNIQUE INDEX id_vrstaRacuna ON vrstaRacuna(vrstaRacuna);	
 
 CREATE TABLE racun(
 	brRacun varchar(25) primary key,
 	oib varchar(11) not null,
-	datOtvaranja date,
+	datOtvaranja date not null,
 	stanje decimal(10,2) not null,
-	vrstaRacuna int not null,
+	sifVrsteRacuna int not null,
 	prekoracenje decimal(10,2),
 	kamStopa decimal(3,2),
 	datZatvaranja date,
 	FOREIGN KEY (oib) references profil(oib),
-	FOREIGN KEY (vrstaRacuna) references vrstaRacuna(vrstaRacuna)
-	);
-CREATE UNIQUE INDEX id_brRacun ON racun(brRacun);	
-	
-
+	FOREIGN KEY (sifVrsteRacuna) references vrstaRacuna(sifVrsteRacuna),
+	CHECK ((prekoracenje IS NOT NULL AND kamStopa IS NULL) OR (prekoracenje IS NULL AND kamStopa IS NOT NULL))
+	);	
 	
 CREATE TABLE transakcija(
-	brTransakcija int primary key,
+	sifTransakcija int primary key,
 	racTerecenja varchar(25) not null,
 	racOdobrenja varchar(25)not null,
 	iznos decimal(10,2) check (iznos > 0),
-	dattransakcije date,
+	datTransakcije date not null,
 	FOREIGN KEY (racTerecenja) references racun(brRacun),
 	FOREIGN KEY (racOdobrenja) references racun(brRacun)
-	);
-CREATE UNIQUE INDEX id_brTransakcije ON transakcija(brTransakcija);	
+	);	
 
 CREATE TABLE vrstaKartice(
-	vrstaKartice int primary key,
-	nazKartice varchar(25) not null
+	sifVrstaKartice int primary key,
+	nazVrstaKartice varchar(25) not null
 	);
-CREATE UNIQUE INDEX id_vrstaKartice ON vrstaKartice(vrstaKartice);
 
 CREATE TABLE kartica(
 	brKartica varchar(32) primary key,
 	brRacun varchar(25),
 	oib varchar(11),
-	vrstaKartice int not null,
+	sifVrstaKartice int not null,
 	stanje decimal(10,2),
 	valjanost date not null,
 	limitKartice decimal(10,2),
@@ -121,11 +108,10 @@ CREATE TABLE kartica(
 	datRate int,
 	FOREIGN KEY (brRacun) references racun(brRacun),
 	FOREIGN KEY (oib) references profil(oib),
-	FOREIGN KEY (vrstaKartice) references vrstaKartice(vrstaKartice)
+	FOREIGN KEY (sifVrstaKartice) references vrstaKartice(sifVrstaKartice),
+	CHECK ((brRacun IS NOT NULL AND oib IS NULL AND stanje IS NULL AND limitKartice IS NULL AND kamStopa IS NULL AND datRate IS NULL)
+			OR (brRacun IS NULL AND oib IS NOT NULL AND stanje IS NOT NULL AND limitKartice IS NOT NULL AND kamStopa IS NOT NULL AND datRate IS NOT NULL))
 	);
-CREATE UNIQUE INDEX id_brKartice ON kartica(brKartica);	
-	
-
 
  INSERT INTO zupanija (sifZupanija, nazZupanija) VALUES (0, 'Nepoznata županija');
  INSERT INTO zupanija (sifZupanija, nazZupanija) VALUES (1, 'Zagrebačka');
@@ -427,14 +413,14 @@ CREATE UNIQUE INDEX id_brKartice ON kartica(brKartica);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (53270, 'Senj', 9);
  INSERT INTO mjesto (pBr, nazMjesto, sifZupanija) VALUES (53285, 'Lukovo', 9);
 
-INSERT INTO profil values ('Matija', 'Bačić', '01234567890', 'Ulica 1', 10000, '01.01.1970', 'matija.bacic@fer.hr', '01234567890_slika_1.png');
-INSERT INTO profil values ('Klara', 'Gudelj', '01234567891', 'Ulica 2', 10000, '01.01.1970', 'klara.gudelj@fer.hr', '01234567891_slika_1.png');
-INSERT INTO profil values ('Dominik', 'Milošević', '01234567892', 'Ulica 3', 10000, '01.01.1970', 'dominik.milosevic@fer.hr', '01234567892_slika_1.png');
-INSERT INTO profil values ('Marko', 'Anušić', '01234567893', 'Ulica 4', 10000, '01.01.1970', 'marko.anusic@fer.hr', '01234567893_slika_1.png');
-INSERT INTO profil values ('Lorena', 'Bastalić', '01234567894', 'Ulica 5', 10000, '01.01.1970', 'lorena.bastalic@fer.hr', '01234567894_slika_1.png');
-INSERT INTO profil values ('Magda', 'Milički', '01234567895', 'Ulica 6', 10000, '01.01.1970', 'magda.milicki@fer.hr', '01234567895_slika_1.png');
-INSERT INTO profil values ('Marija', 'Vučemilo', '01234567896', 'Ulica 7', 10000, '01.01.1970', 'marija.vucemilo@fer.hr', '01234567896_slika_1.png');
-INSERT INTO profil values ('Novi', 'Klijent', '01234567897', 'Ulica 8', 10000, '01.01.1970', 'novi.klijent@fer.hr', '01234567897_slika_1.png');
+INSERT INTO profil values ('01234567890', 'Matija', 'Bačić', 'Ulica 1', 10000, '01.01.1970', 'matija.bacic@fer.hr', '01234567890_slika_1.png');
+INSERT INTO profil values ('01234567891', 'Klara', 'Gudelj', 'Ulica 2', 10000, '01.01.1970', 'klara.gudelj@fer.hr', '01234567891_slika_1.png');
+INSERT INTO profil values ('01234567892', 'Dominik', 'Milošević', 'Ulica 3', 10000, '01.01.1970', 'dominik.milosevic@fer.hr', '01234567892_slika_1.png');
+INSERT INTO profil values ('01234567893', 'Marko', 'Anušić', 'Ulica 4', 10000, '01.01.1970', 'marko.anusic@fer.hr', '01234567893_slika_1.png');
+INSERT INTO profil values ('01234567894', 'Lorena', 'Bastalić', 'Ulica 5', 10000, '01.01.1970', 'lorena.bastalic@fer.hr', '01234567894_slika_1.png');
+INSERT INTO profil values ('01234567895', 'Magda', 'Milički', 'Ulica 6', 10000, '01.01.1970', 'magda.milicki@fer.hr', '01234567895_slika_1.png');
+INSERT INTO profil values ('01234567896', 'Marija', 'Vučemilo', 'Ulica 7', 10000, '01.01.1970', 'marija.vucemilo@fer.hr', '01234567896_slika_1.png');
+INSERT INTO profil values ('01234567897', 'Novi', 'Klijent', 'Ulica 8', 10000, '01.01.1970', 'novi.klijent@fer.hr', '01234567897_slika_1.png');
 
 INSERT INTO razOvlasti values(1, 'Administrator');
 INSERT INTO razOvlasti values(2, 'Bankar');
@@ -502,16 +488,16 @@ INSERT INTO vrstaRacuna values (2, 'Žiro račun');
 INSERT INTO vrstaRacuna values (3, 'Štedni račun');
 
 INSERT INTO racun values ('HR0201235720', '01234567890', '01.03.2016', 630.00, 1, 1000.00, null, null);
-INSERT INTO racun values ('HR0201235730', '01234567890', '01.03.2016', 730.00, 2, null, null, null);
+INSERT INTO racun values ('HR0201235730', '01234567890', '01.03.2016', 730.00, 2, 0, null, null);
 INSERT INTO racun values ('HR0201235721', '01234567890', '01.03.2016', 630.00, 3, null, 0.15, null);
 INSERT INTO racun values ('HR0201235722', '01234567891', '01.03.2016', 630.00, 1, 1000.00, null, null);
-INSERT INTO racun values ('HR0201235723', '01234567892', '01.03.2016', 630.00, 2, null, null, null);
+INSERT INTO racun values ('HR0201235723', '01234567892', '01.03.2016', 630.00, 2, 0, null, null);
 INSERT INTO racun values ('HR0201235724', '01234567893', '01.03.2016', 630.00, 3, null, 0.15, null);
-INSERT INTO racun values ('HR0201235725', '01234567892', '01.03.2016', 630.00, 2, null, null, null);
+INSERT INTO racun values ('HR0201235725', '01234567892', '01.03.2016', 630.00, 2, 0, null, null);
 INSERT INTO racun values ('HR0201235726', '01234567893', '01.03.2016', 630.00, 3, null, 0.15, null);
 INSERT INTO racun values ('HR0201235727', '01234567894', '01.03.2016', 630.00, 3, null, 0.15, null);
 INSERT INTO racun values ('HR0201235728', '01234567893', '01.03.2016', 630.00, 3, null, 0.15, null);
-INSERT INTO racun values ('HR0201235729', '01234567895', '01.03.2016', 630.00, 2, null, null, null);
+INSERT INTO racun values ('HR0201235729', '01234567895', '01.03.2016', 630.00, 2, 0, null, null);
 INSERT INTO racun values ('HR0201235731', '01234567896', '01.03.2016', 630.00, 1, 1000.00, null, null);
 
 INSERT INTO vrstaKartice values (1, 'Kreditna kartica');
