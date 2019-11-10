@@ -7,42 +7,41 @@
     <title>BugBusters banka</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<header>
-    <div id="header-navbar">
-        <h1 id="nav-title">BugBusters banka</h1>
-        <nav>
-            <ul>
-                <li><a href="#" id="nav-login"><h2>Prijava</h2></a></li>
-                <li><a href="#" id="nav-register"><h2>Registracija</h2></a></li>
-            </ul>
-        </nav>
-    </div>   
-</header>
 <body>
-        <div class="form-container">
-            <form id="login-form">
-                <img src="avatar.png" alt="" class="avatar">
-                <h1 class="form-name">Prijava</h1>
-                <p>Korisničko ime</p>
-                <input type="text" name="">
-                <p>Lozinka</p>
-                <input type="password" name="">
-                <input type="submit" name="" value="Prijava">
-            </form>
-        </div>
-        <div class="form-container">
-            <form id="register-form">
-                <img src="avatar.png" alt="" class="avatar">
-                <h1 class="form-name">Registracija</h1>
-                <p>OIB</p>
-                <input type="text" name="">
-                <p>Ključ za registraciju</p>
-                <input type="password" name="">
-                <input type="submit" name="" value="Registriraj se">
-            </form>
-        </div>
+	<header>
+		<div id="header-navbar">
+			<h1 id="nav-title">BugBusters banka</h1>
+			<nav>
+				<ul>
+					<li><a href="#" id="nav-login"><h2>Prijava</h2></a></li>
+					<li><a href="#" id="nav-register"><h2>Registracija</h2></a></li>
+				</ul>
+			</nav>
+		</div>   
+	</header>
+	<div class="form-container" action="" method="POST">
+		<form id="login-form">
+			<img src="avatar.png" alt="" class="avatar">
+			<h1 class="form-name">Prijava</h1>
+			<p>Korisničko ime</p>
+			<input type="text" name="username">
+			<p>Lozinka</p>
+			<input type="password" name="password">
+			<input type="submit" name="" value="Prijava">
+		</form>
+	</div>
+	<div class="form-container">
+		<form id="register-form" action="" method="POST">
+			<img src="avatar.png" alt="" class="avatar">
+			<h1 class="form-name">Registracija</h1>
+			<p>OIB</p>
+			<input type="text" name="oib">
+			<p>Ključ za registraciju</p>
+			<input type="password" name="key">
+			<input type="submit" name="" value="Registriraj se">
+		</form>
+	</div>
 
-    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="main.js"></script>
 </body>
