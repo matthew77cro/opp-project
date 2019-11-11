@@ -17,9 +17,10 @@ public class RestLoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if(LoginHandler.doLogin(req, resp)) {
+		if(LoginHandler.doLogin(req, resp) && !LoginHandler.needsPasswordChange(req, resp)) {
 			resp.setStatus(HttpServletResponse.SC_OK);
 		} else {
+			LoginHandler.doLogout(req, resp);
 			resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 		}
 		

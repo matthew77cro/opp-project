@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import hr.fer.opp.bugbusters.dao.DAO;
 import hr.fer.opp.bugbusters.dao.model.KorisnickiRacun;
@@ -26,6 +27,8 @@ public class SQLDAO implements DAO {
 	
 	@Override
 	public KorisnickiRacun getKorisnickiRacun(String korisnickoIme) {
+		
+		Objects.requireNonNull(korisnickoIme);
 		
 		KorisnickiRacun racun = null;
 		
@@ -59,6 +62,8 @@ public class SQLDAO implements DAO {
 	
 	@Override
 	public Profil getProfil(String oib) {
+		
+		Objects.requireNonNull(oib);
 
 		Profil profil = null;
 		
@@ -95,6 +100,8 @@ public class SQLDAO implements DAO {
 	//
 	@Override
 	public Profil getProfilByKorisnickoIme(String korisnickoIme) {
+		
+		Objects.requireNonNull(korisnickoIme);
 
 		Profil profil = null;
 		
@@ -181,6 +188,26 @@ public class SQLDAO implements DAO {
 		}
 		
 		return zupanija;
+	}
+
+	@Override
+	public boolean changePassword(String korisnickoIme, String newPasswordHash) {
+		
+		Objects.requireNonNull(korisnickoIme);
+		Objects.requireNonNull(newPasswordHash);
+		
+		int result;
+		Connection con = SQLConnectionProvider.getConnection();
+		try {
+			PreparedStatement pst = con.prepareStatement("UPDATE korisnickiracun SET lozinka='" + newPasswordHash + "', promjenaLozinke = false WHERE korisnickoIme='" + korisnickoIme + "'");
+			result = pst.executeUpdate();
+			pst.close();
+		} catch (SQLException ex) {
+			throw new RuntimeException(ex.getCause() + " : " + ex.getMessage());
+		}
+		
+		return result!=0;
+		
 	}
 
 }

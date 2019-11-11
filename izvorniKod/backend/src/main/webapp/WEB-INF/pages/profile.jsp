@@ -10,12 +10,12 @@
     <title>BugBusters banka</title>
     <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/profile.css">
 </head>
-<header>
-	<div>
-		<h1 id="nav-title">BugBusters banka</h1> 
-	</div>
-</header>
 <body>
+	<header>
+		<div>
+			<h1 id="nav-title">BugBusters banka</h1> 
+		</div>
+	</header>
 	<nav class="topnav">
 		<a class="active" href="#" id="moj-profil">Moj profil</a>
 		<a href="#" id="racuni">Računi</a>
@@ -25,7 +25,7 @@
 	</nav>
 	<div id="container">
 		<h1>Osobni podaci</h1>
-		<img src="<%= request.getServletContext().getContextPath() %>/pics/avatar.png" alt="" class="avatar">
+		<img src="<%= request.getServletContext().getContextPath() %>/rest/profil/slika" alt="" class="avatar">
 		<table id="user-data-table">
 			<tr>
 				<td>Ime</td>

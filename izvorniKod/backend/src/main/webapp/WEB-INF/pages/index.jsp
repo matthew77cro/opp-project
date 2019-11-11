@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BugBusters banka</title>
-    <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/style.css">
+    <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/index.css">
 </head>
 <body>
 	<header>

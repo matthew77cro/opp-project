@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
 		if(LoginHandler.isLoggedIn(req, resp)) {
 			resp.sendRedirect("profil");
 		} else {
-			req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/pages/index.jsp").forward(req, resp);
 		}
 		
 	}
@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 			resp.sendRedirect("profil");
 		} else {
 			req.setAttribute("errorMsg", "Username or password incorrect!");
-			req.getRequestDispatcher("/WEB-INF/pages/login.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/pages/index.jsp").forward(req, resp);
 		}
 		
 	}

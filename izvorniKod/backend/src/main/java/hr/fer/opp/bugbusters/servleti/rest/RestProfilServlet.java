@@ -25,7 +25,7 @@ public class RestProfilServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if(!LoginHandler.isLoggedIn(req, resp)) {
+		if(!LoginHandler.isLoggedIn(req, resp) || LoginHandler.needsPasswordChange(req, resp)) {
 			resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return;
 		}
@@ -45,10 +45,13 @@ public class RestProfilServlet extends HttpServlet {
 				profil.getEmail());
 		
 		Gson gson = new Gson();
-		String json = gson.toJson(pd);
+		byte[] jsonData = gson.toJson(pd).getBytes(StandardCharsets.UTF_8);
+		
+		resp.setContentType("application/json");
+		resp.setContentLength(jsonData.length);
 		
 		var os = resp.getOutputStream();
-		os.write(json.getBytes(StandardCharsets.UTF_8));
+		os.write(jsonData);
 		os.close();
 		
 	}

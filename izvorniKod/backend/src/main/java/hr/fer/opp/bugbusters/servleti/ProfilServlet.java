@@ -26,6 +26,11 @@ public class ProfilServlet extends HttpServlet {
 			return;
 		}
 		
+		if(LoginHandler.needsPasswordChange(req, resp)) {
+			resp.sendRedirect("passwordchange");
+			return;
+		}
+		
 		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
 		Mjesto mjesto = DAOProvider.getDao().getMjesto(profil.getPbr());
 		Zupanija zupanija = DAOProvider.getDao().getZupanija(mjesto.getSifraZupanija());
