@@ -1,20 +1,43 @@
 \chapter{Arhitektura i dizajn sustava}
 
-		
-		\textbf{\textit{dio 1. revizije}}\\
-
-		\textit{ Potrebno je opisati stil arhitekture te identificirati: podsustave, preslikavanje na radnu platformu, spremišta podataka, mrežne protokole, globalni upravljački tok i sklopovsko-programske zahtjeve. Po točkama razraditi i popratiti odgovarajućim skicama:}
+	Arhitektura aplikacije može se podijeliti na četiri podsustava:
 	\begin{itemize}
-		\item 	\textit{izbor arhitekture temeljem principa oblikovanja pokazanih na predavanjima (objasniti zašto ste baš odabrali takvu arhitekturu)}
-		\item 	\textit{organizaciju sustava s najviše razine apstrakcije (npr. klijent-poslužitelj, baza podataka, datotečni sustav, grafičko sučelje)}
-		\item 	\textit{organizaciju aplikacije (npr. slojevi frontend i backend, MVC arhitektura) }		
+		\item Web poslužitelj
+		\item Web aplikacija
+		\item Baza podataka
+		\item Mobilna aplikacija
 	\end{itemize}
 
+	\begin{figure}[H]
+		\includegraphics[scale=0.7]{Slike/Arhitektura sustava.PNG}
+		\centering
+		\caption{Arhitektura sustava s prikazom podsustava i toka podataka}
+		\label{fig:dijagramSustava}
+	\end{figure}
+
+	\textit{\underline{Web poslužitelj}} osnova je web aplikacije. To je računalo koje preko internetske mreže uspostavlja komunikaciju s korisnicima sustava. U našem slučaju, to je Windows Server virtualna mašina podignuta preko servisa Microsoft Azure. Na njemu su instalirani svi servisi koji su potpora radu web aplikacije i baze podataka.
 	
+	\textit{\underline{Web aplikacija}} mozak je našeg sustava. U njoj je opisana sva logika aplikacije. Razgovara sa korisnikom sustava putem HTTP (engl. \textit{Hyper
+	Text Transfer Protocol}) protokola, obrađuje zahtjeve, spaja se s bazom podataka te šalje odgovor korisniku na web preglednik ili Android aplikaciju. Odgovor je oblika HTML dokumenta u slučaju korištenja web preglednika ili oblika JSON (JavaScript Object Notation) dokumenta u slučaju spajanja Android aplikacije na RESTful API sustava.
+
+	Za backend sustava odabran je programski jezik Java te tehnologije Java Servleti i JSP (Java Server Pages). Backend je pisan kao Maven projekt radi lakšeg upravljanja ovisnostima naše aplikacije. Kao razvojno okruženje koristi se IDE Eclipse, a Apache Tomcat kao Servlet container.
+	
+	Oblikovnim obrascem MVC (Model-View-Controller) ostvarili smo razdvajanje frontend i backend dijela sustava te njihovo nezavisno i paralelno razvijanje. Posljedica toga jest jednostavno testiranje i utvrđivanje grešaka sustava te jednostavna buduća nadogradnja.
+	
+	Obrazac MVC sastoji se od tri komponente:
+	\begin{packed_item}
 		
+		\item \textbf{Model} - strukture podataka koje služe preslikavanju podataka iz baze u objektno orijentiran jezik. Omogućuju lakši dohvat i lakše upravljanje podacima spremljenim u bazu.
+		\item \textbf{View} - komponenta koja služi prikazu podataka iz modela na korisniku razumljiv i jednostavan način. U slučaju naše web aplikacije, za to je zadužena tehnologija JSP.
+		\item \textbf{Controller}
+		
+	\end{packed_item}
+	
+	Odabrali smo relacijski model \textit{\underline{baze podataka}} zbog njegove raširenosti, jednostavnosti i skalabilnosti. Bazu podataka opisali smo jezikom SQL i pokrenuli ju na sustavu PostgreSQL.
 
+	\textit{\underline{Mobilna aplikacija}} još jedan je pogled korisnika u naš sustav. Ona je izgrađena u programskom jeziku Java koristeći Android studio kao IDE. Mobilna aplikacija spaja se na RESTful dio web poslužitelja preko kojeg vrši prijavu u sustav i dohvaćanje podataka. Za izradu dizajna Android aplikacije koristi se sustav Adobe XD i Google Material Design kao vizualni jezik.
+		
 		\eject
-
 				
 		\section{Baza podataka}
 			
@@ -57,9 +80,9 @@
 					
 					Ime & VARCHAR	&  	ime korisnika\cellcolor{LightGreen} 	\\ \hline
 					Prezime	& VARCHAR &  prezime korisnika 	\\ \hline 
-					\rowcolor{lightgreen}OIB & VARCHAR &  OIB korisnika \\ \hline 
+					\rowcolor{lightgreen}\textbf{OIB} & VARCHAR &  OIB korisnika \\ \hline 
 					Adresa prebivališta & VARCHAR &   adresa korisnika      \\ \hline
-					Poštanski broj & INT & poštanski broj (mjesto.poštanskiBroj) \\ \hline
+					\textit{Poštanski broj} & INT & poštanski broj (mjesto.poštanskiBroj) \\ \hline
 					Datum rođenja & DATE & datum rođenja korisnika \\ \hline
 					Email & VARCHAR & e-mail adresa korisnika \\ \hline
 					Slika & VARCHAR & slika korisnika \\ \hline
@@ -82,10 +105,10 @@
 				\hline 
 				\endlastfoot
 				
-				\cellcolor{LightGreen}Korisničko ime & VARCHAR	&  jedinstveni identifikator korisnika \\ \hline
+				\cellcolor{LightGreen}\textbf{Korisničko ime} & VARCHAR	&  jedinstveni identifikator korisnika \\ \hline
 				Lozinka	& VARCHAR &   hash lozinke	\\ \hline 
-				OIB & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
-				Razina ovlasti & INT & broj razine ovlasti (razinaOvlasti.razinaOvlasti)\\ \hline
+				\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+				\textit{Razina ovlasti} & INT & broj razine ovlasti (razinaOvlasti.razinaOvlasti)\\ \hline
 				Promjena lozinske & BOOLEAN & treba li promijeniti lozinku prilikom prijave \\ \hline
 				
 			\end{longtabu}
@@ -106,7 +129,7 @@
 				\hline 
 				\endlastfoot
 				
-				OIB & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+				\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
 				Privremeni ključ & VARCHAR & privremeni ključ prilikom otvaranja računa \\ \hline
 				
 			\end{longtabu}
@@ -129,8 +152,8 @@
 			\hline 
 			\endlastfoot
 			
-		    Razina ovlasti & INT & Broj razine ovlasti  \\ \hline
-			\cellcolor{LightGreen}Naziv & VARCHAR	& Naziv ovlasti	\\ \hline
+		    \textbf{Razina ovlasti} & INT & Broj razine ovlasti  \\ \hline
+			Naziv & VARCHAR	& Naziv ovlasti	\\ \hline
 			
 			
 			
@@ -150,9 +173,9 @@
 		\hline 
 		\endlastfoot
 		
-		Poštanski broj & INT & poštanski broj mjesta \\ \hline
+		\textbf{Poštanski broj} & INT & poštanski broj mjesta \\ \hline
 		Naziv mjesta & VARCHAR & naziv mjesta \\ \hline
-		Šifra županije & INT & šifra županije(županija.šifraŽupanije) \\ \hline
+		\textit{Šifra županije} & INT & šifra županije(županija.šifraŽupanije) \\ \hline
 		
 		
 		
@@ -172,7 +195,7 @@
 			\endlastfoot
 			
 			
-			Šifra županije & INT & šifra županije \\ \hline
+			\textbf{Šifra županije} & INT & šifra županije \\ \hline
 			Naziv županije & VARCHAR & naziv županije \\ \hline
 			
 			
@@ -195,10 +218,10 @@
 			\hline 
 			\endlastfoot
 			
-			Broj kredita & INT & broj kredita \\ \hline
-			OIB & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+			\textbf{Broj kredita} & INT & broj kredita \\ \hline
+			\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
 			Iznos & DECIMAL (10, 2) & iznos kredita \\ \hline
-			Vrsta & INT & vrsta kredita (vrstaKredita.tipKredita) \\ \hline
+			\textit{Vrsta} & INT & vrsta kredita (vrstaKredita.tipKredita) \\ \hline
 			Datum ugovaranja & DATE & datum ugovaranja kredita \\ \hline
 			Vremenski period otplate & INT & duljina otplate kredita u godinama \\ \hline
 			Datum rate & INT & datum plaćanja mjesečne rate \\ \hline
@@ -222,7 +245,7 @@
 			\hline 
 			\endlastfoot
 			
-			Vrsta kredita & INT & broj vrste kredita\\ \hline
+			\textbf{Vrsta kredita} & INT & broj vrste kredita\\ \hline
 			Naziv vrste kredita & VARCHAR & vrsta kredita\\ \hline
 			Kamatna stopa & DECIMAL (3,2) &iznos kamatne stope\\ \hline
 		
@@ -244,9 +267,9 @@
 				\hline 
 				\endlastfoot
 				
-				Broj transakcije & INT & broj transakcije\\ \hline
-				Račun terećenja & VARCHAR & broj računa terećenja\\ \hline
-				Račun odobrenja & VARCHAR & broj računa odobrenja\\ \hline
+				\textbf{Broj transakcije} & INT & broj transakcije\\ \hline
+				\textit{Račun terećenja} & VARCHAR & broj računa terećenja(račun.brojRačuna)\\ \hline
+				\textit{Račun odobrenja} & VARCHAR & broj računa odobrenja(račun.brojRačuna)\\ \hline
 				Iznos & DECIMAL (10,2) & iznos uplate\\ \hline
 				Datum transakcije & DATE & datum transakcije\\ \hline
 			
@@ -268,21 +291,18 @@
 			\hline 
 			\endlastfoot
 			
-			Broj računa & VARCHAR & broj računa \\ \hline
-			OIB & VARCHAR & OIB korisnika (profil.OIB) \\ \hline
+			\textbf{Broj računa} & VARCHAR & broj računa \\ \hline
+			\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB) \\ \hline
 			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
 			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
-			Vrsta računa & INT & broj vrste računa (vrstaRačuna.vrstaRačuna) \\ \hline
+			\textit{Vrsta računa} & INT & broj vrste računa (vrstaRačuna.vrstaRačuna) \\ \hline
 			Prekoračenje & DECIMAL(10,2) & iznos prekoračenja računa \\ \hline
 			Kamatna stopa & DECIMAL(3, 2) & iznos kamatne stope \\ \hline
-			Datum zatvaranja & DATE & datum zatvaranja računa \\ \hline
-			
-			
-			
-			
-			
+			Datum zatvaranja & DATE & datum zatvaranja računa \\ \hline		
 			
 		\end{longtabu}
+	
+			\eject
 	
 				\textbf{Vrsta računa}   Ovaj entitet sadrži sve važne informacije o vrsti računa koje neki klijent posjeduje. Sadrži atribute: broj vrste računa i naziv računa. U vezi je \textit{One-to-One} s entitetom Račun preko vrste računa.
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
@@ -296,7 +316,7 @@
 				\hline 
 				\endlastfoot
 				
-				Vrsta računa & INT & Broj vrste računa \\ \hline
+				\textbf{Vrsta računa} & INT & Broj vrste računa \\ \hline
 				Naziv računa & VARCHAR & Naziv vrste računa \\ \hline
 				
 				
@@ -318,10 +338,10 @@
 				\hline 
 				\endlastfoot
 				
-				Broj kartice & VARCHAR & broj kartice\\ \hline
-				Broj računa & VARCHAR & broj računa za koji je kartica vezana (račun.brojRačuna) \\ \hline
-				OIB & VARCHAR & OIB klijenta (profil.OIB)\\ \hline
-				Vrsta kartice & INT & broj tipa kartice (vrstaKartice.tipKartice)\\ \hline
+				\textbf{Broj kartice} & VARCHAR & broj kartice\\ \hline
+				\textit{Broj računa} & VARCHAR & broj računa za koji je kartica vezana (račun.brojRačuna) \\ \hline
+				\textit{OIB} & VARCHAR & OIB klijenta (profil.OIB)\\ \hline
+				\textit{Vrsta kartice} & INT & broj tipa kartice (vrstaKartice.tipKartice)\\ \hline
 				Stanje & DECIMAL(10,2) & stanje kartice\\ \hline
 				Valjanost & DATE & datum isteka valjanosti kartice \\ \hline
 				Limit & DECIMAL (10,2)& odobren limit \\ \hline
@@ -344,19 +364,15 @@
 				\hline 
 				\endlastfoot
 		
-				Vrsta kartice & INT & broj vrste kartice\\ \hline
+				\textbf{Vrsta kartice} & INT & broj vrste kartice\\ \hline
 				Naziv kartice & VARCHAR & naziv kartice\\ \hline
 		
 		
 		
 		\end{longtabu}
-	
-				
-		
-		
-		
 			
 			\subsection{Dijagram baze podataka}
+			
 				\begin{figure}[H]
 					\includegraphics[scale=0.8]{Slike/ermodel.PNG}
 					\centering
@@ -368,19 +384,50 @@
 			
 		\section{Dijagram razreda}
 		
-			\textit{Potrebno je priložiti dijagram razreda s pripadajućim opisom. Zbog preglednosti je moguće dijagram razlomiti na više njih, ali moraju biti grupirani prema sličnim razinama apstrakcije i srodnim funkcionalnostima.}\\
-			
-			\textbf{\textit{dio 1. revizije}}\\
-			
-			\textit{Prilikom prve predaje projekta, potrebno je priložiti potpuno razrađen dijagram razreda vezan uz \textbf{generičku funkcionalnost} sustava. Ostale funkcionalnosti trebaju biti idejno razrađene u dijagramu sa sljedećim komponentama: nazivi razreda, nazivi metoda i vrste pristupa metodama (npr. javni, zaštićeni), nazivi atributa razreda, veze i odnosi između razreda.}\\
-			
-			\textbf{\textit{dio 2. revizije}}\\			
-			
-			\textit{Prilikom druge predaje projekta dijagram razreda i opisi moraju odgovarati stvarnom stanju implementacije}
-			
-			
-			
-			\eject
+		Na slikama 4.3 - 4.8 prikazani su razredi koji pripadaju backend dijelu MVC
+		arhitekture.
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.54]{Slike/Class Diagram0.PNG}
+				\centering
+				\caption{Razredi modela opisa korisnika}
+				\label{fig:dijagram}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.45]{Slike/Class Diagram1.PNG}
+				\centering
+				\caption{Ostali razredi modela}
+				\label{fig:dijagram}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.54]{Slike/Class Diagram5.PNG}
+				\centering
+				\caption{Razredi DAO sučelja}
+				\label{fig:dijagram}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.5]{Slike/Class Diagram6.PNG}
+				\centering
+				\caption{Razredi Servleti prema web sučelju}
+				\label{fig:dijagram}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.54]{Slike/Class Diagram7.PNG}
+				\centering
+				\caption{Razredi Servleti RESTful API-a}
+				\label{fig:dijagram}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.65]{Slike/Class Diagram8.PNG}
+				\centering
+				\caption{Razredi zaduženi za kontrolu autentifikacije}
+				\label{fig:dijagram}
+			\end{figure}
 		
 		\section{Dijagram stanja}
 			
