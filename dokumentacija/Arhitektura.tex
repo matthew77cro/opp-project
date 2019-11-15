@@ -57,9 +57,9 @@
 					
 					Ime & VARCHAR	&  	ime korisnika\cellcolor{LightGreen} 	\\ \hline
 					Prezime	& VARCHAR &  prezime korisnika 	\\ \hline 
-					\rowcolor{lightgreen}OIB & VARCHAR &  OIB korisnika \\ \hline 
+					\rowcolor{lightgreen}\textbf{OIB} & VARCHAR &  OIB korisnika \\ \hline 
 					Adresa prebivališta & VARCHAR &   adresa korisnika      \\ \hline
-					Poštanski broj & INT & poštanski broj (mjesto.poštanskiBroj) \\ \hline
+					\textit{Poštanski broj} & INT & poštanski broj (mjesto.poštanskiBroj) \\ \hline
 					Datum rođenja & DATE & datum rođenja korisnika \\ \hline
 					Email & VARCHAR & e-mail adresa korisnika \\ \hline
 					Slika & VARCHAR & slika korisnika \\ \hline
@@ -82,10 +82,10 @@
 				\hline 
 				\endlastfoot
 				
-				\cellcolor{LightGreen}Korisničko ime & VARCHAR	&  jedinstveni identifikator korisnika \\ \hline
+				\cellcolor{LightGreen}\textbf{Korisničko ime} & VARCHAR	&  jedinstveni identifikator korisnika \\ \hline
 				Lozinka	& VARCHAR &   hash lozinke	\\ \hline 
-				OIB & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
-				Razina ovlasti & INT & broj razine ovlasti (razinaOvlasti.razinaOvlasti)\\ \hline
+				\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+				\textit{Razina ovlasti} & INT & broj razine ovlasti (razinaOvlasti.razinaOvlasti)\\ \hline
 				Promjena lozinske & BOOLEAN & treba li promijeniti lozinku prilikom prijave \\ \hline
 				
 			\end{longtabu}
@@ -106,7 +106,7 @@
 				\hline 
 				\endlastfoot
 				
-				OIB & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+				\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
 				Privremeni ključ & VARCHAR & privremeni ključ prilikom otvaranja računa \\ \hline
 				
 			\end{longtabu}
@@ -129,8 +129,8 @@
 			\hline 
 			\endlastfoot
 			
-		    Razina ovlasti & INT & Broj razine ovlasti  \\ \hline
-			\cellcolor{LightGreen}Naziv & VARCHAR	& Naziv ovlasti	\\ \hline
+		    \textbf{Razina ovlasti} & INT & Broj razine ovlasti  \\ \hline
+			Naziv & VARCHAR	& Naziv ovlasti	\\ \hline
 			
 			
 			
@@ -150,9 +150,9 @@
 		\hline 
 		\endlastfoot
 		
-		Poštanski broj & INT & poštanski broj mjesta \\ \hline
+		\textbf{Poštanski broj} & INT & poštanski broj mjesta \\ \hline
 		Naziv mjesta & VARCHAR & naziv mjesta \\ \hline
-		Šifra županije & INT & šifra županije(županija.šifraŽupanije) \\ \hline
+		\textit{Šifra županije} & INT & šifra županije(županija.šifraŽupanije) \\ \hline
 		
 		
 		
@@ -172,7 +172,7 @@
 			\endlastfoot
 			
 			
-			Šifra županije & INT & šifra županije \\ \hline
+			\textbf{Šifra županije} & INT & šifra županije \\ \hline
 			Naziv županije & VARCHAR & naziv županije \\ \hline
 			
 			
@@ -195,10 +195,10 @@
 			\hline 
 			\endlastfoot
 			
-			Broj kredita & INT & broj kredita \\ \hline
-			OIB & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+			\textbf{Broj kredita} & INT & broj kredita \\ \hline
+			\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
 			Iznos & DECIMAL (10, 2) & iznos kredita \\ \hline
-			Vrsta & INT & vrsta kredita (vrstaKredita.tipKredita) \\ \hline
+			\textit{Vrsta} & INT & vrsta kredita (vrstaKredita.tipKredita) \\ \hline
 			Datum ugovaranja & DATE & datum ugovaranja kredita \\ \hline
 			Vremenski period otplate & INT & duljina otplate kredita u godinama \\ \hline
 			Datum rate & INT & datum plaćanja mjesečne rate \\ \hline
@@ -222,7 +222,7 @@
 			\hline 
 			\endlastfoot
 			
-			Vrsta kredita & INT & broj vrste kredita\\ \hline
+			\textbf{Vrsta kredita} & INT & broj vrste kredita\\ \hline
 			Naziv vrste kredita & VARCHAR & vrsta kredita\\ \hline
 			Kamatna stopa & DECIMAL (3,2) &iznos kamatne stope\\ \hline
 		
@@ -244,9 +244,9 @@
 				\hline 
 				\endlastfoot
 				
-				Broj transakcije & INT & broj transakcije\\ \hline
-				Račun terećenja & VARCHAR & broj računa terećenja\\ \hline
-				Račun odobrenja & VARCHAR & broj računa odobrenja\\ \hline
+				\textbf{Broj transakcije} & INT & broj transakcije\\ \hline
+				\textit{Račun terećenja} & VARCHAR & broj računa terećenja(račun.brojRačuna)\\ \hline
+				\textit{Račun odobrenja} & VARCHAR & broj računa odobrenja(račun.brojRačuna)\\ \hline
 				Iznos & DECIMAL (10,2) & iznos uplate\\ \hline
 				Datum transakcije & DATE & datum transakcije\\ \hline
 			
@@ -268,11 +268,11 @@
 			\hline 
 			\endlastfoot
 			
-			Broj računa & VARCHAR & broj računa \\ \hline
-			OIB & VARCHAR & OIB korisnika (profil.OIB) \\ \hline
+			\textbf{Broj računa} & VARCHAR & broj računa \\ \hline
+			\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB) \\ \hline
 			Datum otvaranja & DATE & datum otvaranja računa \\ \hline
 			Stanje & DECIMAL (10, 2) & trenutno stanje računa \\ \hline
-			Vrsta računa & INT & broj vrste računa (vrstaRačuna.vrstaRačuna) \\ \hline
+			\textit{Vrsta računa} & INT & broj vrste računa (vrstaRačuna.vrstaRačuna) \\ \hline
 			Prekoračenje & DECIMAL(10,2) & iznos prekoračenja računa \\ \hline
 			Kamatna stopa & DECIMAL(3, 2) & iznos kamatne stope \\ \hline
 			Datum zatvaranja & DATE & datum zatvaranja računa \\ \hline
@@ -296,7 +296,7 @@
 				\hline 
 				\endlastfoot
 				
-				Vrsta računa & INT & Broj vrste računa \\ \hline
+				\textbf{Vrsta računa} & INT & Broj vrste računa \\ \hline
 				Naziv računa & VARCHAR & Naziv vrste računa \\ \hline
 				
 				
@@ -318,10 +318,10 @@
 				\hline 
 				\endlastfoot
 				
-				Broj kartice & VARCHAR & broj kartice\\ \hline
-				Broj računa & VARCHAR & broj računa za koji je kartica vezana (račun.brojRačuna) \\ \hline
-				OIB & VARCHAR & OIB klijenta (profil.OIB)\\ \hline
-				Vrsta kartice & INT & broj tipa kartice (vrstaKartice.tipKartice)\\ \hline
+				\textbf{Broj kartice} & VARCHAR & broj kartice\\ \hline
+				\textit{Broj računa} & VARCHAR & broj računa za koji je kartica vezana (račun.brojRačuna) \\ \hline
+				\textit{OIB} & VARCHAR & OIB klijenta (profil.OIB)\\ \hline
+				\textit{Vrsta kartice} & INT & broj tipa kartice (vrstaKartice.tipKartice)\\ \hline
 				Stanje & DECIMAL(10,2) & stanje kartice\\ \hline
 				Valjanost & DATE & datum isteka valjanosti kartice \\ \hline
 				Limit & DECIMAL (10,2)& odobren limit \\ \hline
@@ -344,7 +344,7 @@
 				\hline 
 				\endlastfoot
 		
-				Vrsta kartice & INT & broj vrste kartice\\ \hline
+				\textbf{Vrsta kartice} & INT & broj vrste kartice\\ \hline
 				Naziv kartice & VARCHAR & naziv kartice\\ \hline
 		
 		
