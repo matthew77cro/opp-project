@@ -97,7 +97,6 @@ public class SQLDAO implements DAO {
 		
 	}
 	
-	//
 	@Override
 	public Profil getProfilByKorisnickoIme(String korisnickoIme) {
 		
@@ -191,7 +190,7 @@ public class SQLDAO implements DAO {
 	}
 
 	@Override
-	public boolean changePassword(String korisnickoIme, String newPasswordHash) {
+	public boolean updatePassword(String korisnickoIme, String newPasswordHash) {
 		
 		Objects.requireNonNull(korisnickoIme);
 		Objects.requireNonNull(newPasswordHash);

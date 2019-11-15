@@ -18,6 +18,6 @@ public interface DAO {
 	Profil getProfilByKorisnickoIme(String korisnickoIme);
 	Mjesto getMjesto(int pbr);
 	Zupanija getZupanija(int sifZupanija);
-	boolean changePassword(String korisnickoIme, String newPasswordHash);
+	boolean updatePassword(String korisnickoIme, String newPasswordHash);
 	
 }

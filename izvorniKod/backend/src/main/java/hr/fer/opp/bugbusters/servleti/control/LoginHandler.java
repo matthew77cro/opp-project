@@ -63,7 +63,7 @@ public class LoginHandler {
 		String newPasswordHash = Util.hash(password);
 		if(kr.getLozinka().equals(newPasswordHash)) return false;
 		
-		boolean changed = DAOProvider.getDao().changePassword(username, newPasswordHash);
+		boolean changed = DAOProvider.getDao().updatePassword(username, newPasswordHash);
 		if(changed) req.getSession().setAttribute("passwordChange", false);
 		return changed;
 		
