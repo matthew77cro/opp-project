@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
@@ -16,12 +17,29 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.async.http.BasicNameValuePair;
+import com.koushikdutta.async.http.NameValuePair;
 import com.koushikdutta.ion.Ion;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedWriter;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.jar.Attributes;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +47,18 @@ public class MainActivity extends AppCompatActivity {
     private EditText lozinka;
     private Button login;
 
+    private Retrofit retrofit;
+    private BBService service;
+
+    private String jsessionid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        retrofit = new Retrofit.Builder().baseUrl("http://104.45.11.92:8080/bugbusters/").addConverterFactory(GsonConverterFactory.create()).build();
+
         setContentView(R.layout.activity_main);
 
         ime = (EditText) findViewById(R.id.poljeIme);
@@ -49,38 +75,26 @@ public class MainActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Ion.with(getApplicationContext())
-                        .load("http://52.137.15.78:8080/bugbusters/rest/login")
-                        .setBodyParameter("username", "ime")
-                        .setBodyParameter("password", "lozinka")
-                        .asString()
-                        .setCallback(new FutureCallback<String>() {
-                            @Override
-                            public void onCompleted(Exception e, String result) {
-                                try {
-                                    JSONObject json = new JSONObject(result);    // Converts the string "result" to a JSONObject
-                                    String json_result = json.getString("result"); // Get the string "result" inside the Json-object
-                                    if (json_result.equalsIgnoreCase("ok")){ // Checks if the "result"-string is equals to "ok"
-                                        // Result is "OK"
-                                        int customer_id = json.getInt("customer_id"); // Get the int customer_id
-                                    } else {
-                                        // Result is NOT "OK"
-                                        String error = json.getString("error");
-                                        Toast.makeText(getApplicationContext(), error, Toast.LENGTH_LONG).show(); // This will show the user what went wrong with a toast
-                                        Intent to_main = new Intent(getApplicationContext(), MainActivity.class); // New intent to MainActivity
-                                        startActivity(to_main); // Starts MainActivity
-                                        finish(); // Add this to prevent the user to go back to this activity when pressing the back button after we've opened MainActivity
-                                    }
-                                } catch (JSONException exc){
-                                    // This method will run if something goes wrong with the json, like a typo to the json-key or a broken JSON.
-                                   Log.e(getClass().getName(), exc.getMessage());
-                                    Toast.makeText(getApplicationContext(), "Please check your internet connection.", Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+
+                service = retrofit.create(BBService.class);
+                Call<Void> call = service.login(ime.getText().toString(), lozinka.getText().toString());
+                call.enqueue(new Callback<Void>() {
+                    @Override
+                    public void onResponse(Call<Void> call, Response<Void> response) {
+                        jsessionid = response.headers().values("Set-Cookie").get(0).split(";\\s+")[0];
+                        Toast.makeText(getApplicationContext(), Integer.toString(response.code()) + jsessionid, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Void> call, Throwable t) {
+
+                    }
+                });
+
             }
         });
     }
+
 
 
 
