@@ -1,40 +1,13 @@
 package com.example.opp_project;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import com.koushikdutta.async.future.FutureCallback;
-import com.koushikdutta.async.http.BasicNameValuePair;
-import com.koushikdutta.async.http.NameValuePair;
-import com.koushikdutta.ion.Ion;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedWriter;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.jar.Attributes;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -65,11 +38,10 @@ public class MainActivity extends AppCompatActivity {
         lozinka = (EditText) findViewById(R.id.poljeLozinka);
         login = (Button) findViewById(R.id.prijavaButton);
 
-        //Toolbar mtoolbar = findViewById(R.id.toolbar);
+        Toolbar mtoolbar = findViewById(R.id.toolbar);
 
-        //setSupportActionBar(mtoolbar);
-        //getSupportActionBar().setTitle("OPP banka");
-        //mtoolbar.setSubtitle("Dobrodošli!");
+        setSupportActionBar(mtoolbar);
+        getSupportActionBar().setTitle("Bugbusters banka");
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -83,19 +55,25 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         jsessionid = response.headers().values("Set-Cookie").get(0).split(";\\s+")[0];
                         Toast.makeText(getApplicationContext(), Integer.toString(response.code()) + jsessionid, Toast.LENGTH_LONG).show();
+                        openHomeScreen();
                     }
 
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
-
+                        Toast.makeText(getApplicationContext(), "Pogrešno korisničko ime ili lozinka!", Toast.LENGTH_LONG).show();
                     }
+
                 });
 
             }
         });
+
     }
 
-
+    public void openHomeScreen(){
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
+    }
 
 
     }

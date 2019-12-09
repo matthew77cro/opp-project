@@ -25,7 +25,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonTekuci"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
@@ -36,7 +36,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/buttonZiro"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
@@ -47,7 +47,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button5"
+            android:id="@+id/buttonStedni"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"

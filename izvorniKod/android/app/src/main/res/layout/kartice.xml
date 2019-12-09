@@ -25,7 +25,7 @@
 
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonDebitne"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
@@ -36,7 +36,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/buttonKreditne"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"

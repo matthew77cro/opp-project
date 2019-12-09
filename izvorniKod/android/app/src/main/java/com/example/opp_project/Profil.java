@@ -1,10 +1,16 @@
 package com.example.opp_project;
 
+import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class Profil implements Serializable {
+public class Profil extends AppCompatActivity implements Serializable {
+
 
     @SerializedName("firstName")
     private String firstName;
@@ -103,5 +109,17 @@ public class Profil implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.profil);
+
+        Toolbar mtoolbar = findViewById(R.id.toolbar);
+
+        setSupportActionBar(mtoolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Profil");
+        mtoolbar.setSubtitle("Dobrodošli!");
     }
 }
