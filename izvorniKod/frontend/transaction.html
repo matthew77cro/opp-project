@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BugBusters banka</title>
+    <link rel="stylesheet" href="css/clientProfile.css">
+	<link rel="stylesheet" href="css/transaction.css">
+</head>
+<body>
+	<header>
+		<div>
+			<h1 id="nav-title">BugBusters banka</h1> 
+		</div>
+	</header>
+	<nav class="topnav">
+		<a href="#" id="moj-profil">Moj profil</a>
+		<a href="#" id="racuni">Računi</a>
+		<a href="#" id="kartice">Kartice</a>
+		<a href="#" id="krediti">Krediti</a>
+		<a class="active" href="#" id="transakcije">Transakcije</a>
+		<a href="#" id="logout">Odjava</a>
+	</nav>
+	<div id="newTransactionContainer">
+		<button id="newTransactionBtn">Nova transakcija</button>
+		<div id="newTransaction">
+			<label>Račun terećenja:</label>
+			<select>
+				<option value="">Račun1</option>
+				<option value="">Račun2</option>
+				<option value="">Račun3</option>
+			</select>
+			<label>Račun odobrenja:</label>
+			<input id="approvalAccount">
+			<label>Iznos plaćanja:</label>
+			<input id="amount" placeholder="HRK">
+			<button id="finishTransaction">Provedi transakciju</button>
+		</div>
+	</div>
+	<div id="container">	
+		<h1>Transakcije</h1>
+		<div id="search-container">
+			<label>Od: </label>
+			<input type="date">
+			<label>Do: </label>
+			<input type="date">
+			<input type="submit" id="search" value="Pretraži">
+		</div>
+		<table id="transaction-data-table">
+			<tr>
+				<th>Broj</th>
+				<th>Račun terećenja</th>
+				<th>Račun odobrenja</th>
+				<th>Iznos</th>
+				<th>Datum</th>
+			</tr>
+			<tr>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+			</tr>
+		</table>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/transaction.js"></script>
+</body>
+</html>

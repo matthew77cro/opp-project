@@ -1,0 +1,86 @@
+#newTransactionContainer{
+	text-align:center;
+	padding-top:50px;
+}
+
+#newTransactionContainer div {
+	padding:30px;
+	width:200px;
+	margin:0;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#newTransaction{
+	text-align:left;
+}
+
+#newTransaction label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#newTransaction input{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#newTransaction select{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:204px;
+}
+
+#amount{
+	text-align:right;
+}
+
+#newTransactionBtn{
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;	
+}
+
+#finishTransaction{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#container{	
+	margin-top:0px;
+}
+
+#search-container{
+	padding:20px 0px 30px;
+}
+
+#search{
+	padding:4px 15px;
+	width:100px;
+	border:none;
+	outline:none;
+	background-color:#c20f06;
+	color:white;
+}
+
+table{
+	display:inline-table;
+	padding:0px 75px 50px;
+}
+
+#searh-container input{
+	width:150px;
+	padding:0px 15px;
+}

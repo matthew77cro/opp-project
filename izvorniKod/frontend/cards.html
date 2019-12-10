@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BugBusters banka</title>
+    <link rel="stylesheet" href="css/clientProfile.css">
+	<link rel="stylesheet" href="css/cards.css">
+</head>
+<body>
+	<header>
+		<div>
+			<h1 id="nav-title">BugBusters banka</h1> 
+		</div>
+	</header>
+	<nav class="topnav">
+		<a href="#" id="moj-profil">Moj profil</a>
+		<a href="#" id="racuni">Računi</a>
+		<a class="active" href="#" id="kartice">Kartice</a>
+		<a href="#" id="krediti">Krediti</a>
+		<a href="#" id="transakcije">Transakcije</a>
+		<a href="#" id="logout">Odjava</a>
+	</nav>
+	<div id="newCardContainer">
+		<button id="newCardBtn">Dodaj karticu</button>
+		<div id="newCardForm">
+			<label>Vrsta kartice:</label>
+			<select>
+				<option value="AmericanExpress">AmericanExpress</option>
+				<option value="Diners">Diners</option>
+				<option value="Discover">Discover</option>
+				<option value="MasterCard">MasterCard</option>
+				<option value="Visa">Visa</option>
+			</select>
+			<button id="request">Provedi zahtjev</button>
+		</div>
+	</div>
+	<div id="container">
+		<h1>Kartice</h1>
+		<table id="cards-data-table">
+			<tr>
+				<th>Naziv</th>
+				<th>Broj</th>
+				<th>Broj računa</th>
+				<th>Stanje</th>
+				<th>Valjanost</th>
+				<th>Limit</th>
+				<th>Kamatna stopa</th>
+				<th>Datum rate</th>
+			</tr>
+			<tr>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+				<td>X</td>
+			</tr>
+		</table>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/cards.js"></script>
+</body>
+</html>
