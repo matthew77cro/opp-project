@@ -38,6 +38,8 @@
             android:parentActivityName=".Kartice"></activity>
         <activity android:name=".DebitneKartice"
             android:parentActivityName=".Kartice"></activity>
+        <activity android:name=".Profil"
+            android:parentActivityName=".Activity2"></activity>
     </application>
 
 </manifest>

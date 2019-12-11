@@ -117,9 +117,9 @@ public class Profil extends AppCompatActivity implements Serializable {
 
         Toolbar mtoolbar = findViewById(R.id.toolbar);
 
-        setSupportActionBar(mtoolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Profil");
-        mtoolbar.setSubtitle("Dobrodošli!");
+     //   setSupportActionBar(mtoolbar);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+  //      getSupportActionBar().setTitle("Profil");
+    //    mtoolbar.setSubtitle("Dobrodošli!");
     }
 }
