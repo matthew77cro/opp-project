@@ -1,4 +1,4 @@
-package hr.fer.opp.bugbusters.servleti.control;
+package hr.fer.opp.bugbusters.control;
 
 import java.io.IOException;
 import java.security.MessageDigest;

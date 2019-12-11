@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hr.fer.opp.bugbusters.servleti.control.LoginHandler;
+import hr.fer.opp.bugbusters.control.LoginHandler;
 
 @SuppressWarnings("serial")
 @WebServlet(name="login", urlPatterns= {"/banka/login"})

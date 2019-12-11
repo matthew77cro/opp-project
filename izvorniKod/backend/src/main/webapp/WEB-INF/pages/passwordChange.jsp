@@ -19,7 +19,7 @@
 	<div class="form-container">
 		<form action="passwordchange" method="POST">
 			<img src="avatar.png" alt="" class="avatar">
-			<h2 class="form-name">Promijenite lozinku</h1>
+			<h2 class="form-name">Promijenite lozinku</h2>
 			<% 
 				if(request.getAttribute("errorMsg")!=null) {
 					out.println(request.getAttribute("errorMsg").toString());

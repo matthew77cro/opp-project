@@ -3,7 +3,7 @@ package hr.fer.opp.bugbusters.dao.model;
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class Transkacija {
+public class Transakcija {
 
 	private int brTransakcija;
 	private String racTerecenja;
@@ -11,7 +11,7 @@ public class Transkacija {
 	private BigDecimal iznos;
 	private Date datTransakcije;
 	
-	public Transkacija(int brTransakcija, String racTerecenja, String racOdobrenja, BigDecimal iznos,
+	public Transakcija(int brTransakcija, String racTerecenja, String racOdobrenja, BigDecimal iznos,
 			Date datTransakcije) {
 		this.brTransakcija = brTransakcija;
 		this.racTerecenja = racTerecenja;

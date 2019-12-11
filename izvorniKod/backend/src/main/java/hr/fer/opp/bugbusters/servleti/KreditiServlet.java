@@ -1,6 +1,9 @@
 package hr.fer.opp.bugbusters.servleti;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
-import hr.fer.opp.bugbusters.dao.model.Mjesto;
+import hr.fer.opp.bugbusters.dao.model.Kredit;
 import hr.fer.opp.bugbusters.dao.model.Profil;
-import hr.fer.opp.bugbusters.dao.model.Zupanija;
+import hr.fer.opp.bugbusters.dao.model.VrstaKredita;
 
 @SuppressWarnings("serial")
-@WebServlet(name="profil", urlPatterns= {"/banka/profil"})
-public class ProfilServlet extends HttpServlet {
+@WebServlet(name="krediti", urlPatterns= {"/banka/krediti"})
+public class KreditiServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,20 +35,22 @@ public class ProfilServlet extends HttpServlet {
 		}
 		
 		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
-		Mjesto mjesto = DAOProvider.getDao().getMjesto(profil.getPbr());
-		Zupanija zupanija = DAOProvider.getDao().getZupanija(mjesto.getSifraZupanija());
+		List<Kredit> krediti = DAOProvider.getDao().getKreditForOib(profil.getOib());
+		Map<Integer, VrstaKredita> vrsteKredita = new HashMap<>();
 		
-		String address = profil.getAdresa() + "," + mjesto.getPbr() + " " + mjesto.getNazMjesto() + "<br>" + zupanija.getNazZupanija();
+		// Map : kartica -> naziv
+		Map<Kredit, VrstaKredita> kreditiJsp = new HashMap<>();
+		for(var kredit : krediti) {
+			VrstaKredita vrsta = vrsteKredita.getOrDefault(kredit.getSifVrsteKredita(), DAOProvider.getDao().getVrstaKredita(kredit.getSifVrsteKredita()));
+			vrsteKredita.put(vrsta.getSifVrsteKredita(), vrsta);
+			
+			kreditiJsp.put(kredit, vrsta);
+		}
 		
-		req.setAttribute("firstName", profil.getIme());
-		req.setAttribute("lastName", profil.getPrezime());
-		req.setAttribute("address", address);
-		req.setAttribute("oib", profil.getOib());
-		req.setAttribute("birthday", profil.getDatRod());
-		req.setAttribute("email", profil.getEmail());
+		req.setAttribute("krediti", kreditiJsp);
 		
-		req.getRequestDispatcher("/WEB-INF/pages/clientProfile.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/pages/credit.jsp").forward(req, resp);
 		
 	}
-
+	
 }

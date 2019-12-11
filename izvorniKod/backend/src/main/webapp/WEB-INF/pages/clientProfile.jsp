@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BugBusters banka</title>
-    <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/profile.css">
+    <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/clientProfile.css">
 </head>
 <body>
 	<header>
@@ -17,10 +17,11 @@
 		</div>
 	</header>
 	<nav class="topnav">
-		<a class="active" href="#" id="moj-profil">Moj profil</a>
-		<a href="#" id="racuni">Računi</a>
-		<a href="#" id="kartice">Kartice</a>
-		<a href="#" id="krediti">Krediti</a>
+		<a class="active" href="profil" id="moj-profil">Moj profil</a>
+		<a href="racuni" id="racuni">Računi</a>
+		<a href="kartice" id="kartice">Kartice</a>
+		<a href="krediti" id="krediti">Krediti</a>
+		<a href="transakcije" id="transakcije">Transakcije</a>
 		<a href="logout" id="logout">Odjava</a>
 	</nav>
 	<div id="container">
@@ -28,7 +29,7 @@
 		<img src="<%= request.getServletContext().getContextPath() %>/rest/profil/slika" alt="" class="avatar">
 		<table id="user-data-table">
 			<tr>
-				<td>Ime</td>
+				<th>Ime</th>
 				<td>
 				<% 
 					if(request.getAttribute("firstName")!=null) {
@@ -38,7 +39,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Prezime</td>
+				<th>Prezime</th>
 				<td>
 				<% 
 					if(request.getAttribute("lastName")!=null) {
@@ -48,7 +49,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Adresa</td>
+				<th>Adresa</th>
 				<td>
 				<% 
 					if(request.getAttribute("address")!=null) {
@@ -58,7 +59,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>OIB</td>
+				<th>OIB</th>
 				<td>
 				<% 
 					if(request.getAttribute("oib")!=null) {
@@ -68,7 +69,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>Datum rođenja</td>
+				<th>Datum rođenja</th>
 				<td>
 				<% 
 					if(request.getAttribute("birthday")!=null) {
@@ -78,7 +79,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td>E-mail</td>
+				<th>E-mail</th>
 				<td>
 				<% 
 					if(request.getAttribute("email")!=null) {

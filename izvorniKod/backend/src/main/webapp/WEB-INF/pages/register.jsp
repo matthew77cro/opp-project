@@ -19,7 +19,7 @@
 	<div class="form-container">
 		<form action="registeruser" method="POST">
 			<img src="avatar.png" alt="" class="avatar">
-			<h2 class="form-name">Odabir korisničkog imena i lozinke</h1>
+			<h2 class="form-name">Odabir korisničkog imena i lozinke</h2>
 			<p>Korisničko ime</p>
 			<input type="text" name="username">
 			<p>Lozinka</p>

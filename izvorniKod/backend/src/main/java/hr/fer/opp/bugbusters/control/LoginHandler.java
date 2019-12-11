@@ -1,4 +1,4 @@
-package hr.fer.opp.bugbusters.servleti.control;
+package hr.fer.opp.bugbusters.control;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,6 +8,7 @@ import hr.fer.opp.bugbusters.dao.model.KorisnickiRacun;
 
 public class LoginHandler {
 	
+	// Returns true iff login is successful (username and password are not empty, user exists, password is ok)
 	public static boolean doLogin(HttpServletRequest req, HttpServletResponse resp) {
 		
 		String username = req.getParameter("username");
@@ -26,6 +27,7 @@ public class LoginHandler {
 		
 	}
 	
+	// Logs out the user (removes attributes from the session)
 	public static void doLogout(HttpServletRequest req, HttpServletResponse resp) {
 					
 		req.getSession().removeAttribute("login");
@@ -34,14 +36,17 @@ public class LoginHandler {
 		
 	}
 	
+	// Returns true iff user is logged in (attribute in the session exists)
 	public static boolean isLoggedIn(HttpServletRequest req, HttpServletResponse resp) {
 		
 		return req.getSession().getAttribute("login")!=null;
 		
 	}
 	
+	// Returns username iff user is logged in (null otherwise)
 	public static String getUsername(HttpServletRequest req, HttpServletResponse resp) {
 		
+		if(!isLoggedIn(req, resp)) return null;
 		return req.getSession().getAttribute("login").toString();
 		
 	}
@@ -52,6 +57,9 @@ public class LoginHandler {
 		
 	}
 	
+	// Returns false iff user is not logged in or req parameters are incorrect or new password is equal
+	// to the old one or new password is empty
+	// Returns true otherwise
 	public static boolean changePassword(HttpServletRequest req, HttpServletResponse resp) {
 		
 		if(!isLoggedIn(req, resp)) return false;

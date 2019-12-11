@@ -24,7 +24,7 @@
 	</header>
 	<div class="form-container">
 		<form id="login-form" action="login" method="POST">
-			<img src="<%= request.getServletContext().getContextPath() %>/pics/avatar.png" alt="" class="avatar">
+			<img src="<%= request.getServletContext().getContextPath() %>/avatar.png" alt="" class="avatar">
 			<h1 class="form-name">Prijava</h1>
 			<% 
 				if(request.getAttribute("errorMsg")!=null) {

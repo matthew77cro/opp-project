@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hr.fer.opp.bugbusters.servleti.control.LoginHandler;
+import hr.fer.opp.bugbusters.control.LoginHandler;
 
 @SuppressWarnings("serial")
 @WebServlet(name="passwordchange", urlPatterns= {"/banka/passwordchange"})
@@ -19,6 +19,7 @@ public class PasswordChangeServlet extends HttpServlet {
 		
 		if(!LoginHandler.isLoggedIn(req, resp)) {
 			resp.sendRedirect("login");
+			return;
 		}
 		
 		req.getRequestDispatcher("/WEB-INF/pages/passwordChange.jsp").forward(req, resp);

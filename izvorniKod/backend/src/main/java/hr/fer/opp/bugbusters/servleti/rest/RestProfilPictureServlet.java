@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
 import hr.fer.opp.bugbusters.dao.model.Profil;
-import hr.fer.opp.bugbusters.servleti.control.LoginHandler;
 
 @SuppressWarnings("serial")
 @WebServlet(name="rest-profil-slika", urlPatterns= {"/rest/profil/slika"})
@@ -29,8 +29,9 @@ public class RestProfilPictureServlet extends HttpServlet {
 		
 		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
 		Path slika = Paths.get(req.getServletContext().getRealPath("/WEB-INF/profile-pics/") + profil.getSlika());
+		if(!Files.exists(slika))
+			slika = Paths.get(req.getServletContext().getRealPath("/avatar.png"));
 		if(!Files.exists(slika)) {
-			System.out.println(slika);
 			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			return;
 		}

@@ -511,5 +511,10 @@ INSERT INTO kartica values ('16257440077', 'HR0201235725', null, 2, null, '01.03
 INSERT INTO kartica values ('16257450078', null, '01234567894', 1, 157.87, '01.03.2020', 21000, 3.21, 20);
 INSERT INTO kartica values ('16257460079', 'HR0201235723', null, 2, null, '01.03.2020', null, null, null);
 
+INSERT INTO transakcija VALUES (1, 'HR0201235720', 'HR0201235730', '588.99', '2019-12-11');
+INSERT INTO transakcija VALUES (2, 'HR0201235720', 'HR0201235730', '54.75', '2019-12-10');
+INSERT INTO transakcija VALUES (3, 'HR0201235720', 'HR0201235730', '88.95', '2019-12-9');
+INSERT INTO transakcija VALUES (4, 'HR0201235720', 'HR0201235730', '12.54', '2019-12-8');
+
 -- default password for all accounts : 'bbpassword1234'
 -- password hashing algorithm : SHA-512
