@@ -502,14 +502,14 @@ INSERT INTO vrstaKartice values (1, 'Kreditna kartica');
 INSERT INTO vrstaKartice values (2, 'Debitna kartica');
 
 INSERT INTO kartica values ('16257380071', null, '01234567890', 1, 1653.00, '01.03.2020', 2000, 18.93, 20);
-INSERT INTO kartica values ('16257390071', 'HR0201235722', null, 2, null, '01.03.2020', null, null, null);
-INSERT INTO kartica values ('16257400071', 'HR0201235731', null, 2, null, '01.03.2020', null, null, null);
-INSERT INTO kartica values ('16257410071', 'HR0201235729', null, 2, null, '01.03.2020', null, null, null);
-INSERT INTO kartica values ('16257420071', null, '01234567891', 1, 953.77, '01.03.2020', 5000, 9.53, 19);
-INSERT INTO kartica values ('16257430071', null, '01234567892', 1, 891.22, '01.03.2020', 8500, 5.23, 21);
-INSERT INTO kartica values ('16257440071', 'HR0201235725', null, 2, null, '01.03.2020', null, null, null);
-INSERT INTO kartica values ('16257450071', null, '01234567894', 1, 157.87, '01.03.2020', 21000, 3.21, 20);
-INSERT INTO kartica values ('16257460071', 'HR0201235723', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257390072', 'HR0201235722', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257400073', 'HR0201235731', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257410074', 'HR0201235729', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257420075', null, '01234567891', 1, 953.77, '01.03.2020', 5000, 9.53, 19);
+INSERT INTO kartica values ('16257430076', null, '01234567892', 1, 891.22, '01.03.2020', 8500, 5.23, 21);
+INSERT INTO kartica values ('16257440077', 'HR0201235725', null, 2, null, '01.03.2020', null, null, null);
+INSERT INTO kartica values ('16257450078', null, '01234567894', 1, 157.87, '01.03.2020', 21000, 3.21, 20);
+INSERT INTO kartica values ('16257460079', 'HR0201235723', null, 2, null, '01.03.2020', null, null, null);
 
 -- default password for all accounts : 'bbpassword1234'
 -- password hashing algorithm : SHA-512
