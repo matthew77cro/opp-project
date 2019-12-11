@@ -20,8 +20,8 @@ public class Racuni extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Racuni");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Racuni");
+ //       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         buttonTekuci = (Button) findViewById(R.id.buttonTekuci);
         buttonTekuci.setOnClickListener(new View.OnClickListener(){

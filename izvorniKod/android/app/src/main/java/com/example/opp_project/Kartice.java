@@ -20,8 +20,8 @@ public class Kartice extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Kartice");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  getSupportActionBar().setTitle("Kartice");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         buttonDebitne = (Button) findViewById(R.id.buttonDebitne);
         buttonDebitne.setOnClickListener(new View.OnClickListener(){

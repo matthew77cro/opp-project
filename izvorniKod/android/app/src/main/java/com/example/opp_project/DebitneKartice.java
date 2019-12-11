@@ -14,7 +14,7 @@ public class DebitneKartice extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Debitne kartice");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Debitne kartice");
+  //      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

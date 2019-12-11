@@ -16,7 +16,7 @@ public class Krediti extends AppCompatActivity {
 
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Krediti");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Krediti");
+  //      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

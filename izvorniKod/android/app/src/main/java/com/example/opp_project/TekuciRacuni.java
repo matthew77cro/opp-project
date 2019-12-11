@@ -13,7 +13,7 @@ public class TekuciRacuni extends AppCompatActivity {
 
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Tekući računi");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Tekući računi");
+  //      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

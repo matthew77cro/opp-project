@@ -14,7 +14,7 @@ public class ZiroRacuni extends AppCompatActivity {
 
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Žiro računi");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Žiro računi");
+  //      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

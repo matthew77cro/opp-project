@@ -11,9 +11,9 @@ public class KreditneKartice  extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.kreditne_kartice);
-        Toolbar mtoolbar = findViewById(R.id.toolbar);
+      Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Kreditne kartice");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //     getSupportActionBar().setTitle("Kreditne kartice");
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

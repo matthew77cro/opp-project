@@ -1,46 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-    tools:context=".Activity2">
+    android:scrollHorizontally="true">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="109dp"
-        android:layout_above="@+id/LinearLayout1"
+        android:layout_height="200dp"
+        android:layout_above="@+id/scroll"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="73dp"
-        android:layout_marginBottom="70dp"
-        android:layout_toStartOf="@+id/imageView3"
-        app:srcCompat="@drawable/avatar" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="79dp"
-        android:layout_height="55dp"
-        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="39dp"
-        android:layout_marginEnd="24dp"
-        app:srcCompat="@drawable/logout" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="-6dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/scroll"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_above="@+id/LinearLayout1"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="66dp"
+                android:layout_marginEnd="40dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="55dp"
+                android:background="#3C4DBE"
+                android:padding="5dp"
+                android:text="  Profil  "
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp" />
+
+
+            <Button
+                android:id="@+id/buttonProfil"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_marginTop="66dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginBottom="55dp"
+                android:background="@color/colorAccent"
+                android:padding="5dp"
+                android:text="Odjava"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/LinearLayout1"
-        android:layout_width="389dp"
-        android:layout_height="300dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="22dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="124dp"
         android:gravity="center"
         android:orientation="vertical">
 

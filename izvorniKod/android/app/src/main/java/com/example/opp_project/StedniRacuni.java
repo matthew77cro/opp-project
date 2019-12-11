@@ -14,7 +14,7 @@ public class StedniRacuni extends AppCompatActivity {
         //setSupportActionBar(toolbar);
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Štedni računi");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setTitle("Štedni računi");
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

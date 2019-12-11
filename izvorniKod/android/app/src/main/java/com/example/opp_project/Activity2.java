@@ -3,12 +3,14 @@ package com.example.opp_project;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 public class Activity2 extends AppCompatActivity {
 
@@ -18,6 +20,7 @@ public class Activity2 extends AppCompatActivity {
     private Button buttonKrediti;
     private Button buttonProfil;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +28,8 @@ public class Activity2 extends AppCompatActivity {
 
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
-        getSupportActionBar().setTitle("Bugbusters banka");
-        mtoolbar.setSubtitle("Dobrodošli!");
+        //getSupportActionBar().setTitle("Bugbusters banka");
+        //mtoolbar.setSubtitle("Dobrodošli!");
 
         buttonRacuni = (Button) findViewById(R.id.button);
         buttonRacuni.setOnClickListener(new View.OnClickListener(){
@@ -52,7 +55,7 @@ public class Activity2 extends AppCompatActivity {
             }
         });
 
-        buttonProfil = (Button) findViewById(R.id.imageView);
+        buttonProfil = (Button) findViewById(R.id.buttonProfil);
         buttonProfil.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
