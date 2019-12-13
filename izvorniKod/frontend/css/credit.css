@@ -1,4 +1,126 @@
+#newCreditForm{
+	text-align:left;
+	padding:30px;
+	width:200px;
+	margin:0;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#newCreditForm label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#newCreditForm select{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#newCreditForm input{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:196px;
+	text-align:center;
+}
+
+#request{
+	margin-top:10px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:200px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancel{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:200px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#payCreditForm{
+	text-align:left;
+	padding:30px;
+	width:200px;
+	margin:0;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#payCreditForm label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#payCreditForm select{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#payCreditForm input{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:196px;
+	text-align:center;
+}
+
+#pay{
+	margin-top:10px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:200px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancelPayment{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:200px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#newCreditBtn{
+	margin-right:5px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;	
+}
+
+#payCreditBtn{
+	margin-left:5px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+}
+
 table{
 	display:inline-table;
-	padding:0px 75px 50px;
+	padding:20px 75px 50px;
 }

@@ -22,8 +22,36 @@
 		<a href="#" id="transakcije">Transakcije</a>
 		<a href="#" id="logout">Odjava</a>
 	</nav>
+	<div id="newCreditForm">
+		<label>Vrsta kredita:</label>
+		<select>
+			<option value="Stambeni">Stambeni</option>
+			<option value="Namjenski">Namjenski</option>
+			<option value="Nenamjenski">Nenamjenski</option>
+		</select>
+		<label>Iznos:</label>
+		<input id="amount" placeholder="HRK">
+		<label>Rok otplate:</label>
+		<input id="time" placeholder="BROJ MJESECI">
+		<button id="request">Provedi zahtjev</button>
+		<button id="cancel">Odustani</button>
+	</div>
+	<div id="payCreditForm">
+		<label>Kredit:</label>
+		<select>
+			<option value="">Kredit 1</option>
+			<option value="">Kredit 2</option>
+			<option value="">Kredit 3</option>
+		</select>
+		<label>Iznos:</label>
+		<input id="amount" placeholder="HRK">
+		<button id="pay">Plati</button>
+		<button id="cancelPayment">Odustani</button>
+	</div>
 	<div id="container">
 		<h1>Krediti</h1>
+		<button id="newCreditBtn">Novi kredit</button>
+		<button id="payCreditBtn">Otplati kredit</button>
 		<table id="credit-data-table">
 			<tr>
 				<th>Vrsta</th>
@@ -45,5 +73,7 @@
 			</tr>
 		</table>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/credit.js"></script>
 </body>
 </html>
