@@ -21,6 +21,11 @@
 	padding:13px;
 }
 
+table{
+	display:inline-table;
+	padding:20px 75px 50px;
+}
+
 #addProfileForm{
 	margin-top:50px;
 	text-align:left;
