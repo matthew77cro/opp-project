@@ -1,0 +1,106 @@
+#container{
+	padding:0px 30px 30px;
+	width:550px;
+}
+
+#container button{
+	margin:10px 5px;
+	padding:15px;
+	width:150px;
+	background:#c20f06;
+	color:white;
+	border:none;	
+}
+
+#container label{
+	font:15px Arial, sans-serif;
+	font-weight:bold;
+}
+
+#container input{
+	padding:13px;
+}
+
+#searchBox {
+	margin-left: 5px;
+	border: black solid 1px;
+}
+
+#account-data-table {
+    padding: 20px;
+}
+
+#new-account {
+    margin-top:50px;
+	text-align:left;
+	padding:30px;
+	width:200px;
+	position:absolute;
+	left:50%;
+	transform:translate(-50%, 0%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#new-account label, #delete-account label {
+    font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#new-account select {
+    padding: 15px 0 15px;
+}
+
+#new-account input[type="text"], #delete-account input[type="text"]{
+	border: none;
+    border-bottom: 1px solid black;
+	outline:none;
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#add{
+	margin-top:10px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancel{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#delete-account {
+    margin-top:50px;
+	text-align:left;
+	padding:30px;
+	width:600px;
+	position:absolute;
+	left:50%;
+	transform:translate(-50%, 0%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#select-account {
+    margin-top:10px;
+	padding:15px;
+	background:rgb(66, 129, 180);
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}

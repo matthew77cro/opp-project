@@ -250,6 +250,11 @@
 	font-weight:bold;
 }
 
+#searchBox {
+	margin-left: 5px;
+	border: black solid 1px;
+}
+	
 #addAccountForm{
 	margin-top:50px;
 	text-align:left;
