@@ -65,3 +65,14 @@ table {
 	width:196px;
 	text-align:center;
 }
+
+#cancel, #request {
+	margin-top:10px;
+	padding:15px;
+	background:#1f69b5;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
