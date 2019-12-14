@@ -3,7 +3,7 @@
 	width:500px;
 }
 
-#container button{
+.btn{
 	margin:10px 5px;
 	padding:15px;
 	width:150px;
@@ -19,6 +19,41 @@
 
 #container input{
 	padding:13px;
+}
+
+#user-data{
+	display:inline-table;
+	padding:20px 0px 20px;
+}
+
+#userAccounts{
+	display:inline-table;
+	padding:20px 75px 20px;
+}
+
+#showUserAccountsBtn{
+	padding:5px;
+	width:150px;
+	background:#c20f06;
+	color:white;
+	border:none;
+}
+
+#createAccount{
+	background:#009933;
+}
+
+.accountBtn{
+	padding:5px;
+	margin:5px;
+	width:100px;
+	background:#c20f06;
+	color:white;
+	border:none;
+}
+
+.updateBtn{
+	background:#009933;
 }
 
 #addProfileForm{
@@ -81,6 +116,24 @@
 }
 
 #avatar{
+	margin-top:30px;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    position:absolute;
+    left:calc(50% - 50px);
+}
+
+#avatar2{
+	margin-top:30px;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    position:absolute;
+    left:calc(50% - 50px);
+}
+
+#avatar3{
 	margin-top:30px;
     width:100px;
     height:100px;
@@ -200,4 +253,114 @@
 #searchBox {
 	margin-left: 5px;
 	border: black solid 1px;
+}
+	
+#addAccountForm{
+	margin-top:50px;
+	text-align:left;
+	padding:30px;
+	width:200px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#addAccountForm label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#addAccountForm input[type="text"]{
+	border: none;
+    border-bottom: 1px solid black;
+	outline:none;
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#addAccountForm select{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:204px;
+}
+
+#addAccount{
+	margin-top:10px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancel4{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#updateAccountForm{
+	margin-top:50px;
+	text-align:left;
+	padding:30px;
+	width:200px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#updateAccountForm label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#updateAccountForm input[type="text"]{
+	border: none;
+    border-bottom: 1px solid black;
+	outline:none;
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#updateAccountForm select{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:204px;
+}
+
+#updateAccount{
+	margin-top:10px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancel5{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
 }

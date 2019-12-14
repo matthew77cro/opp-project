@@ -66,9 +66,8 @@ body {
     left:calc(50% - 50px);
 }
 
-table{
-	display:inline-table;
-	padding:20px 75px 50px;
+#user-data-table{
+	padding:120px 75px 20px;
 }
 
 td{
@@ -87,4 +86,64 @@ tr:nth-child(odd){
 
 table, td, th {
   text-align:left;
+}
+
+#changePasswordBtn{
+	margin:10px 0px 30px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:200px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#changePasswordForm{
+	text-align:left;
+	padding:30px;
+	width:200px;
+	margin:0;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#changePasswordForm label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#changePasswordForm input[type="text"]{
+	border: none;
+    border-bottom: 1px solid black;
+	outline:none;
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#change{
+	margin-top:10px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:200px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#goBackBtn{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:200px;
+	font-size:15px;
+	font-weight:bold;
 }

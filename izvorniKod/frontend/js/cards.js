@@ -5,11 +5,6 @@ $("#newCardBtn").click(function(){
    $("#newCardForm").show();
 });
 
-$("#request").click(function(){
-   $("#container").show();
-   $("#newCardForm").hide();
-});
-
 $("#cancel").click(function(){
    $("#container").show();
    $("#newCardForm").hide();

@@ -20,12 +20,12 @@
 	</nav>
 	<div id="container">
 		<h1>Korisnički profili</h1>
-		<button id="addProfileBtn">Dodaj profil</button>
-		<button id="updateProfileBtn">Izmijeni profil</button>
-		<button id="deleteProfileBtn">Izbriši profil</button>		
+		<button id="addProfileBtn" class="btn">Dodaj profil</button>
+		<button id="updateProfileBtn" class="btn">Izmijeni profil</button>
+		<button id="deleteProfileBtn" class="btn">Izbriši profil</button>		
 		<label>Upiši OIB: </label>
 		<input id="" type="text">
-		<button id="searchProfileBtn">Pretraži</button>
+		<button id="searchProfileBtn" class="btn">Pretraži</button>
 		<table id="user-data">
 			<tr>
 				<th>Ime</th>
@@ -51,6 +51,36 @@
 				<th>E-mail</th>
 				<td>X</td>
 			</tr>
+			<tr>
+				<th>Korisnički računi</th>
+				<td>
+					<button id="showAccounts" class="accountBtn">Prikaži</button>
+					<button id="createAccount" class="accountBtn">Novi račun</button>
+				</td>
+			</tr>
+		</table>
+		<table id="userAccounts">
+			<tr>
+				<th>Korisničko ime</th>
+				<th>Razina ovlasti</th>
+				<th><button id="hideAccounts" class="accountBtn">Sakrij</button></th>
+			</tr>
+			<tr>
+				<td>username</td>
+				<td>bankar</td>
+				<td>
+					<button id="update2" class="updateBtn accountBtn">Izmijeni</button>
+					<button class="deleteBtn accountBtn">Obriši</button>
+				</td>
+			</tr>
+			<tr>
+				<td>username</td>
+				<td>klijent</td>
+				<td>
+					<button id="update2" class="updateBtn accountBtn">Izmijeni</button>
+					<button class="deleteBtn accountBtn">Obriši</button>
+				</td>
+			</tr>
 		</table>
 	</div>
 	<div id="addProfileForm">
@@ -66,7 +96,7 @@
 			<label>Datum rođenja</label>
 			<input id="birthDate" type="text">
 			<label>E-mail</label>
-			<input id="text" type="text">
+			<input id="email" type="text">
 			<label>Slika profila</label>
 			<img src="avatar.png" alt="" id="avatar">
 			<button id="profilePictureBtn">Dodaj sliku</button>			
@@ -77,19 +107,19 @@
 	<div id="updateProfileForm">
 		<form action="" method="POST">
 			<label>Ime</label>
-			<input id="name" type="text" value="ime">
+			<input id="name2" type="text" value="ime">
 			<label>Prezime</label>
-			<input id="surname" type="text" value="prezime">
+			<input id="surname2" type="text" value="prezime">
 			<label>Adresa</label>
-			<input id="address" type="text" value="adresa">
+			<input id="address2" type="text" value="adresa">
 			<label>OIB</label>
-			<input id="oib" type="text" value="oib">
+			<input id="oib2" type="text" value="oib">
 			<label>Datum rođenja</label>
-			<input id="birthDate" type="text" value="datum rođenja">
+			<input id="birthDate2" type="text" value="datum rođenja">
 			<label>E-mail</label>
-			<input id="email" type="text" value="email">
+			<input id="email2" type="text" value="email">
 			<label>Slika profila</label>
-			<img src="avatar.png" alt="" id="avatar">
+			<img src="avatar.png" alt="" id="avatar2">
 			<button id="changePictureBtn">Promijeni sliku</button>			
 			<input id="update" type="submit" name="" value="Ažuriraj podatke">
 			<button id="cancel2">Odustani</button>
@@ -98,21 +128,51 @@
 	<div id="deleteProfileForm">
 		<form action="" method="GET">
 			<label>Ime</label>
-			<input id="name" value="ime" disabled class="data">
+			<input id="name3" value="ime" disabled class="data">
 			<label>Prezime</label>
-			<input id="surname" value="prezime" disabled class="data">
+			<input id="surname3" value="prezime" disabled class="data">
 			<label>Adresa</label>
-			<input id="address" value="adresa" disabled class="data">
+			<input id="address3" value="adresa" disabled class="data">
 			<label>OIB</label>
-			<input id="oib" value="oib" disabled class="data">
+			<input id="oib3" value="oib" disabled class="data">
 			<label>Datum rođenja</label>
-			<input id="birthDate" value="datum rođenja" disabled class="data">
+			<input id="birthDate3" value="datum rođenja" disabled class="data">
 			<label>E-mail</label>
-			<input id="email" value="email" disabled class="data">
+			<input id="email3" value="email" disabled class="data">
 			<label>Slika profila</label>
-			<img src="avatar.png" alt="" id="avatar">			
+			<img src="avatar.png" alt="" id="avatar3">			
 			<input id="delete" type="submit" name="" value="Izbriši profil">
 			<button id="cancel3">Odustani</button>
+		</form>
+	</div>
+	<div id="addAccountForm">
+		<form action="" method="POST">
+			<label>Korisničko ime</label>
+			<input id="username" type="text">
+			<label>Razina ovlasti</label>
+			<select>
+				<option value="">Admin</option>
+				<option value="">Bankar</option>
+				<option value="">Službenik za odobrenje kredita</option>
+				<option value="">Klijent</option>
+			</select>
+			<input id="addAccount" type="submit" name="" value="Dodaj račun">
+			<button id="cancel4">Odustani</button>
+		</form>
+	</div>
+	<div id="updateAccountForm">
+		<form action="" method="POST">
+			<label>Korisničko ime</label>
+			<input id="username2" type="text" value="username">
+			<label>Razina ovlasti</label>
+			<select>
+				<option value="">Admin</option>
+				<option value="">Bankar</option>
+				<option value="">Službenik za odobrenje kredita</option>
+				<option value="">Klijent</option>
+			</select>
+			<input id="addAccount" type="submit" name="" value="Dodaj račun">
+			<button id="cancel5">Odustani</button>
 		</form>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

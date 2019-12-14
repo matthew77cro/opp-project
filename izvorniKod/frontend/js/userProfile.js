@@ -1,6 +1,9 @@
 $("#addProfileForm").hide();
 $("#updateProfileForm").hide();
 $("#deleteProfileForm").hide();
+$("#userAccounts").hide();
+$("#addAccountForm").hide();
+$("#updateAccountForm").hide();
 
 $("#addProfileBtn").click(function(){
    $("#container").hide();
@@ -30,4 +33,32 @@ $("#deleteProfileBtn").click(function(){
 $("#cancel3").click(function(){
    $("#container").show();
    $("#deleteProfileForm").hide();
+});
+
+$("#showAccounts").click(function(){
+   $("#userAccounts").show();
+});
+
+$("#hideAccounts").click(function(){
+   $("#userAccounts").hide();
+});
+
+$("#createAccount").click(function(){
+   $("#container").hide();
+   $("#addAccountForm").show();
+});
+
+$("#cancel4").click(function(){
+   $("#container").show();
+   $("#addAccountForm").hide();
+});
+
+$("#update2").click(function(){
+   $("#container").hide();
+   $("#updateAccountForm").show();
+});
+
+$("#cancel5").click(function(){
+   $("#container").show();
+   $("#updateAccountForm").hide();
 });
