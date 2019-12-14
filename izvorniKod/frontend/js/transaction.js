@@ -5,11 +5,6 @@ $("#newTransactionBtn").click(function(){
    $("#newTransaction").show();
 });
 
-$("#finishTransaction").click(function(){
-   $("#container").show();
-   $("#newTransaction").hide();
-});
-
 $("#cancel").click(function(){
    $("#container").show();
    $("#newTransaction").hide();
