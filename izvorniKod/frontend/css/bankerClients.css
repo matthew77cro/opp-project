@@ -1,8 +1,13 @@
+#container{
+	padding:0px 30px 30px;
+	width:500px;
+}
+
 #container button{
 	margin:10px 5px;
 	padding:15px;
 	width:150px;
-	background:#1f69b5;
+	background:#c20f06;
 	color:white;
 	border:none;	
 }
@@ -12,10 +17,8 @@
 	font-weight:bold;
 }
 
-input{
-    padding:10px;
-    margin: 20px;
-    border: black solid 1px;
+#container input{
+	padding:13px;
 }
 
 #searchBox {
@@ -23,12 +26,184 @@ input{
 	border: black solid 1px;
 }
 
-label {
-    font:15px arial, sans-serif;
+table {
+    padding: 20px;
+}
+
+#addProfileForm {
+    margin-top:50px;
+	text-align:left;
+	padding:30px;
+	width:200px;
+	position:absolute;
+	left:50%;
+	transform:translate(-50%, 0%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#addProfileForm label{
+	font:15px arial, sans-serif;
 	font-weight:bold;
 }
 
-table {
-    padding: 20px;
-    
+#addProfileForm input[type="text"]{
+	border: none;
+    border-bottom: 1px solid black;
+	outline:none;
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
 }
+
+#add{
+	margin-top:10px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancel{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#profilePictureBtn{
+	margin-top:130px;
+	padding:15px;
+	background:#0000ff;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#avatar{
+	margin-top:30px;
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    position:absolute;
+    left:calc(50% - 50px);
+}
+
+#updateProfileForm{
+	margin-top:50px;
+	text-align:left;
+	padding:30px;
+	width:200px;
+	position:absolute;
+	left:50%;
+	transform:translate(-50%, 0%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#updateProfileForm label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#updateProfileForm input[type="text"]{
+	border: none;
+    border-bottom: 1px solid black;
+	outline:none;
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#update{
+	margin-top:10px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancel2{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#changePictureBtn{
+	margin-top:130px;
+	padding:15px;
+	background:#0000ff;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#deleteProfileForm{
+	margin-top:50px;
+	text-align:left;
+	padding:30px;
+	width:200px;
+	position:absolute;
+	left:50%;
+	transform:translate(-50%, 0%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#deleteProfileForm label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+.data{
+	border: none;
+    border-bottom: 1px solid black;
+	outline:none;
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+	background-color:white;
+}
+
+#delete{
+	margin-top:130px;
+	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancel3{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+
