@@ -53,7 +53,7 @@ $("#cancel4").click(function(){
    $("#addAccountForm").hide();
 });
 
-$("#update2").click(function(){
+$(".updateBtn").click(function(){
    $("#container").hide();
    $("#updateAccountForm").show();
 });
