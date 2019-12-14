@@ -22,29 +22,33 @@
 		<a class="active" href="#" id="transakcije">Transakcije</a>
 		<a href="#" id="logout">Odjava</a>
 	</nav>
-	<div id="newTransaction">
-		<label>Račun terećenja:</label>
-		<select>
-			<option value="">Račun1</option>
-			<option value="">Račun2</option>
-			<option value="">Račun3</option>
-		</select>
-		<label>Račun odobrenja:</label>
-		<input id="approvalAccount">
-		<label>Iznos plaćanja:</label>
-		<input id="amount" placeholder="HRK">
-		<button id="finishTransaction">Provedi transakciju</button>
-		<button id="cancel">Odustani</button>
+	<div id="newTransaction">		
+		<form action="" method="POST">
+			<label>Račun terećenja:</label>
+			<select name="debitingAccount">
+				<option value="">Račun1</option>
+				<option value="">Račun2</option>
+				<option value="">Račun3</option>
+			</select>
+			<label>Račun terećenja:</label>
+			<input id="approvalAccount" type="text" name="approvalAccount">
+			<label>Iznos plaćanja:</label>
+			<input id="amount" type="text" placeholder="HRK" name="amount">
+			<input id="finishTransaction" type="submit" name="" value="Provedi transakciju">
+			<button id="cancel">Odustani</button>
+		</form>
 	</div>
 	<div id="container">	
 		<h1>Transakcije</h1>
 		<button id="newTransactionBtn">Nova transakcija</button>
 		<div id="search-container">
-			<label>Od: </label>
-			<input type="date">
-			<label>Do: </label>
-			<input type="date">
-			<input type="submit" id="search" value="Pretraži">
+			<form action="transakcije" method="GET">
+				<label>Od: </label>
+				<input type="date" name="fromDate">
+				<label>Do: </label>
+				<input type="date" name="toDate">
+				<input type="submit" id="search" value="Pretraži">
+			</form>
 		</div>
 		<table id="transaction-data-table">
 			<tr>

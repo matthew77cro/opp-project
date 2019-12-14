@@ -23,16 +23,18 @@
 		<a href="#" id="logout">Odjava</a>
 	</nav>
 	<div id="newCardForm">
-		<label>Vrsta kartice:</label>
-		<select>
-			<option value="AmericanExpress">AmericanExpress</option>
-			<option value="Diners">Diners</option>
-			<option value="Discover">Discover</option>
-			<option value="MasterCard">MasterCard</option>
-			<option value="Visa">Visa</option>
-		</select>
-		<button id="request">Provedi zahtjev</button>
-		<button id="cancel">Odustani</button>
+		<form action="" method="POST">
+			<label>Vrsta kartice:</label>
+			<select name="cardType">
+				<option value="AmericanExpress">AmericanExpress</option>
+				<option value="Diners">Diners</option>
+				<option value="Discover">Discover</option>
+				<option value="MasterCard">MasterCard</option>
+				<option value="Visa">Visa</option>
+			</select>
+			<input id="request" type="submit" name="" value="Provedi zahtjev">
+			<button id="cancel">Odustani</button>
+		</form>
 	</div>
 	<div id="container">
 		<h1>Kartice</h1>
