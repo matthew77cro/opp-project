@@ -22,7 +22,7 @@
 	width:200px;
 }
 
-#newCreditForm input{
+#newCreditForm input[type="text"]{
 	padding:5px 0px;
 	margin:10px 0px;
 	width:196px;
@@ -75,7 +75,7 @@
 	width:200px;
 }
 
-#payCreditForm input{
+#payCreditForm input[type="text"]{
 	padding:5px 0px;
 	margin:10px 0px;
 	width:196px;

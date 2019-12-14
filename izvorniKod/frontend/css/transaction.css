@@ -16,7 +16,7 @@
 	font-weight:bold;
 }
 
-#newTransaction input{
+#newTransaction input[type="text"]{
 	padding:5px 0px;
 	margin:10px 0px;
 	width:200px;
