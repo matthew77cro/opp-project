@@ -1,0 +1,67 @@
+#container{
+	padding:0px 30px 30px;
+	width:800px;
+}
+
+#container button{
+	margin:10px 5px;
+	padding:15px;
+	width:150px;
+	background:#1f69b5;
+	color:white;
+	border:none;	
+}
+
+#container label{
+	font:15px Arial, sans-serif;
+	font-weight:bold;
+}
+
+#container input{
+	padding:13px;
+}
+
+#searchBox {
+	margin-left: 5px;
+	border: black solid 1px;
+}
+
+label {
+    font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+table {
+    padding: 20px;
+}
+
+#new-credit{
+	text-align:left;
+	padding:30px;
+	width:200px;
+	margin:0;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	border:1px solid black;
+	border-radius:5px;
+}
+
+#new-credit label{
+	font:15px arial, sans-serif;
+	font-weight:bold;
+}
+
+#new-credit select{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:200px;
+}
+
+#new-credit input[type="text"]{
+	padding:5px 0px;
+	margin:10px 0px;
+	width:196px;
+	text-align:center;
+}
