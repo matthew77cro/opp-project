@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
 import hr.fer.opp.bugbusters.dao.model.Kartica;
-import hr.fer.opp.bugbusters.dao.model.Profil;
 import hr.fer.opp.bugbusters.dao.model.Racun;
 import hr.fer.opp.bugbusters.dao.model.VrstaKartice;
 
@@ -35,24 +34,24 @@ public class KarticeServlet extends HttpServlet {
 			return;
 		}
 		
-		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
-		List<Racun> racuni = DAOProvider.getDao().getRacunForOib(profil.getOib());
-		List<Kartica> kartice = DAOProvider.getDao().getKarticaForOib(profil.getOib());
-		racuni.forEach((r) -> kartice.addAll(DAOProvider.getDao().getKarticaForBrRacun(r.getBrRacun())));
+		String oib = DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib();
+		List<Racun> racuni = DAOProvider.getDao().getRacunByOib(oib);
+		List<Kartica> kartice = DAOProvider.getDao().getKarticaByOib(oib);
+		racuni.forEach((r) -> kartice.addAll(DAOProvider.getDao().getKarticaByBrRacun(r.getBrRacun())));
 		Map<Integer, VrstaKartice> vrsteKartice = new HashMap<>();
 		
 		// Map : kartica -> naziv
 		Map<Kartica, VrstaKartice> karticeJsp = new HashMap<>();
 		for(var kartica : kartice) {
 			VrstaKartice vrsta = vrsteKartice.getOrDefault(kartica.getSifVrstaKartice(), DAOProvider.getDao().getVrstaKartice(kartica.getSifVrstaKartice()));
-			vrsteKartice.put(vrsta.getSifVrstaKartice(), vrsta);
+			vrsteKartice.put(vrsta.getSifVrsteKartice(), vrsta);
 			
 			karticeJsp.put(kartica, vrsta);
 		}
 		
 		req.setAttribute("kartice", karticeJsp);
 		
-		req.getRequestDispatcher("/WEB-INF/pages/cards.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/pages/client/cards.jsp").forward(req, resp);
 		
 	}
 	

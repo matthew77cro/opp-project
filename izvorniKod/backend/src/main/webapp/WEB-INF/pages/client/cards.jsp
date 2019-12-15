@@ -28,18 +28,19 @@
 		<a href="transakcije" id="transakcije">Transakcije</a>
 		<a href="logout" id="logout">Odjava</a>
 	</nav>
-	<div id="newCardContainer">
-		<div id="newCardForm">
+	<div id="newCardForm">
+		<form action="" method="POST">
 			<label>Vrsta kartice:</label>
-			<select>
+			<select name="cardType">
 				<option value="AmericanExpress">AmericanExpress</option>
 				<option value="Diners">Diners</option>
 				<option value="Discover">Discover</option>
 				<option value="MasterCard">MasterCard</option>
 				<option value="Visa">Visa</option>
 			</select>
-			<button id="request">Provedi zahtjev</button>
-		</div>
+			<input id="request" type="submit" name="" value="Provedi zahtjev">
+			<button id="cancel">Odustani</button>
+		</form>
 	</div>
 	<div id="container">
 		<h1>Kartice</h1>
@@ -59,7 +60,7 @@
 				Map<Kartica, VrstaKartice> mapa = (Map<Kartica, VrstaKartice>) request.getAttribute("kartice");
 				for(Map.Entry<Kartica, VrstaKartice> kartica : mapa.entrySet()) {
 					out.print("<tr>");
-					out.print("<td>" + kartica.getValue().getNazVrstaKartice() + "</td>");
+					out.print("<td>" + kartica.getValue().getNazVrsteKartice() + "</td>");
 					out.print("<td>" + kartica.getKey().getBrKartica() + "</td>");
 					out.print("<td>" + kartica.getKey().getBrRacun() + "</td>");
 					out.print("<td>" + kartica.getKey().getStanje() + "</td>");

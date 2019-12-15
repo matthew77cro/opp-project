@@ -65,16 +65,35 @@ public class LoginHandler {
 		if(!isLoggedIn(req, resp)) return false;
 		String username = getUsername(req, resp);
 		String password = req.getParameter("password");
-		if(password==null || password.isEmpty()) return false;
+		String confirmPassword = req.getParameter("confirmPassword");
+		if(password==null || confirmPassword==null || !confirmPassword.equals(password) || password.isEmpty()) return false;
 		
 		KorisnickiRacun kr = DAOProvider.getDao().getKorisnickiRacun(username);
 		String newPasswordHash = Util.hash(password);
 		if(kr.getLozinka().equals(newPasswordHash)) return false;
 		
-		boolean changed = DAOProvider.getDao().updatePassword(username, newPasswordHash);
+		boolean changed = DAOProvider.getDao().updateKorisinckiRacunPassword(username, newPasswordHash);
 		if(changed) req.getSession().setAttribute("passwordChange", false);
 		return changed;
 		
+	}
+	
+	public static class LoginDescriptor {
+		private String username;
+		private String oib;
+		
+		public LoginDescriptor(String username, String oib) {
+			this.username = username;
+			this.oib = oib;
+		}
+		
+		public String getUsername() {
+			return username;
+		}
+		
+		public String getOib() {
+			return oib;
+		}
 	}
 
 }

@@ -28,8 +28,40 @@
 		<a href="transakcije" id="transakcije">Transakcije</a>
 		<a href="logout" id="logout">Odjava</a>
 	</nav>
+	<div id="newCreditForm">
+		<form action="" method="POST">
+			<label>Vrsta kredita:</label>
+			<select name="creditType">
+				<option value="Stambeni">Stambeni</option>
+				<option value="Namjenski">Namjenski</option>
+				<option value="Nenamjenski">Nenamjenski</option>
+			</select>
+			<label>Iznos:</label>
+			<input id="amount" type="text" placeholder="HRK">
+			<label>Rok otplate:</label>
+			<input id="time" type="text" placeholder="BROJ MJESECI">
+			<input id="request" type="submit" name="" value="Provedi zahtjev">
+			<button id="cancel">Odustani</button>
+		</form>
+	</div>
+	<div id="payCreditForm">
+		<form action="" method="POST">
+			<label>Kredit:</label>
+			<select name="credit">
+				<option value="">Kredit 1</option>
+				<option value="">Kredit 2</option>
+				<option value="">Kredit 3</option>
+			</select>
+			<label>Iznos:</label>
+			<input id="amount" type="text" placeholder="HRK">
+			<input id="pay" type="submit" name="" value="Plati">
+			<button id="cancelPayment">Odustani</button>
+		</form>
+	</div>
 	<div id="container">
 		<h1>Krediti</h1>
+		<button id="newCreditBtn">Novi kredit</button>
+		<button id="payCreditBtn">Otplati kredit</button>
 		<table id="credit-data-table">
 			<tr>
 				<th>Vrsta</th>
@@ -56,5 +88,7 @@
 			%>
 		</table>
 	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<%= request.getServletContext().getContextPath() %>/js/credit.js"></script>
 </body>
 </html>

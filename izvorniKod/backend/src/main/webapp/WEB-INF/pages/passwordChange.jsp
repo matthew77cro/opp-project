@@ -27,6 +27,8 @@
 			%>
 			<p>Nova lozinka</p>
 			<input type="password" name="password">
+			<p>Potvrdi lozinku</p>
+			<input type="password" name="confirmPassword">
 			<input type="submit" name="" value="Dovrši">
 		</form>
 	</div>

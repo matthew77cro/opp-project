@@ -66,7 +66,7 @@ body {
     left:calc(50% - 50px);
 }
 
-table{
+#user-data-table{
 	padding:120px 75px 20px;
 }
 

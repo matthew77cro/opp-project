@@ -2,20 +2,20 @@ package hr.fer.opp.bugbusters.dao.model;
 
 public class VrstaKartice {
 	
-	private int sifVrstaKartice;
-	private String nazVrstaKartice;
+	private int sifVrsteKartice;
+	private String nazVrsteKartice;
 	
 	public VrstaKartice(int sifVrstaKartice, String nazVrstaKartice) {
-		this.sifVrstaKartice = sifVrstaKartice;
-		this.nazVrstaKartice = nazVrstaKartice;
+		this.sifVrsteKartice = sifVrstaKartice;
+		this.nazVrsteKartice = nazVrstaKartice;
 	}
 
-	public int getSifVrstaKartice() {
-		return sifVrstaKartice;
+	public int getSifVrsteKartice() {
+		return sifVrsteKartice;
 	}
 	
-	public String getNazVrstaKartice() {
-		return nazVrstaKartice;
+	public String getNazVrsteKartice() {
+		return nazVrsteKartice;
 	}
 
 }

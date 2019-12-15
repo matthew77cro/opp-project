@@ -35,7 +35,7 @@
 			<input type="text" name="username">
 			<p>Lozinka</p>
 			<input type="password" name="password">
-			<input type="submit" name="" value="Prijava">
+			<input type="submit" value="Prijava">
 		</form>
 	</div>
 	<div class="form-container">
@@ -46,7 +46,7 @@
 			<input type="text" name="oib">
 			<p>Ključ za registraciju</p>
 			<input type="password" name="key">
-			<input type="submit" name="" value="Registriraj se">
+			<input type="submit" value="Registriraj se">
 		</form>
 	</div>
 

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
-import hr.fer.opp.bugbusters.dao.model.Profil;
 import hr.fer.opp.bugbusters.dao.model.Racun;
 import hr.fer.opp.bugbusters.dao.model.VrstaRacuna;
 
@@ -34,8 +33,8 @@ public class RacuniServlet extends HttpServlet {
 			return;
 		}
 		
-		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
-		List<Racun> racuni = DAOProvider.getDao().getRacunForOib(profil.getOib());
+		String oib = DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib();
+		List<Racun> racuni = DAOProvider.getDao().getRacunByOib(oib);
 		Map<Integer, VrstaRacuna> vrsteRacuna = new HashMap<>();
 		
 		Map<Racun, VrstaRacuna> racunJsp = new HashMap<>();
@@ -48,7 +47,7 @@ public class RacuniServlet extends HttpServlet {
 		
 		req.setAttribute("racuni", racunJsp);
 		
-		req.getRequestDispatcher("/WEB-INF/pages/account.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/pages/client/account.jsp").forward(req, resp);
 		
 	}
 

@@ -30,7 +30,8 @@ public class RestProfilServlet extends HttpServlet {
 			return;
 		}
 		
-		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
+		String oib = DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib();
+		Profil profil = DAOProvider.getDao().getProfil(oib);
 		Mjesto mjesto = DAOProvider.getDao().getMjesto(profil.getPbr());
 		Zupanija zupanija = DAOProvider.getDao().getZupanija(mjesto.getSifraZupanija());
 		

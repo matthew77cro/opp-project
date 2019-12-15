@@ -7,7 +7,7 @@ CREATE Table mjesto(
 	pbr int primary key,
 	nazMjesto varchar(25) not null,
 	sifZupanija int not null, 
-	FOREIGN KEY (sifZupanija) references zupanija(sifZupanija)
+	FOREIGN KEY (sifZupanija) references zupanija(sifZupanija) ON DELETE CASCADE ON UPDATE CASCADE
 	);
 
 CREATE TABLE profil (
@@ -33,14 +33,14 @@ CREATE TABLE korisnickiRacun (
 	oib varchar(11) not null,
 	sifRazOvlasti int not null,
 	promjenaLozinke boolean not null,
-	FOREIGN KEY (oib) references profil(oib),
-	FOREIGN KEY (sifRazOvlasti) references razOvlasti(sifRazOvlasti)
+	FOREIGN KEY (oib) references profil(oib) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (sifRazOvlasti) references razOvlasti(sifRazOvlasti) ON DELETE CASCADE ON UPDATE CASCADE
 	);
 
 CREATE TABLE registracijaKlijenta (
 	oib varchar(11) primary key,
 	privremeniKljuc varchar(64) not null,
-	FOREIGN KEY (oib) references profil(oib)
+	FOREIGN KEY (oib) references profil(oib) ON DELETE CASCADE ON UPDATE CASCADE
 	);
 
 CREATE TABLE vrstaKredita(
@@ -58,8 +58,8 @@ CREATE TABLE kredit(
 	periodOtplate int not null,
 	datRate int not null,
 	preostaloDugovanje decimal(10,2) not null,
-	FOREIGN KEY (oib) references profil(oib),
-	FOREIGN KEY (sifVrsteKredita) references vrstaKredita(sifVrsteKredita)
+	FOREIGN KEY (oib) references profil(oib) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (sifVrsteKredita) references vrstaKredita(sifVrsteKredita) ON DELETE CASCADE ON UPDATE CASCADE
 	);
 
 CREATE TABLE vrstaRacuna(
@@ -76,8 +76,8 @@ CREATE TABLE racun(
 	prekoracenje decimal(10,2),
 	kamStopa decimal(3,2),
 	datZatvaranja date,
-	FOREIGN KEY (oib) references profil(oib),
-	FOREIGN KEY (sifVrsteRacuna) references vrstaRacuna(sifVrsteRacuna),
+	FOREIGN KEY (oib) references profil(oib) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (sifVrsteRacuna) references vrstaRacuna(sifVrsteRacuna) ON DELETE CASCADE ON UPDATE CASCADE,
 	CHECK ((prekoracenje IS NOT NULL AND kamStopa IS NULL) OR (prekoracenje IS NULL AND kamStopa IS NOT NULL))
 	);	
 	
@@ -87,8 +87,8 @@ CREATE TABLE transakcija(
 	racOdobrenja varchar(25)not null,
 	iznos decimal(10,2) check (iznos > 0),
 	datTransakcije date not null,
-	FOREIGN KEY (racTerecenja) references racun(brRacun),
-	FOREIGN KEY (racOdobrenja) references racun(brRacun)
+	FOREIGN KEY (racTerecenja) references racun(brRacun) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (racOdobrenja) references racun(brRacun) ON DELETE CASCADE ON UPDATE CASCADE
 	);	
 
 CREATE TABLE vrstaKartice(
@@ -106,11 +106,31 @@ CREATE TABLE kartica(
 	limitKartice decimal(10,2),
 	kamStopa decimal(5,2),
 	datRate int,
-	FOREIGN KEY (brRacun) references racun(brRacun),
-	FOREIGN KEY (oib) references profil(oib),
-	FOREIGN KEY (sifVrstaKartice) references vrstaKartice(sifVrstaKartice),
+	FOREIGN KEY (brRacun) references racun(brRacun) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (oib) references profil(oib) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (sifVrstaKartice) references vrstaKartice(sifVrstaKartice) ON DELETE CASCADE ON UPDATE CASCADE,
 	CHECK ((brRacun IS NOT NULL AND oib IS NULL AND stanje IS NULL AND limitKartice IS NULL AND kamStopa IS NULL AND datRate IS NULL)
 			OR (brRacun IS NULL AND oib IS NOT NULL AND stanje IS NOT NULL AND limitKartice IS NOT NULL AND kamStopa IS NOT NULL AND datRate IS NOT NULL))
+	);
+	
+CREATE TABLE zahtjevKartica (
+	sifZahtjeva int primary key,
+	oib varchar(11),
+	sifVrstaKartice int not null,
+	odobren boolean,
+	FOREIGN KEY (oib) references profil(oib) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (sifVrstaKartice) references vrstaKartice(sifVrstaKartice) ON DELETE CASCADE ON UPDATE CASCADE
+	);
+	
+CREATE TABLE zahtjevKredit (
+	sifZahtjeva int primary key,
+	oib varchar(11),
+	iznos decimal(10,2) check (iznos > 0),
+	sifVrsteKredita int not null,
+	periodOtplate int not null,
+	odobren boolean,
+		FOREIGN KEY (oib) references profil(oib) ON DELETE CASCADE ON UPDATE CASCADE,
+	FOREIGN KEY (sifVrsteKredita) references vrstaKredita(sifVrsteKredita) ON DELETE CASCADE ON UPDATE CASCADE
 	);
 
  INSERT INTO zupanija (sifZupanija, nazZupanija) VALUES (0, 'Nepoznata županija');

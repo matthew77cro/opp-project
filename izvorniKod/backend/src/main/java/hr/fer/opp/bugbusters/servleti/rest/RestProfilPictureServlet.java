@@ -27,7 +27,8 @@ public class RestProfilPictureServlet extends HttpServlet {
 			return;
 		}
 		
-		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
+		String oib = DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib();
+		Profil profil = DAOProvider.getDao().getProfil(oib);
 		Path slika = Paths.get(req.getServletContext().getRealPath("/WEB-INF/profile-pics/") + profil.getSlika());
 		if(!Files.exists(slika))
 			slika = Paths.get(req.getServletContext().getRealPath("/avatar.png"));

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
-import hr.fer.opp.bugbusters.dao.model.Profil;
 import hr.fer.opp.bugbusters.dao.model.Racun;
 import hr.fer.opp.bugbusters.dao.model.Transakcija;
 
@@ -40,10 +39,18 @@ public class TransakcijeServlet extends HttpServlet {
 		final Date fromDate = fromDateParam!=null && !fromDateParam.isEmpty() ? Date.valueOf(fromDateParam) : null;
 		final Date toDate = toDateParam!=null && !toDateParam.isEmpty() ? Date.valueOf(toDateParam) : null;
 		
-		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
-		List<Racun> racuni = DAOProvider.getDao().getRacunForOib(profil.getOib());
+		String oib = DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib();
+		List<Racun> racuni = DAOProvider.getDao().getRacunByOib(oib);
 		List<Transakcija> transakcije = new ArrayList<>();
-		racuni.forEach((r) -> transakcije.addAll(DAOProvider.getDao().getTransakcijaForBrRacunTerecenja(r.getBrRacun())));
+		racuni.forEach((r) -> transakcije.addAll(DAOProvider.getDao().getTransakcijaByBrRacunOdobrenja(r.getBrRacun())));
+		racuni.stream()
+			.map((r) -> DAOProvider.getDao().getTransakcijaByBrRacunTerecenja(r.getBrRacun()))
+			.forEach((tList) -> 
+				tList.forEach((t) -> 
+					transakcije.add(new Transakcija(t.getBrTransakcija(), t.getRacTerecenja(), t.getRacOdobrenja(), t.getIznos().negate(), t.getDatTransakcije()))
+				)
+			);
+		
 		transakcije.sort((c1, c2) -> c2.getDatTransakcije().compareTo(c2.getDatTransakcije()));
 		
 		if(fromDate!=null) {
@@ -57,7 +64,7 @@ public class TransakcijeServlet extends HttpServlet {
 		req.setAttribute("racuni", racuni);
 		req.setAttribute("transakcije", transakcije);
 		
-		req.getRequestDispatcher("/WEB-INF/pages/transaction.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/pages/client/transaction.jsp").forward(req, resp);
 		
 	}
 	

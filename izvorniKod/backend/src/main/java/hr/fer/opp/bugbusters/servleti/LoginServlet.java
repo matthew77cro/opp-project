@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		if(LoginHandler.doLogin(req, resp)) {
 			resp.sendRedirect("profil");
 		} else {
-			req.setAttribute("errorMsg", "Username or password incorrect!");
+			req.setAttribute("errorMsg", "Pogrešno korisničko ime ili lozinka");
 			req.getRequestDispatcher("/WEB-INF/pages/index.jsp").forward(req, resp);
 		}
 		

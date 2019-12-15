@@ -1,9 +1,5 @@
-#newTransactionContainer{
-	text-align:center;
-	padding-top:50px;
-}
-
-#newTransactionContainer div {
+#newTransaction{
+	text-align:left;
 	padding:30px;
 	width:200px;
 	margin:0;
@@ -15,16 +11,12 @@
 	border-radius:5px;
 }
 
-#newTransaction{
-	text-align:left;
-}
-
 #newTransaction label{
 	font:15px arial, sans-serif;
 	font-weight:bold;
 }
 
-#newTransaction input{
+#newTransaction input[type="text"]{
 	padding:5px 0px;
 	margin:10px 0px;
 	width:200px;
@@ -37,7 +29,7 @@
 }
 
 #amount{
-	text-align:right;
+	text-align:center;
 }
 
 #newTransactionBtn{
@@ -50,6 +42,17 @@
 #finishTransaction{
 	margin-top:10px;
 	padding:15px;
+	background:#009933;
+	color:white;
+	border:none;
+	width:204px;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#cancel{
+	margin-top:10px;
+	padding:15px;
 	background:#c20f06;
 	color:white;
 	border:none;
@@ -58,12 +61,9 @@
 	font-weight:bold;
 }
 
-#container{	
-	margin-top:0px;
-}
-
 #search-container{
 	padding:20px 0px 30px;
+	font:15px arial, sans-serif;
 }
 
 #search{

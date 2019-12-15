@@ -29,24 +29,23 @@
 		<a class="active" href="transakcije" id="transakcije">Transakcije</a>
 		<a href="logout" id="logout">Odjava</a>
 	</nav>
-	<div id="newTransactionContainer">
-		<div id="newTransaction">			
-			<form action="transakcije" method="POST">
-				<label>Račun terećenja:</label>
-				<select name="debitingAccount">
-					<% 
-						for(Racun racun : (List<Racun>) request.getAttribute("racuni")) {
-							out.print("<option value=\"" + racun.getBrRacun() + "\">" + racun.getBrRacun() + " : " + racun.getStanje() + "HRK</option>");
-						}
-					%>
-				</select>
-				<label>Račun terećenja:</label>
-				<input id="approvalAccount" type="text" name="approvalAccount">
-				<label>Iznos plaćanja:</label>
-				<input id="amount" type="text" placeholder="HRK" name="amount">
-				<input id="finishTransaction" type="submit" name="" value="Provedi transakciju">
-			</form>
-		</div>
+	<div id="newTransaction">			
+		<form action="transakcije" method="POST">
+			<label>Račun terećenja:</label>
+			<select name="debitingAccount">
+				<% 
+					for(Racun racun : (List<Racun>) request.getAttribute("racuni")) {
+						out.print("<option value=\"" + racun.getBrRacun() + "\">" + racun.getBrRacun() + " : " + racun.getStanje() + "HRK</option>");
+					}
+				%>
+			</select>
+			<label>Račun terećenja:</label>
+			<input id="approvalAccount" type="text" name="approvalAccount">
+			<label>Iznos plaćanja:</label>
+			<input id="amount" type="text" placeholder="HRK" name="amount">
+			<input id="finishTransaction" type="submit" name="" value="Provedi transakciju">
+			<button id="cancel">Odustani</button>
+		</form>
 	</div>
 	<div id="container">	
 		<h1>Transakcije</h1>

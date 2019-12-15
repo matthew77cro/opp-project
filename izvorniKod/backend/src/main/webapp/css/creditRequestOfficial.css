@@ -1,0 +1,58 @@
+#container{
+	padding:0px 30px 30px;
+	width:1000px;
+}
+
+#container button{
+	margin:10px 5px;
+	padding:15px;
+	width:150px;
+	background:#1f69b5;
+	color:white;
+	border:none;	
+}
+
+#container label{
+	font:15px Arial, sans-serif;
+	font-weight:bold;
+}
+
+#container input{
+	padding:13px;
+}
+
+table {
+    padding: 20px;
+}
+
+#user{
+    position:absolute;
+	float: left;
+    margin-top:50px;
+    margin-left: 30px;
+	text-align:center;
+	border:1px solid black;
+    border-radius:10px;
+    width: 400px;
+}
+
+#request {
+    
+	float: right;
+    margin-top:50px;
+    margin-right: 40px;
+	text-align:center;
+	border:1px solid black;
+    border-radius:10px;
+    width: 1000px;
+}
+
+#request button {
+    margin:10px 5px;
+	padding:15px;
+	width:150px;
+	background:#1f69b5;
+	color:white;
+	border:none;
+}
+

@@ -1,9 +1,5 @@
-#newCardContainer{
-	text-align:center;
-	padding-top:50px;
-}
-
-#newCardContainer div {
+#newCardForm{
+	text-align:left;
 	padding:30px;
 	width:200px;
 	margin:0;
@@ -13,10 +9,6 @@
 	transform:translate(-50%, -50%);
 	border:1px solid black;
 	border-radius:5px;
-}
-
-#newCardForm{
-	text-align:left;
 }
 
 #newCardForm label{
@@ -40,7 +32,7 @@
 #request{
 	margin-top:10px;
 	padding:15px;
-	background:#c20f06;
+	background:#009933;
 	color:white;
 	border:none;
 	width:200px;
@@ -48,8 +40,15 @@
 	font-weight:bold;
 }
 
-#container{	
-	margin-top:0px;
+#cancel{
+	margin-top:10px;
+	padding:15px;
+	background:#c20f06;
+	color:white;
+	border:none;
+	width:200px;
+	font-size:15px;
+	font-weight:bold;
 }
 
 table{

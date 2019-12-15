@@ -35,7 +35,7 @@ public class PasswordChangeServlet extends HttpServlet {
 		}
 		
 		if(!LoginHandler.changePassword(req, resp)) {
-			req.setAttribute("errorMsg", "New password error! (Empty or same as previous)");
+			req.setAttribute("errorMsg", "Greška! Pokušajte ponovno. <br> Napomena: Nova lozinka ne smije biti prazna ili ista kao prošla.");
 			req.getRequestDispatcher("/WEB-INF/pages/passwordChange.jsp").forward(req, resp);
 		} else {
 			LoginHandler.doLogout(req, resp);

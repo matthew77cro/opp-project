@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
 import hr.fer.opp.bugbusters.dao.model.Kredit;
-import hr.fer.opp.bugbusters.dao.model.Profil;
 import hr.fer.opp.bugbusters.dao.model.VrstaKredita;
 
 @SuppressWarnings("serial")
@@ -34,8 +33,8 @@ public class KreditiServlet extends HttpServlet {
 			return;
 		}
 		
-		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
-		List<Kredit> krediti = DAOProvider.getDao().getKreditForOib(profil.getOib());
+		String oib = DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib();
+		List<Kredit> krediti = DAOProvider.getDao().getKreditByOib(oib);
 		Map<Integer, VrstaKredita> vrsteKredita = new HashMap<>();
 		
 		// Map : kartica -> naziv
@@ -49,7 +48,7 @@ public class KreditiServlet extends HttpServlet {
 		
 		req.setAttribute("krediti", kreditiJsp);
 		
-		req.getRequestDispatcher("/WEB-INF/pages/credit.jsp").forward(req, resp);
+		req.getRequestDispatcher("/WEB-INF/pages/client/credit.jsp").forward(req, resp);
 		
 	}
 	
