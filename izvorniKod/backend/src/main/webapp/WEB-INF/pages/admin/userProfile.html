@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BugBusters banka</title>
+    <link rel="stylesheet" href="css/adminProfile.css">
+	<link rel="stylesheet" href="css/userProfile.css">
+</head>
+<body>
+	<header>
+		<div>
+			<h1 id="nav-title">BugBusters banka</h1> 
+		</div>
+	</header>
+	<nav class="topnav">
+		<a href="#" id="moj-profil">Moj profil</a>
+		<a class="active" href="#" id="racuni">Korisnički profili</a>
+	</nav>
+	<div id="container">
+		<h1>Korisnički profili</h1>
+		<button id="addProfileBtn" class="btn">Dodaj profil</button>
+		<button id="updateProfileBtn" class="btn">Izmijeni profil</button>
+		<button id="deleteProfileBtn" class="btn">Izbriši profil</button>		
+		<label>Upiši OIB: </label>
+		<input id="" type="text">
+		<button id="searchProfileBtn" class="btn">Pretraži</button>
+		<table id="user-data">
+			<tr>
+				<th>Ime</th>
+				<td>X</td>
+			</tr>
+			<tr>
+				<th>Prezime</th>
+				<td>X</td>
+			</tr>
+			<tr>
+				<th>Adresa</th>
+				<td>X</td>
+			</tr>
+			<tr>
+				<th>OIB</th>
+				<td>X</td>
+			</tr>
+			<tr>
+				<th>Datum rođenja</th>
+				<td>X</td>
+			</tr>
+			<tr>
+				<th>E-mail</th>
+				<td>X</td>
+			</tr>
+			<tr>
+				<th>Korisnički računi</th>
+				<td>
+					<button id="showAccounts" class="accountBtn">Prikaži</button>
+					<button id="createAccount" class="accountBtn">Novi račun</button>
+				</td>
+			</tr>
+		</table>
+		<table id="userAccounts">
+			<tr>
+				<th>Korisničko ime</th>
+				<th>Razina ovlasti</th>
+				<th><button id="hideAccounts" class="accountBtn">Sakrij</button></th>
+			</tr>
+			<tr>
+				<td>username</td>
+				<td>bankar</td>
+				<td>
+					<button id="update2" class="updateBtn accountBtn">Izmijeni</button>
+					<button class="deleteBtn accountBtn">Obriši</button>
+				</td>
+			</tr>
+			<tr>
+				<td>username</td>
+				<td>klijent</td>
+				<td>
+					<button class="updateBtn accountBtn">Izmijeni</button>
+					<button class="deleteBtn accountBtn">Obriši</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div id="addProfileForm">
+		<form action="" method="POST">
+			<label>Ime</label>
+			<input id="name" type="text">
+			<label>Prezime</label>
+			<input id="surname" type="text">
+			<label>Adresa</label>
+			<input id="address" type="text">
+			<label>OIB</label>
+			<input id="oib" type="text">
+			<label>Datum rođenja</label>
+			<input id="birthDate" type="text">
+			<label>E-mail</label>
+			<input id="email" type="text">
+			<label>Slika profila</label>
+			<img src="avatar.png" alt="" id="avatar">
+			<button id="profilePictureBtn">Dodaj sliku</button>			
+			<input id="add" type="submit" name="" value="Dodaj korisnika">
+			<button id="cancel">Odustani</button>
+		</form>
+	</div>
+	<div id="updateProfileForm">
+		<form action="" method="POST">
+			<label>Ime</label>
+			<input id="name2" type="text" value="ime">
+			<label>Prezime</label>
+			<input id="surname2" type="text" value="prezime">
+			<label>Adresa</label>
+			<input id="address2" type="text" value="adresa">
+			<label>OIB</label>
+			<input id="oib2" type="text" value="oib">
+			<label>Datum rođenja</label>
+			<input id="birthDate2" type="text" value="datum rođenja">
+			<label>E-mail</label>
+			<input id="email2" type="text" value="email">
+			<label>Slika profila</label>
+			<img src="avatar.png" alt="" id="avatar2">
+			<button id="changePictureBtn">Promijeni sliku</button>			
+			<input id="update" type="submit" name="" value="Ažuriraj podatke">
+			<button id="cancel2">Odustani</button>
+		</form>
+	</div>
+	<div id="deleteProfileForm">
+		<form action="" method="GET">
+			<label>Ime</label>
+			<input id="name3" value="ime" disabled class="data">
+			<label>Prezime</label>
+			<input id="surname3" value="prezime" disabled class="data">
+			<label>Adresa</label>
+			<input id="address3" value="adresa" disabled class="data">
+			<label>OIB</label>
+			<input id="oib3" value="oib" disabled class="data">
+			<label>Datum rođenja</label>
+			<input id="birthDate3" value="datum rođenja" disabled class="data">
+			<label>E-mail</label>
+			<input id="email3" value="email" disabled class="data">
+			<label>Slika profila</label>
+			<img src="avatar.png" alt="" id="avatar3">			
+			<input id="delete" type="submit" name="" value="Izbriši profil">
+			<button id="cancel3">Odustani</button>
+		</form>
+	</div>
+	<div id="addAccountForm">
+		<form action="" method="POST">
+			<label>Korisničko ime</label>
+			<input id="username" type="text">
+			<label>Razina ovlasti</label>
+			<select>
+				<option value="">Admin</option>
+				<option value="">Bankar</option>
+				<option value="">Službenik za odobrenje kredita</option>
+				<option value="">Klijent</option>
+			</select>
+			<input id="addAccount" type="submit" name="" value="Dodaj račun">
+			<button id="cancel4">Odustani</button>
+		</form>
+	</div>
+	<div id="updateAccountForm">
+		<form action="" method="POST">
+			<label>Korisničko ime</label>
+			<input id="username2" type="text" value="username">
+			<label>Razina ovlasti</label>
+			<select>
+				<option value="">Admin</option>
+				<option value="">Bankar</option>
+				<option value="">Službenik za odobrenje kredita</option>
+				<option value="">Klijent</option>
+			</select>
+			<input id="updateAccount" type="submit" name="" value="Izmijeni račun">
+			<button id="cancel5">Odustani</button>
+		</form>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/userProfile.js"></script>
+</body>
+</html>

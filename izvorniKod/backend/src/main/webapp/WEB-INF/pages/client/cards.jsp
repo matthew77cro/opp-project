@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="hr.fer.opp.bugbusters.dao.model.VrstaKartice"%>
 <%@page import="hr.fer.opp.bugbusters.dao.model.Kartica"%>
 <%@page import="java.util.Map"%>
@@ -29,20 +30,25 @@
 		<a href="logout" id="logout">Odjava</a>
 	</nav>
 	<div id="newCardForm">
-		<form action="" method="POST">
+		<form action="kartice" method="POST">
 			<label>Vrsta kartice:</label>
 			<select name="cardType">
-				<option value="AmericanExpress">AmericanExpress</option>
-				<option value="Diners">Diners</option>
-				<option value="Discover">Discover</option>
-				<option value="MasterCard">MasterCard</option>
-				<option value="Visa">Visa</option>
+				<% 
+					for(VrstaKartice vrsta : ((Map<Integer, VrstaKartice>)request.getAttribute("vrstaKartice")).values()) {
+						out.print("<option value=\"" + vrsta.getSifVrsteKartice() + "\">" + vrsta.getSifVrsteKartice() + " : " + vrsta.getNazVrsteKartice() + "</option>");
+					}
+				%>
 			</select>
-			<input id="request" type="submit" name="" value="Provedi zahtjev">
-			<button id="cancel">Odustani</button>
+			<input id="request" type="submit" value="Provedi zahtjev">
 		</form>
+		<button id="cancel">Odustani</button>
 	</div>
 	<div id="container">
+		<% 
+			if(request.getAttribute("errorMsg")!=null) {
+				out.println(request.getAttribute("errorMsg").toString());
+			}
+		%>
 		<h1>Kartice</h1>
 		<button id="newCardBtn">Dodaj karticu</button>
 		<table id="cards-data-table">
@@ -57,17 +63,18 @@
 				<th>Datum rate</th>
 			</tr>
 			<% 
-				Map<Kartica, VrstaKartice> mapa = (Map<Kartica, VrstaKartice>) request.getAttribute("kartice");
-				for(Map.Entry<Kartica, VrstaKartice> kartica : mapa.entrySet()) {
+				Map<Integer, VrstaKartice> vk = (Map<Integer, VrstaKartice>) request.getAttribute("vrstaKartice");
+				for(Kartica kartica : (List<Kartica>) request.getAttribute("kartice")) {
+					VrstaKartice currentVK = vk.get(kartica.getSifVrstaKartice());
 					out.print("<tr>");
-					out.print("<td>" + kartica.getValue().getNazVrsteKartice() + "</td>");
-					out.print("<td>" + kartica.getKey().getBrKartica() + "</td>");
-					out.print("<td>" + kartica.getKey().getBrRacun() + "</td>");
-					out.print("<td>" + kartica.getKey().getStanje() + "</td>");
-					out.print("<td>" + kartica.getKey().getValjanost() + "</td>");
-					out.print("<td>" + kartica.getKey().getLimitKartice() + "</td>");
-					out.print("<td>" + kartica.getKey().getKamStopa() + "</td>");
-					out.print("<td>" + kartica.getKey().getDatRate() + "</td>");
+					out.print("<td>" + (currentVK==null ? "Debitna" : currentVK.getNazVrsteKartice()) + "</td>");
+					out.print("<td>" + kartica.getBrKartica() + "</td>");
+					out.print("<td>" + kartica.getBrRacun() + "</td>");
+					out.print("<td>" + kartica.getStanje() + "</td>");
+					out.print("<td>" + kartica.getValjanost() + "</td>");
+					out.print("<td>" + kartica.getLimitKartice() + "</td>");
+					out.print("<td>" + kartica.getKamStopa() + "</td>");
+					out.print("<td>" + kartica.getDatRate() + "</td>");
 					out.print("</tr>");
 				}
 			%>

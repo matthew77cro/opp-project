@@ -25,6 +25,11 @@
 		<a href="logout" id="logout">Odjava</a>
 	</nav>
 	<div id="container">
+		<% 
+			if(request.getAttribute("errorMsg")!=null) {
+				out.println(request.getAttribute("errorMsg").toString());
+			}
+		%>
 		<h1>Osobni podaci</h1>
 		<img src="<%= request.getServletContext().getContextPath() %>/rest/profil/slika" alt="" class="avatar">
 		<table id="user-data-table">
@@ -92,16 +97,16 @@
 		<button id="changePasswordBtn">Promijeni lozinku</button>
 	</div>
 	<div id="changePasswordForm">
-		<form action="" method="POST">
+		<form action="profil" method="POST">
 			<label>Stara lozinka</label>
-			<input id="oldPassword" type="text">
+			<input id="oldPassword" name="oldPassword" type="password">
 			<label>Nova lozinka</label>
-			<input id="newPassword" type="text">
+			<input id="newPassword" name="newPassword" type="password">
 			<label>Potvrdi novu lozinku</label>
-			<input id="confirmNewPassword" type="text">
+			<input id="confirmNewPassword" name="confirmNewPassword" type="password">
 			<input id="change" type="submit" name="" value="Promijeni lozinku">
-			<button id="goBackBtn">Odustani</button>
 		</form>
+		<button id="goBackBtn">Odustani</button>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="<%= request.getServletContext().getContextPath() %>/js/changePassword.js"></script>

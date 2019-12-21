@@ -17,9 +17,14 @@
 		</div>   
 	</header>
 	<div class="form-container">
-		<form action="registeruser" method="POST">
-			<img src="avatar.png" alt="" class="avatar">
+		<form action="register" method="POST">
+			<img src="<%= request.getServletContext().getContextPath() %>/avatar.png" alt="" class="avatar">
 			<h2 class="form-name">Odabir korisničkog imena i lozinke</h2>
+			<% 
+				if(request.getAttribute("errorMsg")!=null) {
+					out.println(request.getAttribute("errorMsg").toString());
+				}
+			%>
 			<p>Korisničko ime</p>
 			<input type="text" name="username">
 			<p>Lozinka</p>

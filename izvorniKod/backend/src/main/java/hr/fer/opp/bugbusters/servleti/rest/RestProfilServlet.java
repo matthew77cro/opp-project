@@ -25,7 +25,7 @@ public class RestProfilServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if(!LoginHandler.isLoggedIn(req, resp) || LoginHandler.needsPasswordChange(req, resp)) {
+		if(!LoginHandler.isLoggedIn(req, resp)) {
 			resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return;
 		}
@@ -58,7 +58,6 @@ public class RestProfilServlet extends HttpServlet {
 	}
 	
 	private static class ProfileDescriptor {
-		
 		private String firstName;
 		private String lastName;
 		private String address;
@@ -68,7 +67,6 @@ public class RestProfilServlet extends HttpServlet {
 		private String oib;
 		private Date birthday;
 		private String email;
-		
 		public ProfileDescriptor(String firstName, String lastName, String address, int cityPostCode, String cityName,
 				String countyName, String oib, Date birthday, String email) {
 			this.firstName = firstName;
@@ -81,7 +79,6 @@ public class RestProfilServlet extends HttpServlet {
 			this.birthday = birthday;
 			this.email = email;
 		}
-		
 	}
 
 }

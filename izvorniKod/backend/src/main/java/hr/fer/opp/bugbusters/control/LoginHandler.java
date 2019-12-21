@@ -4,7 +4,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import hr.fer.opp.bugbusters.dao.DAOProvider;
+import hr.fer.opp.bugbusters.dao.model.Constants;
 import hr.fer.opp.bugbusters.dao.model.KorisnickiRacun;
+import hr.fer.opp.bugbusters.dao.model.RazinaOvlasti;
+import hr.fer.opp.bugbusters.dao.model.RegistracijaKlijenta;
 
 public class LoginHandler {
 	
@@ -20,10 +23,66 @@ public class LoginHandler {
 		KorisnickiRacun kr = DAOProvider.getDao().getKorisnickiRacun(username);
 		if(kr==null || !passwordHash.equals(kr.getLozinka())) return false;
 		
-		req.getSession().setAttribute("login", username);
-		req.getSession().setAttribute("passwordChange", kr.isPromjenaLozinke());
+		req.getSession().setAttribute("login", new LoginDescriptor(username,  Constants.razOvlastiMap.get(kr.getSifRazOvlasti()), kr.isPromjenaLozinke()));
 		
 		return true;
+		
+	}
+	
+	public static boolean triggerRegisterState(HttpServletRequest req, HttpServletResponse resp) {
+		
+		req.getSession().removeAttribute("register");
+		
+		if(isLoggedIn(req, resp)) return false;
+		
+		String oib = req.getParameter("oib");
+		String key = req.getParameter("key");
+		
+		if(oib==null || key==null) return false;
+		
+		RegistracijaKlijenta rk = DAOProvider.getDao().getRegistracijaKlijenta(oib);
+		if(rk==null || !key.equals(rk.getPrivremeniKljuc())) return false;
+		
+		req.getSession().setAttribute("register", oib);
+		
+		return true;
+		
+	}
+	
+	public static boolean isInRegisterState(HttpServletRequest req, HttpServletResponse resp) {
+		
+		return req.getSession().getAttribute("register") != null;
+		
+	}
+	
+	public static void removeRegisterState(HttpServletRequest req, HttpServletResponse resp) {
+		
+		req.getSession().removeAttribute("register");
+		
+	}
+	
+	public static boolean doRegister(HttpServletRequest req, HttpServletResponse resp) {
+		
+		if(isLoggedIn(req, resp) || !isInRegisterState(req, resp)) return false;
+		
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		
+		if(username==null || password==null) return false;
+		
+		KorisnickiRacun kr = DAOProvider.getDao().getKorisnickiRacun(username);
+		if(kr!=null) return false;
+		
+		KorisnickiRacun newKr = new KorisnickiRacun(username, Util.hash(password), (String) req.getSession().getAttribute("register"), 
+				Constants.klijent.getSifRazOvlasti(), false);
+		boolean toReturn = DAOProvider.getDao().addKorisnickiRacun(newKr);
+		
+		if(toReturn) {
+			DAOProvider.getDao().removeRegistracijaKlijenta((String) req.getSession().getAttribute("register"));
+			removeRegisterState(req, resp);
+		}
+		
+		return toReturn;
 		
 	}
 	
@@ -31,7 +90,7 @@ public class LoginHandler {
 	public static void doLogout(HttpServletRequest req, HttpServletResponse resp) {
 					
 		req.getSession().removeAttribute("login");
-		req.getSession().removeAttribute("passwordChange");
+		req.getSession().removeAttribute("register");
 		req.getSession().invalidate();
 		
 	}
@@ -47,13 +106,13 @@ public class LoginHandler {
 	public static String getUsername(HttpServletRequest req, HttpServletResponse resp) {
 		
 		if(!isLoggedIn(req, resp)) return null;
-		return req.getSession().getAttribute("login").toString();
+		return ((LoginDescriptor)req.getSession().getAttribute("login")).getUsername();
 		
 	}
 	
 	public static boolean needsPasswordChange(HttpServletRequest req, HttpServletResponse resp) {
 		
-		return ((Boolean)req.getSession().getAttribute("passwordChange"));
+		return ((LoginDescriptor)req.getSession().getAttribute("login")).isPasswordChange();
 		
 	}
 	
@@ -64,35 +123,46 @@ public class LoginHandler {
 		
 		if(!isLoggedIn(req, resp)) return false;
 		String username = getUsername(req, resp);
-		String password = req.getParameter("password");
-		String confirmPassword = req.getParameter("confirmPassword");
-		if(password==null || confirmPassword==null || !confirmPassword.equals(password) || password.isEmpty()) return false;
-		
+		String oldPassword = req.getParameter("oldPassword");
+		String newPassword = req.getParameter("newPassword");
+		String confirmNewPassword = req.getParameter("confirmNewPassword");
 		KorisnickiRacun kr = DAOProvider.getDao().getKorisnickiRacun(username);
-		String newPasswordHash = Util.hash(password);
+		
+		if(oldPassword==null || newPassword==null || confirmNewPassword==null || 
+				!confirmNewPassword.equals(newPassword) || newPassword.isEmpty() || 
+				!Util.hash(oldPassword).equals(kr.getLozinka())) return false;
+		
+		String newPasswordHash = Util.hash(newPassword);
 		if(kr.getLozinka().equals(newPasswordHash)) return false;
 		
-		boolean changed = DAOProvider.getDao().updateKorisinckiRacunPassword(username, newPasswordHash);
-		if(changed) req.getSession().setAttribute("passwordChange", false);
+		KorisnickiRacun newData = new KorisnickiRacun(kr.getKorisnickoIme(), newPasswordHash, kr.getOib(), kr.getSifRazOvlasti(), false);
+		boolean changed = DAOProvider.getDao().updateKorisinckiRacun(username, newData);
+		if(changed) ((LoginDescriptor)req.getSession().getAttribute("login")).passwordChange = false;
 		return changed;
 		
 	}
 	
 	public static class LoginDescriptor {
 		private String username;
-		private String oib;
+		private RazinaOvlasti razOvlasti;
+		private boolean passwordChange;
 		
-		public LoginDescriptor(String username, String oib) {
+		public LoginDescriptor(String username, RazinaOvlasti razOvlasti, boolean passwordChange) {
 			this.username = username;
-			this.oib = oib;
+			this.razOvlasti = razOvlasti;
+			this.passwordChange = passwordChange;
 		}
 		
 		public String getUsername() {
 			return username;
 		}
 		
-		public String getOib() {
-			return oib;
+		public RazinaOvlasti getRazOvlasti() {
+			return razOvlasti;
+		}
+		
+		public boolean isPasswordChange() {
+			return passwordChange;
 		}
 	}
 

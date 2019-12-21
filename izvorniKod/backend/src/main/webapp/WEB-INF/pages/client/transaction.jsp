@@ -39,15 +39,20 @@
 					}
 				%>
 			</select>
-			<label>Račun terećenja:</label>
+			<label>Račun odobrenja:</label>
 			<input id="approvalAccount" type="text" name="approvalAccount">
 			<label>Iznos plaćanja:</label>
 			<input id="amount" type="text" placeholder="HRK" name="amount">
 			<input id="finishTransaction" type="submit" name="" value="Provedi transakciju">
-			<button id="cancel">Odustani</button>
 		</form>
+		<button id="cancel">Odustani</button>
 	</div>
-	<div id="container">	
+	<div id="container">
+		<% 
+			if(request.getAttribute("errorMsg")!=null) {
+				out.println(request.getAttribute("errorMsg").toString());
+			}
+		%>	
 		<h1>Transakcije</h1>
 		<button id="newTransactionBtn">Nova transakcija</button>
 		<div id="search-container">

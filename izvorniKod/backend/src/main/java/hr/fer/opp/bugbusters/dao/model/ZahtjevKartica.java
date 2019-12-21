@@ -1,20 +1,22 @@
 package hr.fer.opp.bugbusters.dao.model;
 
+import java.util.Objects;
+
 public class ZahtjevKartica {
 	
-	private int sifZahtjeva;
+	private Integer sifZahtjeva;
 	private String oib;
-	private int sifVrstaKartice;
-	private boolean odobren;
+	private Integer sifVrstaKartice;
+	private Boolean odobren;
 	
-	public ZahtjevKartica(int sifZahtjeva, String oib, int sifVrstaKartice, boolean odobren) {
+	public ZahtjevKartica(Integer sifZahtjeva, String oib, Integer sifVrstaKartice, Boolean odobren) {
 		this.sifZahtjeva = sifZahtjeva;
 		this.oib = oib;
 		this.sifVrstaKartice = sifVrstaKartice;
 		this.odobren = odobren;
 	}
 	
-	public int getSifZahtjeva() {
+	public Integer getSifZahtjeva() {
 		return sifZahtjeva;
 	}
 	
@@ -22,12 +24,29 @@ public class ZahtjevKartica {
 		return oib;
 	}
 	
-	public int getSifVrstaKartice() {
+	public Integer getSifVrstaKartice() {
 		return sifVrstaKartice;
 	}
 	
-	public boolean isOdobren() {
+	public Boolean isOdobren() {
 		return odobren;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(sifZahtjeva);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof ZahtjevKartica))
+			return false;
+		ZahtjevKartica other = (ZahtjevKartica) obj;
+		return sifZahtjeva == other.sifZahtjeva;
+	}
+	
 }

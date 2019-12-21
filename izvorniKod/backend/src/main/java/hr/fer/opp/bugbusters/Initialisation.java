@@ -18,6 +18,10 @@ import javax.servlet.annotation.WebListener;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.mchange.v2.c3p0.DataSources;
 
+import hr.fer.opp.bugbusters.dao.DAOProvider;
+import hr.fer.opp.bugbusters.dao.model.Constants;
+import hr.fer.opp.bugbusters.dao.sql.SQLConnectionProvider;
+
 @WebListener
 public class Initialisation implements ServletContextListener {
 
@@ -52,24 +56,31 @@ public class Initialisation implements ServletContextListener {
 
 		sce.getServletContext().setAttribute("hr.fer.opp.bugbusters.dbpool", cpds);
 		
-		//CHECKING IF TABLES EXIST AND CREATING THEM IF THEY DO NOT
+		// CHECKING IF TABLES EXIST AND CREATING THEM IF THEY DO NOT
+		
+		Connection con = null;
 		try {
-			createTables(cpds, sce);
+			con = cpds.getConnection();
+			SQLConnectionProvider.setConnection(con);
+			if(createTables(sce)) {
+				initializeTypes();
+				populateTablesInitialValues();
+			}
 		} catch (IOException | SQLException e) {
 			throw new RuntimeException(e.getClass().getName() + " : " + e.getMessage());
+		} finally {
+			SQLConnectionProvider.setConnection(null);
+			try { con.close(); } catch (Exception ignorable) {}
 		}
 		
 	}
 
-	private void createTables(ComboPooledDataSource cpds, ServletContextEvent sce) throws IOException, SQLException {
+	private boolean createTables(ServletContextEvent sce) throws IOException, SQLException {
 		
-		Connection con = null;
-		con = cpds.getConnection();
+		Connection con = SQLConnectionProvider.getConnection();
 		
-		if(con.getMetaData().getTables(null, null, "profil", null).next()) {
-			con.close();
-			return;
-		}
+		if(con.getMetaData().getTables(null, null, "profil", null).next())
+			return false;
 		
 		Statement st = con.createStatement();
 		
@@ -78,13 +89,59 @@ public class Initialisation implements ServletContextListener {
 		String sql[] = lines.split(";");
 		
 		for(String statement : sql) {
+			if(statement.isBlank()) continue;
 			String edited = statement.trim().replaceAll("\\s+", " ") + ";";
 			if(edited.startsWith("--")) continue; // It is a comment, do not execute it!
 			st.execute(edited);
 		}
 		
 		st.close();
-		con.close();
+		
+		return true;
+		
+	}
+	
+	private void initializeTypes() {
+		
+		var dao = DAOProvider.getDao();
+		
+		dao.addRazinaOvlasti(Constants.administrator);
+		dao.addRazinaOvlasti(Constants.bankar);
+		dao.addRazinaOvlasti(Constants.sluzbenikZaKredite);
+		dao.addRazinaOvlasti(Constants.klijent);
+		
+		dao.addVrstaRacuna(Constants.tekuci);
+		dao.addVrstaRacuna(Constants.ziro);
+		dao.addVrstaRacuna(Constants.stedni);
+		
+		dao.addVrstaKredita(Constants.stambeni);
+		dao.addVrstaKredita(Constants.namjenski);
+		dao.addVrstaKredita(Constants.nenamjenski);
+		
+		dao.addVrstaKartice(Constants.amex);
+		dao.addVrstaKartice(Constants.diners);
+		dao.addVrstaKartice(Constants.discover);
+		dao.addVrstaKartice(Constants.mastercard);
+		dao.addVrstaKartice(Constants.visa);
+		
+	}
+	
+	private void populateTablesInitialValues() throws SQLException {
+		
+		Connection con = SQLConnectionProvider.getConnection();
+		
+		Statement st = con.createStatement();
+		
+		String sql[] = Constants.initialValues.split(";");
+		
+		for(String statement : sql) {
+			if(statement.isBlank()) continue;
+			String edited = statement.trim().replaceAll("\\s+", " ") + ";";
+			if(edited.startsWith("--")) continue; // It is a comment, do not execute it!
+			st.execute(edited);
+		}
+		
+		st.close();
 		
 	}
 	

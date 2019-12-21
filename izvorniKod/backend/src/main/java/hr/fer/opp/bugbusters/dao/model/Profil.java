@@ -1,6 +1,7 @@
 package hr.fer.opp.bugbusters.dao.model;
 
 import java.sql.Date;
+import java.util.Objects;
 
 public class Profil {
 	
@@ -8,12 +9,12 @@ public class Profil {
 	private String prezime;
 	private String oib;
 	private String adresa;
-	private int pbr;
+	private Integer pbr;
 	private Date datRod;
 	private String email;
 	private String slika;
 	
-	public Profil(String ime, String prezime, String oib, String adresa, int pbr, Date datRod, String email,
+	public Profil(String ime, String prezime, String oib, String adresa, Integer pbr, Date datRod, String email,
 			String slika) {
 		this.ime = ime;
 		this.prezime = prezime;
@@ -41,7 +42,7 @@ public class Profil {
 		return adresa;
 	}
 
-	public int getPbr() {
+	public Integer getPbr() {
 		return pbr;
 	}
 
@@ -55,6 +56,23 @@ public class Profil {
 
 	public String getSlika() {
 		return slika;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(oib);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Profil))
+			return false;
+		Profil other = (Profil) obj;
+		return Objects.equals(oib, other.oib);
 	}
 
 }

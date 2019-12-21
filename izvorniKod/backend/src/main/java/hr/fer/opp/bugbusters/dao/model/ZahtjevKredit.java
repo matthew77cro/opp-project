@@ -1,18 +1,19 @@
 package hr.fer.opp.bugbusters.dao.model;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class ZahtjevKredit {
 	
-	private int sifZahtjeva;
+	private Integer sifZahtjeva;
 	private String oib;
 	private BigDecimal iznos;
-	private int sifVrsteKredita;
-	private int periodOtplate;
-	private boolean odobren;
+	private Integer sifVrsteKredita;
+	private Integer periodOtplate;
+	private Boolean odobren;
 	
-	public ZahtjevKredit(int sifZahtjeva, String oib, BigDecimal iznos, int sifVrsteKredita, int periodOtplate,
-			boolean odobren) {
+	public ZahtjevKredit(Integer sifZahtjeva, String oib, BigDecimal iznos, Integer sifVrsteKredita, Integer periodOtplate,
+			Boolean odobren) {
 		this.sifZahtjeva = sifZahtjeva;
 		this.oib = oib;
 		this.iznos = iznos;
@@ -21,7 +22,7 @@ public class ZahtjevKredit {
 		this.odobren = odobren;
 	}
 
-	public int getSifZahtjeva() {
+	public Integer getSifZahtjeva() {
 		return sifZahtjeva;
 	}
 
@@ -33,16 +34,33 @@ public class ZahtjevKredit {
 		return iznos;
 	}
 
-	public int getSifVrsteKredita() {
+	public Integer getSifVrsteKredita() {
 		return sifVrsteKredita;
 	}
 
-	public int getPeriodOtplate() {
+	public Integer getPeriodOtplate() {
 		return periodOtplate;
 	}
 
-	public boolean isOdobren() {
+	public Boolean isOdobren() {
 		return odobren;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(sifZahtjeva);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof ZahtjevKredit))
+			return false;
+		ZahtjevKredit other = (ZahtjevKredit) obj;
+		return sifZahtjeva == other.sifZahtjeva;
 	}
 	
 }

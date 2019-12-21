@@ -1,15 +1,17 @@
 package hr.fer.opp.bugbusters.dao.model;
 
+import java.util.Objects;
+
 public class KorisnickiRacun {
 	
 	private String korisnickoIme;
 	private String lozinka;
 	private String oib;
-	private int sifRazOvlasti;
-	private boolean promjenaLozinke;
+	private Integer sifRazOvlasti;
+	private Boolean promjenaLozinke;
 	
-	public KorisnickiRacun(String korisnickoIme, String lozinka, String oib, int sifRazOvlasti,
-			boolean promjenaLozinke) {
+	public KorisnickiRacun(String korisnickoIme, String lozinka, String oib, Integer sifRazOvlasti,
+			Boolean promjenaLozinke) {
 		this.korisnickoIme = korisnickoIme;
 		this.lozinka = lozinka;
 		this.oib = oib;
@@ -29,12 +31,29 @@ public class KorisnickiRacun {
 		return oib;
 	}
 	
-	public int getSifRazOvlasti() {
+	public Integer getSifRazOvlasti() {
 		return sifRazOvlasti;
 	}
 	
-	public boolean isPromjenaLozinke() {
+	public Boolean isPromjenaLozinke() {
 		return promjenaLozinke;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(korisnickoIme);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof KorisnickiRacun))
+			return false;
+		KorisnickiRacun other = (KorisnickiRacun) obj;
+		return Objects.equals(korisnickoIme, other.korisnickoIme);
 	}
 
 }
