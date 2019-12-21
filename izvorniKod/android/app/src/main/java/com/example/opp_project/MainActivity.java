@@ -35,9 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
+
         ime = (EditText) findViewById(R.id.poljeIme);
         lozinka = (EditText) findViewById(R.id.poljeLozinka);
         login = (Button) findViewById(R.id.prijavaButton);
+
 
         Toolbar mtoolbar = findViewById(R.id.toolbar);
 
@@ -55,7 +57,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         jsessionid = response.headers().values("Set-Cookie").get(0).split(";\\s+")[0];
+
                         Toast.makeText(getApplicationContext(), Integer.toString(response.code()) + jsessionid, Toast.LENGTH_LONG).show();
+
                         if(response.isSuccessful()) {
                             openHomeScreen();
                         }
@@ -77,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void openHomeScreen(){
         Intent intent = new Intent(this, Activity2.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 

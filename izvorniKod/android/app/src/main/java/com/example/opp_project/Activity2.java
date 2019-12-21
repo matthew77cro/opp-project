@@ -20,11 +20,17 @@ public class Activity2 extends AppCompatActivity {
     private Button buttonKrediti;
     private Button buttonProfil;
 
+    private String jsessionid;
+
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
+
+
+        jsessionid = getIntent().getStringExtra("SESSION_ID");
+
 
         Toolbar mtoolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mtoolbar);
@@ -82,6 +88,7 @@ public class Activity2 extends AppCompatActivity {
 
     public void openProfil(){
         Intent intent = new Intent(this, Profil.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 
