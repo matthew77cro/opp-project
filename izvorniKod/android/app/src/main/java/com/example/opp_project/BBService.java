@@ -1,5 +1,6 @@
 package com.example.opp_project;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -15,6 +16,9 @@ public interface BBService {
 
     @GET("rest/profil")
     Call<ProfilPodaci> profil(@Header("Cookie") String string);
+
+    @GET("rest/profil/slika")
+    Call<ResponseBody> slika(@Header("Cookie") String string);
 
     @GET("rest/logout")
     Call<Profil> logout();

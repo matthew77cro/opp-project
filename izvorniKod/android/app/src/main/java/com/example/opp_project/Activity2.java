@@ -21,6 +21,8 @@ public class Activity2 extends AppCompatActivity {
     private Button buttonProfil;
 
     private String jsessionid;
+    private String username;
+
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -30,6 +32,8 @@ public class Activity2 extends AppCompatActivity {
 
 
         jsessionid = getIntent().getStringExtra("SESSION_ID");
+        username = getIntent().getStringExtra("USERNAME");
+
 
 
         Toolbar mtoolbar = findViewById(R.id.toolbar);
@@ -89,6 +93,7 @@ public class Activity2 extends AppCompatActivity {
     public void openProfil(){
         Intent intent = new Intent(this, Profil.class);
         intent.putExtra("SESSION_ID", jsessionid);
+        intent.putExtra("USERNAME", username);
         startActivity(intent);
     }
 

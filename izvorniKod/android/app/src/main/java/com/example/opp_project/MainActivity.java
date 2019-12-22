@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
     public void openHomeScreen(){
         Intent intent = new Intent(this, Activity2.class);
         intent.putExtra("SESSION_ID", jsessionid);
+        intent.putExtra("USERNAME", ime.getText().toString());
         startActivity(intent);
     }
 
