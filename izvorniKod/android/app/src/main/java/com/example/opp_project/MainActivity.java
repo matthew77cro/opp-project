@@ -4,7 +4,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,8 +67,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
                         Toast.makeText(getApplicationContext(), "Pogrešno korisničko ime ili lozinka!", Toast.LENGTH_SHORT).show();
-                        //Toast.makeText(getApplicationContext(), Integer.toString(getStatusCode()) + jsessionid, Toast.LENGTH_SHORT).show();
-
                     }
 
                 });

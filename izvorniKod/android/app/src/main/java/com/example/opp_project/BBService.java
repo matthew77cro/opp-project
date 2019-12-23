@@ -7,6 +7,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface BBService {
 
@@ -20,7 +21,7 @@ public interface BBService {
     @GET("rest/profil/slika")
     Call<ResponseBody> slika(@Header("Cookie") String string);
 
-    @GET("rest/logout")
-    Call<Profil> logout();
+    @POST("rest/logout")
+    Call<Void> logout(@Header("Cookie") String string);
 
 }

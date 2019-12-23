@@ -53,14 +53,6 @@ public class Profil extends AppCompatActivity implements Serializable {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profil);
 
-        Toolbar mtoolbar = findViewById(R.id.toolbar);
-
-     //   setSupportActionBar(mtoolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-  //      getSupportActionBar().setTitle("Profil");
-    //    mtoolbar.setSubtitle("Dobrodošli!");
-
-
         usernameView = (TextView) findViewById(R.id.korisničkoIme);
 
         firstNameView = (TextView) findViewById(R.id.textViewValueIme);
