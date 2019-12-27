@@ -106,6 +106,7 @@ public class Activity2 extends AppCompatActivity {
 
     public void openRacuni(){
         Intent intent = new Intent(this, Racuni.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 

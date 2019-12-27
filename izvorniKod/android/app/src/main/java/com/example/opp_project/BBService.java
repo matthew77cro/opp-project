@@ -1,5 +1,7 @@
 package com.example.opp_project;
 
+import java.util.List;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -23,5 +25,8 @@ public interface BBService {
 
     @POST("rest/logout")
     Call<Void> logout(@Header("Cookie") String string);
+
+    @GET("rest/profil/racuni")
+    Call<List<RacuniPodaci>> racuni(@Header("Cookie") String string);
 
 }

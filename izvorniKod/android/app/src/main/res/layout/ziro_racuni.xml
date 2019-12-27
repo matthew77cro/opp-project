@@ -31,7 +31,7 @@
             android:background="#C2CDE7"
             android:padding="10dp"
             android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="5dp">
 
             <TextView
                 android:id="@+id/textViewBrZiroR1"
@@ -75,7 +75,137 @@
                 android:text="vrijednost" />
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayoutOibZiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="#C2CDE7"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
 
+            <TextView
+                android:id="@+id/textViewOibZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="OIB : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewValueOibZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="vrijednost" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayoutDatumZiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="#C2CDE7"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/textViewDatumZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Datum otvaranja : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewValueDatumZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="vrijednost" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayoutPrekoracenjeZiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="#C2CDE7"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/textViewPrekoracenjeZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Prekoračenje : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewValuePrekoracenjeZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="vrijednost" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayoutKamatnaStopaZiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="#C2CDE7"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/textViewKamatnaStopaZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Kamatna stopa : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewValueKamatnaStopaZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="vrijednost" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayoutSifraVrsteRacunaZiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="#C2CDE7"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/textViewSifraVrsteRacunaZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Šifra vrste računa : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewValueSifraVrsteRacunaZiro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="vrijednost" />
+
+        </LinearLayout>
+<!--
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -139,7 +269,7 @@
                 android:text="vrijednost" />
 
         </LinearLayout>
-
+-->
     </LinearLayout>
 </ScrollView>
 

@@ -1,11 +1,46 @@
 package com.example.opp_project;
 
 import android.os.Bundle;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.reflect.TypeToken;
+
+import org.w3c.dom.Text;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class TekuciRacuni extends AppCompatActivity {
+
+    private Retrofit retrofit;
+    private BBService service;
+
+    private String jsessionid;
+
+    private TextView brRacunView;
+    private TextView iznosView;
+    private TextView oibView;
+    private TextView datOtvaranjaView;
+    private TextView prekoracenjeView;
+    private TextView kamStopaView;
+    private TextView sifVrsteRacunaView;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,5 +50,64 @@ public class TekuciRacuni extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
 //        getSupportActionBar().setTitle("Tekući računi");
   //      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        brRacunView = (TextView) findViewById(R.id.textViewValueTekuci1);
+        iznosView = (TextView) findViewById(R.id.textViewValueTekuciIznos1);
+        oibView = (TextView) findViewById(R.id.textViewValueOibTekuci);
+        datOtvaranjaView = (TextView) findViewById(R.id.textViewValueDatumTekuci);
+        prekoracenjeView = (TextView) findViewById(R.id.textViewValuePrekoracenjeTekuci);
+        kamStopaView = (TextView) findViewById(R.id.textViewValueKamatnaStopaTekuci);
+        sifVrsteRacunaView = (TextView) findViewById(R.id.textViewValueSifraVrsteRacunaTekuci);
+
+
+
+        retrofit = new Retrofit.Builder().baseUrl("http://104.45.11.92/bugbusters/").addConverterFactory(GsonConverterFactory.create()).build();
+
+        service = retrofit.create(BBService.class);
+
+
+        jsessionid = getIntent().getStringExtra("SESSION_ID");
+
+
+
+        Call<List<RacuniPodaci>> call = service.racuni(jsessionid);
+        call.enqueue(new Callback<List<RacuniPodaci>>() {
+                         @Override
+                         public void onResponse(Call<List<RacuniPodaci>> call, Response<List<RacuniPodaci>> response) {
+
+
+                             if(response.isSuccessful()) {
+
+                                 List<RacuniPodaci> json = response.body();
+
+                                 for(RacuniPodaci racun : json){
+                                     if(racun.getVrstaRacuna().getNazVrsteRacuna().equals("Tekući račun")){
+
+                                         brRacunView.setText(racun.getBrRacun());
+                                         iznosView.setText(racun.getStanje());
+                                         oibView.setText(racun.getOib());
+                                         datOtvaranjaView.setText(racun.getDatOtvaranja());
+                                         prekoracenjeView.setText(racun.getPrekoracenje());
+                                         kamStopaView.setText(racun.getKamStopa());
+                                         sifVrsteRacunaView.setText(racun.getVrstaRacuna().getSifVrsteRacuna());
+                                     }
+                                 }
+
+
+                             }else{
+                                 Toast.makeText(getApplicationContext(), "Response code: " + response.code(), Toast.LENGTH_SHORT).show();
+                             }
+
+                         }
+
+                         @Override
+                         public void onFailure(Call<List<RacuniPodaci>> call, Throwable t) {
+                             Toast.makeText(getApplicationContext(), "Pogreška", Toast.LENGTH_SHORT).show();
+                         }
+                     }
+        );
+
+
     }
 }

@@ -13,6 +13,9 @@ public class Racuni extends AppCompatActivity {
     private Button buttonStedni;
     private Button buttonZiro;
 
+    private String jsessionid;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,9 @@ public class Racuni extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
 //        getSupportActionBar().setTitle("Racuni");
  //       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        jsessionid = getIntent().getStringExtra("SESSION_ID");
+
 
         buttonTekuci = (Button) findViewById(R.id.buttonTekuci);
         buttonTekuci.setOnClickListener(new View.OnClickListener(){
@@ -51,16 +57,19 @@ public class Racuni extends AppCompatActivity {
 
     public void openTekuci(){
         Intent intent = new Intent(this, TekuciRacuni.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 
     public void openZiro(){
         Intent intent = new Intent(this, ZiroRacuni.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 
     public void openStedni(){
         Intent intent = new Intent(this, StedniRacuni.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 }
