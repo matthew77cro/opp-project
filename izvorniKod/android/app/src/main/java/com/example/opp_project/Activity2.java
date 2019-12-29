@@ -112,6 +112,7 @@ public class Activity2 extends AppCompatActivity {
 
     public void openKartice(){
         Intent intent = new Intent(this, Kartice.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 

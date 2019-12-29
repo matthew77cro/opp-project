@@ -12,6 +12,8 @@ public class Kartice extends AppCompatActivity {
     private Button buttonDebitne;
     private Button buttonKreditne;
 
+    private String jsessionid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,10 @@ public class Kartice extends AppCompatActivity {
         setSupportActionBar(mtoolbar);
       //  getSupportActionBar().setTitle("Kartice");
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        jsessionid = getIntent().getStringExtra("SESSION_ID");
+
 
         buttonDebitne = (Button) findViewById(R.id.buttonDebitne);
         buttonDebitne.setOnClickListener(new View.OnClickListener(){
@@ -42,11 +48,13 @@ public class Kartice extends AppCompatActivity {
 
     public void openDebitne(){
         Intent intent = new Intent(this, DebitneKartice.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 
     public void openKreditne(){
         Intent intent = new Intent(this, KreditneKartice.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 }
