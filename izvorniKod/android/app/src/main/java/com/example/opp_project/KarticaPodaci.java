@@ -16,16 +16,16 @@ public class KarticaPodaci {
     private VrstaKartice vrstaKartice;
     @SerializedName("stanje")
     @Expose
-    private double stanje;
+    private String stanje;
     @SerializedName("valjanost")
     @Expose
     private String valjanost;
     @SerializedName("limitKartice")
     @Expose
-    private double limitKartice;
+    private String limitKartice;
     @SerializedName("kamStopa")
     @Expose
-    private double kamStopa;
+    private String kamStopa;
     @SerializedName("datRate")
     @Expose
     private int datRate;
@@ -59,11 +59,11 @@ public class KarticaPodaci {
         this.vrstaKartice = vrstaKartice;
     }
 
-    public double getStanje() {
+    public String getStanje() {
         return stanje;
     }
 
-    public void setStanje(double stanje) {
+    public void setStanje(String stanje) {
         this.stanje = stanje;
     }
 
@@ -75,19 +75,19 @@ public class KarticaPodaci {
         this.valjanost = valjanost;
     }
 
-    public double getLimitKartice() {
+    public String getLimitKartice() {
         return limitKartice;
     }
 
-    public void setLimitKartice(double limitKartice) {
+    public void setLimitKartice(String limitKartice) {
         this.limitKartice = limitKartice;
     }
 
-    public double getKamStopa() {
+    public String getKamStopa() {
         return kamStopa;
     }
 
-    public void setKamStopa(double kamStopa) {
+    public void setKamStopa(String kamStopa) {
         this.kamStopa = kamStopa;
     }
 
