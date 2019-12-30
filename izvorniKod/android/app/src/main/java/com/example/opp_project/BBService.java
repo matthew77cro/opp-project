@@ -35,4 +35,6 @@ public interface BBService {
     @GET("rest/profil/krediti")
     Call<List<KreditPodaci>> krediti(@Header("Cookie") String string);
 
+    @GET("rest/profil/transakcije")
+    Call<List<TransakcijaPodaci>> transakcije(@Header("Cookie") String string);
 }

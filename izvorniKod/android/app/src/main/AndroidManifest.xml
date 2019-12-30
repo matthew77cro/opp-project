@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Transakcije"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,26 +21,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity2"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity android:name=".Racuni"
-            android:parentActivityName=".Activity2"></activity>
-        <activity android:name=".TekuciRacuni"
-            android:parentActivityName=".Racuni"></activity>
-        <activity android:name=".StedniRacuni"
-            android:parentActivityName=".Racuni"></activity>
-        <activity android:name=".Kartice"
-            android:parentActivityName=".Activity2"></activity>
-        <activity android:name=".ZiroRacuni"
-            android:parentActivityName=".Racuni"></activity>
-        <activity android:name=".Krediti"
-            android:parentActivityName=".Activity2"></activity>
-        <activity android:name=".KreditneKartice"
-            android:parentActivityName=".Kartice"></activity>
-        <activity android:name=".DebitneKartice"
-            android:parentActivityName=".Kartice"></activity>
-        <activity android:name=".Profil"
-            android:parentActivityName=".Activity2"></activity>
+        <activity
+            android:name=".Activity2"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Racuni"
+            android:parentActivityName=".Activity2" />
+        <activity
+            android:name=".TekuciRacuni"
+            android:parentActivityName=".Racuni" />
+        <activity
+            android:name=".StedniRacuni"
+            android:parentActivityName=".Racuni" />
+        <activity
+            android:name=".Kartice"
+            android:parentActivityName=".Activity2" />
+        <activity
+            android:name=".ZiroRacuni"
+            android:parentActivityName=".Racuni" />
+        <activity
+            android:name=".Krediti"
+            android:parentActivityName=".Activity2" />
+        <activity
+            android:name=".KreditneKartice"
+            android:parentActivityName=".Kartice" />
+        <activity
+            android:name=".DebitneKartice"
+            android:parentActivityName=".Kartice" />
+        <activity
+            android:name=".Profil"
+            android:parentActivityName=".Activity2" />
     </application>
 
 </manifest>

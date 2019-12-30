@@ -27,6 +27,7 @@ public class Activity2 extends AppCompatActivity {
     private Button buttonKrediti;
     private Button buttonProfil;
     private Button buttonOdjava;
+    private Button buttonTransakcije;
 
     private String jsessionid;
     private String username;
@@ -66,6 +67,13 @@ public class Activity2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 openKrediti();
+            }
+        });
+
+        buttonTransakcije = (Button) findViewById(R.id.button6);
+        buttonTransakcije.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                openTransakcije();
             }
         });
 
@@ -118,6 +126,12 @@ public class Activity2 extends AppCompatActivity {
 
     public void openKrediti(){
         Intent intent = new Intent(this, Krediti.class);
+        intent.putExtra("SESSION_ID", jsessionid);
+        startActivity(intent);
+    }
+
+    public void openTransakcije(){
+        Intent intent = new Intent(this, Transakcije.class);
         intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
