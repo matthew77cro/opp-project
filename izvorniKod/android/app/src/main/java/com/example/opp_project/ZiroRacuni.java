@@ -1,6 +1,9 @@
 package com.example.opp_project;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,8 @@ public class ZiroRacuni extends AppCompatActivity {
 
     private String jsessionid;
 
+    private LinearLayout linearLayout;
+
     private TextView brRacunView;
     private TextView iznosView;
     private TextView oibView;
@@ -42,18 +47,9 @@ public class ZiroRacuni extends AppCompatActivity {
   //      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        brRacunView = (TextView) findViewById(R.id.textViewValueZiro1);
-        iznosView = (TextView) findViewById(R.id.textViewValueStedniIznos1);
-        oibView = (TextView) findViewById(R.id.textViewValueOibZiro);
-        datOtvaranjaView = (TextView) findViewById(R.id.textViewValueDatumZiro);
-        prekoracenjeView = (TextView) findViewById(R.id.textViewValuePrekoracenjeZiro);
-        kamStopaView = (TextView) findViewById(R.id.textViewValueKamatnaStopaZiro);
-        sifVrsteRacunaView = (TextView) findViewById(R.id.textViewValueSifraVrsteRacunaZiro);
-
 
 
         retrofit = new Retrofit.Builder().baseUrl("http://104.45.11.92/bugbusters/").addConverterFactory(GsonConverterFactory.create()).build();
-
         service = retrofit.create(BBService.class);
 
 
@@ -71,8 +67,26 @@ public class ZiroRacuni extends AppCompatActivity {
 
                                  List<RacuniPodaci> json = response.body();
 
+                                 LayoutInflater inflater = getLayoutInflater();
+
+
+                                 linearLayout = findViewById(R.id.LinearLayoutZiro);
+
+
                                  for(RacuniPodaci racun : json){
                                      if(racun.getVrstaRacuna().getNazVrsteRacuna().equals("Žiro račun")){
+
+                                         View v = inflater.inflate(R.layout.ziro_racuni_view, null);
+
+
+                                         brRacunView = (TextView) v.findViewById(R.id.textViewValueZiro1);
+                                         iznosView = (TextView) v.findViewById(R.id.textViewValueStedniIznos1);
+                                         oibView = (TextView) v.findViewById(R.id.textViewValueOibZiro);
+                                         datOtvaranjaView = (TextView) v.findViewById(R.id.textViewValueDatumZiro);
+                                         prekoracenjeView = (TextView) v.findViewById(R.id.textViewValuePrekoracenjeZiro);
+                                         kamStopaView = (TextView) v.findViewById(R.id.textViewValueKamatnaStopaZiro);
+                                         sifVrsteRacunaView = (TextView) v.findViewById(R.id.textViewValueSifraVrsteRacunaZiro);
+
 
                                          brRacunView.setText(racun.getBrRacun());
                                          iznosView.setText(racun.getStanje());
@@ -81,6 +95,9 @@ public class ZiroRacuni extends AppCompatActivity {
                                          prekoracenjeView.setText(racun.getPrekoracenje());
                                          kamStopaView.setText(racun.getKamStopa());
                                          sifVrsteRacunaView.setText(racun.getVrstaRacuna().getSifVrsteRacuna());
+
+
+                                         linearLayout.addView(v);
                                      }
                                  }
 

@@ -37,7 +37,7 @@ public class KreditneKartice  extends AppCompatActivity {
     private TextView kamatnaStopa;
     private TextView datRate;
 
-    LinearLayout linearLayout;
+    private LinearLayout linearLayout;
 
 
     @Override
@@ -68,15 +68,14 @@ public class KreditneKartice  extends AppCompatActivity {
 
                                  List<KarticaPodaci> json = response.body();
 
-
                                  LayoutInflater inflater = getLayoutInflater();
+
+
+                                 linearLayout = findViewById(R.id.LinearLayoutKreditneKartice);
 
 
                                  for(KarticaPodaci kartica : json){
                                      if(kartica.getBrRacun() == null) {
-
-                                         linearLayout = findViewById(R.id.LinearLayoutKreditneKartice);
-
 
                                          View v = inflater.inflate(R.layout.kreditne_kartice_view, null);
 

@@ -32,7 +32,7 @@ public class DebitneKartice extends AppCompatActivity {
     private TextView brRacun;
     private TextView valjanost;
 
-    LinearLayout linearLayout;
+    private LinearLayout linearLayout;
 
 
     @Override
@@ -64,15 +64,14 @@ public class DebitneKartice extends AppCompatActivity {
 
                                  List<KarticaPodaci> json = response.body();
 
-
                                  LayoutInflater inflater = getLayoutInflater();
+
+
+                                 linearLayout = findViewById(R.id.LinearLayoutDebitna);
 
 
                                  for(KarticaPodaci kartica : json){
                                      if(kartica.getBrRacun() != null) {
-
-                                         linearLayout = findViewById(R.id.LinearLayoutDebitna);
-
 
                                          View v = inflater.inflate(R.layout.debitne_kartice_view, null);
 

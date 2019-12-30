@@ -1,6 +1,9 @@
 package com.example.opp_project;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,8 @@ public class StedniRacuni extends AppCompatActivity {
     private BBService service;
 
     private String jsessionid;
+
+    private LinearLayout linearLayout;
 
     private TextView brRacunView;
     private TextView iznosView;
@@ -43,18 +48,8 @@ public class StedniRacuni extends AppCompatActivity {
 
 
 
-        brRacunView = (TextView) findViewById(R.id.textViewValueStedni1);
-        iznosView = (TextView) findViewById(R.id.textViewValueStedniIznos1);
-        oibView = (TextView) findViewById(R.id.textViewValueOibStedni);
-        datOtvaranjaView = (TextView) findViewById(R.id.textViewValueDatumStedni);
-        prekoracenjeView = (TextView) findViewById(R.id.textViewValuePrekoracenjeStedni);
-        kamStopaView = (TextView) findViewById(R.id.textViewValueKamatnaStopaStedni);
-        sifVrsteRacunaView = (TextView) findViewById(R.id.textViewValueSifraVrsteRacunaStedni);
-
-
 
         retrofit = new Retrofit.Builder().baseUrl("http://104.45.11.92/bugbusters/").addConverterFactory(GsonConverterFactory.create()).build();
-
         service = retrofit.create(BBService.class);
 
 
@@ -72,8 +67,27 @@ public class StedniRacuni extends AppCompatActivity {
 
                                  List<RacuniPodaci> json = response.body();
 
+                                 LayoutInflater inflater = getLayoutInflater();
+
+
+                                 linearLayout = findViewById(R.id.LinearLayoutStedni);
+
+
                                  for(RacuniPodaci racun : json){
                                      if(racun.getVrstaRacuna().getNazVrsteRacuna().equals("Štedni račun")){
+
+                                         View v = inflater.inflate(R.layout.stedni_racuni_view, null);
+
+
+                                         brRacunView = (TextView) v.findViewById(R.id.textViewValueStedni1);
+                                         iznosView = (TextView) v.findViewById(R.id.textViewValueStedniIznos1);
+                                         oibView = (TextView) v.findViewById(R.id.textViewValueOibStedni);
+                                         datOtvaranjaView = (TextView) v.findViewById(R.id.textViewValueDatumStedni);
+                                         prekoracenjeView = (TextView) v.findViewById(R.id.textViewValuePrekoracenjeStedni);
+                                         kamStopaView = (TextView) v.findViewById(R.id.textViewValueKamatnaStopaStedni);
+                                         sifVrsteRacunaView = (TextView) v.findViewById(R.id.textViewValueSifraVrsteRacunaStedni);
+
+
 
                                          brRacunView.setText(racun.getBrRacun());
                                          iznosView.setText(racun.getStanje());
@@ -82,6 +96,9 @@ public class StedniRacuni extends AppCompatActivity {
                                          prekoracenjeView.setText(racun.getPrekoracenje());
                                          kamStopaView.setText(racun.getKamStopa());
                                          sifVrsteRacunaView.setText(racun.getVrstaRacuna().getSifVrsteRacuna());
+
+
+                                         linearLayout.addView(v);
                                      }
                                  }
 

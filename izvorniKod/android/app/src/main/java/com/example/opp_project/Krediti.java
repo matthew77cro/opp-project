@@ -24,7 +24,7 @@ public class Krediti extends AppCompatActivity {
 
     private String jsessionid;
 
-    LinearLayout linearLayout;
+    private LinearLayout linearLayout;
 
 
     private TextView brKredita;
@@ -63,16 +63,15 @@ public class Krediti extends AppCompatActivity {
 
                                  List<KreditPodaci> json = response.body();
 
-
                                  LayoutInflater inflater = getLayoutInflater();
+
+
+                                 linearLayout = findViewById(R.id.LinearLayoutKrediti);
 
 
                                  for(KreditPodaci kredit : json){
 
-                                     linearLayout = findViewById(R.id.LinearLayoutKrediti);
-
                                      View v = inflater.inflate(R.layout.krediti_view, null);
-
 
 
                                      brKredita = (TextView) v.findViewById(R.id.textViewValueBrojKredita);
@@ -85,7 +84,6 @@ public class Krediti extends AppCompatActivity {
                                      periodOtplate = (TextView) v.findViewById(R.id.textViewValuePeriodOtplateKredit);
                                      datRate = (TextView) v.findViewById(R.id.textViewValueDatRateKredit);
                                      dugovanje = (TextView) v.findViewById(R.id.textViewValueDugovanjeKredit);
-
 
 
                                      brKredita.setText(String.valueOf(kredit.getBrKredit()));

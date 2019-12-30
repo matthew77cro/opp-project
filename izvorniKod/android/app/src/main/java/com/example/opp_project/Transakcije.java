@@ -24,7 +24,7 @@ public class Transakcije extends AppCompatActivity {
 
     private String jsessionid;
 
-    LinearLayout linearLayout;
+    private LinearLayout linearLayout;
 
     private TextView brTransakcija;
     private TextView racTerecenja;
@@ -57,13 +57,13 @@ public class Transakcije extends AppCompatActivity {
 
                                  List<TransakcijaPodaci> json = response.body();
 
-
                                  LayoutInflater inflater = getLayoutInflater();
 
 
-                                 for(TransakcijaPodaci transakcija : json){
+                                 linearLayout = findViewById(R.id.LinearLayoutTransakcija);
 
-                                     linearLayout = findViewById(R.id.LinearLayoutTransakcija);
+
+                                 for(TransakcijaPodaci transakcija : json){
 
                                      View v = inflater.inflate(R.layout.transakcije_view, null);
 
