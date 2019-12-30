@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/LinearLayoutKreditneKartice"
+        android:id="@+id/LinearLayoutKrediti"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="left"
@@ -16,15 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="7dp"
-            android:text="Vrsta kreditne 1"
-            android:id="@+id/textViewValueVrstaKreditne"
+            android:text="Kredit"
+            android:id="@+id/textViewKredit"
             android:layout_weight="1"
             android:textColor="@color/colorPrimary"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/LinearLayoutBrKreditne1"
+            android:id="@+id/LinearLayoutBrojKredita"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#C2CDE7"
@@ -33,32 +33,32 @@
             android:layout_marginBottom="3dp">
 
             <TextView
-                android:id="@+id/textViewBrKreditne1"
+                android:id="@+id/textViewBrojKredita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Broj kartice : "
+                android:text="Broj kredita : "
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textViewValueBrKreditne1"
+                android:id="@+id/textViewValueBrojKredita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="15"
                 android:text="vrijednost" />
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/LinearLayoutOibKreditna"
+            android:id="@+id/LinearLayoutOibKredit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="10dp"
             android:background="#C2CDE7"
+            android:padding="10dp"
             android:orientation="horizontal"
             android:layout_marginBottom="3dp">
 
             <TextView
-                android:id="@+id/textViewOibKreditna"
+                android:id="@+id/textViewOibKredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -67,15 +67,14 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textViewValueOibKreditna"
+                android:id="@+id/textViewValueOibKredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="15"
                 android:text="vrijednost" />
-
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/LinearLayoutStanjeKreditna"
+            android:id="@+id/LinearLayoutIznosKredit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
@@ -84,16 +83,16 @@
             android:layout_marginBottom="3dp">
 
             <TextView
-                android:id="@+id/textViewStanjeKreditna"
+                android:id="@+id/textViewIznosKredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Stanje : "
+                android:text="Iznos : "
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textViewValueStanjeKreditna"
+                android:id="@+id/textViewValueIznosKredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="15"
@@ -101,7 +100,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/LinearLayoutValjanostKreditna"
+            android:id="@+id/LinearLayoutSifVrsteKredita"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
@@ -110,16 +109,16 @@
             android:layout_marginBottom="3dp">
 
             <TextView
-                android:id="@+id/textViewValjanostKreditna"
+                android:id="@+id/textViewSifVrsteKredita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Valjanost : "
+                android:text="Šifra vrste kredita : "
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textViewValueValjanostKreditna"
+                android:id="@+id/textViewValueSifVrsteKredita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="15"
@@ -127,7 +126,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/LinearLayoutLimitKreditna"
+            android:id="@+id/LinearLayoutNazivVrsteKredita"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
@@ -136,16 +135,16 @@
             android:layout_marginBottom="3dp">
 
             <TextView
-                android:id="@+id/textViewLimitKreditna"
+                android:id="@+id/textViewVazivVrsteKredita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Limit kartice : "
+                android:text="Naziv vrste kredita : "
                 android:textColor="@color/colorPrimary"
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textViewValueLimitKreditna"
+                android:id="@+id/textViewValueNazivVrsteKredita"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="15"
@@ -153,7 +152,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/LinearLayoutKamatnaStopaKreditna"
+            android:id="@+id/LinearLayoutKamatnaStopaKredit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
@@ -162,7 +161,7 @@
             android:layout_marginBottom="3dp">
 
             <TextView
-                android:id="@+id/textViewKamatnaStopaKreditna"
+                android:id="@+id/textViewKamatnaStopaKredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -171,7 +170,7 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textViewValueKamatnaStopaKreditna"
+                android:id="@+id/textViewValueKamatnaStopaKredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="15"
@@ -179,7 +178,7 @@
 
         </LinearLayout>
         <LinearLayout
-            android:id="@+id/LinearLayoutDatRateKreditna"
+            android:id="@+id/LinearLayoutDatumKredit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:padding="10dp"
@@ -188,7 +187,59 @@
             android:layout_marginBottom="3dp">
 
             <TextView
-                android:id="@+id/textViewDatRateKreditna"
+                android:id="@+id/textViewDatumKredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Datum ugovaranja : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewValueDatumKredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="vrijednost" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayoutPeriodOtplateKredit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:background="#C2CDE7"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp">
+
+            <TextView
+                android:id="@+id/textViewPeriodOtplateKredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Period otplate : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewValuePeriodOtplateKredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="vrijednost" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayoutDatRateKredit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:background="#C2CDE7"
+            android:orientation="horizontal"
+            android:layout_marginBottom="3dp">
+
+            <TextView
+                android:id="@+id/textViewDatRateKredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -197,12 +248,41 @@
                 android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/textViewValueDatRateKreditna"
+                android:id="@+id/textViewValueDatRateKredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="15"
                 android:text="vrijednost" />
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayoutDugovanjeKredit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:background="#C2CDE7"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:id="@+id/textViewDugovanjeKredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Preostalo dugovanje : "
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textViewValueDugovanjeKredit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:text="vrijednost" />
+
+        </LinearLayout>
+
+
     </LinearLayout>
+
 </ScrollView>

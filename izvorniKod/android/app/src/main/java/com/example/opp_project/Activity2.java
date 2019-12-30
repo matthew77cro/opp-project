@@ -118,6 +118,7 @@ public class Activity2 extends AppCompatActivity {
 
     public void openKrediti(){
         Intent intent = new Intent(this, Krediti.class);
+        intent.putExtra("SESSION_ID", jsessionid);
         startActivity(intent);
     }
 
