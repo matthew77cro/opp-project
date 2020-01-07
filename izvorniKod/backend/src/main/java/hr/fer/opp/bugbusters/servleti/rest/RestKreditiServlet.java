@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
+import hr.fer.opp.bugbusters.dao.model.Constants;
 import hr.fer.opp.bugbusters.dao.model.Kredit;
 import hr.fer.opp.bugbusters.dao.model.VrstaKredita;
 
@@ -29,7 +30,7 @@ public class RestKreditiServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if(!LoginHandler.isLoggedIn(req, resp)) {
+		if(!LoginHandler.isLoggedIn(req, resp) || !LoginHandler.equalsRazinaOvlasti(req, resp, Constants.klijent)) {
 			resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return;
 		}

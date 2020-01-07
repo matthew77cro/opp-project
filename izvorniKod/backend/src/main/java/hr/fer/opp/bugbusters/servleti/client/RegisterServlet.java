@@ -1,4 +1,4 @@
-package hr.fer.opp.bugbusters.servleti;
+package hr.fer.opp.bugbusters.servleti.client;
 
 import java.io.IOException;
 

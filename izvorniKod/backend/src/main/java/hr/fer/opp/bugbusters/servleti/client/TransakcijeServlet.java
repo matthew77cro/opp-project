@@ -1,4 +1,4 @@
-package hr.fer.opp.bugbusters.servleti;
+package hr.fer.opp.bugbusters.servleti.client;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
+import hr.fer.opp.bugbusters.dao.model.Constants;
 import hr.fer.opp.bugbusters.dao.model.Racun;
 import hr.fer.opp.bugbusters.dao.model.Transakcija;
 
@@ -23,7 +24,7 @@ public class TransakcijeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if(!LoginHandler.isLoggedIn(req, resp)) {
+		if(!LoginHandler.isLoggedIn(req, resp) || !LoginHandler.equalsRazinaOvlasti(req, resp, Constants.klijent)) {
 			resp.sendRedirect("login");
 			return;
 		}
@@ -60,7 +61,8 @@ public class TransakcijeServlet extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		if(!LoginHandler.isLoggedIn(req, resp)) {
+		
+		if(!LoginHandler.isLoggedIn(req, resp) || !LoginHandler.equalsRazinaOvlasti(req, resp, Constants.klijent)) {
 			resp.sendRedirect("login");
 			return;
 		}

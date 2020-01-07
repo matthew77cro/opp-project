@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
+import hr.fer.opp.bugbusters.dao.model.Constants;
 import hr.fer.opp.bugbusters.dao.model.Kartica;
 import hr.fer.opp.bugbusters.dao.model.Racun;
 import hr.fer.opp.bugbusters.dao.model.VrstaKartice;
@@ -30,7 +31,7 @@ public class RestKarticeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if(!LoginHandler.isLoggedIn(req, resp)) {
+		if(!LoginHandler.isLoggedIn(req, resp) || !LoginHandler.equalsRazinaOvlasti(req, resp, Constants.klijent)) {
 			resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return;
 		}

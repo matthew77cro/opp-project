@@ -299,7 +299,7 @@ public class SQLDAO implements DAO {
 		return executeUpdate(
 				String.format("INSERT INTO racun (brRacun, oib, datOtvaranja, stanje, sifVrsteRacuna, prekoracenje, kamStopa, datZatvaranja) "
 				+ "VALUES ('%s', '%s', '%s', %s, %d, %s, %s, " + (racun.getDatZatvaranja() == null ? "NULL" : "'" + racun.getDatZatvaranja().toString() + "'") + ")", 
-				racun.getBrRacun(), racun.getOib(), racun.getDatZatvaranja().toString(), 
+				racun.getBrRacun(), racun.getOib(), racun.getDatOtvaranja(), 
 				racun.getStanje().toString(), racun.getSifVrsteRacuna(), 
 				racun.getPrekoracenje().toString(), racun.getKamStopa().toString()))
 				!= 0;
@@ -390,21 +390,21 @@ public class SQLDAO implements DAO {
 	public boolean addKartica(Kartica kartica) {
 		Objects.requireNonNull(kartica);
 		return executeUpdate(
-				String.format("INSERT INTO kartica (brKartica, brRacun, oib, sifVrstaKartice, stanje, valjanost, limitKartice, kamStopa, datRate) "
+				String.format("INSERT INTO kartica (brKartica, brRacun, oib, stanje, sifVrstaKartice, valjanost, limitKartice, kamStopa, datRate) "
 				+ "VALUES ('%s', " + 
-				(kartica.getBrRacun() == null ? "NULL" : "'" + kartica.getBrKartica() + "'")
+				(kartica.getBrRacun() == null ? "NULL" : "'" + kartica.getBrRacun() + "'")
 				+ ", " + 
 				(kartica.getOib() == null ? "NULL" : "'" + kartica.getOib() + "'")
 				+ ", " + 
 				(kartica.getStanje() == null ? "NULL" : kartica.getStanje())
 				+ ", " +
-				(kartica.getSifVrstaKartice() == 0 ? "NULL" : kartica.getSifVrstaKartice())
+				((kartica.getSifVrstaKartice() == null || kartica.getSifVrstaKartice() == 0) ? "NULL" : kartica.getSifVrstaKartice())
 				+ ", '%s', " + 
 				(kartica.getLimitKartice() == null ? "NULL" : kartica.getLimitKartice())
 				+ ", " + 
 				(kartica.getKamStopa() == null ? "NULL" : kartica.getKamStopa())
 				+ ", " + 
-				(kartica.getDatRate() == 0 ? "NULL" : kartica.getDatRate())
+				((kartica.getDatRate() == null || kartica.getDatRate() == 0) ? "NULL" : kartica.getDatRate())
 				+ ")", 
 				kartica.getBrKartica(),
 				kartica.getValjanost()))

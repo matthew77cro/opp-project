@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
+import hr.fer.opp.bugbusters.dao.model.Constants;
 import hr.fer.opp.bugbusters.dao.model.Profil;
 
 @SuppressWarnings("serial")
@@ -27,8 +28,21 @@ public class RestProfilPictureServlet extends HttpServlet {
 			return;
 		}
 		
-		String oib = DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib();
+		String oib = req.getParameter("oib");
+		if(oib!=null && !LoginHandler.equalsRazinaOvlasti(req, resp, Constants.administrator) && 
+				!LoginHandler.equalsRazinaOvlasti(req, resp, Constants.bankar) &&
+				!LoginHandler.equalsRazinaOvlasti(req, resp, Constants.sluzbenikZaKredite)) {
+			resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+			return;
+		}
+		
+		oib = oib==null ? DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib() : oib;
 		Profil profil = DAOProvider.getDao().getProfil(oib);
+		if(profil==null) {
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			return;
+		}
+		
 		Path slika = Paths.get(req.getServletContext().getRealPath("/WEB-INF/profile-pics/") + profil.getSlika());
 		if(!Files.exists(slika))
 			slika = Paths.get(req.getServletContext().getRealPath("/avatar.png"));

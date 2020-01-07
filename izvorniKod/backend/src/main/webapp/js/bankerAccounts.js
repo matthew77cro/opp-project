@@ -8,7 +8,7 @@ $("#addAccountBtn").click(function(){
     $("#new-account").show();
  });
 
- $("#cancel").click(function(){
+ $(".cancel").click(function(){
     $('#delete-account').hide();
     $("#new-account").hide();
     $("#container").show();

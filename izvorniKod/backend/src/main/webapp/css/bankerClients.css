@@ -94,7 +94,6 @@ table {
     width:100px;
     height:100px;
     border-radius:50%;
-    position:absolute;
     left:calc(50% - 50px);
 }
 
@@ -205,5 +204,3 @@ table {
 	font-size:15px;
 	font-weight:bold;
 }
-
-

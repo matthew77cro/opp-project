@@ -8,7 +8,7 @@ $("#newCardBtn").click(function(){
     $("#new-card").show();
  });
 
- $("#cancel").click(function(){
+ $(".cancel").click(function(){
     $('#delete-card').hide();
     $("#new-card").hide();
     $("#container").show();

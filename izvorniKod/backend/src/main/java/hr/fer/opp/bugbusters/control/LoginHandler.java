@@ -1,11 +1,20 @@
 package hr.fer.opp.bugbusters.control;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import hr.fer.opp.bugbusters.dao.DAOProvider;
 import hr.fer.opp.bugbusters.dao.model.Constants;
 import hr.fer.opp.bugbusters.dao.model.KorisnickiRacun;
+import hr.fer.opp.bugbusters.dao.model.Profil;
 import hr.fer.opp.bugbusters.dao.model.RazinaOvlasti;
 import hr.fer.opp.bugbusters.dao.model.RegistracijaKlijenta;
 
@@ -140,6 +149,57 @@ public class LoginHandler {
 		if(changed) ((LoginDescriptor)req.getSession().getAttribute("login")).passwordChange = false;
 		return changed;
 		
+	}
+	
+	public static boolean equalsRazinaOvlasti(HttpServletRequest req, HttpServletResponse resp, RazinaOvlasti ro) {
+		
+		return ((LoginDescriptor)req.getSession().getAttribute("login")).getRazOvlasti().equals(ro);
+		
+	}
+	
+	public static boolean changeProfilePicture(HttpServletRequest req, HttpServletResponse resp, String oib, String picParamName) {
+		
+		String fileName = null;
+		
+		Profil profil = DAOProvider.getDao().getProfil(oib);
+		if(profil==null) return false;
+		
+		Part filePart = null;
+		BufferedInputStream filecontent = null;
+		try {
+			filePart = req.getPart(picParamName);
+			if(filePart.getSize()==0) return false;
+		    filecontent = new BufferedInputStream(filePart.getInputStream());
+		    
+		    String extension = filePart.getName();
+			int sepIndex = extension.lastIndexOf('.');
+			extension = extension.substring(sepIndex+1);
+			fileName = Util.getRandomString(32) + extension;
+			while(Files.exists(Paths.get(req.getServletContext().getRealPath("/WEB-INF/profile-pics/") + fileName))) {
+				fileName = Util.getRandomString(32) + extension;
+			}
+			
+			Path pic = Paths.get(req.getServletContext().getRealPath("/WEB-INF/profile-pics/") + fileName);
+			Files.createFile(pic);
+			
+			Files.write(pic, filecontent.readAllBytes(), StandardOpenOption.WRITE);
+			Files.deleteIfExists(Paths.get(req.getServletContext().getRealPath("/WEB-INF/profile-pics/") + profil.getSlika()));
+		} catch (Exception ex) {
+			System.out.println("chnageProfilePicture -> " + ex.getClass().getCanonicalName() + " : " + ex.getMessage());
+			return false;
+		} finally {
+			try {
+				if(filecontent!=null) filecontent.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		Profil newData = new Profil(profil.getIme(), profil.getPrezime(), profil.getOib(), profil.getAdresa(), profil.getPbr(), profil.getDatRod(), profil.getEmail(), fileName);
+		DAOProvider.getDao().updateProfil(profil.getOib(), newData);
+		
+		return true;
+
 	}
 	
 	public static class LoginDescriptor {
