@@ -1,288 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/LinearLayoutKrediti"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayoutKrediti"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:layout_marginTop="60dp"
+    android:orientation="vertical"
+    android:layout_margin="20dp">
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical"
-        android:layout_margin="20dp">
+        android:layout_marginBottom="7dp"
+        android:text="Kredit"
+        android:id="@+id/textViewKredit"
+        android:layout_weight="1"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutBrojKredita"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C2CDE7"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/textViewBrojKredita"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
-            android:text="Kredit"
-            android:id="@+id/textViewKredit"
             android:layout_weight="1"
+            android:text="Broj kredita : "
             android:textColor="@color/colorPrimary"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
 
-        <LinearLayout
-            android:id="@+id/LinearLayoutBrojKredita"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#C2CDE7"
-            android:padding="10dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/textViewValueBrojKredita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutOibKredit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C2CDE7"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-            <TextView
-                android:id="@+id/textViewBrojKredita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Broj kredita : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textViewOibKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="OIB : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/textViewValueBrojKredita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutOibKredit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#C2CDE7"
-            android:padding="10dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/textViewValueOibKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutIznosKredit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-            <TextView
-                android:id="@+id/textViewOibKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="OIB : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textViewIznosKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Iznos : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/textViewValueOibKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutIznosKredit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/textViewValueIznosKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
 
-            <TextView
-                android:id="@+id/textViewIznosKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Iznos : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutSifVrsteKredita"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-            <TextView
-                android:id="@+id/textViewValueIznosKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
+        <TextView
+            android:id="@+id/textViewSifVrsteKredita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Šifra vrste kredita : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutSifVrsteKredita"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/textViewValueSifVrsteKredita"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
 
-            <TextView
-                android:id="@+id/textViewSifVrsteKredita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Šifra vrste kredita : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutKamatnaStopaKredit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-            <TextView
-                android:id="@+id/textViewValueSifVrsteKredita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
+        <TextView
+            android:id="@+id/textViewKamatnaStopaKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Kamatna stopa : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutNazivVrsteKredita"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/textViewValueKamatnaStopaKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
 
-            <TextView
-                android:id="@+id/textViewVazivVrsteKredita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Naziv vrste kredita : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutDatumKredit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-            <TextView
-                android:id="@+id/textViewValueNazivVrsteKredita"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
+        <TextView
+            android:id="@+id/textViewDatumKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Datum ugovaranja : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutKamatnaStopaKredit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/textViewValueDatumKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
 
-            <TextView
-                android:id="@+id/textViewKamatnaStopaKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Kamatna stopa : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutPeriodOtplateKredit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-            <TextView
-                android:id="@+id/textViewValueKamatnaStopaKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
+        <TextView
+            android:id="@+id/textViewPeriodOtplateKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Period otplate : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutDatumKredit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/textViewValuePeriodOtplateKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
 
-            <TextView
-                android:id="@+id/textViewDatumKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Datum ugovaranja : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutDatRateKredit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="3dp">
 
-            <TextView
-                android:id="@+id/textViewValueDatumKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
+        <TextView
+            android:id="@+id/textViewDatRateKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Datum rate : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutPeriodOtplateKredit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
+        <TextView
+            android:id="@+id/textViewValueDatRateKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
 
-            <TextView
-                android:id="@+id/textViewPeriodOtplateKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Period otplate : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutDugovanjeKredit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
-            <TextView
-                android:id="@+id/textViewValuePeriodOtplateKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
+        <TextView
+            android:id="@+id/textViewDugovanjeKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Preostalo dugovanje : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutDatRateKredit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="3dp">
-
-            <TextView
-                android:id="@+id/textViewDatRateKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Datum rate : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValueDatRateKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutDugovanjeKredit"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:id="@+id/textViewDugovanjeKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Preostalo dugovanje : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValueDugovanjeKredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-
-        </LinearLayout>
-
+        <TextView
+            android:id="@+id/textViewValueDugovanjeKredit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
 
     </LinearLayout>
 
-</ScrollView>
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+</LinearLayout>
+

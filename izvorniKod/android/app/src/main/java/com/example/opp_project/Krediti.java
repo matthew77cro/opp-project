@@ -26,12 +26,12 @@ public class Krediti extends AppCompatActivity {
 
     private LinearLayout linearLayout;
 
+    private TextView nazivVrste;
 
     private TextView brKredita;
     private TextView oib;
     private TextView iznos;
     private TextView sifraVrste;
-    private TextView nazivVrste;
     private TextView kamStopa;
     private TextView datUgovaranja;
     private TextView periodOtplate;
@@ -74,11 +74,12 @@ public class Krediti extends AppCompatActivity {
                                      View v = inflater.inflate(R.layout.krediti_view, null);
 
 
+                                     nazivVrste = (TextView) v.findViewById(R.id.textViewKredit);
+
                                      brKredita = (TextView) v.findViewById(R.id.textViewValueBrojKredita);
                                      oib = (TextView) v.findViewById(R.id.textViewValueOibKredit);
                                      iznos = (TextView) v.findViewById(R.id.textViewValueIznosKredit);
                                      sifraVrste = (TextView) v.findViewById(R.id.textViewValueSifVrsteKredita);
-                                     nazivVrste = (TextView) v.findViewById(R.id.textViewValueNazivVrsteKredita);
                                      kamStopa = (TextView) v.findViewById(R.id.textViewValueKamatnaStopaKredit);
                                      datUgovaranja = (TextView) v.findViewById(R.id.textViewValueDatumKredit);
                                      periodOtplate = (TextView) v.findViewById(R.id.textViewValuePeriodOtplateKredit);
@@ -86,11 +87,13 @@ public class Krediti extends AppCompatActivity {
                                      dugovanje = (TextView) v.findViewById(R.id.textViewValueDugovanjeKredit);
 
 
+
+                                     nazivVrste.setText(kredit.getVrstaKredita().getNazVrsteKredita());
+
                                      brKredita.setText(String.valueOf(kredit.getBrKredit()));
                                      oib.setText(kredit.getOib());
                                      iznos.setText(kredit.getIznos());
                                      sifraVrste.setText(String.valueOf(kredit.getVrstaKredita().getSifVrsteKredita()));
-                                     nazivVrste.setText(kredit.getVrstaKredita().getNazVrsteKredita());
                                      kamStopa.setText(kredit.getVrstaKredita().getKamStopa());
                                      datUgovaranja.setText(kredit.getDatUgovaranja());
                                      periodOtplate.setText(String.valueOf(kredit.getPeriodOtplate()));

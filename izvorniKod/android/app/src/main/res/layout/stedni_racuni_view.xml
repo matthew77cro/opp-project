@@ -1,212 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayoutStedni"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/LinearLayoutStedni"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:layout_marginTop="60dp"
+    android:orientation="vertical"
+    android:layout_margin="20dp">
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:layout_marginTop="60dp"
-        android:orientation="vertical"
-        android:layout_margin="20dp">
+        android:layout_marginBottom="10dp"
+        android:text="Štedni račun"
+        android:id="@+id/textViewStedniR1"
+        android:layout_weight="1"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/LinearLayoutBrojStedni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C2CDE7"
+        android:padding="10dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/textViewBrR1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:text="Štedni račun"
-            android:id="@+id/textViewStedniR1"
             android:layout_weight="1"
+            android:text="Broj računa : "
             android:textColor="@color/colorPrimary"
-            android:textSize="25sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
 
-        <LinearLayout
-            android:id="@+id/LinearLayoutBrojStedni"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textViewValueStedni1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#C2CDE7"
-            android:padding="10dp"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
+            android:layout_weight="15"
+            android:text="vrijednost" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutIznosStedni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
 
-            <TextView
-                android:id="@+id/textViewBrR1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Broj računa : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValueStedni1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutIznosStedni"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textViewIznos"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
+            android:layout_weight="1"
+            android:text="Iznos : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/textViewIznos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Iznos : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValueStedniIznos1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutOibStedni"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textViewValueStedniIznos1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <TextView
-                android:id="@+id/textViewOibStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="OIB : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValueOibStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutDatumStedni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <TextView
-                android:id="@+id/textViewDatumStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Datum otvaranja : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValueDatumStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutPrekoracenjeStedni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <TextView
-                android:id="@+id/textViewPrekoracenjeStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Prekoračenje : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValuePrekoracenjeStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutKamatnaStopaStedni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <TextView
-                android:id="@+id/textViewKamatnaStopaStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Kamatna stopa : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValueKamatnaStopaStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/LinearLayoutSifraVrsteRacunaStedni"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:background="#C2CDE7"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <TextView
-                android:id="@+id/textViewSifraVrsteRacunaStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Šifra vrste računa : "
-                android:textColor="@color/colorPrimary"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/textViewValueSifraVrsteRacunaStedni"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="15"
-                android:text="vrijednost" />
-
-        </LinearLayout>
-
+            android:layout_weight="15"
+            android:text="vrijednost" />
 
     </LinearLayout>
-</ScrollView>
+    <LinearLayout
+        android:id="@+id/LinearLayoutOibStedni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textViewOibStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="OIB : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewValueOibStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutDatumStedni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textViewDatumStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Datum otvaranja : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewValueDatumStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutPrekoracenjeStedni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textViewPrekoracenjeStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Prekoračenje : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewValuePrekoracenjeStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutKamatnaStopaStedni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textViewKamatnaStopaStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Kamatna stopa : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewValueKamatnaStopaStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/LinearLayoutSifraVrsteRacunaStedni"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:background="#C2CDE7"
+        android:orientation="horizontal"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:id="@+id/textViewSifraVrsteRacunaStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Šifra vrste računa : "
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewValueSifraVrsteRacunaStedni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="15"
+            android:text="vrijednost" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="20dp" />
+
+</LinearLayout>
 

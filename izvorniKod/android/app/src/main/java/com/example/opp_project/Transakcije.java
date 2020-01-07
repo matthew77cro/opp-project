@@ -66,7 +66,7 @@ public class Transakcije extends AppCompatActivity {
                                  for(TransakcijaPodaci transakcija : json){
 
                                      View v = inflater.inflate(R.layout.transakcije_view, null);
-
+                                     
 
                                      brTransakcija = (TextView) v.findViewById(R.id.textViewValueBrTransakcija);
                                      racTerecenja = (TextView) v.findViewById(R.id.textViewValueRacunTerecenja);

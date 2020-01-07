@@ -96,7 +96,7 @@ public class Activity2 extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
 
-                        Toast.makeText(getApplicationContext(), Integer.toString(response.code()) + jsessionid, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), Integer.toString(response.code()) + jsessionid, Toast.LENGTH_LONG).show();
 
                         if (response.isSuccessful()) {
                             openMain();

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         jsessionid = response.headers().values("Set-Cookie").get(0).split(";\\s+")[0];
 
-                        Toast.makeText(getApplicationContext(), Integer.toString(response.code()) + jsessionid, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), Integer.toString(response.code()) + jsessionid, Toast.LENGTH_LONG).show();
 
                         if(response.isSuccessful()) {
                             openHomeScreen();
