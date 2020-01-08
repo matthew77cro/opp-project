@@ -62,11 +62,14 @@ public class MainActivity extends AppCompatActivity {
                         if(response.isSuccessful()) {
                             openHomeScreen();
                         }
+                        else{
+                            Toast.makeText(getApplicationContext(), "Pogrešno korisničko ime ili lozinka!", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                     @Override
                     public void onFailure(Call<Void> call, Throwable t) {
-                        Toast.makeText(getApplicationContext(), "Pogrešno korisničko ime ili lozinka!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Pogreška!", Toast.LENGTH_SHORT).show();
                     }
 
                 });
