@@ -38,7 +38,7 @@ public interface DAO {
 	KorisnickiRacun getKorisnickiRacun(String korisnickoIme);
 	List<KorisnickiRacun> getKorisnickiRacunByOib(String oib);
 	boolean addKorisnickiRacun(KorisnickiRacun korisnickiRacun);
-	boolean removeKorisnickiRacun(String oib);
+	boolean removeKorisnickiRacun(String korisnickoIme);
 	boolean updateKorisinckiRacun(String korisnickoIme, KorisnickiRacun newData);
 
 	Racun getRacun(String brRacun);
@@ -88,11 +88,13 @@ public interface DAO {
 	boolean removeRegistracijaKlijenta(String oib);
 	
 	List<ZahtjevKartica> getAllZahtjevKartica();
+	ZahtjevKartica getZahtjevKartica(int sifZahtjeva);
 	boolean addZahtjevKartica(ZahtjevKartica zahtjevKartica);
 	boolean removeZahtjevKartica(int sifZahtjeva);
 	boolean resolveZahtjevKartica(int sifZahtjeva, boolean odobren);
 	
 	List<ZahtjevKredit> getAllZahtjevKredit();
+	ZahtjevKredit getZahtjevKredit(int sifZahtjeva);
 	boolean addZahtjevKredit(ZahtjevKredit zahtjevKredit);
 	boolean removeZahtjevKredit(int sifZahtjeva);
 	boolean resolveZahtjevKredit(int sifZahtjeva, boolean odobren);

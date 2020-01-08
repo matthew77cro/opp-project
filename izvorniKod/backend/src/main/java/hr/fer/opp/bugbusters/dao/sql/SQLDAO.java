@@ -239,9 +239,9 @@ public class SQLDAO implements DAO {
 	}
 	
 	@Override
-	public boolean removeKorisnickiRacun(String oib) {
-		Objects.requireNonNull(oib);
-		return executeUpdate("DELETE FROM korisnickiRacun WHERE oib = '" + oib + "'") != 0;
+	public boolean removeKorisnickiRacun(String korisnickoIme) {
+		Objects.requireNonNull(korisnickoIme);
+		return executeUpdate("DELETE FROM korisnickiRacun WHERE korisnickoIme = '" + korisnickoIme + "'") != 0;
 	}
 	
 	@Override
@@ -825,6 +825,20 @@ public class SQLDAO implements DAO {
 		return z;
 		
 	}
+	
+	@Override
+	public ZahtjevKartica getZahtjevKartica(int sifZahtjeva) {
+		ZahtjevKartica z = null;
+		
+		List<Map<String, Object>> list = executeQuery("SELECT * FROM zahtjevKartica WHERE sifZahtjeva=" + sifZahtjeva);
+		
+		for(var l : list) {
+			z = new ZahtjevKartica((Integer)l.get("sifzahtjeva"), (String)l.get("oib"), 
+					(Integer)l.get("sifvrstakartice"), (Boolean)l.get("odobren"));
+		}
+		
+		return z;
+	}
 
 	@Override
 	public boolean addZahtjevKartica(ZahtjevKartica zahtjevKartica) {
@@ -863,6 +877,21 @@ public class SQLDAO implements DAO {
 		
 		return z;
 		
+	}
+
+	@Override
+	public ZahtjevKredit getZahtjevKredit(int sifZahtjeva) {
+		ZahtjevKredit z = null;
+		
+		List<Map<String, Object>> list = executeQuery("SELECT * FROM zahtjevKredit WHERE sifZahtjeva=" + sifZahtjeva);
+		
+		for(var l : list) {
+			z = new ZahtjevKredit((Integer)l.get("sifzahtjeva"), (String)l.get("oib"), 
+					(BigDecimal)l.get("iznos"), (Integer)l.get("sifvrstekredita"), 
+					(Integer)l.get("periodotplate"), (Boolean)l.get("odobren"));
+		}
+		
+		return z;
 	}
 
 	@Override

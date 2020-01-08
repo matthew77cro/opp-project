@@ -7,25 +7,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bugbusters banka</title>
-    <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/clientProfile.css">
+    <title>BugBusters banka</title>
+    <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/adminProfile.css">
 </head>
 <body>
-    <header>
+	<header>
 		<div>
 			<h1 id="nav-title">BugBusters banka</h1> 
 		</div>
 	</header>
 	<nav class="topnav">
 		<a class="active" href="profil" id="moj-profil">Moj profil</a>
-        <a href="bankar-klijenti" id="klijenti">Klijenti</a>
-        <a href="bankar-racuni" id="racuni">Računi</a>
-		<a href="bankar-kartice" id="kartice">Kartice</a>
-		<a href="bankar-krediti" id="krediti">Krediti</a>
-		<a href="bankar-transakcije" id="transakcije">Transakcije</a>
+		<a href="admin-profili" id="racuni">Korisnički profili</a>
 		<a href="logout" id="logout">Odjava</a>
-    </nav>
-    <div id="container">
+	</nav>
+	<div id="container">
+		<% 
+			if(request.getAttribute("errorMsg")!=null) {
+				out.println(request.getAttribute("errorMsg").toString());
+			}
+		%>
 		<h1>Osobni podaci</h1>
 		<img src="<%= request.getServletContext().getContextPath() %>/rest/profil/slika" alt="" class="avatar">
 		<table id="user-data-table">
@@ -90,6 +91,21 @@
 				</td>
 			</tr>
 		</table>
+		<button id="changePasswordBtn">Promijeni lozinku</button>
 	</div>
+	<div id="changePasswordForm">
+		<form action="" method="POST">
+			<label>Stara lozinka</label>
+			<input id="oldPassword" name="oldPassword" type="password">
+			<label>Nova lozinka</label>
+			<input id="newPassword" name="newPassword" type="password">
+			<label>Potvrdi novu lozinku</label>
+			<input id="confirmNewPassword" name="confirmNewPassword" type="password">
+			<input id="change" type="submit" name="" value="Promijeni lozinku">
+		</form>
+		<button id="goBackBtn">Odustani</button>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="<%= request.getServletContext().getContextPath() %>/js/changePassword.js"></script>
 </body>
 </html>

@@ -41,7 +41,7 @@ public class ProfilServlet extends HttpServlet {
 		else if(ro.equals(Constants.bankar))
 			req.getRequestDispatcher("/WEB-INF/pages/banker/bankerProfile.jsp").forward(req, resp);
 		else if(ro.equals(Constants.sluzbenikZaKredite))
-			req.getRequestDispatcher("/WEB-INF/pages/loanOfficial/creditOfficial.jsp").forward(req, resp);
+			req.getRequestDispatcher("/WEB-INF/pages/loanOfficial/officialProfile.jsp").forward(req, resp);
 		else if(ro.equals(Constants.administrator))
 			req.getRequestDispatcher("/WEB-INF/pages/admin/adminProfile.jsp").forward(req, resp);
 		else
@@ -63,8 +63,7 @@ public class ProfilServlet extends HttpServlet {
 		
 		if(!LoginHandler.changePassword(req, resp)) {
 			req.setAttribute("errorMsg", "Greška! Pokušajte ponovno. <br> Napomena: Nova lozinka ne smije biti prazna ili ista kao prošla.");
-			loadData(req, resp);
-			req.getRequestDispatcher("/WEB-INF/pages/client/clientProfile.jsp").forward(req, resp);
+			doGet(req, resp);
 		} else {
 			LoginHandler.doLogout(req, resp);
 			resp.sendRedirect("logout");

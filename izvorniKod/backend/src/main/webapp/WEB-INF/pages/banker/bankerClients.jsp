@@ -99,7 +99,7 @@
 	</div>
 	<div id="addProfileForm">
 		<form action="" method="POST" enctype="multipart/form-data">
-			<input type="hidden" name="action" value="add">
+			<input type="hidden" name="action" value="create">
 			<label>Ime</label>
 			<input id="name" name="ime" type="text">
 			<label>Prezime</label>

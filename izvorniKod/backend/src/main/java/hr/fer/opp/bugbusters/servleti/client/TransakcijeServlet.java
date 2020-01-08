@@ -76,7 +76,8 @@ public class TransakcijeServlet extends HttpServlet {
 		String approvalAccount = req.getParameter("approvalAccount");
 		String amount = req.getParameter("amount");
 		if(debitingAccount == null || approvalAccount == null || amount == null) {
-			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			req.setAttribute("errorMsg", "Krivi parametri otplate.");
+			doGet(req, resp);
 			return;
 		}
 		
