@@ -63,6 +63,7 @@ public interface DAO {
 	Transakcija getTransakcija(int brTransakcija);
 	List<Transakcija> getTransakcijaByBrRacunTerecenja(String brRacun);
 	List<Transakcija> getTransakcijaByBrRacunOdobrenja(String brRacun);
+	List<Transakcija> getTransakcijaByBrRacun(String brRacun);
 	List<Transakcija> getTransakcijeByOib(String oib);
 	boolean addTransakcija(Transakcija transakcija);
 	

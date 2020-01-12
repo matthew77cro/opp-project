@@ -40,11 +40,10 @@ public class Constants {
 	public static final String initialValues = "INSERT INTO profil values ('01234567890', 'Eleven', '-', 'Ulica 1', 10000, '01.01.1970', 'eleven@gmail.com', '01234567890_slika_1.png');\r\n" + 
 			"	INSERT INTO profil values ('01234567891', 'John', 'Doe', 'Ulica 1', 10000, '01.01.1970', 'john.doe@gmail.com', '01234567891_slika_1.png');\r\n" + 
 			"\r\n" + 
-			"	INSERT INTO korisnickiracun values ('admin', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 1, false);\r\n" + 
-			"	INSERT INTO korisnickiracun values ('bankar', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 2, true);\r\n" + 
-			"	INSERT INTO korisnickiracun values ('sluzbenik', 'a5a4733297586ac552f1613970265fdda320fc4c7a86b2eae6de343e24f2450dcf2caeef24dd322251ad32595be8e3418da679ccb153864da02e06490ed8b724', '01234567890', 3, true);\r\n" +
-			"		\r\n" + 
-			"	INSERT INTO registracijaKlijenta values ('01234567891', 'ajksdh78o43tfh3pt786b9018d42nwo9');\r\n" + 
+			"	INSERT INTO korisnickiracun values ('admin', '24b1a812d4e3535c06011c430aaba3f59d32f36263ddcb99541f998266c5e84a52fb33f951cec78656f598a004f83c771388b9a80404f7432b714f4dcae4a00f', '01234567890', 1, false);\r\n" + 
+			"	INSERT INTO korisnickiracun values ('bankar', '24b1a812d4e3535c06011c430aaba3f59d32f36263ddcb99541f998266c5e84a52fb33f951cec78656f598a004f83c771388b9a80404f7432b714f4dcae4a00f', '01234567890', 2, false);\r\n" + 
+			"	INSERT INTO korisnickiracun values ('sluzbenik', '24b1a812d4e3535c06011c430aaba3f59d32f36263ddcb99541f998266c5e84a52fb33f951cec78656f598a004f83c771388b9a80404f7432b714f4dcae4a00f', '01234567890', 3, false);\r\n" +
+			"	INSERT INTO korisnickiracun values ('klijent', '24b1a812d4e3535c06011c430aaba3f59d32f36263ddcb99541f998266c5e84a52fb33f951cec78656f598a004f83c771388b9a80404f7432b714f4dcae4a00f', '01234567891', 4, false);\r\n" +
 			"\r\n" + 
 			"	INSERT INTO kredit(oib, iznos, sifVrsteKredita, datUgovaranja, periodOtplate, datRate, preostaloDugovanje) values ('01234567891', 15000.00, 1, '01.01.2014', 5, 15, 1000.00 );\r\n" + 
 			"	INSERT INTO kredit(oib, iznos, sifVrsteKredita, datUgovaranja, periodOtplate, datRate, preostaloDugovanje) values ('01234567891', 17000.00, 2, '01.01.2014', 5, 15, 1000.00 );\r\n" + 
@@ -62,7 +61,7 @@ public class Constants {
 			"	INSERT INTO transakcija(racterecenja, racodobrenja, iznos, dattransakcije) VALUES ('HR0201235720', 'HR0201235730', '54.75', '2019-12-10');\r\n" + 
 			"	INSERT INTO transakcija(racterecenja, racodobrenja, iznos, dattransakcije) VALUES ('HR0201235720', 'HR0201235730', '588.99', '2019-12-11');\r\n" + 
 			"\r\n" + 
-			"	-- default password for all accounts : 'bbpassword1234'\r\n" + 
+			"	-- default password for all accounts : 'bb'\r\n" + 
 			"	-- password hashing algorithm : SHA-512";
 	
 }

@@ -102,14 +102,14 @@ public class BankarKarticeServlet extends HttpServlet {
 				break;
 				
 			case "add" :
-				oib = req.getParameter("oib").isEmpty() ? null : req.getParameter("oib");				
+				oib = req.getParameter("oib") == null || req.getParameter("oib").isEmpty() ? null : req.getParameter("oib");				
 				String vrstaKartice = req.getParameter("vrstaKartice");
 				String broj = req.getParameter("broj");
-				String brojRacuna = req.getParameter("brojRacuna").isEmpty() ? null : req.getParameter("brojRacuna");
+				String brojRacuna = req.getParameter("brojRacuna") == null || req.getParameter("brojRacuna").isEmpty() ? null : req.getParameter("brojRacuna");
 				String valjanost = req.getParameter("valjanost");
-				String limit = req.getParameter("limit").isEmpty() ? null : req.getParameter("limit");
-				String kamStopa = req.getParameter("kamStopa").isEmpty() ? null : req.getParameter("kamStopa");
-				Integer datumRate = req.getParameter("datRate").isEmpty() ? null : Integer.parseInt(req.getParameter("datRate"));
+				String limit = req.getParameter("limit") == null || req.getParameter("limit").isEmpty() ? null : req.getParameter("limit");
+				String kamStopa = req.getParameter("kamStopa") == null || req.getParameter("kamStopa").isEmpty() ? null : req.getParameter("kamStopa");
+				Integer datumRate = req.getParameter("datRate") == null || req.getParameter("datRate").isEmpty() ? null : Integer.parseInt(req.getParameter("datRate"));
 				BigDecimal stanje = null;
 
 				if(valjanost.isEmpty()) {
@@ -132,7 +132,7 @@ public class BankarKarticeServlet extends HttpServlet {
 				}
 				
 				Integer sifVrsteKartice = null;
-				if(!vrstaKartice.equals("debitna")) {
+				if(vrstaKartice!=null) {
 					try {
 						sifVrsteKartice = Integer.parseInt(vrstaKartice);
 					} catch (NumberFormatException ex) {

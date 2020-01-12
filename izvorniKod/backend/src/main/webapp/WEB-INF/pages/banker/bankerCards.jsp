@@ -33,7 +33,8 @@
     </nav>
     <div id="container">
 		<h1>Kartice</h1>
-        <button id="newCardBtn">Dodaj karticu</button>
+        <button id="newDebitCardBtn">Dodaj debitnu karticu</button>
+        <button id="newCreditCardBtn">Dodaj kreditnu karticu</button>
         <button id="deleteCardBtn">Izbriši karticu</button> <br>
         <% 
 			if(request.getAttribute("errorMsg")!=null) {
@@ -82,25 +83,35 @@
 			%>
 		</table>
     </div>
-    <div id="new-card">
+    <div id="new-debit-card" class="new-card">
+        <form action="" method="post">
+        	<input type="hidden" name="action" value="add">
+            <label>Broj: </label>
+            <input type="text" name="broj" id="">
+            <label>Broj računa: </label>
+            <input type="text" name="brojRacuna" id="">
+            <label>Valjanost: </label>
+            <input type="date" name="valjanost" id=""> <br>
+            <input id="add" type="submit" name="" value="Dodaj karticu">
+			<button type="button" class="cancel">Odustani</button>
+        </form>
+    </div>
+    <div id="new-credit-card" class="new-card">
         <form action="" method="post">
         	<input type="hidden" name="action" value="add">
         	<label>OIB: </label>
             <input type="text" name="oib" id="">
             <label>Vrsta kartice: </label>
             <select name="vrstaKartice">
-            	<%
-            		out.print("<option value=\"debitna\">Debitna kartica</option>");
-					List<VrstaKartice> vrste = (List<VrstaKartice>) request.getAttribute("vrste");
-					for(VrstaKartice vr : vrste) {
-						out.print("<option value=\"" + vr.getSifVrsteKartice() + "\">" + vr.getNazVrsteKartice() + "</option>");
-					}
-				%>
+           	<%
+				List<VrstaKartice> vrste = (List<VrstaKartice>) request.getAttribute("vrste");
+				for(VrstaKartice vr : vrste) {
+					out.print("<option value=\"" + vr.getSifVrsteKartice() + "\">" + vr.getNazVrsteKartice() + "</option>");
+				}
+			%>
             </select><br>
             <label>Broj: </label>
             <input type="text" name="broj" id="">
-            <label>Broj računa: </label>
-            <input type="text" name="brojRacuna" id="">
             <label>Valjanost: </label>
             <input type="date" name="valjanost" id=""> <br>
             <label>Limit: </label>

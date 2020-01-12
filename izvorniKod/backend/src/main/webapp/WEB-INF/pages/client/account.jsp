@@ -29,6 +29,11 @@
 		<a href="logout" id="logout">Odjava</a>
 	</nav>
 	<div id="container">
+		<% 
+			if(request.getAttribute("errorMsg")!=null) {
+				out.println(request.getAttribute("errorMsg").toString());
+			}
+		%>
 		<h1>Računi</h1>
 		<table id="account-data-table">
 			<tr>
@@ -37,6 +42,7 @@
 				<th>Stanje</th>
 				<th>Prekoračenje</th>
 				<th>Kamatna stopa</th>
+				<th>Izvodi</th>
 			</tr>
 			<% 
 				Map<Racun, VrstaRacuna> mapa = (Map<Racun, VrstaRacuna>) request.getAttribute("racuni");
@@ -47,6 +53,8 @@
 					out.print("<td>" + racun.getKey().getStanje() + "</td>");
 					out.print("<td>" + racun.getKey().getPrekoracenje() + "</td>");
 					out.print("<td>" + racun.getKey().getKamStopa() + "</td>");
+					out.print("<td><form action=\"\" method=\"post\"> <input type=\"hidden\" name=\"action\" value=\"downloadPDF\"> <input type=\"hidden\" name=\"brojRacuna\" value=\"" + racun.getKey().getBrRacun() + "\"> <button>PDF</button> </form><br>");
+					out.print("<form action=\"\" method=\"post\"> <input type=\"hidden\" name=\"action\" value=\"downloadXLS\"> <input type=\"hidden\" name=\"brojRacuna\" value=\"" + racun.getKey().getBrRacun() + "\"> <button>XLS</button> </form></td>");
 					out.print("</tr>");
 				}
 			%>

@@ -564,6 +564,31 @@ public class SQLDAO implements DAO {
 	}
 	
 	@Override
+	public List<Transakcija> getTransakcijaByBrRacun(String brRacun) {
+		
+		List<Transakcija> transakcije = new ArrayList<>();
+
+		DAOProvider.getDao().getTransakcijaByBrRacunTerecenja(brRacun)
+			.forEach((t) -> 
+				transakcije.add(new Transakcija(t.getBrTransakcija(), t.getRacTerecenja(), t.getRacOdobrenja(), t.getIznos().negate(), t.getDatTransakcije()))
+			);
+		
+		DAOProvider.getDao().getTransakcijaByBrRacunOdobrenja(brRacun)
+			.forEach((t) -> 
+				transakcije.add(new Transakcija(t.getBrTransakcija(), t.getRacOdobrenja(), t.getRacTerecenja(), t.getIznos(), t.getDatTransakcije()))
+			);
+		
+		transakcije.sort((c1, c2) -> {
+			int result = c2.getDatTransakcije().compareTo(c1.getDatTransakcije());
+			if(result==0) result = Integer.compare(c2.getBrTransakcija(), c1.getBrTransakcija());
+			return result;
+		});
+		
+		return transakcije;
+		
+	}
+	
+	@Override
 	public List<Transakcija> getTransakcijeByOib(String oib) {
 		
 		List<Racun> racuni = DAOProvider.getDao().getRacunByOib(oib);

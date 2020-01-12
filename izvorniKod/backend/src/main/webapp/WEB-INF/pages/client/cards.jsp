@@ -1,3 +1,4 @@
+<%@page import="hr.fer.opp.bugbusters.dao.model.Racun"%>
 <%@page import="java.util.List"%>
 <%@page import="hr.fer.opp.bugbusters.dao.model.VrstaKartice"%>
 <%@page import="hr.fer.opp.bugbusters.dao.model.Kartica"%>
@@ -29,8 +30,10 @@
 		<a href="transakcije" id="transakcije">Transakcije</a>
 		<a href="logout" id="logout">Odjava</a>
 	</nav>
-	<div id="newCardForm">
-		<form action="kartice" method="POST">
+	
+	<div id="newCardForm" class="cardForm">
+		<form action="" method="POST">
+			<input type="hidden" name="action" value="new">
 			<label>Vrsta kartice:</label>
 			<select name="cardType">
 				<% 
@@ -41,8 +44,39 @@
 			</select>
 			<input id="request" type="submit" value="Provedi zahtjev">
 		</form>
-		<button id="cancel">Odustani</button>
+		<button id="cancelNew" class="cancel">Odustani</button>
 	</div>
+	
+	<div id="payCardForm" class="cardForm">
+		<form action="" method="POST">
+			<input type="hidden" name="action" value="pay">
+			<label>Kartica:</label>
+			<select name="brojKartice">
+				<% 
+					Map<Integer, VrstaKartice> vk = (Map<Integer, VrstaKartice>) request.getAttribute("vrstaKartice");
+					for(Kartica kartica : (List<Kartica>) request.getAttribute("kartice")) {
+						VrstaKartice currentVK = vk.get(kartica.getSifVrstaKartice());
+						if(currentVK==null) continue;
+						out.print("<option value=\"" + kartica.getBrKartica() + "\">" + kartica.getBrKartica() + " : " + kartica.getStanje() + "HRK</option>");
+					}
+				%>
+			</select> <br>
+			<label>Račun terećenja:</label>
+			<select name="brojRacuna">
+				<% 
+					List<Racun> racuni = (List<Racun>) request.getAttribute("racuni");
+					for(Racun racun : racuni) {
+						out.print("<option value=\"" + racun.getBrRacun() + "\">" + racun.getBrRacun() + " : " + racun.getStanje() + "HRK</option>");
+					}
+				%>
+			</select> <br>
+			<label>Iznos:</label>
+			<input type="text" name="iznos" placeholder="HRK"> <br>
+			<input id="request" type="submit" value="Provedi zahtjev">
+		</form>
+		<button id="cancelPay" class="cancel">Odustani</button>
+	</div>
+	
 	<div id="container">
 		<% 
 			if(request.getAttribute("errorMsg")!=null) {
@@ -50,7 +84,8 @@
 			}
 		%>
 		<h1>Kartice</h1>
-		<button id="newCardBtn">Dodaj karticu</button>
+		<button id="newCardBtn" class="cardBtn">Dodaj karticu</button>
+		<button id="payCardBtn" class="cardBtn">Otplati karticu</button>
 		<table id="cards-data-table">
 			<tr>
 				<th>Naziv</th>
@@ -63,7 +98,6 @@
 				<th>Datum rate</th>
 			</tr>
 			<% 
-				Map<Integer, VrstaKartice> vk = (Map<Integer, VrstaKartice>) request.getAttribute("vrstaKartice");
 				for(Kartica kartica : (List<Kartica>) request.getAttribute("kartice")) {
 					VrstaKartice currentVK = vk.get(kartica.getSifVrstaKartice());
 					out.print("<tr>");
