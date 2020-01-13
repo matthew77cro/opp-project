@@ -50,8 +50,44 @@
 				\label{fig:dijagram}
 			\end{figure}
 		
+		\newpage
 		\section{Upute za puštanje u pogon}
 		
-		\subsection{Instalacija poslužitelja baze podataka}
+	 \textbf{Instalacija i konfiguracija poslužitelja baze podataka}
 		
-		Potrebno je preuzeti PostgreSQL (\underline{\url{https://www.postgresql.org/download/}})
+
+			Potrebno je preuzeti PostgreSQL (\underline{\url{https://www.postgresql.org/download/}}). Nakon pokretanja instalacije, kod odabira komponenti koje će se instalirati, obavezno odabrati PostgreSQL Server i PgAdmin4 (preporučeno je odabrati i ostale komponente).
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.65]{Slike/Instalacija.png}
+				\centering
+				\caption{Odabir komponenti za instalaciju}
+				\label{fig:dijagram}
+			\end{figure}
+			
+			Zatim se unosi lozinka za administratora i odabire se port za pristup bazi podataka (defaultni port 5432). Kliknuti na "Next" kako bi započela instalacija, kada je proces instalacije završen kliknuti na "Finish".
+			
+			 U ovom projektu baza podataka pokrenuta je pomoću sustava PostgreSQL. Svi entiteti baze podataka opisani su java klasama čiji se kod nalazi unutar direktorija izvorniKod, točnije u poddirektoriju dao/model. Veza sa bazom podataka i mogućnost postavljanja upita nad bazom podataka ostvarena je pomoću klasa SQLConnectionProvider i SQLDAO. Ove klase služe kako bi se izradila funkcionalna baza podataka koju aplikacija može koristiti za svoj rad, tj. dohvaćanje, brisanje i izmjena podataka unutar baze podataka.
+			 \\	
+			 
+			\textbf{Pokretanje web aplikacije}
+			\\		
+	
+			
+			Web aplikacija Bugbusters banka puštena je u pogon pomoću servisa Microsoft Azure, gdje je i postavljen kod same aplikacije (backend i frontend). Aplikacija se pokreće pomoću web preglednika (npr. Google Chrome, Mozilla Firefox...) upisom adrese http://104.45.11.92/. Ovu adresu dodjelio je odabrani servis na kojem je aplikacija puštena u pogon. Upisom navedene adrese u web preglednik otvara se stranica za prijavu (engl. login) korisnika u aplikaciju. 
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.3]{Slike/login.png}
+				\centering
+				\caption{Stranica za prijavu korisnika}
+				\label{fig:dijagram}
+			\end{figure}
+			
+			
+			Za daljnji rad s aplikacijom potrebno je unijeti valjano korisničko ime i lozinku, a u slučaju prve prijave u sustav potrebno je unijeti OIB i korisnički ključ, te zatim promijeniti lozinku.
+		\\	
+			
+		\textbf{Pokretanje android aplikacije}
+		\\
+		
+		 Mobilna android aplikacija objavljena je na Google Play trgovini, gdje ju je moguće preuzeti i zatim instalirati na vlastiti mobilni uređaj. Spajanje na RESTful dio web poslužitelja omogućuje mobilnoj aplikaciji komunikaciju s bazom podataka i prijavu u sustav.
