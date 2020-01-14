@@ -24,7 +24,7 @@
 	<nav class="topnav">
 		<a href="profil" id="moj-profil">Moj profil</a>
 		<a href="sluzbenik-klijenti" id="klijenti">Klijenti</a>
-		<a href="sluzbenik-zahtjevi-kartice" id="krediti">Kartični zahtjevi</a>
+		<a href="sluzbenik-zahtjevi-kartice" id="kartice">Kartični zahtjevi</a>
         <a class="active" href="sluzbenik-kreditni-zahtjevi" id="krediti">Kreditni zahtjevi</a>
         <a href="logout" id="logout">Odjava</a>
     </nav>
@@ -58,7 +58,7 @@
 					out.print("<form action=\"\" method=\"post\">");
 					out.print("<input type=\"hidden\" name=\"sifZahtjeva\" value=\"" + z.getSifZahtjeva() + "\">");
 					out.print("<input type=\"hidden\" name=\"action\" value=\"approve\">");
-					out.print("<td>Datum rate <input type=\"text\" name=\"datRate\"> </td>");
+					out.print("<td>Datum rate <input type=\"text\" name=\"datRate\" id=\"datRate\"> </td>");
 					out.print("<td> <button id=\"approve\">Odobri zahtjev</button>");
 					out.print("</form>");
 					out.print("<form action=\"\" method=\"post\">");

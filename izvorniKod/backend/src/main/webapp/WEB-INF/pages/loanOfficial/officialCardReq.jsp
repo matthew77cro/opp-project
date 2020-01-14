@@ -24,7 +24,7 @@
 	<nav class="topnav">
 		<a href="profil" id="moj-profil">Moj profil</a>
 		<a href="sluzbenik-klijenti" id="klijenti">Klijenti</a>
-		<a class="active" href="sluzbenik-zahtjevi-kartice" id="krediti">Kartični zahtjevi</a>
+		<a class="active" href="sluzbenik-zahtjevi-kartice" id="kartice">Kartični zahtjevi</a>
         <a href="sluzbenik-kreditni-zahtjevi" id="krediti">Kreditni zahtjevi</a>
         <a href="logout" id="logout">Odjava</a>
     </nav>
@@ -54,11 +54,11 @@
 					out.print("<form action=\"\" method=\"post\">");
 					out.print("<input type=\"hidden\" name=\"sifZahtjeva\" value=\"" + z.getSifZahtjeva() + "\">");
 					out.print("<input type=\"hidden\" name=\"action\" value=\"approve\">");
-					out.print("<td>Broj kartica <input type=\"text\" name=\"brojKartice\"> <br>");
-					out.print("Datum rate <input type=\"text\" name=\"datRate\"> <br>");
-					out.print("Limit <input type=\"text\" name=\"limit\"> <br>");
-					out.print("Kamata <input type=\"text\" name=\"kamStopa\"> <br>");
-					out.print("Valjanost <input type=\"date\" name=\"valjanost\"> </td>");
+					out.print("<td>Broj kartica <input type=\"text\" name=\"brojKartice\" id=\"brojKartice\"> <br>");
+					out.print("Datum rate <input type=\"text\" name=\"datRate\" id=\"datRate\"> <br>");
+					out.print("Limit <input type=\"text\" name=\"limit\" id=\"limit\"> <br>");
+					out.print("Kamata <input type=\"text\" name=\"kamStopa\" id=\"kamStopa\"> <br>");
+					out.print("Valjanost <input type=\"date\" name=\"valjanost\" id=\"valjanost\"> </td>");
 					out.print("<td> <button id=\"approve\">Odobri zahtjev</button>");
 					out.print("</form>");
 					out.print("<form action=\"\" method=\"post\">");

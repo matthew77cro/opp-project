@@ -38,7 +38,7 @@
 	<nav class="topnav">
 		<a href="profil" id="moj-profil">Moj profil</a>
 		<a class="active" href="sluzbenik-klijenti" id="klijenti">Klijenti</a>
-		<a href="sluzbenik-zahtjevi-kartice" id="krediti">Kartični zahtjevi</a>
+		<a href="sluzbenik-zahtjevi-kartice" id="kartice">Kartični zahtjevi</a>
         <a href="sluzbenik-kreditni-zahtjevi" id="krediti">Kreditni zahtjevi</a>
         <a href="logout" id="logout">Odjava</a>
     </nav>
