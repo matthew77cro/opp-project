@@ -51,11 +51,13 @@
 			\item   Razina ovlasti
 			\item   Kredit
 			\item   Vrsta kredita
+			\item  	Zahtjev kredit
 			\item   Transakcija
 			\item   Račun
 			\item   Vrsta računa
 			\item   Kartica
-			\item   Vrsta kartice	
+			\item   Vrsta kartice
+			\item 	Zahtjev kartica	
 			\item   Mjesto
 			\item   Županija	
 		\end{itemize}
@@ -232,7 +234,7 @@
 			
 		\end{longtabu}
 	
-			\textbf{Vrsta kredita} Ovaj entitet sadrži sve važne informacije o vrsti kredita. Sadrži atribute: vrsta kredita, naziv vrste kredita i kamatnu stopu. U vezi je \textit{One-to-One} sa entitetom Kredit preko tipa kredita. 
+			\textbf{Vrsta kredita} Ovaj entitet sadrži sve važne informacije o vrsti kredita. Sadrži atribute: vrsta kredita, naziv vrste kredita i kamatnu stopu. U vezi je \textit{One-to-One} sa entitetom Kredit preko vrste kredita i u vezi {One-to-Many} sa entitetom Zahtjev kredita preko vrste kredita. 
 	
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 		
@@ -253,6 +255,32 @@
 		\end{longtabu}
 	
 		\eject
+		
+			\textbf{Zahtjev kredita}   Ovaj entitet sadrži sve važne informacije o zahtjevu kredita. Sadrži atribute: šifra zahtjeva, OIB, iznos, šifra vrste kredita, period otplate i odobrenje. U vezi je \textit{One-to-One} s entitetom Vrsta Kredita preko šifre vrste kredita i u vezi \textit{Many-to-One} s entitetom Profil preko OIB-a.
+		
+		
+		\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Zahtjev kredita}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Zahtjev kredita}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			\textbf{Šifra zahtjeva} & INT & šifra zahtjeva kredita \\ \hline
+			\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+			Iznos & DECIMAL (10, 2) & iznos kredita \\ \hline
+			\textit{Šifra vrste kredita} & INT & vrsta kredita (šifraVrsteKredita.tipKredita) \\ \hline
+			Period otplate & INT & duljina otplate kredita u godinama \\ \hline
+			Odobrenje & BOOLEAN & status zahtjeva kredita \\ \hline
+			
+			
+			
+			
+		\end{longtabu}
 		
 				\textbf{Transakcija}   Ovaj entitet sadrži sve važne informacije o transakcijama koje klijent želi provesti. Sadrži atribute: broj transakcije, broj računa terećenja, račun odobrenja, iznos i datum transakcije. Entitet Transakcija u vezi je \textit{Many-to-One} s entitetom Račun preko broja računa terećenja i broja računa odobrenja.
 			
@@ -278,6 +306,7 @@
 				
 			\end{longtabu}
 		
+		
 			\textbf{Račun}   Ovaj entitet sadrži sve važne informacije o računu koji ima klijent. Sadrži atribute: broj računa, OIB klijenta, datum otvaranja računa, stanje računa, vrsta računa, prekoračenje, kamatna stopa i datum zatvaranja. U vezi je  \textit{Many-to-One} s entitetom Profil preko OIB-a, sa entitetom Vrsta Računa \textit{One-to-One} preko vrste računa. Također je u vezi \textit{One-to-Many} s entitetom Transakcija preko broja računa.
 		
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
@@ -302,7 +331,7 @@
 			
 		\end{longtabu}
 	
-			\eject
+			
 	
 				\textbf{Vrsta računa}   Ovaj entitet sadrži sve važne informacije o vrsti računa koje neki klijent posjeduje. Sadrži atribute: broj vrste računa i naziv računa. U vezi je \textit{One-to-One} s entitetom Račun preko vrste računa.
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
@@ -350,9 +379,11 @@
 	
 		
 
-		\end{longtabu}	
+		\end{longtabu}
 	
-			\textbf{Vrsta kartice}   Ovaj entitet sadrži sve važne informacije o vrstama kartice koje ima klijent. Sadrži atribute:broj vrste kartice i naziv kartice. U vezi je \textit{One-to-One} s entitetom Kartica preko vrste kartice.
+	\eject	
+	
+			\textbf{Vrsta kartice}   Ovaj entitet sadrži sve važne informacije o vrstama kartice koje ima klijent. Sadrži atribute: broj vrste kartice i naziv kartice. U vezi je \textit{One-to-One} s entitetom Kartica preko vrste kartice i u vezi sa entitetom Zahtjev kartice {One-to-One} preko vrste kartice.
 				\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
 				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
@@ -370,6 +401,31 @@
 		
 		
 		\end{longtabu}
+	
+	
+	
+			\textbf{Zahtjev kartice}   Ovaj entitet sadrži sve važne informacije o zahtjevu kartice. Sadrži atribute: šifra zahtjeva, OIB, šifra vrste kartice i odobrenje. U vezi je \textit{Many-to-One} s entitetom Profil preko OIB-a i sa entitetom Vrsta kartice \textit{One-to-One} preko šifre vrste kartice. 
+			
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Zahtjev kartice}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Zahtjev kartice}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				\textbf{Šifra zahtjeva} & INT & šifra zahtjeva kartice\\ \hline
+				\textit{OIB} & VARCHAR & OIB klijenta (profil.OIB)\\ \hline
+				\textit{Šifra vrste kartice} & INT & broj tipa kartice (vrstaKartice.tipKartice)\\ \hline
+				Odobrenje & BOOLEAN & status zahtjeva kartice \\ \hline
+				
+				
+				
+			\end{longtabu}	
+			
 			
 			\subsection{Dijagram baze podataka}
 			
