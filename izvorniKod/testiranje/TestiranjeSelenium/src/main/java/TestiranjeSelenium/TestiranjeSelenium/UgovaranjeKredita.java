@@ -79,7 +79,7 @@ public class UgovaranjeKredita {
 		driver.findElement(By.cssSelector("input[type='submit']")).click();
 		Thread.sleep(1000);
 		
-		driver.findElement(By.cssSelector("#krediti")).click();
+		driver.findElement(By.id("krediti")).click();
 		Thread.sleep(500);
 		
 		element = driver.findElement(By.name("datRate"));
