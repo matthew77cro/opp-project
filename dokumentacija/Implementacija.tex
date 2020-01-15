@@ -25,14 +25,33 @@
 			
 			\subsection{Ispitivanje sustava}
 			
-			 \textit{Potrebno je provesti i opisati ispitivanje sustava koristeći radni okvir Selenium\footnote{\url{https://www.seleniumhq.org/}}. Razraditi \textbf{minimalno 4 ispitna slučaja} u kojima će se ispitati redovni slučajevi, rubni uvjeti te poziv funkcionalnosti koja nije implementirana/izaziva pogrešku kako bi se vidjelo na koji način sustav reagira kada nešto nije u potpunosti ostvareno. Ispitni slučaj se treba sastojati od ulaza (npr. korisničko ime i lozinka), očekivanog izlaza ili rezultata, koraka ispitivanja i dobivenog izlaza ili rezultata.\\ }
+			 Ispitivanje sustava obavili smo koristeći radni okvir Selenium. Ispitivanje se radilo po obrascima uporabe kako bi se provjerile osnovne funkcionalnosti sustava, ali i nasumičnim kretanjem po aplikaciji kako bi pronašli eventualne greške.  
 			 
-			 \textit{Izradu ispitnih slučajeva pomoću radnog okvira Selenium moguće je provesti pomoću jednog od sljedeća dva alata:}
-			 \begin{itemize}
-			 	\item \textit{dodatak za preglednik \textbf{Selenium IDE} - snimanje korisnikovih akcija radi automatskog ponavljanja ispita	}
-			 	\item \textit{\textbf{Selenium WebDriver} - podrška za pisanje ispita u jezicima Java, C\#, PHP koristeći posebno programsko sučelje.}
-			 \end{itemize}
-		 	\textit{Detalji o korištenju alata Selenium bit će prikazani na posebnom predavanju tijekom semestra.}
+			 
+		 	\textbf{Ispitni slučaj 1: Prijava korisnika u sustav} 
+		 	
+		 	\textbf{Ulaz}
+		 	
+		 	\begin{enumerate}
+		 		
+		 		\item Otvaranje početne stranice u web pregledniku.
+		 		\item Upisivanje korisničkog imena i lozinke.
+		 	\end{enumerate}
+	 	
+	 		\textbf{Očekivani rezultat}
+	 		
+	 		\begin{enumerate}
+	 			\item Prikazuje se početna stranica web aplikacije s korisnikovim podacima.
+	 		\end{enumerate}
+			
+			\textbf{Rezultat}: Očekivani rezultat je zadovoljen i nakon unosa korisničkog imena i lozinke, korisnik je prijavljen u sustav. Aplikacija je prošla test.
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.4]{slike/prijava.PNG}
+				\centering
+				\caption{Prijava u sustav}
+				\label{fig:prijava}
+			\end{figure}
 			
 			\eject 
 		
