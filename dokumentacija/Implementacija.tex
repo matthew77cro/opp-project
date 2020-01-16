@@ -3,14 +3,16 @@
 		
 		\section{Korištene tehnologije i alati}
 		
-			\textbf{\textit{dio 2. revizije}}
-			
-			 \textit{Detaljno navesti sve tehnologije i alate koji su primijenjeni pri izradi dokumentacije i aplikacije. Ukratko ih opisati, te navesti njihovo značenje i mjesto primjene. Za svaki navedeni alat i tehnologiju je potrebno \textbf{navesti internet poveznicu} gdje se mogu preuzeti ili više saznati o njima}.
-			
-			
-			\eject 
+		Za izradu web aplikacije korištene su brojne tehnologije koje su pomogle u izradi backend i frontend dijela aplikacije. Razvojna okolina koja se koristila za backend dio je \underline{IDE Eclipse}\footnote{\url{https://www.eclipse.org/}}. Eclipse IDE je programska razvojna okolina pisana u Javi razvijena od tvrtke Eclipse Foundation, a može se koristiti za razvoj aplikacija u raznim programskim jezicima (Java, C, C++, Perl, Python,...). Za izradu backenda koristio se programski jezik \underline{Java}\footnote{\url{https://www.java.com/}} te tehnologije \underline{Java Servleti}\footnote{\url{https://www.oracle.com/technetwork/java/javaee/servlet/index.html}} i \underline{JSP}\footnote{\url{https://www.oracle.com/technetwork/java/}} (Java Servet Pages). Za smještaj servleta korišten je \underline{Apache Tomcat}\footnote{\url{https://tomcat.apache.org/}}. Apache Tomcat je open source Web poslužitelj koji implementira nekoliko Java EE specifikacija kao što su Java Servlet, JSP (Java Servlet Pages), Java EL (Java Expression Language). Može se koristiti kao samostalan web server ili kao poslužitelj za servlete i Java Server Pages (JSP) integriran s nekim drugim web poslužiteljem.
+		Kao web poslužitelj koristi se \underline{Windows Server}\footnote{\url{https://www.microsoft.com/en-us/cloud-platform/windows-server}} virtualna mašina podignuta preko servisa \underline{Microsoft Azure}\footnote{\url{https://portal.azure.com/}} na kojemu su instalirani svi servisi koji podupiru rad web aplikacije i baze podataka. Baza podataka pokrenuta je pomoću sustava \underline{PostgreSQL}\footnote{\url{https://www.postgresql.org/}}. 
 		
-	
+		Mobilna aplikacija je izgrađena u programskom jeziku Java koristeći razvojnu okolinu \underline{Android studio}\footnote{\url{https://developer.android.com/studio/index.html}}. Mobilna aplikacija spaja se na RESTful dio web poslužitelja preko kojeg vrši prijavu u sustav i dohvaćanje podataka. Dizajna Android aplikacije postignut je korištenjem sustava \underline{Adobe XD}\footnote{\url{https://www.adobe.com/products/xd.html}} i \underline{Google Material Design}\footnote{\url{https://www.material.io/}} kao vizualnim jezikom.
+		
+		 Pomoću alata \underline{Astah Proffesional}\footnote{\url{https://http://astah.net/editions/professional}} nacrtani su UML dijagrami, a kao sustav za upravljanje izvornim kodom korišten je \underline{Git}\footnote{\url{https://git-scm.com/}}. Udaljeni repozitorij projekta je dostupan na web platformi
+		\underline{GitLab}\footnote{\url{https://www.gitlab.com/}}. Članovi tima komunicirali su korištenjem aplikacije \underline{Slack}\footnote{\url{https://www.slack.com/}}.
+		
+		
+	\newpage
 		\section{Ispitivanje programskog rješenja}
 			
 			\textbf{\textit{dio 2. revizije}}\\
@@ -39,23 +41,53 @@
 		
 		\section{Dijagram razmještaja}
 			
-			\textbf{\textit{dio 2. revizije}}
+			Slika prikazuje dijagram razmještaja u sustavu Internet bankarstva. Klijentsko računalo povezuje se s poslužiteljem putem Web preglednika putem http protokola. Android uređaji koriste Android aplikaciju za komunikaciju s poslužiteljem koja se također odvija http protokolom. Poslužiteljsko računalo sastoji se od Web poslužitelja na kojemu se nalazi Web aplikacija i od DB poslužitelja na kojemu se nalazi baza podataka.
 			
-			 \textit{Potrebno je umetnuti \textbf{specifikacijski} dijagram razmještaja i opisati ga. Moguće je umjesto specifikacijskog dijagrama razmještaja umetnuti dijagram razmještaja instanci, pod uvjetom da taj dijagram bolje opisuje neki važniji dio sustava.}
-			
-			\eject 
+			\begin{figure}[H]
+				\includegraphics[scale=0.3]{Slike/dijagram_razmjestaja.jpg}
+				\centering
+				\caption{Dijagram razmještaja}
+				\label{fig:dijagram}
+			\end{figure}
 		
+		\newpage
 		\section{Upute za puštanje u pogon}
 		Web aplikacija Bugbusters banka puštena je u pogon pomoću servisa Microsoft Azure, gdje je i postavljen kod same aplikacije (backend i frontend). Aplikacija se pokreće pomoću web preglednika (npr. Google Chrome, Mozilla Firefox...) upisom adrese http://104.45.11.92/. Ovu adresu dodjelio je odabrani servis na kojem je aplikacija puštena u pogon. Upisom navedene adrese u web preglednik otvara se stranica za prijavu (engl. login) korisnika u aplikaciju. Za daljnji rad s aplikacijom potrebno je unijeti valjano korisničko ime i lozinku, a u slučaju prve prijave u sustav potrebno je unijeti OIB i korisnički ključ, te zatim promijeniti lozinku. Baza podataka pokrenuta je pomoću sustava PostgreSQL. Svi entiteti baze podataka opisani su java klasama čiji se kod nalazi unutar direktorija izvorniKod, točnije u poddirektoriju dao/model. Veza sa bazom podataka i mogućnost postavljanja upita nad bazom podataka ostvarena je pomoću klasa SQLConnectionProvider i SQLDAO. Ove klase služe kako bi se izradila funkcionalna baza podataka koju aplikacija može koristiti za svoj rad, tj. dohvaćanje, brisanje i izmjena podataka unutar baze podataka.\\
 		
-		Mobilna android aplikacija objavljena je na Google Play trgovini, gdje ju je moguće preuzeti i zatim instalirati na vlastiti mobilni uređaj. Spajanje na RESTful dio web poslužitelja omogućuje mobilnoj aplikaciji komunikaciju s bazom podataka i prijavu u sustav.\\
-			
-			\textbf{\textit{dio 2. revizije}}\\
+	 \textbf{Instalacija i konfiguracija poslužitelja baze podataka}
 		
-			 \textit{U ovom poglavlju potrebno je dati upute za puštanje u pogon (engl. deployment) ostvarene aplikacije. Na primjer, za web aplikacije, opisati postupak kojim se od izvornog kôda dolazi do potpuno postavljene baze podataka i poslužitelja koji odgovara na upite korisnika. Za mobilnu aplikaciju, postupak kojim se aplikacija izgradi, te postavi na neku od trgovina. Za stolnu (engl. desktop) aplikaciju, postupak kojim se aplikacija instalira na računalo. Ukoliko mobilne i stolne aplikacije komuniciraju s poslužiteljem i/ili bazom podataka, opisati i postupak njihovog postavljanja. Pri izradi uputa preporučuje se \textbf{naglasiti korake instalacije uporabom natuknica} te koristiti što je više moguće \textbf{slike ekrana} (engl. screenshots) kako bi upute bile jasne i jednostavne za slijediti.}
+			Potrebno je preuzeti PostgreSQL (\underline{\url{https://www.postgresql.org/download/}}). Nakon pokretanja instalacije, kod odabira komponenti koje će se instalirati, obavezno odabrati PostgreSQL Server i PgAdmin4 (preporučeno je odabrati i ostale komponente).
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.65]{Slike/Instalacija.png}
+				\centering
+				\caption{Odabir komponenti za instalaciju}
+				\label{fig:dijagram}
+			\end{figure}
+			
+			Zatim se unosi lozinka za administratora i odabire se port za pristup bazi podataka (defaultni port 5432). Kliknuti na "Next" kako bi započela instalacija, kada je proces instalacije završen kliknuti na "Finish".
+			
+			 U ovom projektu baza podataka pokrenuta je pomoću sustava PostgreSQL. Svi entiteti baze podataka opisani su java klasama čiji se kod nalazi unutar direktorija izvorniKod, točnije u poddirektoriju dao/model. Veza sa bazom podataka i mogućnost postavljanja upita nad bazom podataka ostvarena je pomoću klasa SQLConnectionProvider i SQLDAO. Ove klase služe kako bi se izradila funkcionalna baza podataka koju aplikacija može koristiti za svoj rad, tj. dohvaćanje, brisanje i izmjena podataka unutar baze podataka.
+			 \\	
+			 
+			\textbf{Pokretanje web aplikacije}
+			\\		
+	
+			
+			Web aplikacija Bugbusters banka puštena je u pogon pomoću servisa Microsoft Azure, gdje je i postavljen kod same aplikacije (backend i frontend). Aplikacija se pokreće pomoću web preglednika (npr. Google Chrome, Mozilla Firefox...) upisom adrese http://104.45.11.92/. Ovu adresu dodjelio je odabrani servis na kojem je aplikacija puštena u pogon. Upisom navedene adrese u web preglednik otvara se stranica za prijavu (engl. login) korisnika u aplikaciju. 
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.3]{Slike/login.png}
+				\centering
+				\caption{Stranica za prijavu korisnika}
+				\label{fig:dijagram}
+			\end{figure}
 			
 			
-			 \textit{Dovršenu aplikaciju potrebno je pokrenuti na javno dostupnom poslužitelju. Studentima se preporuča korištenje neke od sljedećih besplatnih usluga: \href{https://aws.amazon.com/}{Amazon AWS}, \href{https://azure.microsoft.com/en-us/}{Microsoft Azure} ili \href{https://www.heroku.com/}{Heroku}. Mobilne aplikacije trebaju biti objavljene na F-Droid, Google Play ili Amazon App trgovini.}
+			Za daljnji rad s aplikacijom potrebno je unijeti valjano korisničko ime i lozinku, a u slučaju prve prijave u sustav potrebno je unijeti OIB i korisnički ključ, te zatim promijeniti lozinku.
+		\\	
 			
-			
-			\eject 
+		\textbf{Pokretanje android aplikacije}
+		\\
+		
+		 Mobilna android aplikacija objavljena je na Google Play trgovini, gdje ju je moguće preuzeti i zatim instalirati na vlastiti mobilni uređaj. Spajanje na RESTful dio web poslužitelja omogućuje mobilnoj aplikaciji komunikaciju s bazom podataka i prijavu u sustav.
