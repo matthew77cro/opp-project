@@ -25,14 +25,142 @@
 			
 			\subsection{Ispitivanje sustava}
 			
-			 \textit{Potrebno je provesti i opisati ispitivanje sustava koristeći radni okvir Selenium\footnote{\url{https://www.seleniumhq.org/}}. Razraditi \textbf{minimalno 4 ispitna slučaja} u kojima će se ispitati redovni slučajevi, rubni uvjeti te poziv funkcionalnosti koja nije implementirana/izaziva pogrešku kako bi se vidjelo na koji način sustav reagira kada nešto nije u potpunosti ostvareno. Ispitni slučaj se treba sastojati od ulaza (npr. korisničko ime i lozinka), očekivanog izlaza ili rezultata, koraka ispitivanja i dobivenog izlaza ili rezultata.\\ }
+			 Ispitivanje sustava obavili smo koristeći radni okvir Selenium. Ispitivanje se radilo po obrascima uporabe kako bi se provjerile osnovne funkcionalnosti sustava, ali i nasumičnim kretanjem po aplikaciji kako bi pronašli eventualne greške. Aplikacija prolazi svai ispitni slučaj koji smo testirali jer je testiranje napravljeno nakon dodavanja svih funkcionalnosti koje sustav treba imati.
 			 
-			 \textit{Izradu ispitnih slučajeva pomoću radnog okvira Selenium moguće je provesti pomoću jednog od sljedeća dva alata:}
-			 \begin{itemize}
-			 	\item \textit{dodatak za preglednik \textbf{Selenium IDE} - snimanje korisnikovih akcija radi automatskog ponavljanja ispita	}
-			 	\item \textit{\textbf{Selenium WebDriver} - podrška za pisanje ispita u jezicima Java, C\#, PHP koristeći posebno programsko sučelje.}
-			 \end{itemize}
-		 	\textit{Detalji o korištenju alata Selenium bit će prikazani na posebnom predavanju tijekom semestra.}
+			 \text{}
+			 
+			 
+		 	\textbf{Ispitni slučaj 1: Prijava korisnika u sustav} 
+		 	
+		 	\textbf{Ulaz}
+		 	
+		 	\begin{enumerate}
+		 		
+		 		\item Otvaranje početne stranice u web pregledniku.
+		 		\item Upisivanje korisničkog imena i lozinke.
+		 	\end{enumerate}
+	 	
+	 		\textbf{Očekivani rezultat}
+	 		
+	 		\begin{enumerate}
+	 			\item Prikazuje se početna stranica web aplikacije s korisnikovim podacima.
+	 		\end{enumerate}
+			
+			\textbf{Rezultat}: Očekivani rezultat je zadovoljen i nakon unosa korisničkog imena i lozinke, korisnik je prijavljen u sustav. Aplikacija je prošla test.
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.4]{slike/prijava.PNG}
+				\centering
+				\caption{Prijava u sustav}
+				\label{fig:prijava}
+			\end{figure}
+		
+		\textbf{Ispitni slučaj 2: Izrada nove kartice} 
+		
+		\textbf{Ulaz}
+		
+		\begin{enumerate}
+			
+			\item Otvaranje početne stranice u web pregledniku.
+			\item Upisivanje korisničkog imena i lozinke klijenta.
+			\item Odabir nove kartice koju korisnik želi napraviti.
+			\item Prijava službenika u sustav.
+			\item Odabir novih kartičnih zahtjeva.
+			\item Službenik popunjava detalje o novoj kartici i odobrava zahtjev.
+		\end{enumerate}
+		
+		\textbf{Očekivani rezultat}
+		
+		\begin{enumerate}
+			\item Klijentu se u sustavu prikazuje novonastala kartica ukoliko je službenik odobrio zahtjev za izradom nove kartice.
+			\item Klijent ima uvid o detaljima nove kartice.
+		\end{enumerate}
+		
+		\textbf{Rezultat}: Očekivani rezultat je zadovoljen i nakon prijave u sustav, klijentu se pritiskom na gumb "Kartice" prikazuju sve kartice koje posjeduje. Aplikacija je prošla test.
+		
+		\begin{figure}[H]
+			\includegraphics[scale=0.5]{slike/karticeprije.PNG}
+			\centering
+			\caption{Prikaz kartica prije odobravanja zahtjeva za novom karticom}
+			\label{fig:prije}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[scale=0.5]{slike/karticeposlije.PNG}
+			\centering
+			\caption{Prikaz kartica nakon odobravanja zahtjeva}
+			\label{fig:poslije}
+		\end{figure}
+	
+	\textbf{Ispitni slučaj 3: Provedba transakcije} 
+	
+	\textbf{Ulaz}
+	
+	\begin{enumerate}
+		
+		\item Otvaranje početne stranice u web pregledniku.
+		\item Upisivanje korisničkog imena i lozinke klijenta.
+		\item Odabir gumba "Nova transakcija".
+		\item Odabir računa terećenja, računa odobrenja i iznos.
+		
+	\end{enumerate}
+	
+	\textbf{Očekivani rezultat}
+	
+	\begin{enumerate}
+		\item Klijentu se u sustavu kod popisa transakcija ispisuje nova transakcija koju je proveo i detalji te transakcije.
+		\item Klijent na čiji račun su poslani novci također kod transakcija vidi provedenu transakciju i detalje iste.
+	\end{enumerate}
+	
+	\textbf{Rezultat}: Očekivani rezultat je zadovoljen i nakon prijave u sustav, klijent je uspješno obavio transakciju na drugi račun. Aplikacija je prošla test.
+	
+	\begin{figure}[H]
+		\includegraphics[scale=0.7]{slike/transakcijeprije.PNG}
+		\centering
+		\caption{Prikaz transakcija prije obavljanja transakcije}
+		\label{fig:transprije}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[scale=0.7]{slike/transakcijeposlije.PNG}
+		\centering
+		\caption{Prikaz detalja transakcije poslije navedene transakcije}
+		\label{fig:transposlije}
+	\end{figure}
+
+	\textbf{Ispitni slučaj 4: Izrada novog računa} 
+	
+	\textbf{Ulaz}
+	
+	\begin{enumerate}
+		
+		\item Otvaranje početne stranice u web pregledniku.
+		\item Upisivanje korisničkog imena i lozinke bankara.
+		\item Odabir gumba "Dodaj račun".
+		\item Popunjavanje obaveznih polja za stvaranje novog računa.
+		
+	\end{enumerate}
+	
+	\textbf{Očekivani rezultat}
+	
+	\begin{enumerate}
+		\item Bankar nakon upisivanja OIB-a klijenta, koji je želio otvoriti novi račun, ima uvid u sve otvorene račune.
+		\item Klijentu se prikazuju svi računi koje je otvorio.
+	\end{enumerate}
+	
+	\textbf{Rezultat}: Očekivani rezultat je zadovoljen i bankar je uspješno otvorio račun određenom klijentu. Aplikacija je prošla test.
+	
+	\begin{figure}[H]
+		\includegraphics[scale=0.7]{slike/racuniklijentaprije.PNG}
+		\centering
+		\caption{Prikaz svih otvorenih računa prije zahtjeva za otvranjem novo računa}
+		\label{fig:racprije}
+	\end{figure}
+	\begin{figure}[H]
+		\includegraphics[scale=0.7]{slike/racuniklijentaposlije.PNG}
+		\centering
+		\caption{Prikaz svih otvorenih računa nekog klijenta poslije otvaranja novog računa}
+		\label{fig:racposlije}
+	\end{figure}
+
 			
 			\eject 
 		
@@ -43,6 +171,8 @@
 			
 			 \textit{Potrebno je umetnuti \textbf{specifikacijski} dijagram razmještaja i opisati ga. Moguće je umjesto specifikacijskog dijagrama razmještaja umetnuti dijagram razmještaja instanci, pod uvjetom da taj dijagram bolje opisuje neki važniji dio sustava.}
 			
+			
+		
 			\eject 
 		
 		\section{Upute za puštanje u pogon}
