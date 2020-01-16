@@ -1,21 +1,40 @@
 package hr.fer.opp.bugbusters.dao.model;
 
+import java.util.Objects;
+
 public class VrstaKartice {
 	
-	private int sifVrstaKartice;
-	private String nazVrstaKartice;
+	private Integer sifVrsteKartice;
+	private String nazVrsteKartice;
 	
-	public VrstaKartice(int sifVrstaKartice, String nazVrstaKartice) {
-		this.sifVrstaKartice = sifVrstaKartice;
-		this.nazVrstaKartice = nazVrstaKartice;
+	public VrstaKartice(Integer sifVrstaKartice, String nazVrstaKartice) {
+		this.sifVrsteKartice = sifVrstaKartice;
+		this.nazVrsteKartice = nazVrstaKartice;
 	}
 
-	public int getSifVrstaKartice() {
-		return sifVrstaKartice;
+	public Integer getSifVrsteKartice() {
+		return sifVrsteKartice;
 	}
 	
-	public String getNazVrstaKartice() {
-		return nazVrstaKartice;
+	public String getNazVrsteKartice() {
+		return nazVrsteKartice;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(sifVrsteKartice);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof VrstaKartice))
+			return false;
+		VrstaKartice other = (VrstaKartice) obj;
+		return sifVrsteKartice == other.sifVrsteKartice;
 	}
 
 }

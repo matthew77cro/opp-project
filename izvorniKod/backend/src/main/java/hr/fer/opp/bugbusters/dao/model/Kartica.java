@@ -2,21 +2,22 @@ package hr.fer.opp.bugbusters.dao.model;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Objects;
 
 public class Kartica {
 	
 	private String brKartica;
 	private String brRacun;
 	private String oib;
-	private int sifVrstaKartice;
+	private Integer sifVrstaKartice;
 	private BigDecimal stanje;
 	private Date valjanost;
 	private BigDecimal limitKartice;
 	private BigDecimal kamStopa;
-	private int datRate;
+	private Integer datRate;
 	
-	public Kartica(String brKartica, String brRacun, String oib, int sifVrstaKartice, BigDecimal stanje, Date valjanost,
-			BigDecimal limitKartice, BigDecimal kamStopa, int datRate) {
+	public Kartica(String brKartica, String brRacun, String oib, Integer sifVrstaKartice, BigDecimal stanje, Date valjanost,
+			BigDecimal limitKartice, BigDecimal kamStopa, Integer datRate) {
 		this.brKartica = brKartica;
 		this.brRacun = brRacun;
 		this.oib = oib;
@@ -40,7 +41,7 @@ public class Kartica {
 		return oib;
 	}
 
-	public int getSifVrstaKartice() {
+	public Integer getSifVrstaKartice() {
 		return sifVrstaKartice;
 	}
 
@@ -60,8 +61,25 @@ public class Kartica {
 		return kamStopa;
 	}
 
-	public int getDatRate() {
+	public Integer getDatRate() {
 		return datRate;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(brKartica);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Kartica))
+			return false;
+		Kartica other = (Kartica) obj;
+		return Objects.equals(brKartica, other.brKartica);
 	}
 
 }

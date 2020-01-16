@@ -2,20 +2,21 @@ package hr.fer.opp.bugbusters.dao.model;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.util.Objects;
 
 public class Kredit {
 	
-	private int brKredit;
+	private Integer brKredit;
 	private String oib;
 	private BigDecimal iznos;
-	private int sifVrsteKredita;
+	private Integer sifVrsteKredita;
 	private Date datUgovaranja;
-	private int periodOtplate;
-	private int datRate;
+	private Integer periodOtplate;
+	private Integer datRate;
 	private BigDecimal preostaloDugovanje;
 	
-	public Kredit(int brKredit, String oib, BigDecimal iznos, int sifVrsteKredita, Date datUgovaranja,
-			int periodOtplate, int datRate, BigDecimal preostaloDugovanje) {
+	public Kredit(Integer brKredit, String oib, BigDecimal iznos, Integer sifVrsteKredita, Date datUgovaranja,
+			Integer periodOtplate, Integer datRate, BigDecimal preostaloDugovanje) {
 		this.brKredit = brKredit;
 		this.oib = oib;
 		this.iznos = iznos;
@@ -26,7 +27,7 @@ public class Kredit {
 		this.preostaloDugovanje = preostaloDugovanje;
 	}
 
-	public int getBrKredit() {
+	public Integer getBrKredit() {
 		return brKredit;
 	}
 
@@ -38,7 +39,7 @@ public class Kredit {
 		return iznos;
 	}
 
-	public int getSifVrsteKredita() {
+	public Integer getSifVrsteKredita() {
 		return sifVrsteKredita;
 	}
 
@@ -46,16 +47,33 @@ public class Kredit {
 		return datUgovaranja;
 	}
 
-	public int getPeriodOtplate() {
+	public Integer getPeriodOtplate() {
 		return periodOtplate;
 	}
 
-	public int getDatRate() {
+	public Integer getDatRate() {
 		return datRate;
 	}
 
 	public BigDecimal getPreostaloDugovanje() {
 		return preostaloDugovanje;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(brKredit);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Kredit))
+			return false;
+		Kredit other = (Kredit) obj;
+		return brKredit == other.brKredit;
 	}
 	
 }

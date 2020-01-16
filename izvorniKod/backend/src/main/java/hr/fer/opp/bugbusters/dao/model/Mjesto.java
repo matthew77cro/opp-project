@@ -1,18 +1,20 @@
 package hr.fer.opp.bugbusters.dao.model;
 
+import java.util.Objects;
+
 public class Mjesto {
 
-	private int pbr;
+	private Integer pbr;
 	private String nazMjesto;
-	private int sifraZupanija;
+	private Integer sifraZupanija;
 	
-	public Mjesto(int pbr, String nazMjesto, int sifraZupanija) {
+	public Mjesto(Integer pbr, String nazMjesto, Integer sifraZupanija) {
 		this.pbr = pbr;
 		this.nazMjesto = nazMjesto;
 		this.sifraZupanija = sifraZupanija;
 	}
 	
-	public int getPbr() {
+	public Integer getPbr() {
 		return pbr;
 	}
 	
@@ -20,8 +22,25 @@ public class Mjesto {
 		return nazMjesto;
 	}
 	
-	public int getSifraZupanija() {
+	public Integer getSifraZupanija() {
 		return sifraZupanija;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(pbr);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Mjesto))
+			return false;
+		Mjesto other = (Mjesto) obj;
+		return pbr == other.pbr;
 	}
 	
 }

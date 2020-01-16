@@ -8,7 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BugBusters banka</title>
-    <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/index.css">
+    <link rel="stylesheet" href="<%= request.getServletContext().getContextPath() %>/css/clientProfile.css">
 </head>
 <body>
 	<header>
@@ -16,21 +16,23 @@
 			<h1 id="nav-title">BugBusters banka</h1>
 		</div>   
 	</header>
-	<div class="form-container">
+	<div id="changePasswordForm">
 		<form action="passwordchange" method="POST">
-			<img src="avatar.png" alt="" class="avatar">
-			<h2 class="form-name">Promijenite lozinku</h1>
 			<% 
 				if(request.getAttribute("errorMsg")!=null) {
 					out.println(request.getAttribute("errorMsg").toString());
 				}
 			%>
-			<p>Nova lozinka</p>
-			<input type="password" name="password">
-			<input type="submit" name="" value="Dovrši">
+			<center><h3>Promijenite lozinku</h3></center>
+			<label>Stara lozinka</label>
+			<input id="oldPassword" name="oldPassword" type="password">
+			<label>Nova lozinka</label>
+			<input id="newPassword" name="newPassword" type="password">
+			<label>Potvrdi novu lozinku</label>
+			<input id="confirmNewPassword" name="confirmNewPassword" type="password">
+			<input id="change" type="submit" name="" value="Dovrši">
 		</form>
 	</div>
-
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="<%= request.getServletContext().getContextPath() %>/js/main.js"></script>

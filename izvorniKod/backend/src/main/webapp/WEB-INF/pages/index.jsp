@@ -24,29 +24,36 @@
 	</header>
 	<div class="form-container">
 		<form id="login-form" action="login" method="POST">
-			<img src="<%= request.getServletContext().getContextPath() %>/pics/avatar.png" alt="" class="avatar">
+			<img src="<%= request.getServletContext().getContextPath() %>/avatar.png" alt="" class="avatar">
 			<h1 class="form-name">Prijava</h1>
 			<% 
-				if(request.getAttribute("errorMsg")!=null) {
-					out.println(request.getAttribute("errorMsg").toString());
+				if(request.getAttribute("errorMsgLogin")!=null) {
+					out.println(request.getAttribute("errorMsgLogin").toString());
 				}
 			%>
+			<input type="hidden" name="action" value="login">
 			<p>Korisničko ime</p>
 			<input type="text" name="username">
 			<p>Lozinka</p>
 			<input type="password" name="password">
-			<input type="submit" name="" value="Prijava">
+			<input type="submit" value="Prijava">
 		</form>
 	</div>
 	<div class="form-container">
-		<form id="register-form" action="register" method="POST">
-			<img src="<%= request.getServletContext().getContextPath() %>/pics/avatar.png" alt="" class="avatar">
+		<form id="register-form" action="login" method="POST">
+			<img src="<%= request.getServletContext().getContextPath() %>/avatar.png" alt="" class="avatar">
 			<h1 class="form-name">Registracija</h1>
+			<% 
+				if(request.getAttribute("errorMsgRegister")!=null) {
+					out.println(request.getAttribute("errorMsgRegister").toString());
+				}
+			%>
+			<input type="hidden" name="action" value="register">
 			<p>OIB</p>
 			<input type="text" name="oib">
 			<p>Ključ za registraciju</p>
 			<input type="password" name="key">
-			<input type="submit" name="" value="Registriraj se">
+			<input type="submit" value="Registriraj se">
 		</form>
 	</div>
 

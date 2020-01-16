@@ -1,5 +1,7 @@
 package hr.fer.opp.bugbusters.dao.model;
 
+import java.util.Objects;
+
 public class RegistracijaKlijenta {
 	
 	private String oib;
@@ -16,6 +18,23 @@ public class RegistracijaKlijenta {
 	
 	public String getPrivremeniKljuc() {
 		return privremeniKljuc;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(oib);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof RegistracijaKlijenta))
+			return false;
+		RegistracijaKlijenta other = (RegistracijaKlijenta) obj;
+		return Objects.equals(oib, other.oib);
 	}
 
 }

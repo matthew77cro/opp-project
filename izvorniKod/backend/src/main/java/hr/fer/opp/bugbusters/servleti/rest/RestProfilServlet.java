@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
+import hr.fer.opp.bugbusters.control.LoginHandler;
 import hr.fer.opp.bugbusters.dao.DAOProvider;
 import hr.fer.opp.bugbusters.dao.model.Mjesto;
 import hr.fer.opp.bugbusters.dao.model.Profil;
 import hr.fer.opp.bugbusters.dao.model.Zupanija;
-import hr.fer.opp.bugbusters.servleti.control.LoginHandler;
 
 @SuppressWarnings("serial")
 @WebServlet(name="rest-profil", urlPatterns= {"/rest/profil"})
@@ -25,12 +25,13 @@ public class RestProfilServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		if(!LoginHandler.isLoggedIn(req, resp) || LoginHandler.needsPasswordChange(req, resp)) {
+		if(!LoginHandler.isLoggedIn(req, resp)) {
 			resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
 			return;
 		}
 		
-		Profil profil = DAOProvider.getDao().getProfilByKorisnickoIme(LoginHandler.getUsername(req, resp));
+		String oib = DAOProvider.getDao().getKorisnickiRacun(LoginHandler.getUsername(req, resp)).getOib();
+		Profil profil = DAOProvider.getDao().getProfil(oib);
 		Mjesto mjesto = DAOProvider.getDao().getMjesto(profil.getPbr());
 		Zupanija zupanija = DAOProvider.getDao().getZupanija(mjesto.getSifraZupanija());
 		
@@ -57,7 +58,6 @@ public class RestProfilServlet extends HttpServlet {
 	}
 	
 	private static class ProfileDescriptor {
-		
 		private String firstName;
 		private String lastName;
 		private String address;
@@ -67,7 +67,6 @@ public class RestProfilServlet extends HttpServlet {
 		private String oib;
 		private Date birthday;
 		private String email;
-		
 		public ProfileDescriptor(String firstName, String lastName, String address, int cityPostCode, String cityName,
 				String countyName, String oib, Date birthday, String email) {
 			this.firstName = firstName;
@@ -80,7 +79,6 @@ public class RestProfilServlet extends HttpServlet {
 			this.birthday = birthday;
 			this.email = email;
 		}
-		
 	}
 
 }
