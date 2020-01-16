@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/clientProfile.css">
+    <link rel="stylesheet" href="./css/bankerCredits.css">
+    <title>BugBusters banka</title>
+</head>
+<body>
+    <header>
+		<div>
+			<h1 id="nav-title">BugBusters banka</h1> 
+		</div>
+	</header>
+	<nav class="topnav">
+		<a href="#" id="moj-profil">Moj profil</a>
+        <a href="#" id="klijenti">Klijenti</a>
+        <a href="#" id="racuni">Računi</a>
+		<a href="#" id="kartice">Kartice</a>
+		<a class="active" href="#" id="krediti">Krediti</a class="active">
+		<a href="#" id="transakcije">Transakcije</a>
+		<a href="#" id="logout">Odjava</a>
+    </nav>
+    <div id="container">
+        <h1>Krediti</h1>
+        <button id="newCreditBtn">Novi kredit</button>
+        <form action="" method="post">
+            <label>OIB klijenta: </label>
+            <input id="" type="text"> 
+            <button id="select-credit">Odaberi</button>
+        </form>
+        <table id="credit-data-table">
+            <tr>
+                <th>Vrsta</th>
+                <th>Datum ugovaranja</th>
+                <th>Period otplate</th>
+                <th>Datum plaćanja rate</th>
+                <th>Iznos</th>
+                <th>Preostalo dugovanje</th>
+                <th>Kamata</th>
+            </tr>
+            <tr>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+                <td>X</td>
+            </tr>
+        </table>
+    </div>
+    <div id="new-credit">
+        <form action="" method="POST">
+            <label>OIB klijenta:</label>
+            <input type="text" name="" id="">
+            <label>Vrsta kredita:</label>
+			<select name="creditType">
+				<option value="Stambeni">Stambeni</option>
+				<option value="Namjenski">Namjenski</option>
+				<option value="Nenamjenski">Nenamjenski</option>
+			</select>
+			<label>Iznos:</label>
+			<input id="amount" type="text" placeholder="HRK">
+			<label>Rok otplate:</label>
+			<input id="time" type="text" placeholder="BROJ MJESECI">
+			<input id="request" type="submit" name="" value="Provedi zahtjev">
+			<button id="cancel">Odustani</button>
+		</form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/bankerCredits.js"></script>
+</body>
+</html>
