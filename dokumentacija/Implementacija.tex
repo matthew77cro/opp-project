@@ -65,29 +65,15 @@
 				\label{fig:dijagram}
 			\end{figure}
 			
-			Zatim se unosi lozinka za administratora i odabire se port za pristup bazi podataka (defaultni port 5432). Kliknuti na "Next" kako bi započela instalacija, kada je proces instalacije završen kliknuti na "Finish".
-			
-			 U ovom projektu baza podataka pokrenuta je pomoću sustava PostgreSQL. Svi entiteti baze podataka opisani su java klasama čiji se kod nalazi unutar direktorija izvorniKod, točnije u poddirektoriju dao/model. Veza sa bazom podataka i mogućnost postavljanja upita nad bazom podataka ostvarena je pomoću klasa SQLConnectionProvider i SQLDAO. Ove klase služe kako bi se izradila funkcionalna baza podataka koju aplikacija može koristiti za svoj rad, tj. dohvaćanje, brisanje i izmjena podataka unutar baze podataka.
-			 \\	
+			Zatim se unosi lozinka za administratora i odabire se port za pristup bazi podataka (defaultni port 5432). Kliknuti na "Next" kako bi započela instalacija, kada je proces instalacije završen kliknuti na "Finish". \newline
+			Nakon instalacije baze podataka potrebno ju je osposobiti za BugBusters aplikaciju. Potrebno je kreirati novu praznu bazu podataka imena "bugbusters" te novog korisnika SUBP-a korisničkog imena "bugbustersUser" te lozinke "bbpassword1234" i dati mu ovlasti nad kreiranom bazom.
+			\\
 			 
-			\textbf{Pokretanje web aplikacije}
-			\\		
+	\textbf{Pokretanje web aplikacije}
+		
+		Za pokretanje web aplikacije potrebno je instalirati servlet container \underline{Tomcat 9}\footnote{\url{https://tomcat.apache.org/download-90.cgi}} inačice core. Nakon preuzimanja zip arhive s navedenog linka, raspakirajte ju. U direktorij webapps, unutar raspakiranog direktorija, potrebno je smjestiti .war datoteku objavljenu na GitLab sustavu u direktoriju "izvrsniKod". Zadnji korak je pokretanje samog servlet containera. Pozicionirajte se pomoću naredbenog retka u raspakirani direktorij u poddirektorij imena "bin". Nakon toga je potrebno izvesti naredbu "startup.bat" ukoliko se koristi Windows radno okruženje ili "startup.sh" ukoliko se koristi Unix-based radno okruženje.
+		\\
 	
 			
-			Web aplikacija Bugbusters banka puštena je u pogon pomoću servisa Microsoft Azure, gdje je i postavljen kod same aplikacije (backend i frontend). Aplikacija se pokreće pomoću web preglednika (npr. Google Chrome, Mozilla Firefox...) upisom adrese http://104.45.11.92/. Ovu adresu dodjelio je odabrani servis na kojem je aplikacija puštena u pogon. Upisom navedene adrese u web preglednik otvara se stranica za prijavu (engl. login) korisnika u aplikaciju. 
-			
-			\begin{figure}[H]
-				\includegraphics[scale=0.3]{Slike/login.png}
-				\centering
-				\caption{Stranica za prijavu korisnika}
-				\label{fig:dijagram}
-			\end{figure}
-			
-			
-			Za daljnji rad s aplikacijom potrebno je unijeti valjano korisničko ime i lozinku, a u slučaju prve prijave u sustav potrebno je unijeti OIB i korisnički ključ, te zatim promijeniti lozinku.
-		\\	
-			
-		\textbf{Pokretanje android aplikacije}
-		\\
-		
-		 Mobilna android aplikacija objavljena je na Google Play trgovini, gdje ju je moguće preuzeti i zatim instalirati na vlastiti mobilni uređaj. Spajanje na RESTful dio web poslužitelja omogućuje mobilnoj aplikaciji komunikaciju s bazom podataka i prijavu u sustav.
+		\textbf{Pokretanje android aplikacije}		
+		 Mobilna android aplikacija objavljena je na F-Droid trgovini, gdje ju je moguće preuzeti i zatim instalirati na vlastiti mobilni uređaj. Spajanje na RESTful dio web poslužitelja omogućuje mobilnoj aplikaciji komunikaciju s bazom podataka i prijavu u sustav.

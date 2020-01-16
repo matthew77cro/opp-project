@@ -440,7 +440,7 @@
 			
 		\section{Dijagram razreda}
 		
-		Na slikama 4.3 - 4.8 prikazani su razredi koji pripadaju backend dijelu MVC
+		Na slikama 4.3 - 4.14 prikazani su razredi koji pripadaju backend dijelu MVC
 		arhitekture.
 		
 			\begin{figure}[H]
@@ -464,12 +464,16 @@
 				\label{fig:dijagram}
 			\end{figure}
 		
+		Slike 4.3, 4.4 i 4.5 prikazuju strukture podataka pomoću kojih su oblikovani i prikazani podaci dohvaćeni iz baze podataka. Predstavljaju jedan-na-jedan presliku relacija baze podataka.
+		
 			\begin{figure}[H]
 				\includegraphics[scale=0.6]{Slike/Class Diagram3.PNG}
 				\centering
 				\caption{Razredi zaduženi za kontrolu autentifikacije}
 				\label{fig:dijagram}
 			\end{figure}
+		
+		SLika 4.6 prikazuje razrede zadužene za kontrolu autentifikacije korisnika sustava. Razred LoginHandler preko DAO sloja komunicira s bazom podataka i uspoređuje vjerodajnice za prijavu i registraciju s onima spremljenim u bazu. Tu su i funkcionalnosti koje se koriste na više mjesta kroz aplikaciju objedinjene u jedan razred - Util.
 		
 			\begin{figure}[H]
 				\includegraphics[scale=0.65]{Slike/Class Diagram4.PNG}
@@ -478,12 +482,19 @@
 				\label{fig:dijagram}
 			\end{figure}
 		
+		Metode razreda ConnectionSetterFilter izvode se prilikom svakog HTTP zahtjeva upućenog od strane korisnika sustava. Služi za postavljanje konekcije prema bazi podataka trenutnoj dretvi te za vraćanje konekcije u bazen konekcija po završetku obrade zahtjeva. \newline
+		Metode razreda Initialisation izvode prilikom pokretanja web aplikacije. One inicijaliziraju bazen konekcija prema bazi podataka te (ukoliko je potrebno) pune relacije baze inicijalnim podacima.
+		
 			\begin{figure}[H]
 				\includegraphics[scale=0.54]{Slike/Class Diagram5.PNG}
 				\centering
 				\caption{Razredi DAO sučelja}
 				\label{fig:dijagram}
 			\end{figure}
+		
+		Razredi DAO sučelja oblikuju sučelje za perzistenciju podataka. Također, tu je i konkretna realizacija DAO sučelja koja podatke sprema i čita u relacijsku bazu podataka - SQLDAO.	\newline \newline
+		
+		Servleti služe za obradu HTTP zahtjeva. Pomoću nekoliko slika koje slijede opisani su servleti za sve tipove korisnika te oni kojima je oblikovan REST API za spajanje Android aplikacije.
 		
 			\begin{figure}[H]
 				\includegraphics[scale=0.5]{Slike/Class Diagram6.PNG}
@@ -543,7 +554,7 @@
 			
 			
 			
-			
+			\eject
 			
 		
 		\section{Dijagram aktivnosti}
@@ -557,6 +568,8 @@
 			\caption{Dijagram aktivnosti}
 			\label{fig:dijagram}
 		\end{figure}
+	
+	\eject
 	
 		\section{Dijagram komponenti}
 		
