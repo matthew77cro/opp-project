@@ -1,13 +1,19 @@
 package hr.fer.opp.bugbusters.control;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.Date;
+import java.util.Objects;
 import java.util.Random;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import hr.fer.opp.bugbusters.dao.model.Racun;
+import hr.fer.opp.bugbusters.dao.model.Transakcija;
 
 public class Util {
 	
@@ -56,6 +62,7 @@ public class Util {
 	}
 	
 	public static String getRandomString(int length) {
+		if(length<=0) throw new IllegalArgumentException(); 
 		StringBuilder sb = new StringBuilder();
 		
 		for(int i=0; i<length; i++) {
@@ -63,6 +70,33 @@ public class Util {
 		}
 		
 		return sb.toString();
+	}
+	
+	public static TransakcijaCollection doTransaction(Racun from, Racun to, BigDecimal amount) {
+		
+		Objects.requireNonNull(from);
+		Objects.requireNonNull(to);
+		Objects.requireNonNull(amount);
+		
+		if(amount.compareTo(BigDecimal.ZERO) != 1) throw new IllegalArgumentException();
+		if(from.getStanje().subtract(amount).compareTo(from.getPrekoracenje().negate()) == -1) throw new IllegalArgumentException();
+		
+		from.getStanje().subtract(amount);
+		to.getStanje().add(amount);
+		
+		var toReturn = new TransakcijaCollection();
+		toReturn.from = new Racun(from.getBrRacun(), from.getOib(), from.getDatOtvaranja(), from.getStanje().subtract(amount), from.getSifVrsteRacuna(), from.getPrekoracenje(), from.getKamStopa(), from.getDatZatvaranja());
+		toReturn.to = new Racun(to.getBrRacun(), to.getOib(), to.getDatOtvaranja(), to.getStanje().add(amount), to.getSifVrsteRacuna(), to.getPrekoracenje(), to.getKamStopa(), to.getDatZatvaranja());
+		toReturn.transaction = new Transakcija(0, from.getBrRacun(), to.getBrRacun(), amount, new Date(System.currentTimeMillis()));
+		
+		return toReturn;
+		
+	}
+	
+	public static class TransakcijaCollection {
+		public Racun from;
+		public Racun to;
+		public Transakcija transaction;
 	}
 
 }
