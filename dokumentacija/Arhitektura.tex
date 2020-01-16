@@ -29,7 +29,7 @@
 		
 		\item \textbf{Model} - strukture podataka koje služe preslikavanju podataka iz baze u objektno orijentiran jezik. Omogućuju lakši dohvat i lakše upravljanje podacima spremljenim u bazu.
 		\item \textbf{View} - komponenta koja služi prikazu podataka iz modela na korisniku razumljiv i jednostavan način. U slučaju naše web aplikacije, za to je zadužena tehnologija JSP.
-		\item \textbf{Controller}
+		\item \textbf{Controller} - komponenta koja služi upravljanju (sprema i dohvaća podataka iz baze, izvršava operacija nad podacima i cijelim sustavom, priprema podatke za prikaz i dr.)
 		
 	\end{packed_item}
 	
@@ -51,11 +51,13 @@
 			\item   Razina ovlasti
 			\item   Kredit
 			\item   Vrsta kredita
+			\item  	Zahtjev kredit
 			\item   Transakcija
 			\item   Račun
 			\item   Vrsta računa
 			\item   Kartica
-			\item   Vrsta kartice	
+			\item   Vrsta kartice
+			\item 	Zahtjev kartica	
 			\item   Mjesto
 			\item   Županija	
 		\end{itemize}
@@ -232,7 +234,7 @@
 			
 		\end{longtabu}
 	
-			\textbf{Vrsta kredita} Ovaj entitet sadrži sve važne informacije o vrsti kredita. Sadrži atribute: vrsta kredita, naziv vrste kredita i kamatnu stopu. U vezi je \textit{One-to-One} sa entitetom Kredit preko tipa kredita. 
+			\textbf{Vrsta kredita} Ovaj entitet sadrži sve važne informacije o vrsti kredita. Sadrži atribute: vrsta kredita, naziv vrste kredita i kamatnu stopu. U vezi je \textit{One-to-One} sa entitetom Kredit preko vrste kredita i u vezi {One-to-Many} sa entitetom Zahtjev kredita preko vrste kredita. 
 	
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 		
@@ -253,6 +255,32 @@
 		\end{longtabu}
 	
 		\eject
+		
+			\textbf{Zahtjev kredita}   Ovaj entitet sadrži sve važne informacije o zahtjevu kredita. Sadrži atribute: šifra zahtjeva, OIB, iznos, šifra vrste kredita, period otplate i odobrenje. U vezi je \textit{One-to-One} s entitetom Vrsta Kredita preko šifre vrste kredita i u vezi \textit{Many-to-One} s entitetom Profil preko OIB-a.
+		
+		
+		\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Zahtjev kredita}}	 \\[3pt] \hline
+			\endfirsthead
+			
+			\hline \multicolumn{3}{|c|}{\textbf{Zahtjev kredita}}	 \\[3pt] \hline
+			\endhead
+			
+			\hline 
+			\endlastfoot
+			
+			\textbf{Šifra zahtjeva} & INT & šifra zahtjeva kredita \\ \hline
+			\textit{OIB} & VARCHAR & OIB korisnika (profil.OIB)\\ \hline
+			Iznos & DECIMAL (10, 2) & iznos kredita \\ \hline
+			\textit{Šifra vrste kredita} & INT & vrsta kredita (šifraVrsteKredita.tipKredita) \\ \hline
+			Period otplate & INT & duljina otplate kredita u godinama \\ \hline
+			Odobrenje & BOOLEAN & status zahtjeva kredita \\ \hline
+			
+			
+			
+			
+		\end{longtabu}
 		
 				\textbf{Transakcija}   Ovaj entitet sadrži sve važne informacije o transakcijama koje klijent želi provesti. Sadrži atribute: broj transakcije, broj računa terećenja, račun odobrenja, iznos i datum transakcije. Entitet Transakcija u vezi je \textit{Many-to-One} s entitetom Račun preko broja računa terećenja i broja računa odobrenja.
 			
@@ -278,6 +306,7 @@
 				
 			\end{longtabu}
 		
+		
 			\textbf{Račun}   Ovaj entitet sadrži sve važne informacije o računu koji ima klijent. Sadrži atribute: broj računa, OIB klijenta, datum otvaranja računa, stanje računa, vrsta računa, prekoračenje, kamatna stopa i datum zatvaranja. U vezi je  \textit{Many-to-One} s entitetom Profil preko OIB-a, sa entitetom Vrsta Računa \textit{One-to-One} preko vrste računa. Također je u vezi \textit{One-to-Many} s entitetom Transakcija preko broja računa.
 		
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
@@ -302,7 +331,7 @@
 			
 		\end{longtabu}
 	
-			\eject
+			
 	
 				\textbf{Vrsta računa}   Ovaj entitet sadrži sve važne informacije o vrsti računa koje neki klijent posjeduje. Sadrži atribute: broj vrste računa i naziv računa. U vezi je \textit{One-to-One} s entitetom Račun preko vrste računa.
 			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
@@ -350,9 +379,11 @@
 	
 		
 
-		\end{longtabu}	
+		\end{longtabu}
 	
-			\textbf{Vrsta kartice}   Ovaj entitet sadrži sve važne informacije o vrstama kartice koje ima klijent. Sadrži atribute:broj vrste kartice i naziv kartice. U vezi je \textit{One-to-One} s entitetom Kartica preko vrste kartice.
+	\eject	
+	
+			\textbf{Vrsta kartice}   Ovaj entitet sadrži sve važne informacije o vrstama kartice koje ima klijent. Sadrži atribute: broj vrste kartice i naziv kartice. U vezi je \textit{One-to-One} s entitetom Kartica preko vrste kartice i u vezi sa entitetom Zahtjev kartice {One-to-One} preko vrste kartice.
 				\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
 				
 				\hline \multicolumn{3}{|c|}{\textbf{Vrsta kartice}}	 \\[3pt] \hline
@@ -370,11 +401,36 @@
 		
 		
 		\end{longtabu}
+	
+	
+	
+			\textbf{Zahtjev kartice}   Ovaj entitet sadrži sve važne informacije o zahtjevu kartice. Sadrži atribute: šifra zahtjeva, OIB, šifra vrste kartice i odobrenje. U vezi je \textit{Many-to-One} s entitetom Profil preko OIB-a i sa entitetom Vrsta kartice \textit{One-to-One} preko šifre vrste kartice. 
+			
+			\begin{longtabu} to \textwidth {|X[8, l]|X[8, l]|X[16, l]|}
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Zahtjev kartice}}	 \\[3pt] \hline
+				\endfirsthead
+				
+				\hline \multicolumn{3}{|c|}{\textbf{Zahtjev kartice}}	 \\[3pt] \hline
+				\endhead
+				
+				\hline 
+				\endlastfoot
+				
+				\textbf{Šifra zahtjeva} & INT & šifra zahtjeva kartice\\ \hline
+				\textit{OIB} & VARCHAR & OIB klijenta (profil.OIB)\\ \hline
+				\textit{Šifra vrste kartice} & INT & broj tipa kartice (vrstaKartice.tipKartice)\\ \hline
+				Odobrenje & BOOLEAN & status zahtjeva kartice \\ \hline
+				
+				
+				
+			\end{longtabu}	
+			
 			
 			\subsection{Dijagram baze podataka}
 			
 				\begin{figure}[H]
-					\includegraphics[scale=0.8]{Slike/ermodel.PNG}
+					\includegraphics[scale=0.9]{Slike/ermodel.PNG}
 					\centering
 					\caption{E-R dijagram baze podataka}
 					\label{fig:dijagram}
@@ -384,7 +440,7 @@
 			
 		\section{Dijagram razreda}
 		
-		Na slikama 4.3 - 4.8 prikazani su razredi koji pripadaju backend dijelu MVC
+		Na slikama 4.3 - 4.14 prikazani su razredi koji pripadaju backend dijelu MVC
 		arhitekture.
 		
 			\begin{figure}[H]
@@ -402,52 +458,126 @@
 			\end{figure}
 		
 			\begin{figure}[H]
+				\includegraphics[scale=0.45]{Slike/Class Diagram2.PNG}
+				\centering
+				\caption{Ostali razredi modela - nastavak}
+				\label{fig:dijagram}
+			\end{figure}
+		
+		Slike 4.3, 4.4 i 4.5 prikazuju strukture podataka pomoću kojih su oblikovani i prikazani podaci dohvaćeni iz baze podataka. Predstavljaju jedan-na-jedan presliku relacija baze podataka.
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.6]{Slike/Class Diagram3.PNG}
+				\centering
+				\caption{Razredi zaduženi za kontrolu autentifikacije}
+				\label{fig:dijagram}
+			\end{figure}
+		
+		SLika 4.6 prikazuje razrede zadužene za kontrolu autentifikacije korisnika sustava. Razred LoginHandler preko DAO sloja komunicira s bazom podataka i uspoređuje vjerodajnice za prijavu i registraciju s onima spremljenim u bazu. Tu su i funkcionalnosti koje se koriste na više mjesta kroz aplikaciju objedinjene u jedan razred - Util.
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.65]{Slike/Class Diagram4.PNG}
+				\centering
+				\caption{Razredi zaduženi za inicijalizaciju aplikacije i konekcije}
+				\label{fig:dijagram}
+			\end{figure}
+		
+		Metode razreda ConnectionSetterFilter izvode se prilikom svakog HTTP zahtjeva upućenog od strane korisnika sustava. Služi za postavljanje konekcije prema bazi podataka trenutnoj dretvi te za vraćanje konekcije u bazen konekcija po završetku obrade zahtjeva. \newline
+		Metode razreda Initialisation izvode prilikom pokretanja web aplikacije. One inicijaliziraju bazen konekcija prema bazi podataka te (ukoliko je potrebno) pune relacije baze inicijalnim podacima.
+		
+			\begin{figure}[H]
 				\includegraphics[scale=0.54]{Slike/Class Diagram5.PNG}
 				\centering
 				\caption{Razredi DAO sučelja}
 				\label{fig:dijagram}
 			\end{figure}
 		
+		Razredi DAO sučelja oblikuju sučelje za perzistenciju podataka. Također, tu je i konkretna realizacija DAO sučelja koja podatke sprema i čita u relacijsku bazu podataka - SQLDAO.	\newline \newline
+		
+		Servleti služe za obradu HTTP zahtjeva. Pomoću nekoliko slika koje slijede opisani su servleti za sve tipove korisnika te oni kojima je oblikovan REST API za spajanje Android aplikacije.
+		
 			\begin{figure}[H]
 				\includegraphics[scale=0.5]{Slike/Class Diagram6.PNG}
 				\centering
-				\caption{Razredi Servleti prema web sučelju}
+				\caption{Razredi Servleti - općenite operacije dostupne svim korisnicima}
 				\label{fig:dijagram}
 			\end{figure}
 		
 			\begin{figure}[H]
-				\includegraphics[scale=0.54]{Slike/Class Diagram7.PNG}
+				\includegraphics[scale=0.5]{Slike/Class Diagram7.PNG}
 				\centering
-				\caption{Razredi Servleti RESTful API-a}
+				\caption{Razredi Servleti - funkcije RESTful API-a}
 				\label{fig:dijagram}
 			\end{figure}
 		
 			\begin{figure}[H]
-				\includegraphics[scale=0.65]{Slike/Class Diagram8.PNG}
+				\includegraphics[scale=0.5]{Slike/Class Diagram8.PNG}
 				\centering
-				\caption{Razredi zaduženi za kontrolu autentifikacije}
+				\caption{Razredi Servleti - klijent}
+				\label{fig:dijagram}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.5]{Slike/Class Diagram9.PNG}
+				\centering
+				\caption{Razredi Servleti - administrator}
+				\label{fig:dijagram}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.5]{Slike/Class Diagram10.PNG}
+				\centering
+				\caption{Razredi Servleti - bankar}
+				\label{fig:dijagram}
+			\end{figure}
+		
+			\begin{figure}[H]
+				\includegraphics[scale=0.5]{Slike/Class Diagram11.PNG}
+				\centering
+				\caption{Razredi Servleti - službenik za odobravanje kreditnih zahtjeva}
 				\label{fig:dijagram}
 			\end{figure}
 		
 		\section{Dijagram stanja}
 			
 			
-			\textbf{\textit{dio 2. revizije}}\\
-			
-			\textit{Potrebno je priložiti dijagram stanja i opisati ga. Dovoljan je jedan dijagram stanja koji prikazuje \textbf{značajan dio funkcionalnosti} sustava. Na primjer, stanja korisničkog sučelja i tijek korištenja neke ključne funkcionalnosti jesu značajan dio sustava, a registracija i prijava nisu. }
 			
 			
-			\eject 
+			Dijagram stanja spada pod ponašajne i dinamičke dijagrame te prikazuje stanja objekta i prijelaze iz jednog stanja u drugo temeljene na događajima. Na slici 4.9 prikazan je dijagram stanja za registriranog korisnika. Nakon prijave, klijentu se prikazuje početna stranica na kojoj može pregledati svoj profil odnosno osobne podatke. Klikom na "Promijena lozinke" klijent mijenja svoju lozinku. Odabirom "Računa" klijent ima uvid u stanje svojih računa. Klikom na "Kartice" prikazuju mu se podatci o karticama te odabirom "Dodaj karticu" klijent može zatražiti novu kreditnu karticu koju odobrava službenik. Klijent svoje kredite može pregledavati klikom na "Krediti", a odabirom "Novi kredit" poslati zahtjev za novim kreditom službeniku za odobravanje kredita. Klijent odabirom "Otplati kredit" može prijevremeno otplatiti kredit. Pregled transakcija dostupan je klikom na "Transakcije", a klijent može obaviti prijenos sredstava s računa odabirom "Nova transakcija".  
+			
+			\begin{figure}[H]
+				\includegraphics[scale=0.65]{Slike/dijagramStanja.PNG}
+				\centering
+				\caption{Dijagram stanja}
+				\label{fig:dijagram}
+			\end{figure}
+			
+			
+			
+			\eject
+			
 		
 		\section{Dijagram aktivnosti}
 			
-			\textbf{\textit{dio 2. revizije}}\\
-			
-			 \textit{Potrebno je priložiti dijagram aktivnosti s pripadajućim opisom. Dijagram aktivnosti treba prikazivati značajan dio sustava.}
-			
-			\eject
+		Dijagram aktivnosti je ponašajni dijagram i dinamički dijagram.Dijagrami aktivnosti vrlo su slični dijagramima stanja, ali s drugačijom
+		semantikom elemenata s kojima se modelira. Primjenjuje se za opis modela toka upravljanja ili toka podataka. U modeliranju toka upravljanja svaki novi korak poduzima se nakon završenog prethodnog. Na dijagramu aktivnosti 4.10 prikazan je proces ugovaranja kredita. Korisnik se prijavi u sustav, klikne na "Krediti", i upisuje OIB klijenta koji je zatražio kredit. Korisniku se ispisuju krediti klijenta te nakon toga odabirom "Novi kredit" te unosi odgovarajuće podatke u polja. Nakon što je ispunio ispravno sva polja za unos, korisnik odabire "Provedi zahtjev" te se zahtjev za kredit sprema u bazu podataka.
+		
+			\begin{figure}[H]
+			\includegraphics[scale=0.8]{Slike/dijagramAktivnosti.PNG}
+			\centering
+			\caption{Dijagram aktivnosti}
+			\label{fig:dijagram}
+		\end{figure}
+	
+	\eject
+	
 		\section{Dijagram komponenti}
 		
-			\textbf{\textit{dio 2. revizije}}\\
+			Dijagram komponenti prikazuje najvažnije komponente aplikacije i njihov međusobni odnos. Na web poslužitelju nalazi se web aplikacija i baza podataka. Web aplikacija komunicira s bazom podataka preko SQL upita koji se ostvaruju uporabom klase SQLDAO koja implementira DAO sučelje. Pomoću web preglednika korisnik pristupa web aplikaciji. Web preglednik i aplikacija komuniciraju pomoću HTTP protokola. Android aplikacija komunikaciju s web poslužiteljem ostvaruje spajanjem na RESTful dio web poslužitelja.
 		
-			 \textit{Potrebno je priložiti dijagram komponenti s pripadajućim opisom. Dijagram komponenti treba prikazivati strukturu cijele aplikacije.}
+			 \begin{figure}[H]
+			 	\includegraphics[scale=0.65]{Slike/DijagramKomponenti.jpg}
+			 	\centering
+			 	\caption{Dijagram komponenti}
+			 	\label{fig:dijagram}
+			 \end{figure}
